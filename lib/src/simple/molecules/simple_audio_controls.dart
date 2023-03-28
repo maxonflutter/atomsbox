@@ -25,7 +25,6 @@ import '../atoms/simple_icon_button.dart';
 /// play icon. If the audio is playing but not yet completed, the widget will
 /// display the pause icon. If the audio has completed playing, the widget will
 /// display the replay icon.
-///
 class SimpleAudioControls extends StatelessWidget {
   const SimpleAudioControls({
     Key? key,

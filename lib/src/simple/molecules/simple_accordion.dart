@@ -24,7 +24,6 @@ import 'simple_list_tile.dart';
 ///
 /// See also:
 /// * [ExpansionPanel], a Material Design expansion panel with more advanced features.
-///
 class SimpleAccordion extends StatefulWidget {
   const SimpleAccordion({
     super.key,
@@ -45,7 +44,8 @@ class SimpleAccordion extends StatefulWidget {
   /// Defaults to false.
   final bool initiallyExpanded;
 
-  /// Whether the accordion should maintain the state of its children when collapsed.
+  /// Whether the accordion should maintain the state of its children
+  /// when collapsed.
   ///
   /// Defaults to false.
   final bool maintainState;

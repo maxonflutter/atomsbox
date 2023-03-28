@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../atoms/extensions/duration_extensions.dart';
 import '../atoms/simple_slider.dart';
 import '../atoms/simple_text.dart';
 
@@ -53,7 +54,8 @@ class SimpleAudioSeekbar extends StatelessWidget {
 
   /// Whether to use a dense layout for the widget.
   ///
-  /// When true, the widget will have a smaller height and the remaining time will not be displayed.
+  /// When true, the widget will have a smaller height and the remaining
+  /// time will not be displayed.
   final bool dense;
 
   @override
@@ -66,8 +68,8 @@ class SimpleAudioSeekbar extends StatelessWidget {
             value: position.inMilliseconds.toDouble(),
             maxValue: duration.inMilliseconds.toDouble(),
             thumbShape: SliderComponentShape.noThumb,
-            onChanged: (p0) {},
             // TODO: _audioHandler.seekTo ...
+            onChanged: (p0) {},
           ),
           dense
               ? const SizedBox()
@@ -93,17 +95,5 @@ class SimpleAudioSeekbar extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-extension DurationExt on Duration {
-  String formatDuration() {
-    if (this == null) {
-      return '--:--';
-    } else {
-      String minutes = inMinutes.toString().padLeft(2, '0');
-      String seconds = inSeconds.remainder(60).toString().padLeft(2, '0');
-      return '$minutes:$seconds';
-    }
   }
 }
