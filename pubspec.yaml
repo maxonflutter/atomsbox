@@ -1,0 +1,22 @@
+name: atomsbox
+description: A new Flutter package project.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=2.19.5 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  audio_service: ^0.18.9
+  carousel_slider: ^4.2.1
+  flutter:
+    sdk: flutter
+  google_fonts: ^4.0.3
+  just_audio: ^0.9.32
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
