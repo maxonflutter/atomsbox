@@ -32,6 +32,36 @@ class SimpleButton extends StatelessWidget {
     };
   }
 
+  SimpleButton.outline({
+    super.key,
+    required this.onPressed,
+    required this.child,
+    this.minimumSize = const Size(200.0, 50.0),
+    this.colorPalette = ColorPalette.primary,
+  }) {
+    _builder = (context) {
+      final _colorPalette = getColorPalette(colorPalette);
+
+      return OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          elevation: 0.0,
+          minimumSize: minimumSize,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: _colorPalette['background'] ??
+                  Theme.of(context).colorScheme.primary,
+            ),
+            borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+          ),
+          foregroundColor: _colorPalette['background'],
+          disabledForegroundColor: _colorPalette['disabledForeground'],
+        ),
+        onPressed: onPressed,
+        child: child,
+      );
+    };
+  }
+
   SimpleButton.text({
     super.key,
     required this.onPressed,
@@ -49,37 +79,7 @@ class SimpleButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
           ),
-          backgroundColor: _colorPalette['background'],
-          foregroundColor: _colorPalette['foreground'],
-          disabledBackgroundColor: _colorPalette['disabledBackground'],
-          disabledForegroundColor: _colorPalette['disabledForeground'],
-        ),
-        onPressed: onPressed,
-        child: child,
-      );
-    };
-  }
-
-  SimpleButton.outline({
-    super.key,
-    required this.onPressed,
-    required this.child,
-    this.minimumSize = const Size(200.0, 50.0),
-    this.colorPalette = ColorPalette.primary,
-  }) {
-    _builder = (context) {
-      final _colorPalette = getColorPalette(colorPalette);
-
-      return OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          elevation: 0.0,
-          minimumSize: minimumSize,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          ),
-          backgroundColor: _colorPalette['background'],
-          foregroundColor: _colorPalette['foreground'],
-          disabledBackgroundColor: _colorPalette['disabledBackground'],
+          foregroundColor: _colorPalette['background'],
           disabledForegroundColor: _colorPalette['disabledForeground'],
         ),
         onPressed: onPressed,
