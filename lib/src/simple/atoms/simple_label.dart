@@ -24,7 +24,7 @@ class SimpleLabel extends StatelessWidget {
   const SimpleLabel({
     super.key,
     required this.text,
-    required this.icon,
+    this.icon,
     this.colorPalette = ColorPalette.primary,
   });
 
@@ -32,7 +32,7 @@ class SimpleLabel extends StatelessWidget {
   final String text;
 
   /// The icon to display in the label.
-  final IconData icon;
+  final IconData? icon;
 
   /// The color palette to use for the label.
   ///
@@ -51,8 +51,12 @@ class SimpleLabel extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(icon, color: _colorPalette['foreground']),
-          const SizedBox(width: SimpleConstants.sm),
+          ...(icon == null)
+              ? [const SizedBox()]
+              : [
+                  Icon(icon, color: _colorPalette['foreground']),
+                  const SizedBox(width: SimpleConstants.sm),
+                ],
           SimpleText(
             text,
             color: _colorPalette['foreground'],

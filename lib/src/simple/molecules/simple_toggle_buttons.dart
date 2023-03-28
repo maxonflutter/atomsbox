@@ -30,7 +30,6 @@ import '../atoms/simple_text.dart';
 ///
 /// See also:
 /// * [ToggleButtons], which is the underlying implementation of the button set.
-///
 class SimpleToggleButtons extends StatefulWidget {
   const SimpleToggleButtons({
     super.key,

@@ -1,6 +1,9 @@
+import 'package:atomsbox/src/simple/atoms/simple_label.dart';
 import 'package:flutter/material.dart';
 
+import '../atoms/config/simple_app_theme.dart';
 import '../atoms/config/simple_constants.dart';
+import '../atoms/simple_button.dart';
 import '../atoms/simple_text.dart';
 import '../atoms/simple_text_form_field.dart';
 
@@ -9,10 +12,12 @@ class SimpleForm extends StatefulWidget {
     super.key,
     required this.formItems,
     required this.formItemNames,
+    required this.formButton,
   });
 
   final List<SimpleTextFormField> formItems;
   final List<String> formItemNames;
+  final SimpleButton formButton;
 
   @override
   State<SimpleForm> createState() => _SimpleFormState();
@@ -31,6 +36,7 @@ class _SimpleFormState extends State<SimpleForm> {
             return _buildSimpleTextFormField(context, listIndex);
           },
         ),
+        widget.formButton,
       ],
     );
   }
@@ -43,26 +49,11 @@ class _SimpleFormState extends State<SimpleForm> {
       margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
       child: Row(
         children: [
-          Container(
-            width: 75,
-            height: 30,
-            decoration: BoxDecoration(
-              color: index == listIndex
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.primaryContainer,
-              borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-            ),
-            child: Center(
-              child: SimpleText(
-                widget.formItemNames[listIndex],
-                maxLines: 1,
-                color: index == listIndex
-                    ? Theme.of(context).colorScheme.onPrimary
-                    : Theme.of(context).colorScheme.onPrimaryContainer,
-                textAlign: TextAlign.center,
-                textStyle: TextStyleEnum.bodySmall,
-              ),
-            ),
+          SimpleLabel(
+            text: widget.formItemNames[listIndex],
+            colorPalette: index == listIndex
+                ? ColorPalette.primary
+                : ColorPalette.primaryContainer,
           ),
           const SizedBox(width: SimpleConstants.sm),
           Flexible(
@@ -78,3 +69,25 @@ class _SimpleFormState extends State<SimpleForm> {
     );
   }
 }
+
+// Container(
+//             width: 75,
+//             height: 30,
+//             decoration: BoxDecoration(
+//               color: index == listIndex
+//                   ? Theme.of(context).colorScheme.primary
+//                   : Theme.of(context).colorScheme.primaryContainer,
+//               borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+//             ),
+//             child: Center(
+//               child: SimpleText(
+//                 widget.formItemNames[listIndex],
+//                 maxLines: 1,
+//                 color: index == listIndex
+//                     ? Theme.of(context).colorScheme.onPrimary
+//                     : Theme.of(context).colorScheme.onPrimaryContainer,
+//                 textAlign: TextAlign.center,
+//                 textStyle: TextStyleEnum.bodySmall,
+//               ),
+//             ),
+//           ),
