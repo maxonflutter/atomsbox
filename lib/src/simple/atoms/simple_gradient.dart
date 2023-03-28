@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'simple_constants.dart';
+import 'config/simple_constants.dart';
 
 class SimpleGradientContainer extends StatelessWidget {
   const SimpleGradientContainer(

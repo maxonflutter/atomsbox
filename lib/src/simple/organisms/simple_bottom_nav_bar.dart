@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/simple_constants.dart';
+import '../atoms/config/simple_constants.dart';
 
 /// A simple bottom navigation bar widget.
 ///

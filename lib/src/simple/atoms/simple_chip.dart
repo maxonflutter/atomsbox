@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'simple_app_theme.dart';
-import 'simple_constants.dart';
+import 'config/simple_app_theme.dart';
+import 'config/simple_constants.dart';
 import 'simple_text.dart';
 
 /// A simple chip widget with a solid background color and a border.

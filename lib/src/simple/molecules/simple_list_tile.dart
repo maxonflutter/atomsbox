@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/simple_app_theme.dart';
-import '../atoms/simple_constants.dart';
+import '../atoms/config/simple_app_theme.dart';
+import '../atoms/config/simple_constants.dart';
 import '../atoms/simple_text.dart';
 
 /// A list tile widget that displays information based on the atomsbox's

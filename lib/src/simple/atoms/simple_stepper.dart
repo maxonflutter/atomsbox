@@ -2,9 +2,9 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
 
-import 'simple_app_theme.dart';
+import 'config/simple_app_theme.dart';
 import 'simple_button.dart';
-import 'simple_constants.dart';
+import 'config/simple_constants.dart';
 import 'simple_text.dart';
 
 class MyStatefulWidget extends StatefulWidget {

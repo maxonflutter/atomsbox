@@ -1,8 +1,8 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 
-import '../atoms/simple_app_theme.dart';
-import '../atoms/simple_constants.dart';
+import '../atoms/config/simple_app_theme.dart';
+import '../atoms/config/simple_constants.dart';
 import '../atoms/simple_icon_button.dart';
 
 /// A widget for displaying simple audio playback controls.

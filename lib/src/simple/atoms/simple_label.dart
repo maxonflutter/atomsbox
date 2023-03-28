@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'simple_app_theme.dart';
-import 'simple_constants.dart';
+import 'config/simple_app_theme.dart';
+import 'config/simple_constants.dart';
 import 'simple_text.dart';
 
 /// A simple label widget that displays an icon and text on a solid background

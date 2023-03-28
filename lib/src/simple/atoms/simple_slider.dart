@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'simple_app_theme.dart';
+import 'config/simple_app_theme.dart';
 
 /// A slider from the atomsbox's simple design system to select a value within
 /// a range by dragging a thumb.

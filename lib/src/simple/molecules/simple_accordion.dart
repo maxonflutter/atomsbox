@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/simple_app_theme.dart';
-import '../atoms/simple_constants.dart';
+import '../atoms/config/simple_app_theme.dart';
+import '../atoms/config/simple_constants.dart';
 import 'simple_list_tile.dart';
 
 /// A simple accordion widget with expandable and collapsible content.

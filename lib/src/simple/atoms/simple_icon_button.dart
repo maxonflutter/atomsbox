@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'simple_app_theme.dart';
+import 'config/simple_app_theme.dart';
 
 /// A simple icon button with a solid color background and rounded corners.
 ///

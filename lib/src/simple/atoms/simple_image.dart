@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'simple_constants.dart';
+import 'config/simple_constants.dart';
 
 /// A simple widget to display an image loaded from a network URL with rounder corners
 /// and an error callback if the image fails to load.
