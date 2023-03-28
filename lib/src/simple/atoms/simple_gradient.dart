@@ -46,9 +46,7 @@ class SimpleGradientContainer extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         gradient: gradient,
-        borderRadius: BorderRadius.circular(
-          SimpleConstants.borderRadius,
-        ),
+        borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
       ),
       child: child,
     );

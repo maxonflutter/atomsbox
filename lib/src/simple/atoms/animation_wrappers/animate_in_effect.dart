@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 /// by the [duration], [initialDelay], [initialOffset], and [keepAlive] properties.
 ///
 /// See also:
-///
 /// * [AnimatedBuilder], which builds the animation for the child.
 /// * [FadeTransition], which animates the opacity of the child.
 /// * [Transform.translate], which animates the position of the child.

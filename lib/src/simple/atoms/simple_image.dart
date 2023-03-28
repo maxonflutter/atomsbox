@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'config/simple_constants.dart';
 
-/// A simple widget to display an image loaded from a network URL with rounder corners
-/// and an error callback if the image fails to load.
+/// A simple widget to display an image loaded from a network URL with rounder
+/// corners and an error callback if the image fails to load.
 ///
 /// The [SimpleImage] widget provides a convenient way to display images loaded
 /// from a network URL with customizable size and aspect ratio.
@@ -61,10 +61,10 @@ class SimpleImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         image: DecorationImage(
           fit: BoxFit.cover,
+          image: NetworkImage(imageUrl),
           onError: (exception, stackTrace) {
             debugPrint('Error loading image: $exception');
           },
-          image: NetworkImage(imageUrl),
         ),
       ),
       child: child,
