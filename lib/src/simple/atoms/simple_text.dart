@@ -224,33 +224,24 @@ class SimpleText extends StatelessWidget {
   }
 }
 
-class _SimpleTextScale extends StatelessWidget {
-  const _SimpleTextScale({
-    super.key,
-    this.scale = 1,
-    required this.child,
-  });
-
-  final double scale;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaleFactor: scale),
-      child: child,
-    );
-  }
-}
-
+/// A widget that applies a gradient to the text of a child widget.
+///
+/// The [_SimpleTextGradient] widget takes a [child] widget and applies a
+/// gradient effect to its text. The gradient effect is created using the
+/// primary and secondary colors of the current [Theme].
+///
+/// See also:
+///
+///  * [Text], which displays a run of text with a single style.
+///  * [ShaderMask], which applies a shader to its child.
 class _SimpleTextGradient extends StatelessWidget {
   const _SimpleTextGradient({
     super.key,
     required this.child,
   });
 
+  /// The child widget containing the text to which the gradient effect will be applied.
   final Widget child;
-
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
@@ -261,6 +252,39 @@ class _SimpleTextGradient extends StatelessWidget {
       ]).createShader(
         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
       ),
+      child: child,
+    );
+  }
+}
+
+/// A widget that scales the text of a child widget.
+///
+/// The [_SimpleTextScale] widget takes a [child] widget and scales its text by
+/// the given [scale] factor. This can be useful for creating text that should
+/// be larger or smaller than the surrounding text while still respecting the
+/// text styles.
+///
+/// See also:
+///  * [Text], which displays a run of text with a single style.
+class _SimpleTextScale extends StatelessWidget {
+  const _SimpleTextScale({
+    super.key,
+    this.scale = 1,
+    required this.child,
+  });
+
+  /// The scale factor to apply to the text of the child widget.
+  ///
+  /// The default scale is 1, which means no scaling will be applied.
+  final double scale;
+
+  /// The child widget containing the text to scale.
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: scale),
       child: child,
     );
   }
