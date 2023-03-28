@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 export 'animation_wrappers/animate_in_effect.dart';
 export 'simple_app_theme.dart';
 export 'simple_button.dart';

@@ -20,7 +20,8 @@ enum ColorPalette {
 /// styles are based on Google Fonts Poppins and Abril Fatface.
 ///
 /// See also:
-/// * [ThemeData], which defines the configuration of the overall visual theme for a MaterialApp or a widget subtree within the app.
+/// * [ThemeData], which defines the configuration of the overall visual theme
+/// for a MaterialApp or a widget subtree within the app.
 /// * [ColorScheme], which defines the set of colors used in the theme.
 /// * [GoogleFonts], which provides access to the Google Fonts library.
 ///
