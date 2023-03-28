@@ -1,7 +1,9 @@
 name: atomsbox
-description: A new Flutter package project.
+description: A pre-styled component library for Flutter developers
 version: 0.0.1
-homepage:
+repository: https://github.com/maxonflutter/atomsbox
+homepage: https://atomsbox.com
+documentation: https://atomsbox.com
 
 environment:
   sdk: '>=2.19.5 <3.0.0'
