@@ -117,10 +117,9 @@ Map<String, Color?> getColorPalette(ColorPalette colorPalette) {
 
   return colorPalettes[colorPalette] ??
       {
-        'text': colorScheme.primary,
         'background': colorScheme.primary,
         'foreground': colorScheme.onPrimary,
-        'highlight': colorScheme.primaryContainer,
+        'highlight': colorScheme.onPrimary.withOpacity(0.2),
         'disabledBackground': colorScheme.surface,
         'disabledForeground': colorScheme.onSurface,
       };
