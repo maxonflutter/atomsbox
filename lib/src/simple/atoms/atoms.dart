@@ -9,6 +9,5 @@ export 'simple_icon_button.dart';
 export 'simple_image.dart';
 export 'simple_label.dart';
 export 'simple_slider.dart';
-export 'simple_stepper.dart';
 export 'simple_text.dart';
 export 'simple_text_form_field.dart';
