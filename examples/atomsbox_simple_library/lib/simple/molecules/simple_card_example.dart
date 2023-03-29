@@ -16,7 +16,9 @@ class SimpleCardExample extends StatelessWidget {
         ),
         const SizedBox(height: SimpleConstants.sm),
         SimpleCard(
-          onTap: () {},
+          onTap: () {
+            print('Tapped on the card');
+          },
           labelIcon: Icons.people,
           labelText: 'Label here',
           height: 200,
@@ -27,7 +29,9 @@ class SimpleCardExample extends StatelessWidget {
         ),
         const SizedBox(height: SimpleConstants.sm),
         SimpleCard(
-          onTap: () {},
+          onTap: () {
+            print('Tapped on the card');
+          },
           labelIcon: Icons.people,
           labelText: 'Label here',
           height: 300,

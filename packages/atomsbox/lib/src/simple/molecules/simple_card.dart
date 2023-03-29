@@ -6,21 +6,21 @@ import '../atoms/simple_image.dart';
 import '../atoms/simple_label.dart';
 import '../atoms/simple_text.dart';
 
-/// A simple card that displays an image, title, tagline, and optional paragraph and label.
+/// A simple card widget with various configurations.
 ///
-/// The [SimpleCard] widget is a simple way to display a card with an image and some text.
-/// It is designed to be used as a clickable component that can respond to user interaction
-/// through the [onTap] property. The card can be displayed in either a dense or expanded mode.
+/// The [SimpleCard] widget displays an image, title, and optionally a paragraph,
+/// tagline, label text, and label icon. The card can be either dense or expanded,
+/// and it can respond to tap events.
 ///
-/// The [imageUrl], [title], and [height] properties are required. The [paragraph], [tagline],
-/// [labelText], and [labelIcon] properties are optional. If [dense] is set to true, the card
-/// will be displayed in a condensed format with a gradient overlay over the image and the title
-/// and tagline displayed in the bottom left corner. If [dense] is set to false, the card will be
-/// displayed in an expanded format with the image displayed above the title, tagline, and
-/// paragraph (if provided).
+/// This widget is suitable for displaying a small amount of information in a
+/// card format, such as a news article, product, or any other content that can
+/// be displayed with an image and a few text components.
 ///
-/// If [onTap] is provided, the card will respond to user interaction by calling the callback
-/// when the card is clicked or tapped.
+/// See also:
+///
+///  * [SimpleImage], which is used to display the image on the card.
+///  * [SimpleText], which is used to display the title, tagline, and paragraph.
+///  * [SimpleLabel], which is used to display the label text and label icon.
 ///
 class SimpleCard extends StatelessWidget {
   const SimpleCard({
@@ -37,41 +37,37 @@ class SimpleCard extends StatelessWidget {
     this.onTap,
   });
 
-  /// The URL of the image to be displayed in the card.
+  /// The URL of the image to display on the card.
   final String imageUrl;
 
-  /// The title to be displayed in the card.
+  /// The title of the card.
   final String title;
 
-  /// An optional paragraph to be displayed in the card.
+  /// The optional paragraph text to display on the card.
   final String? paragraph;
 
-  /// An optional tagline to be displayed in the card.
+  /// The optional tagline text to display on the card.
   final String? tagline;
 
-  /// An optional label text to be displayed in the card.
+  /// The optional label text to display on the card.
   final String? labelText;
 
-  /// An optional icon to be displayed next to the label text in the card.
+  /// The optional label icon to display on the card.
   final IconData? labelIcon;
 
   /// The width of the card.
-  ///
-  /// By default, the card will expand to fill the available width.
   final double width;
 
   /// The height of the card.
   final double height;
 
-  /// Whether the card should be displayed in a dense or expanded format.
+  /// Whether to use a dense layout for the card.
   ///
-  /// If true, the card will be displayed in a condensed format with a gradient overlay
-  /// over the image and the title and tagline displayed in the bottom left corner. If
-  /// false, the card will be displayed in an expanded format with the image displayed
-  /// above the title, tagline, and paragraph (if provided).
+  /// When true, the card will have a smaller height and the paragraph will
+  /// not be displayed. Defaults to true.
   final bool dense;
 
-  /// A callback that will be called when the card is clicked or tapped.
+  /// An optional callback that is called when the card is tapped.
   final VoidCallback? onTap;
 
   @override
@@ -121,52 +117,68 @@ class SimpleCard extends StatelessWidget {
       );
     }
 
-    return InkWell(
-      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-      onTap: onTap,
-      child: dense
-          ? _buildSimpleCardDense(
-              context,
-              size,
-              _image,
-              _tagline,
-              _title,
-              _chip,
-            )
-          : _buildSimpleCardExpanded(
-              width,
-              _image,
-              _tagline,
-              _title,
-              _paragraph,
-            ),
-    );
+    return dense
+        ? _buildSimpleCardDense(
+            context,
+            size,
+            _image,
+            _tagline,
+            _title,
+            _chip,
+          )
+        : _buildSimpleCardExpanded(
+            context,
+            width,
+            _image,
+            _tagline,
+            _title,
+            _paragraph,
+          );
   }
 
-  SizedBox _buildSimpleCardExpanded(
+  Container _buildSimpleCardExpanded(
+    context,
     width,
     _image,
     _tagline,
     _title,
     _paragraph,
   ) {
-    return SizedBox(
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+        color: Theme.of(context).colorScheme.surface,
+      ),
       width: width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Flexible(child: _image),
-          const SizedBox(height: SimpleConstants.sm),
-          ...(tagline != null)
-              ? [_tagline, const SizedBox(height: SimpleConstants.sm)]
-              : [const SizedBox()],
-          _title,
-          const SizedBox(height: SimpleConstants.sm),
-          ...(paragraph != null)
-              ? [_paragraph, const SizedBox(height: SimpleConstants.sm)]
-              : [const SizedBox()],
-        ],
+      child: Material(
+        borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+        color: Theme.of(context).colorScheme.surface,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+          onTap: onTap,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Flexible(child: _image),
+              Padding(
+                padding: const EdgeInsets.all(SimpleConstants.md),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ...(tagline != null) ? [_tagline] : [const SizedBox()],
+                    _title,
+                    ...(paragraph != null)
+                        ? [
+                            _paragraph,
+                          ]
+                        : [const SizedBox()],
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -204,9 +216,19 @@ class SimpleCard extends StatelessWidget {
               ),
             ),
           ),
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius:
+                    BorderRadius.circular(SimpleConstants.borderRadius),
+                onTap: onTap,
+              ),
+            ),
+          ),
           Positioned(
-            bottom: SimpleConstants.lg,
-            left: SimpleConstants.lg,
+            bottom: SimpleConstants.md,
+            left: SimpleConstants.md,
             child: SizedBox(
               width: size.width * 0.7,
               child: Column(
@@ -220,8 +242,8 @@ class SimpleCard extends StatelessWidget {
           ),
           (labelText != null)
               ? Positioned(
-                  left: SimpleConstants.lg,
-                  top: SimpleConstants.lg,
+                  left: SimpleConstants.md,
+                  top: SimpleConstants.md,
                   child: _chip,
                 )
               : Container(),

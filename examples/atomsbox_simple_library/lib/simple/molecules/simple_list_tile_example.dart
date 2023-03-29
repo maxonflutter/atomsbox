@@ -16,6 +16,17 @@ class SimpleListTileExample extends StatelessWidget {
         ),
         const SizedBox(height: SimpleConstants.sm),
         SimpleListTile(
+          onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                content: SimpleText(
+                  'Tapped on the list tile',
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                ),
+              ),
+            );
+          },
           leading: const SimpleImage(
             height: 100,
             width: 100,
@@ -28,7 +39,18 @@ class SimpleListTileExample extends StatelessWidget {
           trailing: Row(
             children: [
               SimpleIconButton(
-                onPressed: () {},
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor:
+                          Theme.of(context).colorScheme.primaryContainer,
+                      content: SimpleText(
+                        'Tapped on the traling icon',
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                    ),
+                  );
+                },
                 icon: Icons.add,
                 colorPalette: ColorPalette.primary,
               ),
@@ -37,6 +59,7 @@ class SimpleListTileExample extends StatelessWidget {
         ),
         const SizedBox(height: SimpleConstants.sm),
         SimpleListTile(
+          onTap: () {},
           leading: const SimpleImage(
             height: 100,
             width: 100,
@@ -59,6 +82,7 @@ class SimpleListTileExample extends StatelessWidget {
         ),
         const SizedBox(height: SimpleConstants.sm),
         SimpleListTile(
+          onTap: () {},
           leading: const SimpleImage(
             height: 100,
             width: 100,

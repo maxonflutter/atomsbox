@@ -1,4 +1,6 @@
 import 'package:atomsbox/atomsbox.dart';
+import 'molecules/simple_audio_controls_example.dart';
+import 'molecules/simple_audio_seekbar_example.dart';
 import 'package:flutter/material.dart';
 
 import 'atoms/simple_button_example.dart';
@@ -64,7 +66,7 @@ class SimplePreviewScreen extends StatelessWidget {
               tabs: [
                 Tab(
                   icon: SimpleText(
-                    'Molecules',
+                    'Organisms',
                     textStyle: TextStyleEnum.bodySmall,
                     maxLines: 1,
                   ),
@@ -78,7 +80,7 @@ class SimplePreviewScreen extends StatelessWidget {
                 ),
                 Tab(
                   icon: SimpleText(
-                    'Organisms',
+                    'Molecules',
                     textStyle: TextStyleEnum.bodySmall,
                     maxLines: 1,
                   ),
@@ -88,9 +90,9 @@ class SimplePreviewScreen extends StatelessWidget {
           ),
           body: const TabBarView(
             children: [
-              _Molecules(),
-              _Atoms(),
               _Organisms(),
+              _Atoms(),
+              _Molecules(),
             ],
           ),
         ),

@@ -12,20 +12,14 @@ class _Molecules extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SimpleFormExample(),
-            const SimpleAccordionExample(),
-            const SimpleToggleButtonsExample(),
-            const SimpleListTileExample(),
-            const SimpleCardExample(),
-            const SimpleAudioSeekbar(
-              position: Duration(seconds: 10),
-              duration: Duration(seconds: 100),
-            ),
-            SimpleAudioControls(
-              play: () {},
-              pause: () {},
-            ),
+          children: const [
+            SimpleListTileExample(),
+            SimpleToggleButtonsExample(),
+            SimpleAccordionExample(),
+            SimpleFormExample(),
+            SimpleCardExample(),
+            SimpleAudioSeekbarExample(),
+            SimpleAudioControlsExample(),
           ],
         ),
       ),

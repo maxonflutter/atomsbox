@@ -76,6 +76,7 @@ class SimpleListTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         color: _colorPalette['background'],
         child: InkWell(
+          splashColor: _colorPalette['primary'],
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
           onTap: onTap,
           child: Row(
