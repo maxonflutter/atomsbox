@@ -50,6 +50,7 @@ class SimpleLabel extends StatelessWidget {
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ...(icon == null)
               ? [const SizedBox()]

@@ -67,7 +67,7 @@ class _SimpleFormState extends State<SimpleForm> {
       margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
       child: Row(
         children: [
-          Expanded(
+          Flexible(
             flex: 1,
             child: SimpleLabel(
               text: widget.formItemNames[listIndex],
@@ -77,7 +77,7 @@ class _SimpleFormState extends State<SimpleForm> {
             ),
           ),
           const SizedBox(width: SimpleConstants.sm),
-          Expanded(
+          Flexible(
             flex: 3,
             child: Focus(
               onFocusChange: (bool value) {
