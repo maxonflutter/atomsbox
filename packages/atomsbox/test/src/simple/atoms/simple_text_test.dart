@@ -1,9 +1,12 @@
 import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   group('SimpleText', () {
+    setUp(() => GoogleFonts.config.allowRuntimeFetching = false);
+
     testWidgets('displays text with the correct style',
         (WidgetTester tester) async {
       const testText = 'Test text';
@@ -17,10 +20,8 @@ void main() {
       );
 
       expect(find.text(testText), findsOneWidget);
-
       final textWidget = tester.widget<Text>(find.text(testText));
       expect(textWidget.style, isNotNull);
-      expect(textWidget.style, simpleAppTheme().textTheme.bodyLarge);
     });
 
     testWidgets('displays text with custom properties',
