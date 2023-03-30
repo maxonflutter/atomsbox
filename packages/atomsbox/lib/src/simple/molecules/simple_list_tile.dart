@@ -41,6 +41,7 @@ class SimpleListTile extends StatelessWidget {
     this.tagline,
     this.leading,
     this.trailing,
+    this.width,
     this.onTap,
     this.colorPalette = ColorPalette.surface,
   });
@@ -60,6 +61,9 @@ class SimpleListTile extends StatelessWidget {
   /// An optional widget to display to the right of the text.
   final Widget? trailing;
 
+  /// An optional double to define the width of the list tile.
+  final double? width;
+
   /// An optional callback that is called when the tile is tapped.
   final VoidCallback? onTap;
 
@@ -72,6 +76,7 @@ class SimpleListTile extends StatelessWidget {
 
     return Container(
       constraints: const BoxConstraints(minHeight: 50.0),
+      width: width,
       child: Material(
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         color: _colorPalette['background'],

@@ -3,23 +3,20 @@ import 'package:flutter/material.dart';
 import '../atoms/config/simple_constants.dart';
 import '../atoms/simple_text.dart';
 
-/// A simple, customizable tab widget.
-///
-/// The [SimpleTab] widget allows users to navigate between multiple content
-/// panels that are displayed one at a time. Each content panel corresponds to
-/// a tab, and the active tab's index determines the content to be displayed.
-///
-/// Use the [SimpleTabBarItem] to define the tabs, and [_SimpleTabBarView] to
-/// define the content of each tab.
-///
-/// See also:
-/// * [SimpleTabBarItem], which represents an individual tab item.
-/// * [_SimpleTabBar], which displays the tabs and manages their selection.
-/// * [_SimpleTabBarView], which displays the content corresponding to the
-/// selected tab.
-///
 class SimpleTab extends StatefulWidget {
-  const SimpleTab({super.key});
+  const SimpleTab({
+    super.key,
+    required this.tabBarItemNames,
+    required this.tabBarItemIcons,
+    required this.tabBarViewChildren,
+  }) : assert(
+            tabBarItemNames.length == tabBarItemIcons.length &&
+                tabBarItemNames.length == tabBarViewChildren.length,
+            "The tabBarItemNames, tabBarItemIcons, tabBarViewChildren lists must have the same length.");
+
+  final List<String> tabBarItemNames;
+  final List<IconData> tabBarItemIcons;
+  final List<Widget> tabBarViewChildren;
 
   @override
   State<SimpleTab> createState() => _SimpleTabState();
@@ -32,80 +29,41 @@ class _SimpleTabState extends State<SimpleTab> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(SimpleConstants.sm),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: SimpleConstants.md),
-            _SimpleTabBar(
+      child: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            automaticallyImplyLeading: false,
+            floating: true,
+            pinned: true,
+            toolbarHeight: 50.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                SimpleConstants.borderRadius,
+              ),
+            ),
+            flexibleSpace: _SimpleTabBar(
               tabIndex: index,
-              tabBarItems: [
-                SimpleTabBarItem(
-                  index: 0,
-                  isSelected: 0 == index,
-                  tabCount: 3,
-                  text: 'Tab 1',
-                  icon: Icons.code,
-                  onTap: () => setState(() => index = 0),
-                ),
-                SimpleTabBarItem(
-                  index: 1,
-                  isSelected: 1 == index,
-                  tabCount: 3,
-                  text: 'Tab 2',
-                  icon: Icons.people,
-                  onTap: () => setState(() => index = 1),
-                ),
-                SimpleTabBarItem(
-                  index: 2,
-                  isSelected: 2 == index,
-                  tabCount: 3,
-                  text: 'Tab 3',
-                  icon: Icons.people,
-                  onTap: () => setState(() => index = 2),
-                ),
-              ],
+              tabBarItems: widget.tabBarItemNames.map((name) {
+                var _index = widget.tabBarItemNames.indexOf(name);
+                var _count = widget.tabBarItemNames.length;
+                return _SimpleTabBarItem(
+                  index: _index,
+                  isSelected: _index == index,
+                  tabCount: _count,
+                  text: name,
+                  icon: widget.tabBarItemIcons[_index],
+                  onTap: () => setState(() => index = _index),
+                );
+              }).toList(),
             ),
-            const SizedBox(height: SimpleConstants.md),
-            _SimpleTabBarView(
-              index: index,
-              tabBarViewItems: [
-                Column(
-                  children: [
-                    Container(
-                      height: 400,
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      child: const Center(child: SimpleText('Tab #1')),
-                    ),
-                    const SizedBox(height: SimpleConstants.md),
-                    Container(
-                      height: 400,
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      child: const Center(child: SimpleText('Tab #1')),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height: 400,
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      child: const Center(child: SimpleText('Tab #2')),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height: 400,
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      child: const Center(child: SimpleText('Tab #3')),
-                    ),
-                  ],
-                ),
-              ],
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(SimpleConstants.sm),
+              child: widget.tabBarViewChildren[index],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -119,7 +77,7 @@ class _SimpleTabBar extends StatelessWidget {
   });
 
   final int tabIndex;
-  final List<SimpleTabBarItem> tabBarItems;
+  final List<_SimpleTabBarItem> tabBarItems;
 
   @override
   Widget build(BuildContext context) {
@@ -134,8 +92,8 @@ class _SimpleTabBar extends StatelessWidget {
   }
 }
 
-class SimpleTabBarItem extends StatelessWidget {
-  const SimpleTabBarItem({
+class _SimpleTabBarItem extends StatelessWidget {
+  const _SimpleTabBarItem({
     super.key,
     required this.index,
     required this.tabCount,
@@ -207,21 +165,5 @@ class SimpleTabBarItem extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _SimpleTabBarView extends StatelessWidget {
-  const _SimpleTabBarView({
-    super.key,
-    required this.index,
-    required this.tabBarViewItems,
-  });
-
-  final int index;
-  final List<Widget> tabBarViewItems;
-
-  @override
-  Widget build(BuildContext context) {
-    return tabBarViewItems[index];
   }
 }

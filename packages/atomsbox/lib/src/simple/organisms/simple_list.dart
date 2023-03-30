@@ -84,6 +84,7 @@ class SimpleList extends StatelessWidget {
           child: ListView.separated(
             shrinkWrap: true,
             physics: physics,
+            padding: EdgeInsets.zero,
             scrollDirection: type == SimpleListType.horizontal
                 ? Axis.horizontal
                 : Axis.vertical,
