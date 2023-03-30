@@ -95,20 +95,24 @@ class SimpleAudioControls extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // TODO: Check playback state for the skip previous button
-        SimpleIconButton(
-          onPressed: () {},
-          icon: Icons.skip_previous,
-          colorPalette: ColorPalette.surface,
-        ),
+        dense
+            ? const SizedBox()
+            : SimpleIconButton(
+                onPressed: () {},
+                icon: Icons.skip_previous,
+                colorPalette: ColorPalette.surface,
+              ),
         const SizedBox(width: SimpleConstants.md),
         _mainButton,
         const SizedBox(width: SimpleConstants.md),
         // TODO: Check playback state for the skip next button
-        SimpleIconButton(
-          onPressed: () {},
-          icon: Icons.skip_next,
-          colorPalette: ColorPalette.surface,
-        ),
+        dense
+            ? const SizedBox()
+            : SimpleIconButton(
+                onPressed: () {},
+                icon: Icons.skip_next,
+                colorPalette: ColorPalette.surface,
+              ),
       ],
     );
   }

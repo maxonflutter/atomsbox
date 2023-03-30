@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../atoms/config/simple_constants.dart';
 import '../atoms/extensions/duration_extensions.dart';
 import '../atoms/simple_slider.dart';
 import '../atoms/simple_text.dart';
@@ -60,40 +61,36 @@ class SimpleAudioSeekbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: dense ? null : 30,
-      child: Stack(
-        children: [
-          SimpleSlider(
+    return Row(
+      children: [
+        ...dense
+            ? [const SizedBox()]
+            : [
+                SimpleText(
+                  position.formatDuration(),
+                  textStyle: TextStyleEnum.bodySmall,
+                ),
+                const SizedBox(width: SimpleConstants.sm),
+              ],
+        Expanded(
+          child: SimpleSlider(
             value: position.inMilliseconds.toDouble(),
             maxValue: duration.inMilliseconds.toDouble(),
             thumbShape: SliderComponentShape.noThumb,
             // TODO: _audioHandler.seekTo ...
             onChanged: (p0) {},
           ),
-          dense
-              ? const SizedBox()
-              : Positioned(
-                  right: 0.0,
-                  bottom: 0.0,
-                  child: SizedBox(
-                    height: 20,
-                    child: SimpleText(
-                        '-${(duration - position).formatDuration()}'),
-                  ),
+        ),
+        ...dense
+            ? [const SizedBox()]
+            : [
+                const SizedBox(width: SimpleConstants.sm),
+                SimpleText(
+                  '-${(duration - position).formatDuration()}',
+                  textStyle: TextStyleEnum.bodySmall,
                 ),
-          dense
-              ? const SizedBox()
-              : Positioned(
-                  left: 0.0,
-                  bottom: 0.0,
-                  child: SizedBox(
-                    height: 20,
-                    child: SimpleText(position.formatDuration()),
-                  ),
-                ),
-        ],
-      ),
+              ],
+      ],
     );
   }
 }
