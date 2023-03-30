@@ -3,81 +3,78 @@ import 'package:flutter/material.dart';
 import '../atoms/config/simple_constants.dart';
 import '../atoms/simple_image.dart';
 import '../atoms/simple_text.dart';
+import '../molecules/simple_audio_controls.dart';
+import '../molecules/simple_audio_seekbar.dart';
 
-/// A simple audio player widget to display a song's details and
-/// the audio controls.
+/// A simple audio player widget.
 ///
-/// The [SimpleAudioPlayer] widget displays the song's name, artist's name,
-/// cover image, and provides audio controls and a seek bar for the user. It
-/// can be displayed in two styles: dense or expanded, based on the [dense]
-/// property.
+/// The [SimpleAudioPlayer] widget provides a customizable audio player interface
+/// that displays information about the audio file being played, such as its name,
+/// description, and artwork. It also includes interactive controls and a seekbar.
 ///
-/// The [songName], [artistName], [songUrl], [imageUrl], [audioControls], and
-/// [audioSeekbar] are required arguments.
-///
-/// ## Styles
-///
-/// The [SimpleAudioPlayer] can be displayed in a dense or expanded style,
-/// which can be controlled using the [dense] property. By default, it's set
-/// to false (expanded style). In the dense style, the widget takes up less
-/// space and displays a more compact layout.
+/// The widget can be displayed in either a dense or expanded layout. The layout
+/// is controlled by the [dense] parameter. When [dense] is set to true, the
+/// widget uses a more compact layout with smaller text and images. When [dense]
+/// is set to false (the default), the widget uses a more spacious layout.
 ///
 /// See also:
-/// * [SimpleText], a text widget used to display the song and artist names.
-/// * [SimpleImage], an image widget used to display the cover image.
+/// * [SimpleAudioControls], a widget containing the audio controls, such as play, pause, and stop.
+/// * [SimpleAudioSeekbar], a widget containing the audio seekbar, which allows the user to navigate
+/// through the audio file.
 ///
 class SimpleAudioPlayer extends StatelessWidget {
   const SimpleAudioPlayer({
     super.key,
-    required this.songName,
-    required this.artistName,
-    required this.songUrl,
+    required this.url,
+    required this.name,
+    required this.description,
     required this.imageUrl,
     required this.audioControls,
     required this.audioSeekbar,
     this.dense = false,
   });
 
-  /// The name of the song to display.
-  final String songName;
+  /// The URL of the audio file to be played.
+  final String url;
 
-  /// The name of the artist to display.
-  final String artistName;
+  /// The name of the audio file.
+  final String name;
 
-  /// The URL of the song file.
-  final String songUrl;
+  /// A brief description of the audio file.
+  final String description;
 
-  /// The URL of the cover image.
+  /// The URL of the image to be displayed as the audio file's artwork.
   final String imageUrl;
 
-  /// The widget to control the audio playback (SimpleAudioControls).
+  /// The widget containing the audio controls, such as play, pause, and stop.
   final Widget audioControls;
 
-  /// The widget for the audio seek bar (SimpleAudioSeekbar).
+  /// The widget containing the audio seekbar, which allows the user to navigate
+  /// through the audio file.
   final Widget audioSeekbar;
 
-  /// Whether the widget should be displayed in dense style.
+  /// A flag that determines if the audio player should use a dense layout.
   ///
-  /// If true, the widget takes up less space and displays a more compact layout.
-  /// Defaults to false (expanded style).
+  /// If set to true, the layout will be more compact with smaller text and
+  /// images. If set to false (the default), the layout will be more spacious.
   final bool dense;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    var _name;
+    var _description;
     var _image;
-    var _artistName;
-    var _songName;
 
-    _artistName = SimpleText(
-      artistName,
-      textStyle: dense ? TextStyleEnum.bodySmall : TextStyleEnum.bodyMedium,
+    _name = SimpleText(
+      name,
+      textStyle: dense ? TextStyleEnum.bodyLarge : TextStyleEnum.headlineSmall,
     );
 
-    _songName = SimpleText(
-      songName,
-      textStyle: dense ? TextStyleEnum.bodyLarge : TextStyleEnum.headlineSmall,
+    _description = SimpleText(
+      description,
+      textStyle: dense ? TextStyleEnum.bodySmall : TextStyleEnum.bodyMedium,
     );
 
     _image = SimpleImage(
@@ -88,19 +85,19 @@ class SimpleAudioPlayer extends StatelessWidget {
 
     return dense
         ? _buildSimpleAudioPlayerDense(
-            context, size, _image, _artistName, _songName)
-        : _buildSimpleAudioPlayerExpanded(_image, _artistName, _songName);
+            context, size, _image, _description, _name)
+        : _buildSimpleAudioPlayerExpanded(_image, _description, _name);
   }
 
-  Column _buildSimpleAudioPlayerExpanded(_image, _artistName, _songName) {
+  Column _buildSimpleAudioPlayerExpanded(_image, _description, _name) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         _image,
         const SizedBox(height: SimpleConstants.md),
-        _artistName,
-        _songName,
+        _description,
+        _name,
         const SizedBox(height: SimpleConstants.md),
         audioSeekbar,
         const SizedBox(height: SimpleConstants.md),
@@ -110,7 +107,7 @@ class SimpleAudioPlayer extends StatelessWidget {
   }
 
   Container _buildSimpleAudioPlayerDense(
-      BuildContext context, Size size, _image, _artistName, _songName) {
+      BuildContext context, Size size, _image, _description, _name) {
     return Container(
       padding: const EdgeInsets.only(
         left: SimpleConstants.sm,
@@ -135,13 +132,14 @@ class SimpleAudioPlayer extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [_songName, _artistName],
+                  children: [_name, _description],
                 ),
               ),
               const SizedBox(width: SimpleConstants.sm),
               audioControls,
             ],
           ),
+          const SizedBox(width: SimpleConstants.sm),
           audioSeekbar,
         ],
       ),

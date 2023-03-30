@@ -14,7 +14,6 @@ import '../atoms/simple_text.dart';
 /// contains the secondary items to display in the drawer, separated by a divider.
 ///
 /// See also:
-///
 /// * [Drawer], which is the underlying widget used to create the drawer.
 ///
 class SimpleDrawer extends StatelessWidget {

@@ -2,27 +2,22 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_constants.dart';
 
-/// A simple bottom navigation bar widget.
+/// A simple bottom navigation bar with customizable appearance.
 ///
-/// The [SimpleBottomNavBar] widget displays a row of items within a container
-/// at the bottom of the screen. It supports two styles, floating and non-floating.
-/// The floating style has a smaller height and symmetrical margin while the
-/// non-floating style has a larger height and padding at the top, left, and right.
+/// The [SimpleBottomNavBar] widget displays a horizontal list of items, which
+/// can be used for navigation between different screens or sections of the app.
+/// The items are spaced evenly across the available space.
 ///
-/// The [items] argument is required and should contain a list of widgets to be
-/// displayed as navigation items.
+/// The [floating] argument is optional and defaults to true. When true, the
+/// navigation bar will be displayed with a floating appearance, and when false,
+/// it will be displayed with a non-floating appearance. The height, margin,
+/// and padding will change based on the floating state.
 ///
-/// The [floating] argument is optional and defaults to true. When set to true,
-/// the navigation bar will have a floating style. When set to false, it will
-/// have a non-floating style.
-///
-/// ## Usage
-///
-/// Typically used within a [Scaffold] widget's [Scaffold.bottomNavigationBar]
-/// property to display a custom bottom navigation bar.
+/// The navigation bar's background color is determined by the primary color of
+/// the current [Theme] with an alpha value of 200. It also has a customizable
+/// border radius defined by [SimpleConstants.borderRadius].
 ///
 /// See also:
-///
 /// * [BottomNavigationBar], which is a Material Design bottom navigation bar.
 ///
 class SimpleBottomNavBar extends StatelessWidget {
@@ -32,7 +27,10 @@ class SimpleBottomNavBar extends StatelessWidget {
     this.floating = true,
   });
 
-  /// The list of widgets to be displayed as navigation items.
+  /// The list of widgets that will be displayed as items in the navigation bar.
+  ///
+  /// Typically, these will be [Icon] or [Text] widgets. They should be of a
+  /// similar size to ensure proper alignment and spacing.
   final List<Widget> items;
 
   /// Whether the navigation bar should have a floating style.

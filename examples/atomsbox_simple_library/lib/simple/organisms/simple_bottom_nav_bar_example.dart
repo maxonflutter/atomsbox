@@ -17,7 +17,7 @@ class _SimpleBottomNavBarExampleState extends State<SimpleBottomNavBarExample> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SimpleText(
-          'These is a SimpleBottomNavBar',
+          'This is a SimpleBottomNavBar',
           textStyle: TextStyleEnum.titleMedium,
           fontWeight: FontWeight.bold,
         ),

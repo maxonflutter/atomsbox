@@ -3,34 +3,23 @@ import 'package:flutter/material.dart';
 
 import '../atoms/simple_text.dart';
 
-/// A simple carousel widget for displaying a list of widgets.
+// A simple carousel widget for displaying a list of widgets.
 ///
-/// The [SimpleCarousel] widget displays a list of carousel items with an optional
-/// title. The carousel auto-plays by default and the center item is enlarged
-/// to provide a focus effect. You can customize the carousel behavior and appearance
-/// using the provided properties.
+/// The [SimpleCarousel] widget displays a list of widgets in a horizontal scrollable
+/// carousel. The carousel can automatically play and loop through the items, and
+/// optionally enlarge the center item while scrolling.
 ///
-/// ## Properties
-///
-/// The carousel items are provided as a list of [Widget]s via the [carouselItems] property.
-/// The optional [title] property displays a title above the carousel.
-///
-/// You can control the carousel's auto-play behavior with the [autoPlay] property.
-/// By default, the carousel auto-plays. You can disable auto-play by setting [autoPlay] to false.
-///
-/// The [enlargeCenterPage] property controls whether the center item of the carousel
-/// should be enlarged. The default value is true, which means the center item will
-/// be enlarged. You can disable this behavior by setting [enlargeCenterPage] to false.
-///
-/// The [enlargeFactor], [heightFactor], and [viewportFraction] properties allow you
-/// to customize the appearance of the carousel. The [enlargeFactor] determines how
-/// much the center item should be enlarged, [heightFactor] determines the height of
-/// the carousel, and [viewportFraction] determines the fraction of the viewport
-/// that each carousel item should occupy.
+/// The carousel can be customized with the following properties:
+/// * [title]: An optional title to be displayed above the carousel.
+/// * [autoPlay]: Whether the carousel should automatically play and loop through the items.
+/// * [enlargeCenterPage]: Whether to enlarge the center item while scrolling.
+/// * [enlargeFactor]: The scale factor by which the center item should be enlarged.
+/// * [heightFactor]: The factor to determine the height of the carousel.
+/// * [viewportFraction]: The fraction of the viewport that each item should occupy.
 ///
 /// See also:
+/// * [CarouselSlider], which is used internally by [SimpleCarousel].
 ///
-/// * [CarouselSlider], the underlying carousel widget used in [SimpleCarousel].
 class SimpleCarousel extends StatelessWidget {
   const SimpleCarousel({
     super.key,

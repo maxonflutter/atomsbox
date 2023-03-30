@@ -5,32 +5,25 @@ import '../atoms/simple_text.dart';
 
 enum SimpleListType { horizontal, vertical }
 
-/// A simple list of items with an optional title.
+/// A simple list widget that can display items either horizontally or vertically.
 ///
-/// The [SimpleList] widget displays a list of items with an optional title at
-/// the top. The items are separated by dividers to visually separate the content.
+/// The [SimpleList] widget is a convenient way to create a scrollable list of
+/// items with an optional title. This list can be either horizontal or
+/// vertical, depending on the provided [type].
 ///
-/// The [listItems] argument is required and contains the list of widgets that
-/// will be displayed as items in the list. The [title] argument is optional,
-/// and when provided, will be displayed at the top of the list.
+/// If a [height] is specified, the list will be constrained to that height,
+/// and the items will be scrollable within that height. The [physics] property
+/// can be used to customize the scrolling behavior of the list.
 ///
-/// ## Layout
+/// By default, the list is not scrollable. To make it scrollable, provide a
+/// custom [ScrollPhysics] instance.
 ///
-/// The [SimpleList] uses a [Column] widget to lay out the title and the list
-/// of items. The list of items is displayed using a [ListView.separated] widget,
-/// which adds dividers between the items.
-///
-/// The [title] is displayed using a [SimpleText] widget with a small headline
-/// style. If the [title] is not provided, an empty [SizedBox] is used instead.
-///
-/// ## Scrolling
-///
-/// The [SimpleList] widget has disabled scrolling by default. To enable
-/// scrolling, wrap the widget in a scrollable parent, like [SingleChildScrollView].
+/// The [title] argument is optional. When provided, the title will be displayed
+/// above the list.
 ///
 /// See also:
+/// * [ListView], which is a more flexible scrollable list of widgets.
 ///
-/// * [ListView], which is a scrollable list of widgets arranged linearly.
 class SimpleList extends StatelessWidget {
   final double? height;
 
@@ -61,8 +54,16 @@ class SimpleList extends StatelessWidget {
   /// If this is null, no title will be displayed.
   final String? title;
 
+  /// The scroll physics for the list.
+  ///
+  /// This can be used to customize the scrolling behavior of the list. By
+  /// default, the list is not scrollable.
   final ScrollPhysics? physics;
 
+  /// It defines whether the list is horizontal or
+  /// vertical, depending on the provided [type].
+  ///
+  /// By default, the list has a vertical layout.
   final SimpleListType type;
 
   @override
@@ -81,7 +82,7 @@ class SimpleList extends StatelessWidget {
             : [const SizedBox()],
         SizedBox(
           height: height,
-          child: ListView.separated(
+          child: ListView.builder(
             shrinkWrap: true,
             physics: physics,
             padding: EdgeInsets.zero,
@@ -89,15 +90,18 @@ class SimpleList extends StatelessWidget {
                 ? Axis.horizontal
                 : Axis.vertical,
             itemCount: listItems.length,
-            separatorBuilder: (context, index) {
-              return Divider(
-                indent: SimpleConstants.sm,
-                // endIndent: SimpleConstants.md,
-                color: Theme.of(context).colorScheme.onBackground.withAlpha(50),
-              );
-            },
             itemBuilder: (context, index) {
-              return listItems[index];
+              return Container(
+                margin: EdgeInsets.only(
+                  right: type == SimpleListType.horizontal
+                      ? SimpleConstants.sm
+                      : 0.0,
+                  bottom: type == SimpleListType.vertical
+                      ? SimpleConstants.sm
+                      : 0.0,
+                ),
+                child: listItems[index],
+              );
             },
           ),
         ),

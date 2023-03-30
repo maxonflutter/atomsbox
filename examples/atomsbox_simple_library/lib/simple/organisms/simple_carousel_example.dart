@@ -10,7 +10,7 @@ class SimpleCarouselExample extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SimpleText(
-          'These is a SimpleCarousel widget',
+          'This is a SimpleCarousel widget',
           textStyle: TextStyleEnum.titleMedium,
           fontWeight: FontWeight.bold,
         ),
