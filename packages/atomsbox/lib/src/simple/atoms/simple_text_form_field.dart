@@ -28,22 +28,24 @@ class SimpleTextFormField extends StatelessWidget {
   SimpleTextFormField({
     super.key,
     this.initialValue = '',
+    this.labelText,
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
   }) {
     _builder = (context) {
       return InputDecoration(
-        filled: true,
-        fillColor: Theme.of(context).colorScheme.surface,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          borderSide: BorderSide.none,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+        labelText: labelText,
+        border: UnderlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.onSurface,
+          ),
+          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.surface,
           ),
         ),
       );
@@ -53,12 +55,14 @@ class SimpleTextFormField extends StatelessWidget {
   SimpleTextFormField.outline({
     super.key,
     this.initialValue = '',
+    this.labelText,
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
   }) {
     _builder = (context) {
       return InputDecoration(
+        labelText: labelText,
         border: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.onSurface,
@@ -78,22 +82,24 @@ class SimpleTextFormField extends StatelessWidget {
   SimpleTextFormField.filled({
     super.key,
     this.initialValue = '',
+    this.labelText,
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
   }) {
     _builder = (context) {
       return InputDecoration(
-        border: UnderlineInputBorder(
+        filled: true,
+        fillColor: Theme.of(context).colorScheme.surface,
+        labelText: labelText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.onSurface,
-          ),
-          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.surface,
           ),
         ),
       );
@@ -104,6 +110,11 @@ class SimpleTextFormField extends StatelessWidget {
   ///
   /// If not specified, the default value is an empty string.
   final String? initialValue;
+
+  /// An optional string to display as a label for the text form field.
+  ///
+  /// If not specified, the text form field won't show a label.
+  final String? labelText;
 
   /// A boolean flag indicating whether the text should be obscured
   /// in the text form field.

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_app_theme.dart';
@@ -117,28 +119,30 @@ class SimpleCard extends StatelessWidget {
       );
     }
 
-    return dense
-        ? _buildSimpleCardDense(
-            context,
-            size,
-            _image,
-            _tagline,
-            _title,
-            _chip,
-          )
-        : _buildSimpleCardExpanded(
-            context,
-            width,
-            _image,
-            _tagline,
-            _title,
-            _paragraph,
-          );
+    return LayoutBuilder(builder: (context, constraints) {
+      return dense
+          ? _buildSimpleCardDense(
+              context,
+              constraints,
+              _image,
+              _tagline,
+              _title,
+              _chip,
+            )
+          : _buildSimpleCardExpanded(
+              context,
+              constraints,
+              _image,
+              _tagline,
+              _title,
+              _paragraph,
+            );
+    });
   }
 
   Container _buildSimpleCardExpanded(
     context,
-    width,
+    constraints,
     _image,
     _tagline,
     _title,
@@ -168,11 +172,7 @@ class SimpleCard extends StatelessWidget {
                   children: [
                     ...(tagline != null) ? [_tagline] : [const SizedBox()],
                     _title,
-                    ...(paragraph != null)
-                        ? [
-                            _paragraph,
-                          ]
-                        : [const SizedBox()],
+                    ...(paragraph != null) ? [_paragraph] : [const SizedBox()],
                   ],
                 ),
               )
@@ -184,8 +184,8 @@ class SimpleCard extends StatelessWidget {
   }
 
   SizedBox _buildSimpleCardDense(
-    BuildContext context,
-    Size size,
+    context,
+    constraints,
     _image,
     _tagline,
     _title,
@@ -230,7 +230,7 @@ class SimpleCard extends StatelessWidget {
             bottom: SimpleConstants.md,
             left: SimpleConstants.md,
             child: SizedBox(
-              width: size.width * 0.7,
+              width: min(width * 0.9, constraints.maxWidth * 0.9),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

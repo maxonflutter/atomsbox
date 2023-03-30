@@ -9,17 +9,22 @@ class SimpleTextFormFieldExample extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SimpleText(
+        const SimpleText(
           'These are SimpleTextFormField widgets',
           textStyle: TextStyleEnum.titleMedium,
           fontWeight: FontWeight.bold,
         ),
-        SizedBox(height: SimpleConstants.sm),
-        SimpleTextFormField(initialValue: 'Initial Value'),
-        SizedBox(height: SimpleConstants.sm),
-        SimpleTextFormField(),
-        SizedBox(height: SimpleConstants.sm),
-        SizedBox(height: SimpleConstants.xlg),
+        const SizedBox(height: SimpleConstants.sm),
+        SimpleTextFormField(labelText: 'Underline'),
+        const SizedBox(height: SimpleConstants.sm),
+        SimpleTextFormField.outline(
+          labelText: 'Outline',
+        ),
+        const SizedBox(height: SimpleConstants.sm),
+        SimpleTextFormField.filled(
+          labelText: 'Filled',
+        ),
+        const SizedBox(height: SimpleConstants.xlg),
       ],
     );
   }
