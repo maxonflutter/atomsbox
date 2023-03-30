@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'config/simple_app_breakpoints.dart';
+
 enum TextStyleEnum {
   displayLarge,
   displayMedium,
@@ -52,7 +54,6 @@ class SimpleText extends StatelessWidget {
     this.fontWeight,
     this.letterSpacing,
     this.overflow,
-    this.textScaleFactor = 1.0,
     this.textGradient = false,
   });
 
@@ -86,13 +87,12 @@ class SimpleText extends StatelessWidget {
   /// How to handle text overflow.
   final TextOverflow? overflow;
 
-  final double textScaleFactor;
-
   final bool textGradient;
 
   @override
   Widget build(BuildContext context) {
     final style = _buildStyle(context);
+    final textScaleFactor = _buildTextScaleFactor(context);
 
     Widget widget = Text(
       text,
@@ -100,6 +100,7 @@ class SimpleText extends StatelessWidget {
       overflow: overflow,
       maxLines: maxLines,
       style: style,
+      textScaleFactor: textScaleFactor,
     );
 
     if (textGradient) {
@@ -107,6 +108,18 @@ class SimpleText extends StatelessWidget {
     }
 
     return widget;
+  }
+
+  _buildTextScaleFactor(BuildContext context) {
+    if (SimpleAppBreakpoints.isWideDesktop(context) ||
+        SimpleAppBreakpoints.isDesktop(context)) {
+      return 1.0;
+    } else if (SimpleAppBreakpoints.isWideTablet(context) ||
+        SimpleAppBreakpoints.isTablet(context)) {
+      return 0.9;
+    } else {
+      return 0.8;
+    }
   }
 
   _buildStyle(BuildContext context) {
