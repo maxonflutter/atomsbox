@@ -115,7 +115,7 @@ class SimpleText extends StatelessWidget {
   _buildStyle(BuildContext context) {
     switch (textStyle) {
       case TextStyleEnum.displayLarge:
-        return Theme.of(context).textTheme.headlineLarge!.copyWith(
+        return Theme.of(context).textTheme.displayLarge!.copyWith(
               color: color,
               fontSize: fontSize,
               fontWeight: fontWeight,
@@ -123,7 +123,7 @@ class SimpleText extends StatelessWidget {
               height: height,
             );
       case TextStyleEnum.displayMedium:
-        return Theme.of(context).textTheme.headlineMedium!.copyWith(
+        return Theme.of(context).textTheme.displayMedium!.copyWith(
               color: color,
               fontSize: fontSize,
               fontWeight: fontWeight,
@@ -131,7 +131,7 @@ class SimpleText extends StatelessWidget {
               height: height,
             );
       case TextStyleEnum.displaySmall:
-        return Theme.of(context).textTheme.headlineSmall!.copyWith(
+        return Theme.of(context).textTheme.displaySmall!.copyWith(
               color: color,
               fontSize: fontSize,
               fontWeight: fontWeight,
