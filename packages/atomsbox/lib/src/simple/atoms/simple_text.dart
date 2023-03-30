@@ -52,7 +52,7 @@ class SimpleText extends StatelessWidget {
     this.fontWeight,
     this.letterSpacing,
     this.overflow,
-    this.textScale = false,
+    this.textScale = true,
     this.textGradient = false,
   });
 
