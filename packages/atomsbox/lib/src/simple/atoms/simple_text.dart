@@ -52,7 +52,7 @@ class SimpleText extends StatelessWidget {
     this.fontWeight,
     this.letterSpacing,
     this.overflow,
-    this.textScale = true,
+    this.textScaleFactor = 1.0,
     this.textGradient = false,
   });
 
@@ -86,7 +86,8 @@ class SimpleText extends StatelessWidget {
   /// How to handle text overflow.
   final TextOverflow? overflow;
 
-  final bool textScale;
+  final double textScaleFactor;
+
   final bool textGradient;
 
   @override
@@ -100,10 +101,6 @@ class SimpleText extends StatelessWidget {
       maxLines: maxLines,
       style: style,
     );
-
-    if (textScale) {
-      widget = _SimpleTextScale(child: widget);
-    }
 
     if (textGradient) {
       widget = _SimpleTextGradient(child: widget);
@@ -242,6 +239,7 @@ class _SimpleTextGradient extends StatelessWidget {
 
   /// The child widget containing the text to which the gradient effect will be applied.
   final Widget child;
+
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
@@ -252,39 +250,6 @@ class _SimpleTextGradient extends StatelessWidget {
       ]).createShader(
         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
       ),
-      child: child,
-    );
-  }
-}
-
-/// A widget that scales the text of a child widget.
-///
-/// The [_SimpleTextScale] widget takes a [child] widget and scales its text by
-/// the given [scale] factor. This can be useful for creating text that should
-/// be larger or smaller than the surrounding text while still respecting the
-/// text styles.
-///
-/// See also:
-///  * [Text], which displays a run of text with a single style.
-class _SimpleTextScale extends StatelessWidget {
-  const _SimpleTextScale({
-    super.key,
-    this.scale = 1,
-    required this.child,
-  });
-
-  /// The scale factor to apply to the text of the child widget.
-  ///
-  /// The default scale is 1, which means no scaling will be applied.
-  final double scale;
-
-  /// The child widget containing the text to scale.
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaleFactor: scale),
       child: child,
     );
   }
