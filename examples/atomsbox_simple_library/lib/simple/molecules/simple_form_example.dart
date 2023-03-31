@@ -24,32 +24,32 @@ class _SimpleFormExampleState extends State<SimpleFormExample> {
           fontWeight: FontWeight.bold,
         ),
         const SizedBox(height: SimpleConstants.sm),
-        SimpleForm(
-          formButton: SimpleButton(
-            onPressed: () {},
-            colorPalette: ColorPalette.primary,
-            child: SimpleText(
-              'Submit',
-              color: Theme.of(context).colorScheme.onPrimary,
-              textStyle: TextStyleEnum.bodyLarge,
-            ),
-          ),
-          formItems: [
-            SimpleTextFormField(
-              initialValue: _firstValue,
-              onChanged: (value) => setState(() => _firstValue = value),
-            ),
-            SimpleTextFormField(
-              initialValue: _secondValue,
-              onChanged: (value) => setState(() => _secondValue = value),
-            ),
-            SimpleTextFormField(
-              initialValue: _thirdValue,
-              onChanged: (value) => setState(() => _thirdValue = value),
-            )
-          ],
-          formItemNames: const ['Name', 'Email', 'Password'],
-        ),
+        // SimpleForm(
+        //   formButton: SimpleButton(
+        //     onPressed: () {},
+        //     colorPalette: ColorPalette.primary,
+        //     child: SimpleText(
+        //       'Submit',
+        //       color: Theme.of(context).colorScheme.onPrimary,
+        //       textStyle: TextStyleEnum.bodyLarge,
+        //     ),
+        //   ),
+        //   formItems: [
+        //     SimpleTextFormField(
+        //       initialValue: _firstValue,
+        //       onChanged: (value) => setState(() => _firstValue = value),
+        //     ),
+        //     SimpleTextFormField(
+        //       initialValue: _secondValue,
+        //       onChanged: (value) => setState(() => _secondValue = value),
+        //     ),
+        //     SimpleTextFormField(
+        //       initialValue: _thirdValue,
+        //       onChanged: (value) => setState(() => _thirdValue = value),
+        //     )
+        //   ],
+        //   formItemNames: const ['Name', 'Email', 'Password'],
+        // ),
         const SizedBox(height: SimpleConstants.lg),
       ],
     );

@@ -4,26 +4,11 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_app_theme.dart';
 import '../atoms/config/simple_constants.dart';
+import '../atoms/config/simple_palettes.dart';
 import '../atoms/simple_image.dart';
 import '../atoms/simple_label.dart';
 import '../atoms/simple_text.dart';
 
-/// A simple card widget with various configurations.
-///
-/// The [SimpleCard] widget displays an image, title, and optionally a paragraph,
-/// tagline, label text, and label icon. The card can be either dense or expanded,
-/// and it can respond to tap events.
-///
-/// This widget is suitable for displaying a small amount of information in a
-/// card format, such as a news article, product, or any other content that can
-/// be displayed with an image and a few text components.
-///
-/// See also:
-///
-///  * [SimpleImage], which is used to display the image on the card.
-///  * [SimpleText], which is used to display the title, tagline, and paragraph.
-///  * [SimpleLabel], which is used to display the label text and label icon.
-///
 class SimpleCard extends StatelessWidget {
   const SimpleCard({
     super.key,
@@ -39,37 +24,24 @@ class SimpleCard extends StatelessWidget {
     this.onTap,
   });
 
-  /// The URL of the image to display on the card.
   final String imageUrl;
 
-  /// The title of the card.
   final String title;
 
-  /// The optional paragraph text to display on the card.
   final String? paragraph;
 
-  /// The optional tagline text to display on the card.
   final String? tagline;
 
-  /// The optional label text to display on the card.
   final String? labelText;
 
-  /// The optional label icon to display on the card.
   final IconData? labelIcon;
 
-  /// The width of the card.
   final double width;
 
-  /// The height of the card.
   final double height;
 
-  /// Whether to use a dense layout for the card.
-  ///
-  /// When true, the card will have a smaller height and the paragraph will
-  /// not be displayed. Defaults to true.
   final bool dense;
 
-  /// An optional callback that is called when the card is tapped.
   final VoidCallback? onTap;
 
   @override
@@ -115,7 +87,7 @@ class SimpleCard extends StatelessWidget {
       _chip = SimpleLabel(
         text: labelText!,
         icon: labelIcon!,
-        colorPalette: ColorPalette.primaryContainer,
+        palette: Palette.primaryContainer,
       );
     }
 

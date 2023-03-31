@@ -1,9 +1,9 @@
 import 'package:atomsbox/atomsbox.dart';
+import 'package:atomsbox_simple_library/simple/atoms/simple_gradient_container_example.dart';
 import 'package:flutter/material.dart';
 
 import 'atoms/simple_button_example.dart';
 import 'atoms/simple_chip_example.dart';
-import 'atoms/simple_gradient_container.dart';
 import 'atoms/simple_icon_button_example.dart';
 import 'atoms/simple_image_example.dart';
 import 'atoms/simple_label_example.dart';
@@ -35,7 +35,7 @@ class SimplePreviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Simple',
-      theme: simpleAppTheme(),
+      theme: SimpleTheme.theme,
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -44,17 +44,17 @@ class SimplePreviewScreen extends StatelessWidget {
               SimpleListTile(
                 onTap: () {},
                 title: 'This is a drawer item',
-                colorPalette: ColorPalette.transparent,
+                palette: Palette.primary,
               ),
               SimpleListTile(
                 onTap: () {},
                 title: 'This is a drawer item',
-                colorPalette: ColorPalette.transparent,
+                palette: Palette.primary,
               ),
               SimpleListTile(
                 onTap: () {},
                 title: 'This is a drawer item',
-                colorPalette: ColorPalette.transparent,
+                palette: Palette.primary,
               ),
             ],
             drawerSecondaryItems: [
@@ -62,7 +62,7 @@ class SimplePreviewScreen extends StatelessWidget {
                 onTap: () {},
                 title: 'A secondary drawer item',
                 leading: const Icon(Icons.settings),
-                colorPalette: ColorPalette.transparent,
+                palette: Palette.primary,
               ),
             ],
           ),
@@ -72,59 +72,24 @@ class SimplePreviewScreen extends StatelessWidget {
               'simple',
               textStyle: TextStyleEnum.headlineMedium,
             ),
-            // bottom: const TabBar(
-            //   physics: NeverScrollableScrollPhysics(),
-            //   tabs: [
-            //     Tab(
-            //       icon: SimpleText(
-            //         'Organisms',
-            //         textStyle: TextStyleEnum.bodySmall,
-            //         maxLines: 1,
-            //       ),
-            //     ),
-            //     Tab(
-            //       icon: SimpleText(
-            //         'Atoms',
-            //         textStyle: TextStyleEnum.bodySmall,
-            //         maxLines: 1,
-            //       ),
-            //     ),
-            //     Tab(
-            //       icon: SimpleText(
-            //         'Molecules',
-            //         textStyle: TextStyleEnum.bodySmall,
-            //         maxLines: 1,
-            //       ),
-            //     ),
-            //   ],
-            // ),
           ),
           body: SimpleTab(
             tabBarItemNames: const [
               'Atoms',
-              'Molecules',
-              'Organisms',
+              // 'Molecules',
+              // 'Organisms',
             ],
             tabBarItemIcons: const [
               Icons.home,
-              Icons.code,
-              Icons.people,
+              // Icons.code,
+              // Icons.people,
             ],
             tabBarViewChildren: const [
               _Atoms(),
-              _Molecules(),
-              _Organisms(),
+              // _Molecules(),
+              // _Organisms(),
             ],
           ),
-
-          //  const TabBarView(
-          //   physics: NeverScrollableScrollPhysics(),
-          //   children: [
-          //     _Organisms(),
-          //     _Atoms(),
-          //     _Molecules(),
-          //   ],
-          // ),
         ),
       ),
     );

@@ -1,29 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'config/simple_app_theme.dart';
 import 'config/simple_constants.dart';
+import 'config/simple_palettes.dart';
 
 typedef InputDecorationBuilder = InputDecoration Function(BuildContext context);
 
-/// A simple, customizable text form field widget.
-///
-/// The [SimpleTextFormField] widget wraps a [TextFormField] and provides
-/// pre-styled [InputDecoration] options for filled, outline, and underline styles.
-/// It also includes a customizable InputDecoration builder.
-///
-/// The widget takes an optional [initialValue], a flag for [obscureText],
-/// and optional callbacks for [onChanged], [onEditingComplete], and [onFocusChange].
-///
-/// ## Predefined styles
-/// There are three predefined styles provided as named constructors:
-/// * [SimpleTextFormField.outline]: Creates a text form field with an outline border.
-/// * [SimpleTextFormField.filled]: Creates a text form field with a filled background.
-/// * [SimpleTextFormField]: The default constructor, which creates a text form field
-/// with a filled background and an outline border when focused.
-///
-/// See also:
-/// * [TextFormField], which is the underlying widget wrapped by [SimpleTextFormField].
-/// * [InputDecoration], which is used to style the text form field.
-///
 class SimpleTextFormField extends StatelessWidget {
   SimpleTextFormField({
     super.key,
@@ -32,21 +14,28 @@ class SimpleTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.isDark = false,
+    this.palette = Palette.primaryContainer,
   }) {
     _builder = (context) {
+      final colors = getPalette(context, palette, isDark);
+      final fontColor =
+          ThemeData.estimateBrightnessForColor(colors['foreground']) ==
+                  Brightness.light
+              ? Colors.black87
+              : Colors.white;
+
       return InputDecoration(
         labelText: labelText,
+        labelStyle:
+            Theme.of(context).textTheme.bodyMedium!.copyWith(color: fontColor),
         border: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
+          borderSide: BorderSide(color: colors['background']),
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         ),
         focusedBorder: UnderlineInputBorder(
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.surface,
-          ),
+          borderSide: BorderSide(color: colors['background']),
         ),
       );
     };
@@ -59,21 +48,28 @@ class SimpleTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.isDark = false,
+    this.palette = Palette.primaryContainer,
   }) {
     _builder = (context) {
+      final colors = getPalette(context, palette, isDark);
+      final fontColor =
+          ThemeData.estimateBrightnessForColor(colors['foreground']) ==
+                  Brightness.light
+              ? Colors.black87
+              : Colors.white;
+
       return InputDecoration(
         labelText: labelText,
+        labelStyle:
+            Theme.of(context).textTheme.bodyMedium!.copyWith(color: fontColor),
         border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
+          borderSide: BorderSide(color: colors['background']),
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.surface,
-          ),
+          borderSide: BorderSide(color: colors['background']),
         ),
       );
     };
@@ -86,57 +82,47 @@ class SimpleTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.isDark = false,
+    this.palette = Palette.primaryContainer,
   }) {
     _builder = (context) {
+      final fontColor = ThemeData.estimateBrightnessForColor(
+                  Theme.of(context).colorScheme.surface) ==
+              Brightness.light
+          ? Colors.black87
+          : Colors.white;
+
       return InputDecoration(
         filled: true,
         fillColor: Theme.of(context).colorScheme.surface,
         labelText: labelText,
+        labelStyle:
+            Theme.of(context).textTheme.bodyMedium!.copyWith(color: fontColor),
+        floatingLabelStyle: Theme.of(context)
+            .textTheme
+            .bodyMedium!
+            .copyWith(color: fontColor, fontWeight: FontWeight.bold),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
+          borderSide: BorderSide.none,
         ),
       );
     };
   }
 
-  /// An optional initial value for the text form field.
-  ///
-  /// If not specified, the default value is an empty string.
+  final Palette palette;
+  final bool isDark;
   final String? initialValue;
-
-  /// An optional string to display as a label for the text form field.
-  ///
-  /// If not specified, the text form field won't show a label.
   final String? labelText;
-
-  /// A boolean flag indicating whether the text should be obscured
-  /// in the text form field.
-  ///
-  /// Defaults to false.
   final bool obscureText;
-
-  /// An optional callback that is triggered when the text in the
-  /// text form field changes.
-  ///
   final Function(String)? onChanged;
-
-  /// An optional callback that is triggered when the user finishes
-  /// editing the text.
-  ///
   final VoidCallback? onEditingComplete;
-
-  /// A private late-initialized InputDecorationBuilder function that
-  /// is used to generate the InputDecoration for this text form field.
-  /// The InputDecoration is created based on the specific constructor
-  /// called (outline, filled, or default).
   late final InputDecorationBuilder _builder;
+
   @override
   Widget build(BuildContext context) {
     InputDecoration inputDecoration = _builder.call(context);

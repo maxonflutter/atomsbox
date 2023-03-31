@@ -2,7 +2,9 @@ import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
 class SimpleImageExample extends StatelessWidget {
-  const SimpleImageExample({super.key});
+  const SimpleImageExample({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

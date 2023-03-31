@@ -81,12 +81,7 @@ class _SimpleTabState extends State<SimpleTab> {
               }).toList(),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(SimpleConstants.sm),
-              child: widget.tabBarViewChildren[index],
-            ),
-          ),
+          SliverToBoxAdapter(child: widget.tabBarViewChildren[index]),
         ],
       ),
     );

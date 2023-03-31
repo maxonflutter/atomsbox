@@ -2,37 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_app_theme.dart';
 import '../atoms/config/simple_constants.dart';
+import '../atoms/config/simple_palettes.dart';
 import '../atoms/simple_text.dart';
 
-/// A list tile widget that displays information based on the atomsbox's
-/// simple design system.
-///
-/// The [SimpleListTile] widget is a container with rounded borders that
-/// displays information in a horizontal layout. It consists of an optional
-/// [leading] widget, a [title] and an optional [subtitle], and an optional
-/// [tagline] at the top of the tile. The tile can be tapped using [onTap],
-/// and its color can be customized with [colorPalette].
-///
-/// The [title] and [subtitle] can be styled using the [SimpleText] widget.
-/// The [tagline] can be used to display a short description at the top of the
-/// tile, and can also be styled with [SimpleText]. If [tagline] is not set,
-/// no space will be reserved for it.
-///
-/// The [leading] and the [trailing] widgets are optional widgets that can be
-/// used to display an icon or an image to the left and the right of the [title]
-/// and [subtitle]. If [leading] and [trailing] are not set, no space will be
-/// reserved for them.
-///
-/// If the [onTap] callback is provided, the tile will display a ripple effect
-/// when tapped, otherwise it will not be interactive.
-///
-/// The [colorPalette] can be used to customize the colors of the tile. If not
-/// set, it defaults to [ColorPalette.primary].
-///
-/// See also:
-/// * [SimpleText], which can be used to style the [title], [subtitle], and
-/// [tagline] text.
-///
 class SimpleListTile extends StatelessWidget {
   const SimpleListTile({
     super.key,
@@ -43,7 +15,7 @@ class SimpleListTile extends StatelessWidget {
     this.trailing,
     this.width,
     this.onTap,
-    this.colorPalette = ColorPalette.surface,
+    this.palette = Palette.primaryContainer,
   });
 
   /// The main text to display in the tile.
@@ -68,20 +40,20 @@ class SimpleListTile extends StatelessWidget {
   final VoidCallback? onTap;
 
   /// The color palette to use for the tile.
-  final ColorPalette colorPalette;
+  final Palette palette;
 
   @override
   Widget build(BuildContext context) {
-    final _colorPalette = getColorPalette(colorPalette);
+    final _palette = getPalette(context, palette, true);
 
     return Container(
       constraints: const BoxConstraints(minHeight: 50.0),
       width: width,
       child: Material(
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-        color: _colorPalette['background'],
+        color: _palette['background'],
         child: InkWell(
-          splashColor: _colorPalette['primary'],
+          splashColor: _palette['primary'],
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
           onTap: onTap,
           child: Row(
@@ -101,7 +73,7 @@ class SimpleListTile extends StatelessWidget {
                       (tagline != null)
                           ? SimpleText(
                               tagline!,
-                              color: _colorPalette['foreground'],
+                              color: _palette['foreground'],
                               textStyle: TextStyleEnum.bodySmall,
                             )
                           : const SizedBox(),
@@ -109,7 +81,7 @@ class SimpleListTile extends StatelessWidget {
                       SimpleText(
                         title,
                         maxLines: 2,
-                        color: _colorPalette['foreground'],
+                        color: _palette['foreground'],
                         fontWeight: FontWeight.bold,
                         textStyle: TextStyleEnum.bodyMedium,
                       ),
@@ -118,7 +90,7 @@ class SimpleListTile extends StatelessWidget {
                           ? SimpleText(
                               subtitle!,
                               maxLines: 2,
-                              color: _colorPalette['foreground'],
+                              color: _palette['foreground'],
                               textStyle: TextStyleEnum.bodySmall,
                             )
                           : const SizedBox(),

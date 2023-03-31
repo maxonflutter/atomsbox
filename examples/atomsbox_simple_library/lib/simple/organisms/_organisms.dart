@@ -13,10 +13,10 @@ class _Organisms extends StatelessWidget {
         children: const [
           SimpleDrawerExample(),
           SimpleGridExample(),
-          SimpleListExample(),
+          // SimpleListExample(),
           SimpleCarouselExample(),
           SimpleAudioPlayerExample(),
-          SimpleBottomNavBarExample(),
+          // SimpleBottomNavBarExample(),
         ],
       ),
     );

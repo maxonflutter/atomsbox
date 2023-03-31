@@ -2,28 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_app_theme.dart';
 import '../atoms/config/simple_constants.dart';
+import '../atoms/config/simple_palettes.dart';
 import 'simple_list_tile.dart';
 
-/// A simple accordion widget with expandable and collapsible content.
-///
-/// The [SimpleAccordion] widget displays a title and a list of children
-/// widgets. The children are initially hidden and can be shown or hidden
-/// by tapping on the title.
-///
-/// The [title] argument is required and represents the text displayed
-/// at the top of the accordion. The [children] argument is a list of widgets
-/// displayed inside the accordion when it is expanded.
-///
-/// The [initiallyExpanded] argument is optional and determines whether the
-/// accordion should be expanded or collapsed when first built. The default
-/// value is false.
-///
-/// The [maintainState] argument is optional and determines whether the
-/// accordion should maintain the state of its children when collapsed. The
-/// default value is false.
-///
-/// See also:
-/// * [ExpansionPanel], a Material Design expansion panel with more advanced features.
 class SimpleAccordion extends StatefulWidget {
   const SimpleAccordion({
     super.key,
@@ -33,21 +14,12 @@ class SimpleAccordion extends StatefulWidget {
     this.maintainState = false,
   });
 
-  /// The text displayed at the top of the accordion.
   final String title;
 
-  /// The list of widgets displayed inside the accordion when expanded.
   final List<Widget> children;
 
-  /// Whether the accordion should be expanded when first built.
-  ///
-  /// Defaults to false.
   final bool initiallyExpanded;
 
-  /// Whether the accordion should maintain the state of its children
-  /// when collapsed.
-  ///
-  /// Defaults to false.
   final bool maintainState;
 
   @override
@@ -148,7 +120,7 @@ class _SimpleAccordionState extends State<SimpleAccordion>
                 color: Theme.of(context).colorScheme.onPrimary,
               ),
             ),
-            colorPalette: ColorPalette.primary,
+            palette: Palette.primary,
           ),
           ClipRect(
             child: Align(

@@ -2,9 +2,7 @@ import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
 class SimpleGradientContainerExample extends StatelessWidget {
-  const SimpleGradientContainerExample({
-    super.key,
-  });
+  const SimpleGradientContainerExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +10,7 @@ class SimpleGradientContainerExample extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SimpleText(
-          'This is a SimpleGradientContainer',
+          'These are SimpleGradientContainer widgets',
           textStyle: TextStyleEnum.titleMedium,
           fontWeight: FontWeight.bold,
         ),
@@ -25,7 +23,15 @@ class SimpleGradientContainerExample extends StatelessWidget {
           const [0, 1],
           height: 200,
         ),
-        const SizedBox(height: SimpleConstants.xlg),
+        const SizedBox(height: SimpleConstants.sm),
+        SimpleGradientContainer(
+          [
+            Theme.of(context).colorScheme.primaryContainer,
+            Theme.of(context).colorScheme.secondaryContainer
+          ],
+          const [0, 1],
+          height: 200,
+        ),
       ],
     );
   }
