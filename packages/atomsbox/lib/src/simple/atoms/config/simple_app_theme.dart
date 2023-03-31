@@ -43,28 +43,59 @@ ThemeData simpleAppTheme() {
     ),
     colorScheme: ColorScheme(
       brightness: Brightness.light,
-      primary: primarySwatch,
-      onPrimary: primarySwatch[100]!,
-      primaryContainer: primarySwatch[90]!,
-      onPrimaryContainer: primarySwatch[10]!,
-      secondary: secondarySwatch,
-      onSecondary: secondarySwatch[100]!,
-      secondaryContainer: secondarySwatch[90]!,
-      onSecondaryContainer: secondarySwatch[10]!,
-      tertiary: tertiarySwatch,
-      onTertiary: tertiarySwatch[100]!,
-      tertiaryContainer: tertiarySwatch[90]!,
-      onTertiaryContainer: tertiarySwatch[10]!,
+      primary: const MaterialColor(
+        0xFF2977FF,
+        {
+          400: Color(0xFF31AAFF), // Primary Light,
+          500: Color(0xFF2977FF), // Primary
+          600: Color(0xFF000f5d), // Primary Dark
+        },
+      ),
+      onPrimary: const Color(0xFFffffff),
+      primaryContainer: const Color(0xFFe3f3ff),
+      onPrimaryContainer: const Color(0xFF000f5d),
+      secondary: const MaterialColor(
+        0xFFFFB129,
+        {
+          400: Color(0xFFFFC932), // Secondary Light
+          500: Color(0xFFFFB129), // Secondary
+          600: Color(0xFFE36F03), // Secondary Dark
+        },
+      ),
+      onSecondary: const Color(0xFFffffff),
+      secondaryContainer: const Color(0xFFe3f3ff),
+      onSecondaryContainer: const Color(0xFFE36F03),
       error: errorSwatch,
       onError: errorSwatch[100]!,
-      background: neutralSwatch[99]!,
-      onBackground: neutralSwatch[10]!,
+      background: Colors.white,
+      onBackground: Colors.black87,
       surface: neutralVariantSwatch[95]!,
-      onSurface: neutralVariantSwatch[30]!,
-      surfaceVariant: neutralSwatch[90]!,
-      onSurfaceVariant: neutralSwatch[30]!,
-      outline: neutralVariantSwatch[50]!,
+      onSurface: Colors.black87,
     ),
+    // ColorScheme(
+    //   brightness: Brightness.light,
+    //   primary: primarySwatch,
+    //   onPrimary: primarySwatch[100]!,
+    //   primaryContainer: primarySwatch[90]!,
+    //   onPrimaryContainer: primarySwatch[10]!,
+    //   secondary: secondarySwatch,
+    //   onSecondary: secondarySwatch[100]!,
+    //   secondaryContainer: secondarySwatch[90]!,
+    //   onSecondaryContainer: secondarySwatch[10]!,
+    //   tertiary: tertiarySwatch,
+    //   onTertiary: tertiarySwatch[100]!,
+    //   tertiaryContainer: tertiarySwatch[90]!,
+    //   onTertiaryContainer: tertiarySwatch[10]!,
+    //   error: errorSwatch,
+    //   onError: errorSwatch[100]!,
+    //   background: neutralSwatch[99]!,
+    //   onBackground: neutralSwatch[10]!,
+    //   surface: neutralVariantSwatch[95]!,
+    //   onSurface: neutralVariantSwatch[30]!,
+    //   surfaceVariant: neutralSwatch[90]!,
+    //   onSurfaceVariant: neutralSwatch[30]!,
+    //   outline: neutralVariantSwatch[50]!,
+    // ),
   );
 }
 
