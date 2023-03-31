@@ -5,7 +5,7 @@ class SimpleAppBreakpoints {
       MediaQuery.of(context).size.width < 690;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width < 1200 &&
+      MediaQuery.of(context).size.width < 950 &&
       MediaQuery.of(context).size.width >= 690;
 
   static bool isWideTablet(BuildContext context) =>

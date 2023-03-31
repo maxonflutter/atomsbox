@@ -1,13 +1,13 @@
-import 'package:atomsbox/atomsbox.dart';
+import 'package:atomsbox_animations/atomsbox_animations.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('AnimateInEffectWrapper renders and animates correctly',
+  testWidgets('AnimateInWrapper renders and animates correctly',
       (WidgetTester tester) async {
     const child = SizedBox(width: 50, height: 50);
-    const animateInEffectWrapper = AnimateInEffectWrapper(
+    const animateInWrapper = AnimateInWrapper(
       duration: Duration(milliseconds: 500),
       initialDelay: Duration(milliseconds: 0),
       initialOffset: Offset(0, 30),
@@ -16,8 +16,8 @@ void main() {
     );
 
     await tester.pumpWidget(
-      const MyAnimateInEffectWrapper(
-        animateInEffectWrapper: animateInEffectWrapper,
+      const MyAnimateInWrapper(
+        animateInWrapper: animateInWrapper,
       ),
     );
 
@@ -44,19 +44,19 @@ void main() {
   });
 }
 
-class MyAnimateInEffectWrapper extends StatelessWidget {
-  const MyAnimateInEffectWrapper({
+class MyAnimateInWrapper extends StatelessWidget {
+  const MyAnimateInWrapper({
     super.key,
-    required this.animateInEffectWrapper,
+    required this.animateInWrapper,
   });
 
-  final AnimateInEffectWrapper animateInEffectWrapper;
+  final AnimateInWrapper animateInWrapper;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: animateInEffectWrapper,
+        body: animateInWrapper,
       ),
     );
   }

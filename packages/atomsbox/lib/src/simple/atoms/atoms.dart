@@ -1,4 +1,3 @@
-export 'animation_wrappers/animate_in_effect.dart';
 export 'config/simple_app_theme.dart';
 export 'config/simple_constants.dart';
 export 'extensions/date_time_extensions.dart';

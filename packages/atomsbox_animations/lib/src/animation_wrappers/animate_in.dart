@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// A widget that animates a child widget into view with a fade-in and translate effect.
 ///
-/// The [AnimateInEffectWrapper] widget wraps a child widget and applies a fade-in
+/// The [AnimateInWrapper] widget wraps a child widget and applies a fade-in
 /// and translate effect when the widget is first built. The animation is controlled
 /// by the [duration], [initialDelay], [initialOffset], and [keepAlive] properties.
 ///
@@ -11,8 +11,8 @@ import 'package:flutter/material.dart';
 /// * [FadeTransition], which animates the opacity of the child.
 /// * [Transform.translate], which animates the position of the child.
 ///
-class AnimateInEffectWrapper extends StatefulWidget {
-  const AnimateInEffectWrapper({
+class AnimateInWrapper extends StatefulWidget {
+  const AnimateInWrapper({
     Key? key,
     this.duration = const Duration(milliseconds: 500),
     this.initialDelay = const Duration(milliseconds: 500),
@@ -43,14 +43,14 @@ class AnimateInEffectWrapper extends StatefulWidget {
 
   /// The widget below this widget in the tree.
   ///
-  /// This child widget will be animated when the [AnimateInEffectWrapper] is built.
+  /// This child widget will be animated when the [AnimateInWrapper] is built.
   final Widget child;
 
   @override
-  State<AnimateInEffectWrapper> createState() => _AnimateInEffectWrapperState();
+  State<AnimateInWrapper> createState() => _AnimateInWrapperState();
 }
 
-class _AnimateInEffectWrapperState extends State<AnimateInEffectWrapper>
+class _AnimateInWrapperState extends State<AnimateInWrapper>
     with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late final AnimationController animationController;
   late final Animation<Offset> offsetAnimation;
