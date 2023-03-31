@@ -43,34 +43,59 @@ ThemeData simpleAppTheme() {
     ),
     colorScheme: ColorScheme(
       brightness: Brightness.light,
+
+      // Primary color
       primary: const MaterialColor(
         0xFF2977FF,
         {
           400: Color(0xFF31AAFF), // Primary Light,
-          500: Color(0xFF2977FF), // Primary
-          600: Color(0xFF000f5d), // Primary Dark
+          500: Color(0xFF26337C), // Primary
+          600: Color(0xFF00093C), // Primary Dark
         },
       ),
       onPrimary: const Color(0xFFffffff),
-      primaryContainer: const Color(0xFFe3f3ff),
-      onPrimaryContainer: const Color(0xFF000f5d),
+      primaryContainer: const Color(0xFFDEE0FF),
+      onPrimaryContainer: const Color(0xFF00093C),
+
+      // Secondary color
       secondary: const MaterialColor(
         0xFFFFB129,
         {
-          400: Color(0xFFFFC932), // Secondary Light
-          500: Color(0xFFFFB129), // Secondary
-          600: Color(0xFFE36F03), // Secondary Dark
+          400: Color(0xFFd34675), // Secondary Light
+          500: Color(0xFF9C254D), // Secondary
+          600: Color(0xFF3F0018), // Secondary Dark
         },
       ),
       onSecondary: const Color(0xFFffffff),
-      secondaryContainer: const Color(0xFFe3f3ff),
-      onSecondaryContainer: const Color(0xFFE36F03),
+      secondaryContainer: const Color(0xFFFFD9DF),
+      onSecondaryContainer: const Color(0xFF3F0018),
       error: errorSwatch,
       onError: errorSwatch[100]!,
       background: Colors.white,
       onBackground: Colors.black87,
       surface: neutralVariantSwatch[95]!,
       onSurface: Colors.black87,
+      // primary: const MaterialColor(
+      //   0xFF2977FF,
+      //   {
+      //     400: Color(0xFF31AAFF), // Primary Light,
+      //     500: Color(0xFF2977FF), // Primary
+      //     600: Color(0xFF000f5d), // Primary Dark
+      //   },
+      // ),
+      // primaryContainer: const Color(0xFFe3f3ff),
+      // onPrimaryContainer: const Color(0xFF000f5d),
+      // secondary: const MaterialColor(
+      //   0xFFFFB129,
+      //   {
+      //     400: Color(0xFFFFC932), // Secondary Light
+      //     500: Color(0xFFFFB129), // Secondary
+      //     600: Color(0xFFE36F03), // Secondary Dark
+      //   },
+      // ),
+      // onSecondary: const Color(0xFFffffff),
+      // secondaryContainer: const Color(0xFFe3f3ff),
+      // onSecondaryContainer: const Color(0xFFE36F03),
     ),
     // ColorScheme(
     //   brightness: Brightness.light,
