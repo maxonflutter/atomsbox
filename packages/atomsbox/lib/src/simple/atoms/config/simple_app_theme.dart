@@ -46,7 +46,7 @@ ThemeData simpleAppTheme() {
 
       // Primary color
       primary: const MaterialColor(
-        0xFF2977FF,
+        0xFF26337C,
         {
           400: Color(0xFF31AAFF), // Primary Light,
           500: Color(0xFF26337C), // Primary
@@ -59,7 +59,7 @@ ThemeData simpleAppTheme() {
 
       // Secondary color
       secondary: const MaterialColor(
-        0xFFFFB129,
+        0xFF9C254D,
         {
           400: Color(0xFFd34675), // Secondary Light
           500: Color(0xFF9C254D), // Secondary
