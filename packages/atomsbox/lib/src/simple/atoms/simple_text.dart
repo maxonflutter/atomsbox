@@ -17,34 +17,10 @@ enum TextStyleEnum {
   bodySmall,
 }
 
-/// A widget that displays a text with a specific style and properties.
-///
-/// The [SimpleText] widget displays a string of text with a specified style.
-/// The text can be aligned, wrapped, and set to a maximum number of lines. It can also be customized
-/// with properties such as color, font size, font weight, and letter spacing.
-///
-/// If a [textStyle] is provided, the text will use the style as defined by the [TextStyle] object.
-/// If not, the text will use the default text style defined by the nearest [Theme] ancestor.
-///
-/// If you want to create a text widget that has a different font or color, you can specify it
-/// by providing a [TextStyleEnum] value for the [textStyle] property.
-///
-/// The [textAlign] property determines how the text should be aligned horizontally within its container.
-/// The [maxLines] property specifies the maximum number of lines to display, while [overflow] property
-/// determines how to handle text overflow.
-///
-/// The [color], [fontSize], [fontWeight], and [letterSpacing] properties allow you
-/// to customize the text's appearance.
-///
-/// See also:
-///
-/// * [Text], which displays a run of text with a single style.
-/// * [TextStyle], which is used to define the appearance of text.
-/// * [TextStyleEnum], an enum used to define preset text styles.
-class SimpleText extends StatelessWidget {
+class SimpleText extends Text {
   const SimpleText(
-    this.text, {
-    super.key,
+    super.data, {
+    this.text,
     this.textStyle,
     this.textAlign,
     this.maxLines,
@@ -58,7 +34,7 @@ class SimpleText extends StatelessWidget {
   });
 
   /// The text to display.
-  final String text;
+  final String? text;
 
   /// The text style to use. If not specified, it uses the default text style from the nearest [Theme] ancestor.
   final TextStyleEnum? textStyle;
@@ -95,7 +71,7 @@ class SimpleText extends StatelessWidget {
     final textScaleFactor = _buildTextScaleFactor(context);
 
     Widget widget = Text(
-      text,
+      data ?? '',
       textAlign: textAlign,
       overflow: overflow,
       maxLines: maxLines,
@@ -223,7 +199,8 @@ class SimpleText extends StatelessWidget {
             );
 
       default:
-        return Theme.of(context).textTheme.bodyMedium!.copyWith(
+        return null;
+        Theme.of(context).textTheme.bodyMedium!.copyWith(
               color: color,
               fontSize: fontSize,
               fontWeight: fontWeight,

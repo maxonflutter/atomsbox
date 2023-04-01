@@ -1,96 +1,96 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_constants.dart';
-import '../atoms/extensions/duration_extensions.dart';
-import '../atoms/simple_slider.dart';
-import '../atoms/simple_text.dart';
+// import '../atoms/config/simple_constants.dart';
+// import '../atoms/extensions/duration_extensions.dart';
+// import '../atoms/simple_slider.dart';
+// import '../atoms/simple_text.dart';
 
-/// A simple audio seekbar widget.
-///
-/// The [SimpleAudioSeekbar] widget displays a seekbar for audio playback. The widget
-/// consists of a [SimpleSlider] to control the audio playback position, and two
-/// [SimpleText] widgets to display the current position and remaining time.
-///
-/// The [position] argument is required and specifies the current playback position
-/// as a [Duration]. The [duration] argument is also required and specifies the total
-/// duration of the audio as a [Duration].
-///
-/// The [onChanged] argument is an optional callback that is called when the user
-/// starts dragging the slider. The [onChangeEnd] argument is an optional callback
-/// that is called when the user stops dragging the slider.
-///
-/// The [dense] argument is an optional boolean that specifies whether to use a dense
-/// layout for the widget. When true, the widget will have a smaller height and the
-/// remaining time will not be displayed.
-///
-/// See also:
-///
-/// * [SimpleSlider], which is used to control the audio playback position.
-/// * [SimpleText], which is used to display the current position and remaining time.
-class SimpleAudioSeekbar extends StatelessWidget {
-  const SimpleAudioSeekbar({
-    super.key,
-    required this.position,
-    required this.duration,
-    this.onChanged,
-    this.onChangeEnd,
-    this.dense = false,
-  });
+// /// A simple audio seekbar widget.
+// ///
+// /// The [SimpleAudioSeekbar] widget displays a seekbar for audio playback. The widget
+// /// consists of a [SimpleSlider] to control the audio playback position, and two
+// /// [SimpleText] widgets to display the current position and remaining time.
+// ///
+// /// The [position] argument is required and specifies the current playback position
+// /// as a [Duration]. The [duration] argument is also required and specifies the total
+// /// duration of the audio as a [Duration].
+// ///
+// /// The [onChanged] argument is an optional callback that is called when the user
+// /// starts dragging the slider. The [onChangeEnd] argument is an optional callback
+// /// that is called when the user stops dragging the slider.
+// ///
+// /// The [dense] argument is an optional boolean that specifies whether to use a dense
+// /// layout for the widget. When true, the widget will have a smaller height and the
+// /// remaining time will not be displayed.
+// ///
+// /// See also:
+// ///
+// /// * [SimpleSlider], which is used to control the audio playback position.
+// /// * [SimpleText], which is used to display the current position and remaining time.
+// class SimpleAudioSeekbar extends StatelessWidget {
+//   const SimpleAudioSeekbar({
+//     super.key,
+//     required this.position,
+//     required this.duration,
+//     this.onChanged,
+//     this.onChangeEnd,
+//     this.dense = false,
+//   });
 
-  /// The current playback position.
-  ///
-  /// This argument is required and must not be null.
-  final Duration position;
+//   /// The current playback position.
+//   ///
+//   /// This argument is required and must not be null.
+//   final Duration position;
 
-  /// The total duration of the audio.
-  ///
-  /// This argument is required and must not be null.
-  final Duration duration;
+//   /// The total duration of the audio.
+//   ///
+//   /// This argument is required and must not be null.
+//   final Duration duration;
 
-  /// An optional callback that is called when the user starts dragging the slider.
-  final ValueChanged<Duration>? onChanged;
+//   /// An optional callback that is called when the user starts dragging the slider.
+//   final ValueChanged<Duration>? onChanged;
 
-  /// An optional callback that is called when the user stops dragging the slider.
-  final ValueChanged<Duration>? onChangeEnd;
+//   /// An optional callback that is called when the user stops dragging the slider.
+//   final ValueChanged<Duration>? onChangeEnd;
 
-  /// Whether to use a dense layout for the widget.
-  ///
-  /// When true, the widget will have a smaller height and the remaining
-  /// time will not be displayed.
-  final bool dense;
+//   /// Whether to use a dense layout for the widget.
+//   ///
+//   /// When true, the widget will have a smaller height and the remaining
+//   /// time will not be displayed.
+//   final bool dense;
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        ...dense
-            ? [const SizedBox()]
-            : [
-                SimpleText(
-                  position.formatDuration(),
-                  textStyle: TextStyleEnum.bodySmall,
-                ),
-                const SizedBox(width: SimpleConstants.sm),
-              ],
-        Expanded(
-          child: SimpleSlider(
-            value: position.inMilliseconds.toDouble(),
-            maxValue: duration.inMilliseconds.toDouble(),
-            thumbShape: SliderComponentShape.noThumb,
-            // TODO: _audioHandler.seekTo ...
-            onChanged: (p0) {},
-          ),
-        ),
-        ...dense
-            ? [const SizedBox()]
-            : [
-                const SizedBox(width: SimpleConstants.sm),
-                SimpleText(
-                  '-${(duration - position).formatDuration()}',
-                  textStyle: TextStyleEnum.bodySmall,
-                ),
-              ],
-      ],
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       children: [
+//         ...dense
+//             ? [const SizedBox()]
+//             : [
+//                 SimpleText(
+//                   position.formatDuration(),
+//                   textStyle: TextStyleEnum.bodySmall,
+//                 ),
+//                 const SizedBox(width: SimpleConstants.sm),
+//               ],
+//         Expanded(
+//           child: SimpleSlider(
+//             value: position.inMilliseconds.toDouble(),
+//             maxValue: duration.inMilliseconds.toDouble(),
+//             thumbShape: SliderComponentShape.noThumb,
+//             // TODO: _audioHandler.seekTo ...
+//             onChanged: (p0) {},
+//           ),
+//         ),
+//         ...dense
+//             ? [const SizedBox()]
+//             : [
+//                 const SizedBox(width: SimpleConstants.sm),
+//                 SimpleText(
+//                   '-${(duration - position).formatDuration()}',
+//                   textStyle: TextStyleEnum.bodySmall,
+//                 ),
+//               ],
+//       ],
+//     );
+//   }
+// }

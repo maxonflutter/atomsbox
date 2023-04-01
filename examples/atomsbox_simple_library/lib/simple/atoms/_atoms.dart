@@ -5,54 +5,57 @@ class _Atoms extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              SimpleButtonExample(darkMode: false),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleButtonExample(darkMode: true),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleTextFormFieldExample(darkMode: false),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleTextFormFieldExample(darkMode: true),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleChipExample(darkMode: false),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleChipExample(darkMode: true),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleIconButtonExample(darkMode: false),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleIconButtonExample(darkMode: true),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleTextExample(darkMode: false),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleTextExample(darkMode: true),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleLabelExample(darkMode: false),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleLabelExample(darkMode: true),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleSliderExample(darkMode: false),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleSliderExample(darkMode: true),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleImageExample(),
-              SizedBox(height: SimpleConstants.sm),
-              SimpleGradientContainerExample(),
-              SizedBox(height: SimpleConstants.sm),
-            ],
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [],
-          ),
-        ],
-      ),
+    List<Widget> examples = const [
+      SimpleTextExample(darkMode: false),
+      SimpleLabelExample(darkMode: false),
+      SimpleButtonExample(darkMode: false),
+      SimpleChipExample(darkMode: false),
+      SimpleIconButtonExample(darkMode: false),
+      SimpleTextFormFieldExample(darkMode: false),
+      SimpleSliderExample(darkMode: false),
+      // SimpleImageExample(),
+      // SimpleGradientContainerExample(),
+    ];
+    return ListView.separated(
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(SimpleConstants.sm),
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: examples.length,
+      itemBuilder: (context, index) {
+        return examples[index];
+      },
+      separatorBuilder: (context, index) {
+        return const SizedBox(height: SimpleConstants.sm);
+      },
+    );
+  }
+}
+
+class _AtomsDark extends StatelessWidget {
+  const _AtomsDark({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> examples = const [
+      SimpleTextExample(darkMode: true),
+      SimpleLabelExample(darkMode: true),
+      SimpleButtonExample(darkMode: true),
+      SimpleChipExample(darkMode: true),
+      SimpleIconButtonExample(darkMode: true),
+      SimpleTextFormFieldExample(darkMode: true),
+      SimpleSliderExample(darkMode: true),
+    ];
+    return ListView.separated(
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(SimpleConstants.sm),
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: examples.length,
+      itemBuilder: (context, index) {
+        return examples[index];
+      },
+      separatorBuilder: (context, index) {
+        return const SizedBox(height: SimpleConstants.sm);
+      },
     );
   }
 }

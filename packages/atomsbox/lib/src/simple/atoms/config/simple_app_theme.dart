@@ -55,11 +55,7 @@ class SimpleTheme {
   );
 }
 
-Map getPalette(
-  BuildContext context,
-  Palette palette,
-  bool isDark,
-) {
+Map getColors(BuildContext context, Palette palette) {
   final colorScheme = SimpleTheme.theme.colorScheme;
 
   final palettes = {

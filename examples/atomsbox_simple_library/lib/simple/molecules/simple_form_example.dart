@@ -1,57 +1,83 @@
-import 'package:atomsbox/atomsbox.dart';
-import 'package:flutter/material.dart';
+// import 'package:atomsbox/atomsbox.dart';
+// import 'package:flutter/material.dart';
 
-class SimpleFormExample extends StatefulWidget {
-  const SimpleFormExample({super.key});
+// class SimpleFormExample extends StatefulWidget {
+//   const SimpleFormExample({
+//     super.key,
+//     this.darkMode = false,
+//   });
 
-  @override
-  State<SimpleFormExample> createState() => _SimpleFormExampleState();
-}
+//   final bool darkMode;
 
-class _SimpleFormExampleState extends State<SimpleFormExample> {
-  var _firstValue = 'Form field 1';
-  var _secondValue = 'Form field 2';
-  var _thirdValue = 'Form field 3';
+//   @override
+//   State<SimpleFormExample> createState() => _SimpleFormExampleState();
+// }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SimpleText(
-          'These is a SimpleForm widget',
-          textStyle: TextStyleEnum.titleMedium,
-          fontWeight: FontWeight.bold,
-        ),
-        const SizedBox(height: SimpleConstants.sm),
-        // SimpleForm(
-        //   formButton: SimpleButton(
-        //     onPressed: () {},
-        //     colorPalette: ColorPalette.primary,
-        //     child: SimpleText(
-        //       'Submit',
-        //       color: Theme.of(context).colorScheme.onPrimary,
-        //       textStyle: TextStyleEnum.bodyLarge,
-        //     ),
-        //   ),
-        //   formItems: [
-        //     SimpleTextFormField(
-        //       initialValue: _firstValue,
-        //       onChanged: (value) => setState(() => _firstValue = value),
-        //     ),
-        //     SimpleTextFormField(
-        //       initialValue: _secondValue,
-        //       onChanged: (value) => setState(() => _secondValue = value),
-        //     ),
-        //     SimpleTextFormField(
-        //       initialValue: _thirdValue,
-        //       onChanged: (value) => setState(() => _thirdValue = value),
-        //     )
-        //   ],
-        //   formItemNames: const ['Name', 'Email', 'Password'],
-        // ),
-        const SizedBox(height: SimpleConstants.lg),
-      ],
-    );
-  }
-}
+// class _SimpleFormExampleState extends State<SimpleFormExample> {
+//   var _firstValue = 'Form field 1';
+//   var _secondValue = 'Form field 2';
+//   var _thirdValue = 'Form field 3';
+
+//   @override
+//   Widget build(BuildContext context) {
+//     List<Palette> palettes;
+//     final color =
+//         widget.darkMode ? Theme.of(context).colorScheme.primary : Colors.white;
+
+//     if (widget.darkMode == false) {
+//       palettes = [
+//         Palette.primary,
+//         Palette.primaryContainer,
+//         Palette.secondary,
+//         Palette.secondaryContainer,
+//       ];
+//     } else {
+//       palettes = [
+//         Palette.primaryDark,
+//         Palette.primaryContainerDark,
+//         Palette.secondaryDark,
+//         Palette.secondaryContainerDark,
+//       ];
+//     }
+
+//     return Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: [
+//         SimpleText(
+//           'These is a SimpleForm widget',
+//           textStyle: TextStyleEnum.titleMedium,
+//           fontWeight: FontWeight.bold,
+//           color: ThemeData.estimateBrightnessForColor(color) == Brightness.light
+//               ? Colors.black87
+//               : Colors.white,
+//         ),
+//         const SizedBox(height: SimpleConstants.sm),
+//         SimpleForm(
+//           formButton: SimpleButton(
+//             text: 'Submit',
+//             onPressed: () {},
+//             palette: Palette.primary,
+//           ),
+//           formItems: [
+//             SimpleTextFormField(
+//               initialValue: _firstValue,
+//               onChanged: (value) => setState(() => _firstValue = value),
+//               palette: Palette.primaryDark,
+//             ),
+//             SimpleTextFormField(
+//               initialValue: _secondValue,
+//               onChanged: (value) => setState(() => _secondValue = value),
+//               palette: palettes[0],
+//             ),
+//             SimpleTextFormField(
+//               initialValue: _thirdValue,
+//               onChanged: (value) => setState(() => _thirdValue = value),
+//               palette: palettes[0],
+//             )
+//           ],
+//           formItemNames: const ['Name', 'Email', 'Password'],
+//         ),
+//       ],
+//     );
+//   }
+// }

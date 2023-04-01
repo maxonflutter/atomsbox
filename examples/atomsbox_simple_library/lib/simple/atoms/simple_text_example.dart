@@ -11,82 +11,50 @@ class SimpleTextExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Palette> palettes;
-    final color =
-        darkMode ? Theme.of(context).colorScheme.primary : Colors.white;
-
-    if (darkMode == false) {
-      palettes = [
-        Palette.primary,
-        Palette.primaryContainer,
-        Palette.secondary,
-        Palette.secondaryContainer,
-      ];
-    } else {
-      palettes = [
-        Palette.primaryDark,
-        Palette.primaryContainerDark,
-        Palette.secondaryDark,
-        Palette.secondaryContainerDark,
-      ];
-    }
-
-    final textColor =
-        ThemeData.estimateBrightnessForColor(color) == Brightness.light
-            ? Colors.black87
-            : Colors.white;
-
-    return Container(
-      padding: const EdgeInsets.all(SimpleConstants.sm),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-        color: color,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SimpleText(
-                'SimpleText',
-                textStyle: TextStyleEnum.headlineLarge,
-                color: textColor,
-              ),
-              SimpleText(
-                'SimpleText',
-                textStyle: TextStyleEnum.headlineMedium,
-                color: textColor,
-              ),
-              SimpleText(
-                'SimpleText',
-                textStyle: TextStyleEnum.headlineSmall,
-                color: textColor,
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SimpleText(
-                'This is a SimpleText',
-                textStyle: TextStyleEnum.bodyLarge,
-                color: textColor,
-              ),
-              SimpleText(
-                'This is a SimpleText',
-                textStyle: TextStyleEnum.bodyMedium,
-                color: textColor,
-              ),
-              SimpleText(
-                'This is a SimpleText',
-                textStyle: TextStyleEnum.bodySmall,
-                color: textColor,
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SimpleText(
+              'SimpleText',
+              textStyle: TextStyleEnum.headlineLarge,
+              color: darkMode ? Colors.white : Colors.black87,
+            ),
+            SimpleText(
+              'SimpleText',
+              textStyle: TextStyleEnum.headlineMedium,
+              color: darkMode ? Colors.white : Colors.black87,
+            ),
+            SimpleText(
+              'SimpleText',
+              textStyle: TextStyleEnum.headlineSmall,
+              color: darkMode ? Colors.white : Colors.black87,
+            ),
+          ],
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SimpleText(
+              'This is a SimpleText',
+              textStyle: TextStyleEnum.bodyLarge,
+              color: darkMode ? Colors.white : Colors.black87,
+            ),
+            SimpleText(
+              'This is a SimpleText',
+              textStyle: TextStyleEnum.bodyMedium,
+              color: darkMode ? Colors.white : Colors.black87,
+            ),
+            SimpleText(
+              'This is a SimpleText',
+              textStyle: TextStyleEnum.bodySmall,
+              color: darkMode ? Colors.white : Colors.black87,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

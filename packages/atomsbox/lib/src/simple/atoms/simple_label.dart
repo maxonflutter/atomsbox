@@ -10,21 +10,45 @@ class SimpleLabel extends StatelessWidget {
     super.key,
     required this.text,
     this.icon,
-    this.palette = Palette.primary,
+    this.brightness = Brightness.light,
+    this.primary = true,
   });
 
   final String text;
   final IconData? icon;
-  final Palette palette;
+  final Brightness brightness;
+  final bool primary;
 
   @override
   Widget build(BuildContext context) {
-    final colors = getPalette(context, palette, true);
+    final colorScheme = Theme.of(context).colorScheme;
+    Color backgroundColor, foregroundColor;
+
+    switch (brightness) {
+      case Brightness.dark:
+        if (primary) {
+          backgroundColor = colorScheme.onPrimaryContainer;
+          foregroundColor = colorScheme.primaryContainer;
+        } else {
+          backgroundColor = colorScheme.onSecondaryContainer;
+          foregroundColor = colorScheme.secondaryContainer;
+        }
+        break;
+      case Brightness.light:
+        if (primary) {
+          backgroundColor = colorScheme.primaryContainer;
+          foregroundColor = colorScheme.onPrimaryContainer;
+        } else {
+          backgroundColor = colorScheme.secondaryContainer;
+          foregroundColor = colorScheme.onSecondaryContainer;
+        }
+        break;
+    }
 
     return Container(
       padding: const EdgeInsets.all(SimpleConstants.sm),
       decoration: BoxDecoration(
-        color: colors['background'],
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
       ),
       child: Row(
@@ -33,12 +57,12 @@ class SimpleLabel extends StatelessWidget {
           ...(icon == null)
               ? [const SizedBox()]
               : [
-                  Icon(icon, color: colors['foreground']),
+                  Icon(icon, color: foregroundColor),
                   const SizedBox(width: SimpleConstants.sm),
                 ],
           SimpleText(
             text,
-            color: ThemeData.estimateBrightnessForColor(colors['background']) ==
+            color: ThemeData.estimateBrightnessForColor(backgroundColor) ==
                     Brightness.light
                 ? Colors.black87
                 : Colors.white,

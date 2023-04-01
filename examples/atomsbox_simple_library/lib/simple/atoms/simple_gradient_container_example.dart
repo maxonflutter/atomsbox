@@ -9,7 +9,7 @@ class SimpleGradientContainerExample extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SimpleText(
+        SimpleText(
           'These are SimpleGradientContainer widgets',
           textStyle: TextStyleEnum.titleMedium,
           fontWeight: FontWeight.bold,

@@ -1,136 +1,141 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_app_theme.dart';
-import '../atoms/config/simple_constants.dart';
-import '../atoms/config/simple_palettes.dart';
-import 'simple_list_tile.dart';
+// import '../atoms/config/simple_app_theme.dart';
+// import '../atoms/config/simple_constants.dart';
+// import '../atoms/config/simple_palettes.dart';
+// import 'simple_list_tile.dart';
 
-class SimpleAccordion extends StatefulWidget {
-  const SimpleAccordion({
-    super.key,
-    required this.title,
-    this.children = const <Widget>[],
-    this.initiallyExpanded = false,
-    this.maintainState = false,
-  });
+// class SimpleAccordion extends StatefulWidget {
+//   const SimpleAccordion({
+//     super.key,
+//     required this.title,
+//     this.children = const <Widget>[],
+//     this.initiallyExpanded = false,
+//     this.maintainState = false,
+//     this.palette = Palette.primary,
+//   });
 
-  final String title;
+//   final String title;
 
-  final List<Widget> children;
+//   final List<Widget> children;
 
-  final bool initiallyExpanded;
+//   final bool initiallyExpanded;
 
-  final bool maintainState;
+//   final bool maintainState;
 
-  @override
-  State<SimpleAccordion> createState() => _SimpleAccordionState();
-}
+//   final Palette palette;
 
-class _SimpleAccordionState extends State<SimpleAccordion>
-    with SingleTickerProviderStateMixin {
-  static final Animatable<double> _easeInTween =
-      CurveTween(curve: Curves.easeIn);
-  static final Animatable<double> _halfTween =
-      Tween<double>(begin: 0.0, end: 0.5);
+//   @override
+//   State<SimpleAccordion> createState() => _SimpleAccordionState();
+// }
 
-  late AnimationController _controller;
-  late Animation<double> _iconTurns;
-  late Animation<double> _heightFactor;
+// class _SimpleAccordionState extends State<SimpleAccordion>
+//     with SingleTickerProviderStateMixin {
+//   static final Animatable<double> _easeInTween =
+//       CurveTween(curve: Curves.easeIn);
+//   static final Animatable<double> _halfTween =
+//       Tween<double>(begin: 0.0, end: 0.5);
 
-  bool _isExpanded = false;
+//   late AnimationController _controller;
+//   late Animation<double> _iconTurns;
+//   late Animation<double> _heightFactor;
 
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 200),
-    );
-    _heightFactor = _controller.drive(_easeInTween);
-    _iconTurns = _controller.drive(_halfTween.chain(_easeInTween));
-    if (_isExpanded) {
-      _controller.value = 1.0;
-    }
-  }
+//   bool _isExpanded = false;
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller = AnimationController(
+//       vsync: this,
+//       duration: const Duration(milliseconds: 200),
+//     );
+//     _heightFactor = _controller.drive(_easeInTween);
+//     _iconTurns = _controller.drive(_halfTween.chain(_easeInTween));
+//     if (_isExpanded) {
+//       _controller.value = 1.0;
+//     }
+//   }
 
-  void _handleTap() {
-    setState(() {
-      _isExpanded = !_isExpanded;
-      if (_isExpanded) {
-        _controller.forward();
-      } else {
-        _controller.reverse().then<void>((void value) {
-          if (!mounted) {
-            return;
-          }
-          setState(() {});
-        });
-      }
-    });
-  }
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    final bool closed = !_isExpanded && _controller.isDismissed;
-    final bool shouldRemoveChildren = closed && !widget.maintainState;
+//   void _handleTap() {
+//     setState(() {
+//       _isExpanded = !_isExpanded;
+//       if (_isExpanded) {
+//         _controller.forward();
+//       } else {
+//         _controller.reverse().then<void>((void value) {
+//           if (!mounted) {
+//             return;
+//           }
+//           setState(() {});
+//         });
+//       }
+//     });
+//   }
 
-    final Widget result = Offstage(
-      offstage: closed,
-      child: TickerMode(
-        enabled: !closed,
-        child: Padding(
-          padding: const EdgeInsets.all(SimpleConstants.sm),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: widget.children,
-          ),
-        ),
-      ),
-    );
+//   @override
+//   Widget build(BuildContext context) {
+//     final bool closed = !_isExpanded && _controller.isDismissed;
+//     final bool shouldRemoveChildren = closed && !widget.maintainState;
 
-    return AnimatedBuilder(
-      animation: _controller.view,
-      builder: _buildChildren,
-      child: shouldRemoveChildren ? null : result,
-    );
-  }
+//     final Widget result = Offstage(
+//       offstage: closed,
+//       child: TickerMode(
+//         enabled: !closed,
+//         child: Padding(
+//           padding: const EdgeInsets.all(SimpleConstants.sm),
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: widget.children,
+//           ),
+//         ),
+//       ),
+//     );
 
-  Widget _buildChildren(BuildContext context, Widget? child) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
-        borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SimpleListTile(
-            onTap: _handleTap,
-            title: widget.title,
-            trailing: RotationTransition(
-              turns: _iconTurns,
-              child: Icon(
-                Icons.expand_more,
-                color: Theme.of(context).colorScheme.onPrimary,
-              ),
-            ),
-            palette: Palette.primary,
-          ),
-          ClipRect(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              heightFactor: _heightFactor.value,
-              child: child,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//     return AnimatedBuilder(
+//       animation: _controller.view,
+//       builder: _buildChildren,
+//       child: shouldRemoveChildren ? null : result,
+//     );
+//   }
+
+//   Widget _buildChildren(BuildContext context, Widget? child) {
+//     final colors = getPalette(context, widget.palette, true);
+
+//     return Container(
+//       decoration: BoxDecoration(
+//         color: colors['background'].withOpacity(0.8),
+//         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+//       ),
+//       child: Column(
+//         mainAxisSize: MainAxisSize.min,
+//         children: [
+//           SimpleListTile(
+//             onTap: _handleTap,
+//             title: widget.title,
+//             trailing: RotationTransition(
+//               turns: _iconTurns,
+//               child: Icon(
+//                 Icons.expand_more,
+//                 color: colors['foreground'],
+//               ),
+//             ),
+//             palette: widget.palette,
+//           ),
+//           ClipRect(
+//             child: Align(
+//               alignment: Alignment.centerLeft,
+//               heightFactor: _heightFactor.value,
+//               child: child,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

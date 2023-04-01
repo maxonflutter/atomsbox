@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'config/simple_app_theme.dart';
-import 'config/simple_palettes.dart';
-
 class SimpleSlider extends StatelessWidget {
   const SimpleSlider({
     super.key,
@@ -12,26 +9,40 @@ class SimpleSlider extends StatelessWidget {
     this.minValue,
     this.maxValue,
     this.thumbShape,
-    this.palette = Palette.primaryContainer,
+    this.primary = true,
+    this.brightness = Brightness.light,
   });
 
   final SliderComponentShape? thumbShape;
-
   final double? value;
-
   final double? minValue;
-
   final double? maxValue;
-
   final void Function(double) onChanged;
-
   final void Function(double)? onChangeEnd;
-
-  final Palette palette;
+  final bool primary;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
-    final colors = getPalette(context, palette, true);
+    final colorScheme = Theme.of(context).colorScheme;
+    Color backgroundColor;
+
+    switch (brightness) {
+      case Brightness.dark:
+        if (primary) {
+          backgroundColor = colorScheme.onPrimary;
+        } else {
+          backgroundColor = colorScheme.onSecondary;
+        }
+        break;
+      case Brightness.light:
+        if (primary) {
+          backgroundColor = colorScheme.secondary;
+        } else {
+          backgroundColor = colorScheme.secondary;
+        }
+        break;
+    }
 
     return SizedBox(
       height: 10,
@@ -40,9 +51,10 @@ class SimpleSlider extends StatelessWidget {
           trackHeight: 2.0,
           trackShape: _CustomTrackShape(),
           thumbShape: thumbShape,
-          thumbColor: colors['background'],
-          activeTrackColor: colors['background'],
-          inactiveTrackColor: colors['disabledBackground'],
+          thumbColor: backgroundColor,
+          activeTrackColor: backgroundColor,
+          inactiveTrackColor:
+              Theme.of(context).colorScheme.surface.withOpacity(0.38),
         ),
         child: Slider(
           min: minValue ?? 0.0,

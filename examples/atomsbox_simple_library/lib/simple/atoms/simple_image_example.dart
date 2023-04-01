@@ -10,7 +10,7 @@ class SimpleImageExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         SimpleText(
           'This is a SimpleImage',
           textStyle: TextStyleEnum.titleMedium,

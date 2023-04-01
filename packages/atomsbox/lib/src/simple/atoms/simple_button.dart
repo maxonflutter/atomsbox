@@ -1,41 +1,60 @@
 import 'package:flutter/material.dart';
 
-import 'config/simple_app_theme.dart';
 import 'config/simple_constants.dart';
-import 'config/simple_palettes.dart';
-import 'simple_text.dart';
 
 class SimpleButton extends StatelessWidget {
   SimpleButton({
     super.key,
-    required this.text,
     required this.onPressed,
-    this.minimumSize = const Size(200.0, 50.0),
-    this.isDark = true,
-    this.palette = Palette.primary,
+    this.minimumSize = const Size(150.0, 45.0),
+    this.primary = true,
+    this.brightness = Brightness.light,
+    required this.child,
   }) {
     _builder = (context) {
-      final colors = getPalette(context, palette, isDark);
+      final colorScheme = Theme.of(context).colorScheme;
+      final textTheme = Theme.of(context).textTheme;
+      Color backgroundColor, foregroundColor, textColor;
+
+      switch (brightness) {
+        case Brightness.dark:
+          textColor = Colors.black87;
+          if (primary) {
+            backgroundColor = colorScheme.onPrimary;
+            foregroundColor = colorScheme.primary;
+          } else {
+            backgroundColor = colorScheme.onSecondary;
+            foregroundColor = colorScheme.secondary;
+          }
+          break;
+        case Brightness.light:
+          textColor = Colors.white;
+          if (primary) {
+            backgroundColor = colorScheme.primary;
+            foregroundColor = colorScheme.onPrimary;
+          } else {
+            backgroundColor = colorScheme.secondary;
+            foregroundColor = colorScheme.onSecondary;
+          }
+          break;
+      }
 
       return ElevatedButton(
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           elevation: 0.0,
           minimumSize: minimumSize,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
           ),
-          backgroundColor: colors['background'],
-          foregroundColor: colors['foreground'],
-          disabledBackgroundColor: colors['disabledBackground'],
-          disabledForegroundColor: colors['disabledForeground'],
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          disabledBackgroundColor: colorScheme.surface.withOpacity(0.12),
+          disabledForegroundColor: colorScheme.surface.withOpacity(0.38),
         ),
-        onPressed: onPressed,
-        child: SimpleText(
-          text,
-          color: ThemeData.estimateBrightnessForColor(colors['background']) ==
-                  Brightness.light
-              ? Colors.black87
-              : Colors.white,
+        child: DefaultTextStyle(
+          style: textTheme.bodyLarge!.copyWith(color: textColor),
+          child: child,
         ),
       );
     };
@@ -43,20 +62,42 @@ class SimpleButton extends StatelessWidget {
 
   SimpleButton.outline({
     super.key,
-    required this.text,
     required this.onPressed,
-    this.minimumSize = const Size(200.0, 50.0),
-    this.isDark = true,
-    this.palette = Palette.primary,
+    this.minimumSize = const Size(150.0, 45.0),
+    this.primary = true,
+    this.brightness = Brightness.light,
+    required this.child,
   }) {
     _builder = (context) {
-      final colors = getPalette(context, palette, isDark);
+      final colorScheme = Theme.of(context).colorScheme;
+      final textTheme = Theme.of(context).textTheme;
+      Color foregroundColor, textColor;
+
+      switch (brightness) {
+        case Brightness.dark:
+          textColor = Colors.white;
+          if (primary) {
+            foregroundColor = colorScheme.onPrimary;
+          } else {
+            foregroundColor = colorScheme.onSecondary;
+          }
+          break;
+        case Brightness.light:
+          textColor = Colors.black87;
+          if (primary) {
+            foregroundColor = colorScheme.primary;
+          } else {
+            foregroundColor = colorScheme.secondary;
+          }
+          break;
+      }
 
       return OutlinedButton(
+        onPressed: onPressed,
         style: ButtonStyle(
           overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
             if (states.contains(MaterialState.pressed)) {
-              return colors['background']!.withOpacity(0.3);
+              return foregroundColor.withOpacity(0.3);
             }
             return Colors.transparent;
           }),
@@ -66,19 +107,11 @@ class SimpleButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
             ),
           ),
-          side: MaterialStateProperty.all(
-            BorderSide(
-              color: colors['background']!,
-            ),
-          ),
+          side: MaterialStateProperty.all(BorderSide(color: foregroundColor)),
         ),
-        onPressed: onPressed,
-        child: SimpleText(
-          text,
-          color: ThemeData.estimateBrightnessForColor(colors['foreground']) ==
-                  Brightness.light
-              ? Colors.black87
-              : Colors.white,
+        child: DefaultTextStyle(
+          style: textTheme.bodyLarge!.copyWith(color: textColor),
+          child: child,
         ),
       );
     };
@@ -86,48 +119,62 @@ class SimpleButton extends StatelessWidget {
 
   SimpleButton.text({
     super.key,
-    required this.text,
     required this.onPressed,
-    this.minimumSize = const Size(200.0, 50.0),
-    this.isDark = true,
-    this.palette = Palette.primary,
+    this.minimumSize = const Size(150.0, 45.0),
+    this.primary = true,
+    this.brightness = Brightness.light,
+    required this.child,
   }) {
     _builder = (context) {
-      final colors = getPalette(context, palette, isDark);
+      final colorScheme = Theme.of(context).colorScheme;
+      final textTheme = Theme.of(context).textTheme;
+      Color foregroundColor, textColor;
+
+      switch (brightness) {
+        case Brightness.dark:
+          textColor = Colors.white;
+          if (primary) {
+            foregroundColor = colorScheme.onPrimary;
+          } else {
+            foregroundColor = colorScheme.onSecondary;
+          }
+          break;
+        case Brightness.light:
+          textColor = Colors.black87;
+          if (primary) {
+            foregroundColor = colorScheme.primary;
+          } else {
+            foregroundColor = colorScheme.secondary;
+          }
+          break;
+      }
 
       return TextButton(
+        onPressed: onPressed,
         style: TextButton.styleFrom(
           elevation: 0.0,
           minimumSize: minimumSize,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
           ),
-          foregroundColor: colors['background'],
-          disabledForegroundColor: colors['disabledForeground'],
+          foregroundColor: foregroundColor,
+          disabledBackgroundColor: colorScheme.surface.withOpacity(0.12),
+          disabledForegroundColor: colorScheme.surface.withOpacity(0.38),
         ),
-        onPressed: onPressed,
-        child: SimpleText(
-          text,
-          color: ThemeData.estimateBrightnessForColor(colors['foreground']) ==
-                  Brightness.light
-              ? Colors.black87
-              : Colors.white,
+        child: DefaultTextStyle(
+          style: textTheme.bodyLarge!.copyWith(color: textColor),
+          child: child,
         ),
       );
     };
   }
 
-  final String text;
-
-  final VoidCallback? onPressed;
-
-  final Size? minimumSize;
-
-  final Palette palette;
-
   late final WidgetBuilder _builder;
-
-  final bool isDark;
+  final VoidCallback? onPressed;
+  final Size? minimumSize;
+  final bool primary;
+  final Brightness brightness;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

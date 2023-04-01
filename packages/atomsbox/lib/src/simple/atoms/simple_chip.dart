@@ -1,43 +1,68 @@
 import 'package:flutter/material.dart';
 
-import 'config/simple_app_theme.dart';
 import 'config/simple_constants.dart';
-import 'config/simple_palettes.dart';
 import 'simple_text.dart';
 
 class SimpleChip extends StatelessWidget {
   const SimpleChip({
     super.key,
-    required this.label,
     this.onPressed,
+    required this.label,
     this.selected = false,
-    this.palette = Palette.primaryContainer,
+    this.brightness = Brightness.light,
+    this.primary = true,
   });
 
-  final String label;
   final VoidCallback? onPressed;
+  final String label;
   final bool selected;
-  final Palette palette;
+  final bool primary;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
-    final colors = getPalette(context, palette, true);
+    final colorScheme = Theme.of(context).colorScheme;
+    Color textColor, backgroundColor, selectedColor, outlineColor;
+
+    switch (brightness) {
+      case Brightness.dark:
+        textColor = selected ? Colors.white : Colors.black87;
+        if (primary) {
+          backgroundColor = colorScheme.primaryContainer;
+          selectedColor = colorScheme.onPrimaryContainer;
+          outlineColor = colorScheme.primaryContainer;
+        } else {
+          backgroundColor = colorScheme.secondaryContainer;
+          selectedColor = colorScheme.onSecondaryContainer;
+          outlineColor = colorScheme.secondaryContainer;
+        }
+        break;
+      case Brightness.light:
+        textColor = Colors.white;
+        backgroundColor = Colors.transparent;
+        if (primary) {
+          selectedColor = colorScheme.primaryContainer;
+          outlineColor = colorScheme.primaryContainer;
+        } else {
+          selectedColor = colorScheme.secondaryContainer;
+          outlineColor = colorScheme.secondaryContainer;
+        }
+        break;
+    }
 
     return RawChip(
       selected: selected,
       showCheckmark: false,
       onPressed: onPressed,
-      backgroundColor: colors['foreground'],
-      selectedColor: colors['background'],
+      backgroundColor: backgroundColor,
+      selectedColor: selectedColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
       ),
-      side: selected
-          ? BorderSide(color: colors['foreground'])
-          : BorderSide(color: colors['background']),
+      side: BorderSide(color: outlineColor),
       label: SimpleText(
         label,
-        color: selected ? colors['foreground'] : colors['background'],
+        color: textColor,
         textStyle: TextStyleEnum.bodySmall,
       ),
     );

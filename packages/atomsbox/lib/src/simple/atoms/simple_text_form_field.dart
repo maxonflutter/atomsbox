@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'config/simple_app_theme.dart';
 import 'config/simple_constants.dart';
-import 'config/simple_palettes.dart';
 
 typedef InputDecorationBuilder = InputDecoration Function(BuildContext context);
 
@@ -14,28 +12,43 @@ class SimpleTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
-    this.isDark = false,
-    this.palette = Palette.primaryContainer,
+    this.primary = true,
+    this.brightness = Brightness.light,
   }) {
     _builder = (context) {
-      final colors = getPalette(context, palette, isDark);
-      final fontColor =
-          ThemeData.estimateBrightnessForColor(colors['foreground']) ==
-                  Brightness.light
-              ? Colors.black87
-              : Colors.white;
+      final colorScheme = Theme.of(context).colorScheme;
+      Color backgroundColor, fontColor;
+
+      switch (brightness) {
+        case Brightness.dark:
+          fontColor = Colors.white;
+          if (primary) {
+            backgroundColor = colorScheme.onPrimary;
+          } else {
+            backgroundColor = colorScheme.onSecondary;
+          }
+          break;
+        case Brightness.light:
+          fontColor = Colors.black87;
+          if (primary) {
+            backgroundColor = colorScheme.primary;
+          } else {
+            backgroundColor = colorScheme.secondary;
+          }
+          break;
+      }
 
       return InputDecoration(
         labelText: labelText,
         labelStyle:
             Theme.of(context).textTheme.bodyMedium!.copyWith(color: fontColor),
         border: UnderlineInputBorder(
-          borderSide: BorderSide(color: colors['background']),
+          borderSide: BorderSide(color: backgroundColor),
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         ),
         focusedBorder: UnderlineInputBorder(
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          borderSide: BorderSide(color: colors['background']),
+          borderSide: BorderSide(color: backgroundColor),
         ),
       );
     };
@@ -48,28 +61,43 @@ class SimpleTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
-    this.isDark = false,
-    this.palette = Palette.primaryContainer,
+    this.primary = true,
+    this.brightness = Brightness.light,
   }) {
     _builder = (context) {
-      final colors = getPalette(context, palette, isDark);
-      final fontColor =
-          ThemeData.estimateBrightnessForColor(colors['foreground']) ==
-                  Brightness.light
-              ? Colors.black87
-              : Colors.white;
+      final colorScheme = Theme.of(context).colorScheme;
+      Color backgroundColor, fontColor;
+
+      switch (brightness) {
+        case Brightness.dark:
+          fontColor = Colors.white;
+          if (primary) {
+            backgroundColor = colorScheme.onPrimary;
+          } else {
+            backgroundColor = colorScheme.onSecondary;
+          }
+          break;
+        case Brightness.light:
+          fontColor = Colors.black87;
+          if (primary) {
+            backgroundColor = colorScheme.primary;
+          } else {
+            backgroundColor = colorScheme.secondary;
+          }
+          break;
+      }
 
       return InputDecoration(
         labelText: labelText,
         labelStyle:
             Theme.of(context).textTheme.bodyMedium!.copyWith(color: fontColor),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: colors['background']),
+          borderSide: BorderSide(color: backgroundColor),
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          borderSide: BorderSide(color: colors['background']),
+          borderSide: BorderSide(color: backgroundColor),
         ),
       );
     };
@@ -82,16 +110,31 @@ class SimpleTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
-    this.isDark = false,
-    this.palette = Palette.primaryContainer,
+    this.primary = true,
+    this.brightness = Brightness.light,
   }) {
     _builder = (context) {
-      final fontColor = ThemeData.estimateBrightnessForColor(
-                  Theme.of(context).colorScheme.surface) ==
-              Brightness.light
-          ? Colors.black87
-          : Colors.white;
+      final colorScheme = Theme.of(context).colorScheme;
+      Color backgroundColor, fontColor;
 
+      switch (brightness) {
+        case Brightness.dark:
+          fontColor = Colors.white;
+          if (primary) {
+            backgroundColor = colorScheme.onPrimary;
+          } else {
+            backgroundColor = colorScheme.onSecondary;
+          }
+          break;
+        case Brightness.light:
+          fontColor = Colors.black87;
+          if (primary) {
+            backgroundColor = colorScheme.primary;
+          } else {
+            backgroundColor = colorScheme.secondary;
+          }
+          break;
+      }
       return InputDecoration(
         filled: true,
         fillColor: Theme.of(context).colorScheme.surface,
@@ -114,14 +157,14 @@ class SimpleTextFormField extends StatelessWidget {
     };
   }
 
-  final Palette palette;
-  final bool isDark;
+  late final InputDecorationBuilder _builder;
   final String? initialValue;
   final String? labelText;
   final bool obscureText;
   final Function(String)? onChanged;
   final VoidCallback? onEditingComplete;
-  late final InputDecorationBuilder _builder;
+  final bool primary;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
@@ -129,6 +172,11 @@ class SimpleTextFormField extends StatelessWidget {
 
     return TextFormField(
       initialValue: initialValue,
+      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+            color: (brightness == Brightness.light)
+                ? Colors.black87
+                : Colors.white,
+          ),
       obscureText: obscureText,
       onChanged: onChanged,
       onEditingComplete: onEditingComplete,

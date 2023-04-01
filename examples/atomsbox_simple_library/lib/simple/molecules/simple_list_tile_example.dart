@@ -2,17 +2,45 @@
 // import 'package:flutter/material.dart';
 
 // class SimpleListTileExample extends StatelessWidget {
-//   const SimpleListTileExample({super.key});
+//   const SimpleListTileExample({
+//     super.key,
+//     this.darkMode = false,
+//   });
+
+//   final bool darkMode;
 
 //   @override
 //   Widget build(BuildContext context) {
+//     List<Palette> palettes;
+//     final color =
+//         darkMode ? Theme.of(context).colorScheme.primary : Colors.white;
+
+//     if (darkMode == false) {
+//       palettes = [
+//         Palette.primary,
+//         Palette.primaryContainer,
+//         Palette.secondary,
+//         Palette.secondaryContainer,
+//       ];
+//     } else {
+//       palettes = [
+//         Palette.primaryDark,
+//         Palette.primaryContainerDark,
+//         Palette.secondaryDark,
+//         Palette.secondaryContainerDark,
+//       ];
+//     }
+
 //     return Column(
 //       crossAxisAlignment: CrossAxisAlignment.start,
 //       children: [
-//         const SimpleText(
+//         SimpleText(
 //           'These are SimpleListTile widgets',
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
+//           color: ThemeData.estimateBrightnessForColor(color) == Brightness.light
+//               ? Colors.black87
+//               : Colors.white,
 //         ),
 //         const SizedBox(height: SimpleConstants.sm),
 //         SimpleListTile(
@@ -52,7 +80,7 @@
 //                   );
 //                 },
 //                 icon: Icons.add,
-//                 colorPalette: ColorPalette.primary,
+//                 palette: Palette.primary,
 //               ),
 //             ],
 //           ),
@@ -74,11 +102,11 @@
 //               SimpleIconButton(
 //                 onPressed: () {},
 //                 icon: Icons.add,
-//                 colorPalette: ColorPalette.primary,
+//                 palette: Palette.primary,
 //               ),
 //             ],
 //           ),
-//           colorPalette: ColorPalette.primaryContainer,
+//           palette: Palette.primaryContainer,
 //         ),
 //         const SizedBox(height: SimpleConstants.sm),
 //         SimpleListTile(
@@ -97,11 +125,11 @@
 //               SimpleIconButton(
 //                 onPressed: () {},
 //                 icon: Icons.add,
-//                 colorPalette: ColorPalette.secondary,
+//                 palette: Palette.secondary,
 //               ),
 //             ],
 //           ),
-//           colorPalette: ColorPalette.secondaryContainer,
+//           palette: Palette.secondaryContainer,
 //         ),
 //         const SizedBox(height: SimpleConstants.lg),
 //       ],
