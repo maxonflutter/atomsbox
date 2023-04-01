@@ -19,17 +19,26 @@ import 'config/simple_constants.dart';
 /// * [Image], a lower-level widget for displaying images.
 ///
 class SimpleImage extends StatelessWidget {
-  const SimpleImage({
+  SimpleImage(
+    String imageUrl, {
     super.key,
-    required this.imageUrl,
     this.fit = BoxFit.cover,
     this.height,
     this.width,
     this.child,
-  });
+  }) : image = Image.network(imageUrl);
+
+  SimpleImage.asset(
+    String assetPath, {
+    super.key,
+    this.fit = BoxFit.cover,
+    this.height,
+    this.width,
+    this.child,
+  }) : image = Image.asset(assetPath);
 
   /// The URL of the image to be displayed.
-  final String imageUrl;
+  final Image image;
 
   /// How to inscribe the image into the space allocated during layout.
   ///
@@ -61,7 +70,7 @@ class SimpleImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: NetworkImage(imageUrl),
+          image: image.image,
           onError: (exception, stackTrace) {
             debugPrint('Error loading image: $exception');
           },

@@ -48,7 +48,7 @@ class SimpleCard extends StatelessWidget {
     var _chip;
 
     _image = SimpleImage(
-      imageUrl: imageUrl,
+      imageUrl,
       width: width,
       height: 150,
     );
