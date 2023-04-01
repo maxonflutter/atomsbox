@@ -6,11 +6,11 @@ class _Molecules extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> examples = const [
-      // SimpleFormExample(darkMode: false),
+      SimpleFormExample(darkMode: false),
       // SimpleListTileExample(darkMode: false),
-      // SimpleToggleButtonsExample(darkMode: false),
-      // SimpleAccordionExample(darkMode: false),
-      // SimpleCardExample(darkMode: false),
+      SimpleToggleButtonsExample(darkMode: false),
+      SimpleAccordionExample(darkMode: false),
+      SimpleCardExample(darkMode: false),
     ];
     return ListView.separated(
       shrinkWrap: true,
@@ -33,11 +33,11 @@ class _MoleculesDark extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> examples = const [
-      // SimpleFormExample(darkMode: true),
+      SimpleFormExample(darkMode: true),
       // SimpleListTileExample(darkMode: true),
-      // SimpleToggleButtonsExample(darkMode: true),
-      // SimpleAccordionExample(darkMode: true),
-      // SimpleCardExample(darkMode: true),
+      SimpleToggleButtonsExample(darkMode: true),
+      SimpleAccordionExample(darkMode: true),
+      SimpleCardExample(darkMode: true),
     ];
     return ListView.separated(
       shrinkWrap: true,

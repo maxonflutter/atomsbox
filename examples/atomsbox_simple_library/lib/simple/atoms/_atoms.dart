@@ -13,8 +13,8 @@ class _Atoms extends StatelessWidget {
       SimpleIconButtonExample(darkMode: false),
       SimpleTextFormFieldExample(darkMode: false),
       SimpleSliderExample(darkMode: false),
-      // SimpleImageExample(),
-      // SimpleGradientContainerExample(),
+      SimpleImageExample(),
+      SimpleGradientContainerExample(),
     ];
     return ListView.separated(
       shrinkWrap: true,

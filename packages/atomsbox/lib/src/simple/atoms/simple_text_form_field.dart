@@ -42,7 +42,7 @@ class SimpleTextFormField extends StatelessWidget {
         labelText: labelText,
         labelStyle:
             Theme.of(context).textTheme.bodyMedium!.copyWith(color: fontColor),
-        border: UnderlineInputBorder(
+        enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: backgroundColor),
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         ),
