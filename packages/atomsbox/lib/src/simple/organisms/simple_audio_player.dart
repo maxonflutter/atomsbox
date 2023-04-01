@@ -69,12 +69,13 @@ class SimpleAudioPlayer extends StatelessWidget {
 
     _name = SimpleText(
       name,
-      textStyle: dense ? TextStyleEnum.bodyLarge : TextStyleEnum.headlineSmall,
+      textStyle:
+          dense ? SimpleTextStyle.bodyLarge : SimpleTextStyle.headlineSmall,
     );
 
     _description = SimpleText(
       description,
-      textStyle: dense ? TextStyleEnum.bodySmall : TextStyleEnum.bodyMedium,
+      textStyle: dense ? SimpleTextStyle.bodySmall : SimpleTextStyle.bodyMedium,
     );
 
     _image = SimpleImage(

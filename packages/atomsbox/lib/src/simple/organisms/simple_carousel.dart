@@ -65,7 +65,7 @@ class SimpleCarousel extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: SimpleText(
                   title!,
-                  textStyle: TextStyleEnum.headlineSmall,
+                  textStyle: SimpleTextStyle.headlineSmall,
                 ),
               )
             : const SizedBox(),

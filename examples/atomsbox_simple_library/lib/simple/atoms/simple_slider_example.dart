@@ -23,7 +23,7 @@ class _SimpleSliderExampleState extends State<SimpleSliderExample> {
       children: [
         SimpleText(
           'These are SimpleSlider widgets',
-          textStyle: TextStyleEnum.titleMedium,
+          textStyle: SimpleTextStyle.titleMedium,
           fontWeight: FontWeight.bold,
           color: widget.darkMode ? Colors.white : Colors.black87,
         ),

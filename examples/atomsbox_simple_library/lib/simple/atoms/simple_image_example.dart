@@ -13,7 +13,7 @@ class SimpleImageExample extends StatelessWidget {
       children: [
         SimpleText(
           'This is a SimpleImage',
-          textStyle: TextStyleEnum.titleMedium,
+          textStyle: SimpleTextStyle.titleMedium,
           fontWeight: FontWeight.bold,
         ),
         SizedBox(height: SimpleConstants.sm),

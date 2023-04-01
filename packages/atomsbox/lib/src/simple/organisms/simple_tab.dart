@@ -186,7 +186,7 @@ class _SimpleTabBarItem extends StatelessWidget {
               SimpleText(
                 text,
                 color: isSelected ? selectedTextColor : textColor,
-                textStyle: TextStyleEnum.bodyMedium,
+                textStyle: SimpleTextStyle.bodyMedium,
               ),
             ],
           )),

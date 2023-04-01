@@ -16,7 +16,7 @@ class SimpleButtonExample extends StatelessWidget {
       children: [
         SimpleText(
           'These are SimpleButton widgets',
-          textStyle: TextStyleEnum.titleMedium,
+          textStyle: SimpleTextStyle.titleMedium,
           fontWeight: FontWeight.bold,
           color: darkMode ? Colors.white : Colors.black87,
         ),

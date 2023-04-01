@@ -38,7 +38,7 @@ class SimplePreviewScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: SimpleText(
           'simple',
-          textStyle: TextStyleEnum.headlineMedium,
+          textStyle: SimpleTextStyle.headlineMedium,
         ),
         actions: [
           SimpleIconButton(
@@ -88,7 +88,7 @@ class SimplePreviewDarkScreen extends StatelessWidget {
         title: SimpleText(
           'simple',
           color: Theme.of(context).colorScheme.onPrimary,
-          textStyle: TextStyleEnum.headlineMedium,
+          textStyle: SimpleTextStyle.headlineMedium,
         ),
         actions: [
           SimpleIconButton(

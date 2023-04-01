@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'config/simple_app_breakpoints.dart';
 
-enum TextStyleEnum {
+enum SimpleTextStyle {
   displayLarge,
   displayMedium,
   displaySmall,
@@ -20,7 +20,6 @@ enum TextStyleEnum {
 class SimpleText extends Text {
   const SimpleText(
     super.data, {
-    this.text,
     this.textStyle,
     this.textAlign,
     this.maxLines,
@@ -33,11 +32,7 @@ class SimpleText extends Text {
     this.textGradient = false,
   });
 
-  /// The text to display.
-  final String? text;
-
-  /// The text style to use. If not specified, it uses the default text style from the nearest [Theme] ancestor.
-  final TextStyleEnum? textStyle;
+  final SimpleTextStyle? textStyle;
 
   /// How the text should be aligned horizontally.
   final TextAlign? textAlign;
@@ -100,7 +95,7 @@ class SimpleText extends Text {
 
   _buildStyle(BuildContext context) {
     switch (textStyle) {
-      case TextStyleEnum.displayLarge:
+      case SimpleTextStyle.displayLarge:
         return Theme.of(context).textTheme.displayLarge!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -108,7 +103,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.displayMedium:
+      case SimpleTextStyle.displayMedium:
         return Theme.of(context).textTheme.displayMedium!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -116,7 +111,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.displaySmall:
+      case SimpleTextStyle.displaySmall:
         return Theme.of(context).textTheme.displaySmall!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -124,7 +119,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.headlineLarge:
+      case SimpleTextStyle.headlineLarge:
         return Theme.of(context).textTheme.headlineLarge!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -132,7 +127,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.headlineMedium:
+      case SimpleTextStyle.headlineMedium:
         return Theme.of(context).textTheme.headlineMedium!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -140,7 +135,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.headlineSmall:
+      case SimpleTextStyle.headlineSmall:
         return Theme.of(context).textTheme.headlineSmall!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -148,7 +143,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.titleLarge:
+      case SimpleTextStyle.titleLarge:
         return Theme.of(context).textTheme.titleLarge!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -156,7 +151,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.titleMedium:
+      case SimpleTextStyle.titleMedium:
         return Theme.of(context).textTheme.titleMedium!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -164,7 +159,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.titleSmall:
+      case SimpleTextStyle.titleSmall:
         return Theme.of(context).textTheme.titleSmall!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -172,7 +167,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.bodyLarge:
+      case SimpleTextStyle.bodyLarge:
         return Theme.of(context).textTheme.bodyLarge!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -180,7 +175,7 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-      case TextStyleEnum.bodyMedium:
+      case SimpleTextStyle.bodyMedium:
         return Theme.of(context).textTheme.bodyMedium!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -189,7 +184,7 @@ class SimpleText extends Text {
               height: height,
             );
 
-      case TextStyleEnum.bodySmall:
+      case SimpleTextStyle.bodySmall:
         return Theme.of(context).textTheme.bodySmall!.copyWith(
               color: color,
               fontSize: fontSize,
@@ -200,13 +195,6 @@ class SimpleText extends Text {
 
       default:
         return null;
-        Theme.of(context).textTheme.bodyMedium!.copyWith(
-              color: color,
-              fontSize: fontSize,
-              fontWeight: fontWeight,
-              letterSpacing: letterSpacing,
-              height: height,
-            );
     }
   }
 }

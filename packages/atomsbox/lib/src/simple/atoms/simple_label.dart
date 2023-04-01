@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'config/simple_app_theme.dart';
 import 'config/simple_constants.dart';
-import 'config/simple_palettes.dart';
 import 'simple_text.dart';
 
 class SimpleLabel extends StatelessWidget {
@@ -66,7 +64,7 @@ class SimpleLabel extends StatelessWidget {
                     Brightness.light
                 ? Colors.black87
                 : Colors.white,
-            textStyle: TextStyleEnum.bodyMedium,
+            textStyle: SimpleTextStyle.bodyMedium,
           ),
         ],
       ),

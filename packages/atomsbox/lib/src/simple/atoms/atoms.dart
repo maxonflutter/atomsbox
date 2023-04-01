@@ -1,6 +1,5 @@
 export 'config/simple_app_theme.dart';
 export 'config/simple_constants.dart';
-export 'config/simple_palettes.dart';
 export 'extensions/date_time_extensions.dart';
 export 'extensions/duration_extensions.dart';
 export 'simple_button.dart';

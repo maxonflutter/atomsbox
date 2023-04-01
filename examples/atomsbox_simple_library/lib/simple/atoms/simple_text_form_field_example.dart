@@ -16,7 +16,7 @@ class SimpleTextFormFieldExample extends StatelessWidget {
       children: [
         SimpleText(
           'These are SimpleTextFormField widgets',
-          textStyle: TextStyleEnum.titleMedium,
+          textStyle: SimpleTextStyle.titleMedium,
           fontWeight: FontWeight.bold,
           color: darkMode ? Colors.white : Colors.black87,
         ),

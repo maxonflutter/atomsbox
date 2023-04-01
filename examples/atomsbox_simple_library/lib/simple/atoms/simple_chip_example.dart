@@ -24,7 +24,7 @@ class _SimpleChipExampleState extends State<SimpleChipExample> {
       children: [
         SimpleText(
           'These are SimpleChip widgets',
-          textStyle: TextStyleEnum.titleMedium,
+          textStyle: SimpleTextStyle.titleMedium,
           fontWeight: FontWeight.bold,
           color: widget.darkMode ? Colors.white : Colors.black87,
         ),

@@ -19,17 +19,17 @@ class SimpleTextExample extends StatelessWidget {
           children: [
             SimpleText(
               'SimpleText',
-              textStyle: TextStyleEnum.headlineLarge,
+              textStyle: SimpleTextStyle.headlineLarge,
               color: darkMode ? Colors.white : Colors.black87,
             ),
             SimpleText(
               'SimpleText',
-              textStyle: TextStyleEnum.headlineMedium,
+              textStyle: SimpleTextStyle.headlineMedium,
               color: darkMode ? Colors.white : Colors.black87,
             ),
             SimpleText(
               'SimpleText',
-              textStyle: TextStyleEnum.headlineSmall,
+              textStyle: SimpleTextStyle.headlineSmall,
               color: darkMode ? Colors.white : Colors.black87,
             ),
           ],
@@ -39,17 +39,17 @@ class SimpleTextExample extends StatelessWidget {
           children: [
             SimpleText(
               'This is a SimpleText',
-              textStyle: TextStyleEnum.bodyLarge,
+              textStyle: SimpleTextStyle.bodyLarge,
               color: darkMode ? Colors.white : Colors.black87,
             ),
             SimpleText(
               'This is a SimpleText',
-              textStyle: TextStyleEnum.bodyMedium,
+              textStyle: SimpleTextStyle.bodyMedium,
               color: darkMode ? Colors.white : Colors.black87,
             ),
             SimpleText(
               'This is a SimpleText',
-              textStyle: TextStyleEnum.bodySmall,
+              textStyle: SimpleTextStyle.bodySmall,
               color: darkMode ? Colors.white : Colors.black87,
             ),
           ],

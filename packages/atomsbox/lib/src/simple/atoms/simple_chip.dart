@@ -63,7 +63,7 @@ class SimpleChip extends StatelessWidget {
       label: SimpleText(
         label,
         color: textColor,
-        textStyle: TextStyleEnum.bodySmall,
+        textStyle: SimpleTextStyle.bodySmall,
       ),
     );
   }

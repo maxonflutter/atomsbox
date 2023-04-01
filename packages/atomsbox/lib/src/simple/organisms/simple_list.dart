@@ -75,7 +75,7 @@ class SimpleList extends StatelessWidget {
             ? [
                 SimpleText(
                   title!,
-                  textStyle: TextStyleEnum.headlineSmall,
+                  textStyle: SimpleTextStyle.headlineSmall,
                 ),
                 const SizedBox(height: 8.0)
               ]

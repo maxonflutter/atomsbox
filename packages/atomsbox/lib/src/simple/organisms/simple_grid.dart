@@ -61,7 +61,7 @@ class SimpleGrid extends StatelessWidget {
             ? [
                 SimpleText(
                   title!,
-                  textStyle: TextStyleEnum.headlineSmall,
+                  textStyle: SimpleTextStyle.headlineSmall,
                 ),
                 const SizedBox(height: SimpleConstants.sm)
               ]
