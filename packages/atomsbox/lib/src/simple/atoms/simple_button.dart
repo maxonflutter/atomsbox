@@ -10,6 +10,8 @@ typedef ButtonBuilder = Widget Function(BuildContext context);
 class SimpleButton extends StatelessWidget {
   SimpleButton.elevated({
     super.key,
+    this.onPressed,
+    this.minimumSize,
     this.themeData,
     this.primary = true,
     required this.child,
@@ -17,19 +19,20 @@ class SimpleButton extends StatelessWidget {
     builder = (context) {
       if (themeData == null) {
         return ElevatedButton(
-          style: primary
-              ? null
-              : ElevatedButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.secondary,
-                ),
-          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            minimumSize: minimumSize,
+            foregroundColor:
+                primary ? null : Theme.of(context).colorScheme.secondary,
+          ),
+          onPressed: onPressed,
           child: child,
         );
       } else {
         return ElevatedButtonTheme(
           data: themeData!.elevatedButtonTheme,
           child: ElevatedButton(
-            onPressed: () {},
+            style: ElevatedButton.styleFrom(minimumSize: minimumSize),
+            onPressed: onPressed,
             child: child,
           ),
         );
@@ -39,6 +42,8 @@ class SimpleButton extends StatelessWidget {
 
   SimpleButton.text({
     super.key,
+    this.onPressed,
+    this.minimumSize,
     this.themeData,
     this.primary = true,
     required this.child,
@@ -46,19 +51,20 @@ class SimpleButton extends StatelessWidget {
     builder = (context) {
       if (themeData == null) {
         return TextButton(
-          style: primary
-              ? null
-              : TextButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.secondary,
-                ),
-          onPressed: () {},
+          style: TextButton.styleFrom(
+            minimumSize: minimumSize,
+            foregroundColor:
+                primary ? null : Theme.of(context).colorScheme.secondary,
+          ),
+          onPressed: onPressed,
           child: child,
         );
       } else {
         return TextButtonTheme(
           data: themeData!.textButtonTheme,
           child: TextButton(
-            onPressed: () {},
+            style: TextButton.styleFrom(minimumSize: minimumSize),
+            onPressed: onPressed,
             child: child,
           ),
         );
@@ -68,6 +74,8 @@ class SimpleButton extends StatelessWidget {
 
   SimpleButton.outline({
     super.key,
+    this.onPressed,
+    this.minimumSize,
     this.themeData,
     this.primary = true,
     required this.child,
@@ -75,21 +83,25 @@ class SimpleButton extends StatelessWidget {
     builder = (context) {
       if (themeData == null) {
         return OutlinedButton(
-          style: primary
-              ? null
-              : OutlinedButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.secondary,
-                  side: BorderSide(
-                      color: Theme.of(context).colorScheme.secondary),
-                ),
-          onPressed: () {},
+          style: OutlinedButton.styleFrom(
+            minimumSize: minimumSize,
+            foregroundColor:
+                primary ? null : Theme.of(context).colorScheme.secondary,
+            side: primary
+                ? null
+                : BorderSide(color: Theme.of(context).colorScheme.secondary),
+          ),
+          onPressed: onPressed,
           child: child,
         );
       } else {
         return OutlinedButtonTheme(
           data: themeData!.outlinedButtonTheme,
           child: OutlinedButton(
-            onPressed: () {},
+            style: OutlinedButton.styleFrom(
+              minimumSize: minimumSize,
+            ),
+            onPressed: onPressed,
             child: child,
           ),
         );
@@ -97,36 +109,9 @@ class SimpleButton extends StatelessWidget {
     };
   }
 
-  SimpleButton.icon({
-    super.key,
-    this.themeData,
-    this.primary = true,
-    required this.child,
-  }) {
-    builder = (context) {
-      if (themeData == null) {
-        return IconButton(
-          style: primary
-              ? null
-              : IconButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                ),
-          onPressed: () {},
-          icon: child,
-        );
-      } else {
-        return IconButtonTheme(
-          data: themeData!.iconButtonTheme,
-          child: IconButton(
-            onPressed: () {},
-            icon: child,
-          ),
-        );
-      }
-    };
-  }
-
   late ButtonBuilder builder;
+  final Function()? onPressed;
+  final Size? minimumSize;
   final ThemeData? themeData;
   final bool primary;
   final Widget child;
@@ -183,6 +168,21 @@ final simpleTextButtonThemeLight = TextButtonThemeData(
   ),
 );
 
+final simpleTextButtonThemeDark = TextButtonThemeData(
+  style: TextButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    ),
+    minimumSize: const Size(100, 45),
+    foregroundColor: simpleColorSchemeDark.primary,
+    backgroundColor: Colors.transparent,
+    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    shadowColor: simpleColorSchemeDark.shadow,
+    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
+  ),
+);
+
 final simpleOutlinedButtonThemeDark = OutlinedButtonThemeData(
   style: OutlinedButton.styleFrom(
     shape: RoundedRectangleBorder(
@@ -213,42 +213,5 @@ final simpleOutlinedButtonThemeLight = OutlinedButtonThemeData(
     disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
     shadowColor: null,
     surfaceTintColor: null,
-  ),
-);
-
-final simpleTextButtonThemeDark = TextButtonThemeData(
-  style: TextButton.styleFrom(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-    ),
-    minimumSize: const Size(100, 45),
-    foregroundColor: simpleColorSchemeDark.primary,
-    backgroundColor: Colors.transparent,
-    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeDark.shadow,
-    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
-  ),
-);
-
-final simpleIconButtonThemeLight = IconButtonThemeData(
-  style: IconButton.styleFrom(
-    foregroundColor: simpleColorSchemeLight.surface,
-    backgroundColor: simpleColorSchemeLight.primary,
-    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeLight.shadow,
-    surfaceTintColor: simpleColorSchemeLight.surfaceTint,
-  ),
-);
-
-final simpleIconButtonThemeDark = IconButtonThemeData(
-  style: IconButton.styleFrom(
-    foregroundColor: simpleColorSchemeDark.surface,
-    backgroundColor: simpleColorSchemeDark.primary,
-    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeDark.shadow,
-    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
   ),
 );

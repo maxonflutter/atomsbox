@@ -93,7 +93,7 @@ class _Molecules extends StatelessWidget {
             title: const SimpleText('This is an expansion tile'),
             children: [
               const SimpleText(sampleText),
-              SimpleButton.icon(child: Icon(Icons.abc_outlined)),
+              SimpleIconButton(child: Icon(Icons.abc_outlined)),
               SimpleButton.elevated(
                 child: Text('Button'),
               )

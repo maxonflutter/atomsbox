@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../molecules/simple_card.dart';
 import '../../molecules/simple_expansion_tile.dart';
 import '../../molecules/simple_list_tile.dart';
+import '../simple_icon_button.dart';
 import '../simple_label.dart';
 import '../simple_slider.dart';
 import '../simple_button.dart';

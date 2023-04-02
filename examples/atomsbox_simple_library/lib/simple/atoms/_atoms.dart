@@ -33,7 +33,7 @@ class _Atoms extends StatelessWidget {
               SimpleButton.outline(
                 child: const Text('Outlined '),
               ),
-              SimpleButton.icon(child: const Icon(Icons.offline_bolt)),
+              SimpleIconButton(child: const Icon(Icons.offline_bolt)),
             ],
           ),
           const SizedBox(height: SimpleConstants.xlg),
@@ -52,7 +52,7 @@ class _Atoms extends StatelessWidget {
                 primary: false,
                 child: const Text('Outlined '),
               ),
-              SimpleButton.icon(
+              SimpleIconButton(
                 primary: false,
                 child: const Icon(
                   Icons.offline_bolt,
