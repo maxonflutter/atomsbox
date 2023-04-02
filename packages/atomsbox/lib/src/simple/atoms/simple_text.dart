@@ -12,6 +12,9 @@ enum SimpleTextStyle {
   titleLarge,
   titleMedium,
   titleSmall,
+  labelLarge,
+  labelMedium,
+  labelSmall,
   bodyLarge,
   bodyMedium,
   bodySmall,
@@ -21,43 +24,28 @@ class SimpleText extends Text {
   const SimpleText(
     super.data, {
     this.textStyle,
-    this.textAlign,
-    this.maxLines,
     this.color,
     this.height,
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
+    this.textAlign,
+    this.maxLines,
     this.overflow,
+    this.textScale = false,
     this.textGradient = false,
   });
 
   final SimpleTextStyle? textStyle;
-
-  /// How the text should be aligned horizontally.
-  final TextAlign? textAlign;
-
-  /// The maximum number of lines to display.
-  final int? maxLines;
-
-  /// The color to use when painting the text.
   final Color? color;
-
-  /// The line height of the text. If null, will be calculated automatically based on the font size.
   final double? height;
-
-  /// The font size to use when painting the text.
   final double? fontSize;
-
-  /// The weight of the font to use when painting the text.
   final FontWeight? fontWeight;
-
-  /// The amount of space to add between each letter.
   final double? letterSpacing;
-
-  /// How to handle text overflow.
+  final TextAlign? textAlign;
+  final int? maxLines;
   final TextOverflow? overflow;
-
+  final bool textScale;
   final bool textGradient;
 
   @override
@@ -167,6 +155,30 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
+      case SimpleTextStyle.labelLarge:
+        return Theme.of(context).textTheme.labelLarge!.copyWith(
+              color: color,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              letterSpacing: letterSpacing,
+              height: height,
+            );
+      case SimpleTextStyle.labelMedium:
+        return Theme.of(context).textTheme.labelMedium!.copyWith(
+              color: color,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              letterSpacing: letterSpacing,
+              height: height,
+            );
+      case SimpleTextStyle.labelSmall:
+        return Theme.of(context).textTheme.labelSmall!.copyWith(
+              color: color,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              letterSpacing: letterSpacing,
+              height: height,
+            );
       case SimpleTextStyle.bodyLarge:
         return Theme.of(context).textTheme.bodyLarge!.copyWith(
               color: color,
@@ -183,7 +195,6 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-
       case SimpleTextStyle.bodySmall:
         return Theme.of(context).textTheme.bodySmall!.copyWith(
               color: color,
@@ -192,7 +203,6 @@ class SimpleText extends Text {
               letterSpacing: letterSpacing,
               height: height,
             );
-
       default:
         return null;
     }

@@ -12,6 +12,7 @@ environment:
 dependencies:
   audio_service: ^0.18.9
   carousel_slider: ^4.2.1
+  flex_seed_scheme: ^1.2.3
   flutter:
     sdk: flutter
   google_fonts: ^4.0.3

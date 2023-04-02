@@ -1,184 +1,254 @@
+import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
+import 'config/simple_color_scheme.dart';
 import 'config/simple_constants.dart';
+import 'config/simple_text_theme.dart';
+
+typedef ButtonBuilder = Widget Function(BuildContext context);
 
 class SimpleButton extends StatelessWidget {
-  SimpleButton({
+  SimpleButton.elevated({
     super.key,
-    required this.onPressed,
-    this.minimumSize = const Size(150.0, 45.0),
+    this.themeData,
     this.primary = true,
-    this.brightness = Brightness.light,
     required this.child,
   }) {
-    _builder = (context) {
-      final colorScheme = Theme.of(context).colorScheme;
-      final textTheme = Theme.of(context).textTheme;
-      Color backgroundColor, foregroundColor, textColor;
-
-      switch (brightness) {
-        case Brightness.dark:
-          textColor = Colors.black87;
-          if (primary) {
-            backgroundColor = colorScheme.onPrimary;
-            foregroundColor = colorScheme.primary;
-          } else {
-            backgroundColor = colorScheme.onSecondary;
-            foregroundColor = colorScheme.secondary;
-          }
-          break;
-        case Brightness.light:
-          textColor = Colors.white;
-          if (primary) {
-            backgroundColor = colorScheme.primary;
-            foregroundColor = colorScheme.onPrimary;
-          } else {
-            backgroundColor = colorScheme.secondary;
-            foregroundColor = colorScheme.onSecondary;
-          }
-          break;
-      }
-
-      return ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          elevation: 0.0,
-          minimumSize: minimumSize,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          ),
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          disabledBackgroundColor: colorScheme.surface.withOpacity(0.12),
-          disabledForegroundColor: colorScheme.surface.withOpacity(0.38),
-        ),
-        child: DefaultTextStyle(
-          style: textTheme.bodyLarge!.copyWith(color: textColor),
+    builder = (context) {
+      if (themeData == null) {
+        return ElevatedButton(
+          style: primary
+              ? null
+              : ElevatedButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.secondary,
+                ),
+          onPressed: () {},
           child: child,
-        ),
-      );
-    };
-  }
-
-  SimpleButton.outline({
-    super.key,
-    required this.onPressed,
-    this.minimumSize = const Size(150.0, 45.0),
-    this.primary = true,
-    this.brightness = Brightness.light,
-    required this.child,
-  }) {
-    _builder = (context) {
-      final colorScheme = Theme.of(context).colorScheme;
-      final textTheme = Theme.of(context).textTheme;
-      Color foregroundColor, textColor;
-
-      switch (brightness) {
-        case Brightness.dark:
-          textColor = Colors.white;
-          if (primary) {
-            foregroundColor = colorScheme.onPrimary;
-          } else {
-            foregroundColor = colorScheme.onSecondary;
-          }
-          break;
-        case Brightness.light:
-          textColor = Colors.black87;
-          if (primary) {
-            foregroundColor = colorScheme.primary;
-          } else {
-            foregroundColor = colorScheme.secondary;
-          }
-          break;
-      }
-
-      return OutlinedButton(
-        onPressed: onPressed,
-        style: ButtonStyle(
-          overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
-            if (states.contains(MaterialState.pressed)) {
-              return foregroundColor.withOpacity(0.3);
-            }
-            return Colors.transparent;
-          }),
-          minimumSize: MaterialStateProperty.all(minimumSize),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-            ),
+        );
+      } else {
+        return ElevatedButtonTheme(
+          data: themeData!.elevatedButtonTheme,
+          child: ElevatedButton(
+            onPressed: () {},
+            child: child,
           ),
-          side: MaterialStateProperty.all(BorderSide(color: foregroundColor)),
-        ),
-        child: DefaultTextStyle(
-          style: textTheme.bodyLarge!.copyWith(color: textColor),
-          child: child,
-        ),
-      );
+        );
+      }
     };
   }
 
   SimpleButton.text({
     super.key,
-    required this.onPressed,
-    this.minimumSize = const Size(150.0, 45.0),
+    this.themeData,
     this.primary = true,
-    this.brightness = Brightness.light,
     required this.child,
   }) {
-    _builder = (context) {
-      final colorScheme = Theme.of(context).colorScheme;
-      final textTheme = Theme.of(context).textTheme;
-      Color foregroundColor, textColor;
-
-      switch (brightness) {
-        case Brightness.dark:
-          textColor = Colors.white;
-          if (primary) {
-            foregroundColor = colorScheme.onPrimary;
-          } else {
-            foregroundColor = colorScheme.onSecondary;
-          }
-          break;
-        case Brightness.light:
-          textColor = Colors.black87;
-          if (primary) {
-            foregroundColor = colorScheme.primary;
-          } else {
-            foregroundColor = colorScheme.secondary;
-          }
-          break;
-      }
-
-      return TextButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          elevation: 0.0,
-          minimumSize: minimumSize,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          ),
-          foregroundColor: foregroundColor,
-          disabledBackgroundColor: colorScheme.surface.withOpacity(0.12),
-          disabledForegroundColor: colorScheme.surface.withOpacity(0.38),
-        ),
-        child: DefaultTextStyle(
-          style: textTheme.bodyLarge!.copyWith(color: textColor),
+    builder = (context) {
+      if (themeData == null) {
+        return TextButton(
+          style: primary
+              ? null
+              : TextButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.secondary,
+                ),
+          onPressed: () {},
           child: child,
-        ),
-      );
+        );
+      } else {
+        return TextButtonTheme(
+          data: themeData!.textButtonTheme,
+          child: TextButton(
+            onPressed: () {},
+            child: child,
+          ),
+        );
+      }
     };
   }
 
-  late final WidgetBuilder _builder;
-  final VoidCallback? onPressed;
-  final Size? minimumSize;
+  SimpleButton.outline({
+    super.key,
+    this.themeData,
+    this.primary = true,
+    required this.child,
+  }) {
+    builder = (context) {
+      if (themeData == null) {
+        return OutlinedButton(
+          style: primary
+              ? null
+              : OutlinedButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.secondary,
+                  side: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary),
+                ),
+          onPressed: () {},
+          child: child,
+        );
+      } else {
+        return OutlinedButtonTheme(
+          data: themeData!.outlinedButtonTheme,
+          child: OutlinedButton(
+            onPressed: () {},
+            child: child,
+          ),
+        );
+      }
+    };
+  }
+
+  SimpleButton.icon({
+    super.key,
+    this.themeData,
+    this.primary = true,
+    required this.child,
+  }) {
+    builder = (context) {
+      if (themeData == null) {
+        return IconButton(
+          style: primary
+              ? null
+              : IconButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                ),
+          onPressed: () {},
+          icon: child,
+        );
+      } else {
+        return IconButtonTheme(
+          data: themeData!.iconButtonTheme,
+          child: IconButton(
+            onPressed: () {},
+            icon: child,
+          ),
+        );
+      }
+    };
+  }
+
+  late ButtonBuilder builder;
+  final ThemeData? themeData;
   final bool primary;
-  final Brightness brightness;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    Widget button = _builder.call(context);
+    Widget button = builder.call(context);
     return button;
   }
 }
+
+final simpleElevatedButtonThemeLight = ElevatedButtonThemeData(
+  style: ElevatedButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    ),
+    minimumSize: const Size(100, 45),
+    foregroundColor: simpleColorSchemeLight.primary,
+    backgroundColor: simpleColorSchemeLight.surface,
+    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
+    shadowColor: simpleColorSchemeLight.shadow,
+    surfaceTintColor: simpleColorSchemeLight.surfaceTint,
+  ),
+);
+
+final simpleElevatedButtonThemeDark = ElevatedButtonThemeData(
+  style: ElevatedButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    ),
+    minimumSize: const Size(100, 45),
+    foregroundColor: simpleColorSchemeDark.primary,
+    backgroundColor: simpleColorSchemeDark.surface,
+    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    shadowColor: simpleColorSchemeDark.shadow,
+    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
+  ),
+);
+
+final simpleTextButtonThemeLight = TextButtonThemeData(
+  style: TextButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    ),
+    minimumSize: const Size(100, 45),
+    foregroundColor: simpleColorSchemeLight.primary,
+    backgroundColor: Colors.transparent,
+    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
+    shadowColor: simpleColorSchemeLight.shadow,
+    surfaceTintColor: simpleColorSchemeLight.surfaceTint,
+  ),
+);
+
+final simpleOutlinedButtonThemeDark = OutlinedButtonThemeData(
+  style: OutlinedButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+      side: BorderSide(color: simpleColorSchemeDark.primary),
+    ),
+    side: BorderSide(color: simpleColorSchemeDark.primary),
+    minimumSize: const Size(100, 45),
+    foregroundColor: simpleColorSchemeDark.primary,
+    backgroundColor: Colors.transparent,
+    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    shadowColor: null,
+    surfaceTintColor: null,
+  ),
+);
+final simpleOutlinedButtonThemeLight = OutlinedButtonThemeData(
+  style: OutlinedButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+      side: BorderSide(color: simpleColorSchemeLight.primary, width: 5),
+    ),
+    side: BorderSide(color: simpleColorSchemeLight.primary),
+    minimumSize: const Size(100, 45),
+    foregroundColor: simpleColorSchemeLight.primary,
+    backgroundColor: Colors.transparent,
+    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
+    shadowColor: null,
+    surfaceTintColor: null,
+  ),
+);
+
+final simpleTextButtonThemeDark = TextButtonThemeData(
+  style: TextButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    ),
+    minimumSize: const Size(100, 45),
+    foregroundColor: simpleColorSchemeDark.primary,
+    backgroundColor: Colors.transparent,
+    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    shadowColor: simpleColorSchemeDark.shadow,
+    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
+  ),
+);
+
+final simpleIconButtonThemeLight = IconButtonThemeData(
+  style: IconButton.styleFrom(
+    foregroundColor: simpleColorSchemeLight.surface,
+    backgroundColor: simpleColorSchemeLight.primary,
+    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
+    shadowColor: simpleColorSchemeLight.shadow,
+    surfaceTintColor: simpleColorSchemeLight.surfaceTint,
+  ),
+);
+
+final simpleIconButtonThemeDark = IconButtonThemeData(
+  style: IconButton.styleFrom(
+    foregroundColor: simpleColorSchemeDark.surface,
+    backgroundColor: simpleColorSchemeDark.primary,
+    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    shadowColor: simpleColorSchemeDark.shadow,
+    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
+  ),
+);

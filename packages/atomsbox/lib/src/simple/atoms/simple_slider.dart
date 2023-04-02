@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'config/simple_color_scheme.dart';
+
 class SimpleSlider extends StatelessWidget {
   const SimpleSlider({
     super.key,
@@ -24,45 +26,14 @@ class SimpleSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    Color backgroundColor;
-
-    switch (brightness) {
-      case Brightness.dark:
-        if (primary) {
-          backgroundColor = colorScheme.onPrimary;
-        } else {
-          backgroundColor = colorScheme.onSecondary;
-        }
-        break;
-      case Brightness.light:
-        if (primary) {
-          backgroundColor = colorScheme.secondary;
-        } else {
-          backgroundColor = colorScheme.secondary;
-        }
-        break;
-    }
-
     return SizedBox(
       height: 10,
-      child: SliderTheme(
-        data: SliderTheme.of(context).copyWith(
-          trackHeight: 2.0,
-          trackShape: _CustomTrackShape(),
-          thumbShape: thumbShape,
-          thumbColor: backgroundColor,
-          activeTrackColor: backgroundColor,
-          inactiveTrackColor:
-              Theme.of(context).colorScheme.surface.withOpacity(0.38),
-        ),
-        child: Slider(
-          min: minValue ?? 0.0,
-          max: maxValue ?? 10.0,
-          value: value ?? 0.0,
-          onChanged: onChanged,
-          onChangeEnd: onChangeEnd,
-        ),
+      child: Slider(
+        min: minValue ?? 0.0,
+        max: maxValue ?? 10.0,
+        value: value ?? 0.0,
+        onChanged: onChanged,
+        onChangeEnd: onChangeEnd,
       ),
     );
   }
@@ -101,3 +72,21 @@ class _CustomTrackShape extends RoundedRectSliderTrackShape {
     );
   }
 }
+
+final simpleSliderThemeLight = SliderThemeData(
+  trackHeight: 2.0,
+  trackShape: _CustomTrackShape(),
+  thumbShape: SliderComponentShape.noThumb,
+  thumbColor: simpleColorSchemeLight.primary,
+  activeTrackColor: simpleColorSchemeLight.primary,
+  inactiveTrackColor: simpleColorSchemeLight.surface.withOpacity(0.38),
+);
+
+final simpleSliderThemeDark = SliderThemeData(
+  trackHeight: 2.0,
+  trackShape: _CustomTrackShape(),
+  thumbShape: SliderComponentShape.noThumb,
+  thumbColor: simpleColorSchemeDark.primary,
+  activeTrackColor: simpleColorSchemeDark.primary,
+  inactiveTrackColor: simpleColorSchemeDark.surface.withOpacity(0.38),
+);

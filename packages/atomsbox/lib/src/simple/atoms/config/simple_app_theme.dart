@@ -1,54 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import '../../molecules/simple_card.dart';
+import '../../molecules/simple_expansion_tile.dart';
+import '../../molecules/simple_list_tile.dart';
+import '../simple_label.dart';
+import '../simple_slider.dart';
+import '../simple_button.dart';
+import 'simple_color_scheme.dart';
+import 'simple_text_theme.dart';
 
 class SimpleTheme {
-  static final theme = ThemeData(
-    useMaterial3: true,
-    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-      displayLarge: GoogleFonts.abrilFatface(),
-      displayMedium: GoogleFonts.abrilFatface(),
-      displaySmall: GoogleFonts.abrilFatface(),
-      headlineLarge: GoogleFonts.abrilFatface(),
-      headlineMedium: GoogleFonts.abrilFatface(),
-      headlineSmall: GoogleFonts.abrilFatface(),
-    ),
-    appBarTheme: AppBarTheme(
-      titleTextStyle: GoogleFonts.abrilFatface(
-        textStyle: ThemeData().textTheme.headlineLarge,
-      ),
-    ),
-    colorScheme: const ColorScheme(
-      brightness: Brightness.light,
-      // Primary color
-      primary: MaterialColor(
-        0xFF26337C,
-        {
-          400: Color(0xFF31AAFF), // Primary Light,
-          500: Color(0xFF26337C), // Primary
-          600: Color(0xFF00093C), // Primary Dark
-        },
-      ),
-      onPrimary: Color(0xFFffffff),
-      primaryContainer: Color(0xFFDEE0FF),
-      onPrimaryContainer: Color(0xFF00093C),
-      // Secondary color
-      secondary: MaterialColor(
-        0xFF9C254D,
-        {
-          400: Color(0xFFd34675), // Secondary Light
-          500: Color(0xFF9C254D), // Secondary
-          600: Color(0xFF3F0018), // Secondary Dark
-        },
-      ),
-      onSecondary: Color(0xFFffffff),
-      secondaryContainer: Color(0xFFFFD9DF),
-      onSecondaryContainer: Color(0xFF3F0018),
-      error: Color(0xFF9b4054),
-      onError: Colors.white,
-      background: Colors.white,
-      onBackground: Colors.black87,
-      surface: Color(0xFFeff0fa),
-      onSurface: Colors.black87,
-    ),
+  static final ThemeData theme = ThemeData.light(useMaterial3: true).copyWith(
+    colorScheme: simpleColorSchemeLight,
+    textTheme: simpleTextThemeLight,
+    elevatedButtonTheme: simpleElevatedButtonThemeLight,
+    textButtonTheme: simpleTextButtonThemeLight,
+    outlinedButtonTheme: simpleOutlinedButtonThemeLight,
+    iconButtonTheme: simpleIconButtonThemeLight,
+    cardTheme: simpleCardThemeLight,
+    expansionTileTheme: simpleExpansionTileThemeLight,
+    sliderTheme: simpleSliderThemeLight,
+    extensions: <ThemeExtension<dynamic>>[
+      simpleListTileLight,
+      simpleLabelLight,
+    ],
+  );
+
+  static final ThemeData darkTheme =
+      ThemeData.dark(useMaterial3: true).copyWith(
+    colorScheme: simpleColorSchemeDark,
+    textTheme: simpleTextThemeDark,
+    elevatedButtonTheme: simpleElevatedButtonThemeDark,
+    textButtonTheme: simpleTextButtonThemeDark,
+    outlinedButtonTheme: simpleOutlinedButtonThemeDark,
+    iconButtonTheme: simpleIconButtonThemeDark,
+    expansionTileTheme: simpleExpansionTileThemeDark,
+    cardTheme: simpleCardThemeDark,
+    sliderTheme: simpleSliderThemeDark,
+    extensions: <ThemeExtension<dynamic>>[
+      simpleListTileDark,
+      simpleLabelDark,
+    ],
   );
 }

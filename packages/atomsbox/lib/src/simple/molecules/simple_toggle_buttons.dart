@@ -10,7 +10,6 @@ class SimpleToggleButtons extends StatefulWidget {
     this.multiSelect = false,
     this.vertical = false,
     this.primary = true,
-    this.brightness = Brightness.light,
     required this.children,
   });
 
@@ -18,7 +17,6 @@ class SimpleToggleButtons extends StatefulWidget {
   final bool multiSelect;
   final bool vertical;
   final bool primary;
-  final Brightness brightness;
   final List<String> children;
 
   @override
@@ -45,46 +43,25 @@ class _SimpleToggleButtonsState extends State<SimpleToggleButtons> {
   @override
   Widget build(BuildContext context) {
     const double height = 40.0;
-    final colorScheme = Theme.of(context).colorScheme;
-    Color backgroundColor, outlineColor, fontColor;
-
-    switch (widget.brightness) {
-      case Brightness.dark:
-        fontColor = Colors.white;
-        if (widget.primary) {
-          backgroundColor = colorScheme.primaryContainer;
-          outlineColor = colorScheme.onPrimaryContainer;
-        } else {
-          backgroundColor = colorScheme.secondaryContainer;
-          outlineColor = colorScheme.onSecondaryContainer;
-        }
-        break;
-      case Brightness.light:
-        fontColor = Colors.white;
-        if (widget.primary) {
-          backgroundColor = colorScheme.primary;
-          outlineColor = colorScheme.onPrimary;
-        } else {
-          backgroundColor = colorScheme.secondary;
-          outlineColor = colorScheme.onPrimary;
-        }
-        break;
-    }
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        double width = (constraints.maxWidth - widget.children.length - 1) /
-            widget.children.length;
+        double width = widget.vertical
+            ? 100
+            : (constraints.maxWidth - widget.children.length - 1) /
+                widget.children.length;
         return Container(
-          height: widget.vertical ? height * widget.children.length : height,
+          height: widget.vertical
+              ? (height * widget.children.length + widget.children.length + 1)
+              : height,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
           ),
           child: ToggleButtons(
-            selectedBorderColor: outlineColor,
-            borderColor: outlineColor,
-            fillColor: backgroundColor,
+            selectedBorderColor: Theme.of(context).colorScheme.outlineVariant,
+            borderColor: Theme.of(context).colorScheme.outline,
+            fillColor: Theme.of(context).colorScheme.primaryContainer,
             borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
             direction: widget.vertical ? Axis.vertical : Axis.horizontal,
             onPressed: (int index) {
@@ -108,11 +85,8 @@ class _SimpleToggleButtonsState extends State<SimpleToggleButtons> {
               maxHeight: height,
             ),
             isSelected: _isSelected,
-            children: widget.children
-                .map(
-                  (child) => SimpleText(child, color: fontColor),
-                )
-                .toList(),
+            children:
+                widget.children.map((child) => SimpleText(child)).toList(),
           ),
         );
       },

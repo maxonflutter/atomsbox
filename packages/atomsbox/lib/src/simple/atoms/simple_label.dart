@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'config/simple_color_scheme.dart';
 import 'config/simple_constants.dart';
 import 'simple_text.dart';
 
@@ -8,45 +9,20 @@ class SimpleLabel extends StatelessWidget {
     super.key,
     required this.text,
     this.icon,
-    this.brightness = Brightness.light,
-    this.primary = true,
   });
 
   final String text;
   final IconData? icon;
-  final Brightness brightness;
-  final bool primary;
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    Color backgroundColor, foregroundColor;
-
-    switch (brightness) {
-      case Brightness.dark:
-        if (primary) {
-          backgroundColor = colorScheme.onPrimaryContainer;
-          foregroundColor = colorScheme.primaryContainer;
-        } else {
-          backgroundColor = colorScheme.onSecondaryContainer;
-          foregroundColor = colorScheme.secondaryContainer;
-        }
-        break;
-      case Brightness.light:
-        if (primary) {
-          backgroundColor = colorScheme.primaryContainer;
-          foregroundColor = colorScheme.onPrimaryContainer;
-        } else {
-          backgroundColor = colorScheme.secondaryContainer;
-          foregroundColor = colorScheme.onSecondaryContainer;
-        }
-        break;
-    }
+    final SimpleLabelThemeData themeData =
+        Theme.of(context).extension<SimpleLabelThemeData>()!;
 
     return Container(
       padding: const EdgeInsets.all(SimpleConstants.sm),
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: themeData.backgroundColor,
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
       ),
       child: Row(
@@ -55,19 +31,60 @@ class SimpleLabel extends StatelessWidget {
           ...(icon == null)
               ? [const SizedBox()]
               : [
-                  Icon(icon, color: foregroundColor),
+                  Icon(icon, color: themeData.foregroundColor),
                   const SizedBox(width: SimpleConstants.sm),
                 ],
-          SimpleText(
-            text,
-            color: ThemeData.estimateBrightnessForColor(backgroundColor) ==
-                    Brightness.light
-                ? Colors.black87
-                : Colors.white,
-            textStyle: SimpleTextStyle.bodyMedium,
-          ),
+          SimpleText(text),
         ],
       ),
     );
   }
+}
+
+final simpleLabelLight = SimpleLabelThemeData(
+  backgroundColor: simpleColorSchemeLight.primaryContainer,
+  foregroundColor: simpleColorSchemeLight.onPrimaryContainer,
+);
+
+final simpleLabelDark = SimpleLabelThemeData(
+  backgroundColor: simpleColorSchemeDark.primaryContainer,
+  foregroundColor: simpleColorSchemeDark.onPrimaryContainer,
+);
+
+class SimpleLabelThemeData extends ThemeExtension<SimpleLabelThemeData> {
+  const SimpleLabelThemeData({
+    required this.foregroundColor,
+    required this.backgroundColor,
+  });
+
+  final Color? foregroundColor;
+  final Color? backgroundColor;
+
+  @override
+  SimpleLabelThemeData copyWith({
+    Color? foregroundColor,
+    Color? backgroundColor,
+    Color? splashColor,
+  }) {
+    return SimpleLabelThemeData(
+      foregroundColor: foregroundColor ?? this.foregroundColor,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+    );
+  }
+
+  @override
+  SimpleLabelThemeData lerp(SimpleLabelThemeData? other, double t) {
+    if (other is! SimpleLabelThemeData) {
+      return this;
+    }
+    return SimpleLabelThemeData(
+      foregroundColor: Color.lerp(foregroundColor, other.foregroundColor, t),
+      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t),
+    );
+  }
+
+  // Optional
+  @override
+  String toString() =>
+      'SimpleLabelThemeData(foregroundColor: $foregroundColor, backgroundColor: $backgroundColor)';
 }

@@ -12,6 +12,7 @@ dependencies:
   atomsbox:
     path: ../../packages/atomsbox
   cupertino_icons: ^1.0.2
+  flex_seed_scheme: ^1.2.3
 
 dev_dependencies:
   flutter_test:

@@ -27,14 +27,13 @@ enum SimpleListType { horizontal, vertical }
 class SimpleList extends StatelessWidget {
   final double? height;
 
-  const SimpleList({
+  const SimpleList.vertical({
     super.key,
     required this.listItems,
     this.title,
     this.height,
     this.physics = const NeverScrollableScrollPhysics(),
-    this.type = SimpleListType.vertical,
-  });
+  }) : type = SimpleListType.vertical;
 
   const SimpleList.horizontal({
     super.key,
@@ -70,6 +69,8 @@ class SimpleList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         ...(title != null)
             ? [
@@ -77,7 +78,7 @@ class SimpleList extends StatelessWidget {
                   title!,
                   textStyle: SimpleTextStyle.headlineSmall,
                 ),
-                const SizedBox(height: 8.0)
+                const SizedBox(height: SimpleConstants.sm)
               ]
             : [const SizedBox()],
         SizedBox(
