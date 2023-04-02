@@ -129,12 +129,14 @@ final simpleElevatedButtonThemeLight = ElevatedButtonThemeData(
       borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
     ),
     minimumSize: const Size(100, 45),
-    foregroundColor: simpleColorSchemeLight.primary,
-    backgroundColor: simpleColorSchemeLight.surface,
-    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeLight.shadow,
-    surfaceTintColor: simpleColorSchemeLight.surfaceTint,
+    foregroundColor: SimpleColors.simpleColorSchemeLight.primary,
+    backgroundColor: SimpleColors.simpleColorSchemeLight.surface,
+    disabledForegroundColor:
+        SimpleColors.simpleColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        SimpleColors.simpleColorSchemeLight.onSurface.withOpacity(0.12),
+    shadowColor: SimpleColors.simpleColorSchemeLight.shadow,
+    surfaceTintColor: SimpleColors.simpleColorSchemeLight.surfaceTint,
   ),
 );
 
@@ -144,12 +146,14 @@ final simpleElevatedButtonThemeDark = ElevatedButtonThemeData(
       borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
     ),
     minimumSize: const Size(100, 45),
-    foregroundColor: simpleColorSchemeDark.primary,
-    backgroundColor: simpleColorSchemeDark.surface,
-    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeDark.shadow,
-    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
+    foregroundColor: SimpleColors.simpleColorSchemeDark.primary,
+    backgroundColor: SimpleColors.simpleColorSchemeDark.surface,
+    disabledForegroundColor:
+        SimpleColors.simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        SimpleColors.simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    shadowColor: SimpleColors.simpleColorSchemeDark.shadow,
+    surfaceTintColor: SimpleColors.simpleColorSchemeDark.surfaceTint,
   ),
 );
 
@@ -159,12 +163,14 @@ final simpleTextButtonThemeLight = TextButtonThemeData(
       borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
     ),
     minimumSize: const Size(100, 45),
-    foregroundColor: simpleColorSchemeLight.primary,
+    foregroundColor: SimpleColors.simpleColorSchemeLight.primary,
     backgroundColor: Colors.transparent,
-    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeLight.shadow,
-    surfaceTintColor: simpleColorSchemeLight.surfaceTint,
+    disabledForegroundColor:
+        SimpleColors.simpleColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        SimpleColors.simpleColorSchemeLight.onSurface.withOpacity(0.12),
+    shadowColor: SimpleColors.simpleColorSchemeLight.shadow,
+    surfaceTintColor: SimpleColors.simpleColorSchemeLight.surfaceTint,
   ),
 );
 
@@ -174,12 +180,14 @@ final simpleTextButtonThemeDark = TextButtonThemeData(
       borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
     ),
     minimumSize: const Size(100, 45),
-    foregroundColor: simpleColorSchemeDark.primary,
+    foregroundColor: SimpleColors.simpleColorSchemeDark.primary,
     backgroundColor: Colors.transparent,
-    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeDark.shadow,
-    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
+    disabledForegroundColor:
+        SimpleColors.simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        SimpleColors.simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    shadowColor: SimpleColors.simpleColorSchemeDark.shadow,
+    surfaceTintColor: SimpleColors.simpleColorSchemeDark.surfaceTint,
   ),
 );
 
@@ -187,14 +195,16 @@ final simpleOutlinedButtonThemeDark = OutlinedButtonThemeData(
   style: OutlinedButton.styleFrom(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-      side: BorderSide(color: simpleColorSchemeDark.primary),
+      side: BorderSide(color: SimpleColors.simpleColorSchemeDark.primary),
     ),
-    side: BorderSide(color: simpleColorSchemeDark.primary),
+    side: BorderSide(color: SimpleColors.simpleColorSchemeDark.primary),
     minimumSize: const Size(100, 45),
-    foregroundColor: simpleColorSchemeDark.primary,
+    foregroundColor: SimpleColors.simpleColorSchemeDark.primary,
     backgroundColor: Colors.transparent,
-    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    disabledForegroundColor:
+        SimpleColors.simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        SimpleColors.simpleColorSchemeDark.onSurface.withOpacity(0.12),
     shadowColor: null,
     surfaceTintColor: null,
   ),
@@ -203,14 +213,17 @@ final simpleOutlinedButtonThemeLight = OutlinedButtonThemeData(
   style: OutlinedButton.styleFrom(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-      side: BorderSide(color: simpleColorSchemeLight.primary, width: 5),
+      side: BorderSide(
+          color: SimpleColors.simpleColorSchemeLight.primary, width: 5),
     ),
-    side: BorderSide(color: simpleColorSchemeLight.primary),
+    side: BorderSide(color: SimpleColors.simpleColorSchemeLight.primary),
     minimumSize: const Size(100, 45),
-    foregroundColor: simpleColorSchemeLight.primary,
+    foregroundColor: SimpleColors.simpleColorSchemeLight.primary,
     backgroundColor: Colors.transparent,
-    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
+    disabledForegroundColor:
+        SimpleColors.simpleColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        SimpleColors.simpleColorSchemeLight.onSurface.withOpacity(0.12),
     shadowColor: null,
     surfaceTintColor: null,
   ),

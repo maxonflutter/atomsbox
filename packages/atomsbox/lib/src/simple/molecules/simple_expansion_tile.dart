@@ -72,7 +72,7 @@ class SimpleExpansionTile extends StatelessWidget {
 }
 
 final simpleExpansionTileThemeLight = ExpansionTileThemeData(
-  collapsedBackgroundColor: simpleColorSchemeLight.primary,
+  collapsedBackgroundColor: SimpleColors.simpleColorSchemeLight.primary,
   backgroundColor: Colors.transparent,
   expandedAlignment: Alignment.centerLeft,
   collapsedShape: RoundedRectangleBorder(
@@ -81,14 +81,14 @@ final simpleExpansionTileThemeLight = ExpansionTileThemeData(
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
   ),
-  collapsedIconColor: simpleColorSchemeLight.onPrimary,
-  collapsedTextColor: simpleColorSchemeLight.onPrimary,
+  collapsedIconColor: SimpleColors.simpleColorSchemeLight.onPrimary,
+  collapsedTextColor: SimpleColors.simpleColorSchemeLight.onPrimary,
   tilePadding: const EdgeInsets.symmetric(horizontal: SimpleConstants.sm),
   childrenPadding: const EdgeInsets.all(SimpleConstants.sm),
 );
 
 final simpleExpansionTileThemeDark = ExpansionTileThemeData(
-  collapsedBackgroundColor: simpleColorSchemeDark.primary,
+  collapsedBackgroundColor: SimpleColors.simpleColorSchemeDark.primary,
   backgroundColor: Colors.transparent,
   expandedAlignment: Alignment.centerLeft,
   collapsedShape: RoundedRectangleBorder(
@@ -97,8 +97,8 @@ final simpleExpansionTileThemeDark = ExpansionTileThemeData(
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
   ),
-  collapsedIconColor: simpleColorSchemeDark.onPrimary,
-  collapsedTextColor: simpleColorSchemeDark.onPrimary,
+  collapsedIconColor: SimpleColors.simpleColorSchemeDark.onPrimary,
+  collapsedTextColor: SimpleColors.simpleColorSchemeDark.onPrimary,
   tilePadding: const EdgeInsets.symmetric(horizontal: SimpleConstants.sm),
   childrenPadding: const EdgeInsets.all(SimpleConstants.sm),
 );

@@ -50,22 +50,26 @@ class SimpleIconButton extends StatelessWidget {
 
 final simpleIconButtonThemeLight = IconButtonThemeData(
   style: IconButton.styleFrom(
-    foregroundColor: simpleColorSchemeLight.surface,
-    backgroundColor: simpleColorSchemeLight.primary,
-    disabledForegroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeLight.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeLight.shadow,
-    surfaceTintColor: simpleColorSchemeLight.surfaceTint,
+    foregroundColor: SimpleColors.simpleColorSchemeLight.surface,
+    backgroundColor: SimpleColors.simpleColorSchemeLight.primary,
+    disabledForegroundColor:
+        SimpleColors.simpleColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        SimpleColors.simpleColorSchemeLight.onSurface.withOpacity(0.12),
+    shadowColor: SimpleColors.simpleColorSchemeLight.shadow,
+    surfaceTintColor: SimpleColors.simpleColorSchemeLight.surfaceTint,
   ),
 );
 
 final simpleIconButtonThemeDark = IconButtonThemeData(
   style: IconButton.styleFrom(
-    foregroundColor: simpleColorSchemeDark.surface,
-    backgroundColor: simpleColorSchemeDark.primary,
-    disabledForegroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: simpleColorSchemeDark.onSurface.withOpacity(0.12),
-    shadowColor: simpleColorSchemeDark.shadow,
-    surfaceTintColor: simpleColorSchemeDark.surfaceTint,
+    foregroundColor: SimpleColors.simpleColorSchemeDark.surface,
+    backgroundColor: SimpleColors.simpleColorSchemeDark.primary,
+    disabledForegroundColor:
+        SimpleColors.simpleColorSchemeDark.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        SimpleColors.simpleColorSchemeDark.onSurface.withOpacity(0.12),
+    shadowColor: SimpleColors.simpleColorSchemeDark.shadow,
+    surfaceTintColor: SimpleColors.simpleColorSchemeDark.surfaceTint,
   ),
 );

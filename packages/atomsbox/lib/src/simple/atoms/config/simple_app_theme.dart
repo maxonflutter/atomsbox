@@ -11,8 +11,19 @@ import 'simple_color_scheme.dart';
 import 'simple_text_theme.dart';
 
 class SimpleTheme {
-  static final ThemeData theme = ThemeData.light(useMaterial3: true).copyWith(
-    colorScheme: simpleColorSchemeLight,
+  static final a = ThemeData(
+    primarySwatch:
+        SimpleColors.getMaterialColorFromColor(SimpleColors.primarySeedColor),
+  );
+
+  static final ThemeData theme = ThemeData.light().copyWith(
+    primaryColorDark:
+        SimpleColors.getMaterialColorFromColor(SimpleColors.primarySeedColor)
+            .shade600,
+    primaryColorLight:
+        SimpleColors.getMaterialColorFromColor(SimpleColors.primarySeedColor)
+            .shade100,
+    colorScheme: SimpleColors.simpleColorSchemeLight,
     textTheme: simpleTextThemeLight,
     elevatedButtonTheme: simpleElevatedButtonThemeLight,
     textButtonTheme: simpleTextButtonThemeLight,
@@ -29,7 +40,13 @@ class SimpleTheme {
 
   static final ThemeData darkTheme =
       ThemeData.dark(useMaterial3: true).copyWith(
-    colorScheme: simpleColorSchemeDark,
+    primaryColorDark:
+        SimpleColors.getMaterialColorFromColor(SimpleColors.primarySeedColor)
+            .shade600,
+    primaryColorLight:
+        SimpleColors.getMaterialColorFromColor(SimpleColors.primarySeedColor)
+            .shade100,
+    colorScheme: SimpleColors.simpleColorSchemeDark,
     textTheme: simpleTextThemeDark,
     elevatedButtonTheme: simpleElevatedButtonThemeDark,
     textButtonTheme: simpleTextButtonThemeDark,

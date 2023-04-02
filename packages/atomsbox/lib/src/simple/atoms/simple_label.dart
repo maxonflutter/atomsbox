@@ -42,13 +42,13 @@ class SimpleLabel extends StatelessWidget {
 }
 
 final simpleLabelLight = SimpleLabelThemeData(
-  backgroundColor: simpleColorSchemeLight.primaryContainer,
-  foregroundColor: simpleColorSchemeLight.onPrimaryContainer,
+  backgroundColor: SimpleColors.simpleColorSchemeLight.primaryContainer,
+  foregroundColor: SimpleColors.simpleColorSchemeLight.onPrimaryContainer,
 );
 
 final simpleLabelDark = SimpleLabelThemeData(
-  backgroundColor: simpleColorSchemeDark.primaryContainer,
-  foregroundColor: simpleColorSchemeDark.onPrimaryContainer,
+  backgroundColor: SimpleColors.simpleColorSchemeDark.primaryContainer,
+  foregroundColor: SimpleColors.simpleColorSchemeDark.onPrimaryContainer,
 );
 
 class SimpleLabelThemeData extends ThemeExtension<SimpleLabelThemeData> {

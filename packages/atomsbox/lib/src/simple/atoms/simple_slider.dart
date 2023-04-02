@@ -77,16 +77,18 @@ final simpleSliderThemeLight = SliderThemeData(
   trackHeight: 2.0,
   trackShape: _CustomTrackShape(),
   thumbShape: SliderComponentShape.noThumb,
-  thumbColor: simpleColorSchemeLight.primary,
-  activeTrackColor: simpleColorSchemeLight.primary,
-  inactiveTrackColor: simpleColorSchemeLight.surface.withOpacity(0.38),
+  thumbColor: SimpleColors.simpleColorSchemeLight.primary,
+  activeTrackColor: SimpleColors.simpleColorSchemeLight.primary,
+  inactiveTrackColor:
+      SimpleColors.simpleColorSchemeLight.surface.withOpacity(0.38),
 );
 
 final simpleSliderThemeDark = SliderThemeData(
   trackHeight: 2.0,
   trackShape: _CustomTrackShape(),
   thumbShape: SliderComponentShape.noThumb,
-  thumbColor: simpleColorSchemeDark.primary,
-  activeTrackColor: simpleColorSchemeDark.primary,
-  inactiveTrackColor: simpleColorSchemeDark.surface.withOpacity(0.38),
+  thumbColor: SimpleColors.simpleColorSchemeDark.primary,
+  activeTrackColor: SimpleColors.simpleColorSchemeDark.primary,
+  inactiveTrackColor:
+      SimpleColors.simpleColorSchemeDark.surface.withOpacity(0.38),
 );
