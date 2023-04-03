@@ -16,6 +16,7 @@ class SimpleExpansionTile extends StatelessWidget {
     required this.title,
     this.leading,
     this.trailing,
+    this.onExpansionChanged,
     this.children,
   }) {
     builder = (context) {
@@ -26,6 +27,7 @@ class SimpleExpansionTile extends StatelessWidget {
           title: title,
           leading: leading,
           trailing: trailing,
+          onExpansionChanged: onExpansionChanged,
           children: children ?? [],
         ),
       );
@@ -38,6 +40,7 @@ class SimpleExpansionTile extends StatelessWidget {
     required this.title,
     this.leading,
     this.trailing,
+    this.onExpansionChanged,
     this.children,
   }) {
     builder = (context) {
@@ -51,6 +54,7 @@ class SimpleExpansionTile extends StatelessWidget {
           title: title,
           leading: leading,
           trailing: trailing,
+          onExpansionChanged: onExpansionChanged,
           children: children ?? [],
         ),
       );
@@ -62,6 +66,7 @@ class SimpleExpansionTile extends StatelessWidget {
   final Widget title;
   final Widget? leading;
   final Widget? trailing;
+  final Function(bool)? onExpansionChanged;
   final List<Widget>? children;
 
   @override
