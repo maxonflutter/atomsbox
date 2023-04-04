@@ -59,41 +59,41 @@ class _Organisms extends StatelessWidget {
                 .toList(),
           ),
           const SizedBox(height: SimpleConstants.xlg),
-          SimpleList.horizontal(
-            height: 200,
-            title: 'This is a horizontal list',
-            listItems: [1, 2, 3]
-                .map(
-                  (e) => SimpleCard(
-                    width: 350,
-                    imageUrl: imageUrl,
-                    onTap: () {},
-                    title: const SimpleText('This is a card'),
-                    subtitle: sampleText,
-                  ),
-                )
-                .toList(),
-          ),
+          // SimpleList.horizontal(
+          //   height: 200,
+          //   title: 'This is a horizontal list',
+          //   listItems: [1, 2, 3]
+          //       .map(
+          //         (e) => SimpleCard(
+          //           width: 350,
+          //           imageUrl: imageUrl,
+          //           onTap: () {},
+          //           title: const SimpleText('This is a card'),
+          //           subtitle: sampleText,
+          //         ),
+          //       )
+          //       .toList(),
+          // ),
           const SizedBox(height: SimpleConstants.xlg),
-          SimpleGrid(
-            title: 'This is a grid',
-            itemHeight: 1.25,
-            itemWidth: 1,
-            gridItems: [1, 2, 3]
-                .map(
-                  (e) => SimpleCard(
-                    imageUrl: imageUrl,
-                    dense: false,
-                    onTap: () {},
-                    title: const SimpleText(
-                      'This is a card',
-                      maxLines: 2,
-                    ),
-                    paragraph: sampleText,
-                  ),
-                )
-                .toList(),
-          )
+          // SimpleGrid(
+          //   title: 'This is a grid',
+          //   itemHeight: 1.25,
+          //   itemWidth: 1,
+          //   gridItems: [1, 2, 3]
+          //       .map(
+          //         (e) => SimpleCard(
+          //           imageUrl: imageUrl,
+          //           dense: false,
+          //           onTap: () {},
+          //           title: const SimpleText(
+          //             'This is a card',
+          //             maxLines: 2,
+          //           ),
+          //           paragraph: sampleText,
+          //         ),
+          //       )
+          //       .toList(),
+          // )
         ],
       ),
     );

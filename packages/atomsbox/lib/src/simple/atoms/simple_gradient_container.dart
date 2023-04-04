@@ -35,6 +35,7 @@ class SimpleGradientContainer extends StatelessWidget {
     super.key,
     this.width,
     this.height,
+    this.borderRadius = SimpleConstants.borderRadius,
     this.begin = Alignment.topCenter,
     this.end = Alignment.bottomCenter,
     this.child,
@@ -46,6 +47,7 @@ class SimpleGradientContainer extends StatelessWidget {
     super.key,
     this.width,
     this.height,
+    this.borderRadius = SimpleConstants.borderRadius,
     this.begin = Alignment.centerLeft,
     this.end = Alignment.centerRight,
     this.child,
@@ -77,6 +79,8 @@ class SimpleGradientContainer extends StatelessWidget {
   /// [Alignment.centerRight] for horizontal gradients.
   final Alignment end;
 
+  final double borderRadius;
+
   /// The optional child widget to display inside the container.
   final Widget? child;
 
@@ -93,7 +97,7 @@ class SimpleGradientContainer extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         gradient: gradient,
-        borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+        borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: child,
     );

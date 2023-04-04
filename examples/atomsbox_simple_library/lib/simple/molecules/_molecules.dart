@@ -14,23 +14,22 @@ class _Molecules extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: SimpleConstants.xlg),
-          SimpleCard(
-            onTap: () {},
-            title: const SimpleText('This is a card'),
-            imageUrl: imageUrl,
-            subtitle: sampleText,
-            paragraph: sampleText,
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          SimpleCard(
-            onTap: () {},
-            height: 250,
-            title: const SimpleText('This is a card'),
-            imageUrl: imageUrl,
-            subtitle: sampleText,
-            paragraph: sampleText,
-            dense: false,
-          ),
+          // SimpleCardGeneric(
+          //   title: const SimpleText('This is a card'),
+          //   imageUrl: imageUrl,
+          //   subtitle: sampleText,
+          //   paragraph: sampleText,
+          // ),
+          // const SizedBox(height: SimpleConstants.sm),
+          // SimpleCardGeneric(
+          //   onTap: () {},
+          //   height: 250,
+          //   title: const SimpleText('This is a card'),
+          //   imageUrl: imageUrl,
+          //   subtitle: sampleText,
+          //   paragraph: sampleText,
+          //   dense: false,
+          // ),
           const SizedBox(height: SimpleConstants.xlg),
           const SimpleToggleButtons(
             isSelected: [true, false, false, false],

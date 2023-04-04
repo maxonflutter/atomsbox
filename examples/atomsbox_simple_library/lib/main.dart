@@ -28,9 +28,91 @@ class MyApp extends StatelessWidget {
             theme: SimpleTheme.theme,
             darkTheme: SimpleTheme.darkTheme,
             themeMode: currentMode,
-            home: const AtomsboxComponents(),
+            home: const MyCard(),
           );
         });
+  }
+}
+
+class MyCard extends StatelessWidget {
+  const MyCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const sampleText =
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+    const imageUrl =
+        'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
+
+    return Scaffold(
+      appBar: AppBar(title: SimpleText('Cards')),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(SimpleConstants.sm),
+          child: Column(
+            children: [
+              SimpleCardUser(
+                height: 400,
+                dense: false,
+                headline: SimpleText('Massimo Del Pezzo'),
+                supportingText: sampleText,
+                imageUrl: imageUrl,
+                backgroundImageUrl: imageUrl,
+                actions: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SimpleButton.text(
+                      onPressed: () {},
+                      child: const SimpleText('Add'),
+                    ),
+                    SimpleButton.text(
+                      onPressed: () {},
+                      child: const SimpleText('Follow'),
+                    ),
+                  ],
+                ),
+              ),
+              SimpleCardGeneric(
+                onTap: () {},
+                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+                headline: const SimpleText('This is a card'),
+                subhead: sampleText,
+                supportingText: sampleText,
+                imageUrl: imageUrl,
+                type: SimpleCardType.filled,
+              ),
+              SimpleCardGeneric(
+                onTap: () {},
+                headline: const SimpleText('This is a card'),
+                subhead: sampleText,
+                supportingText: sampleText,
+                imageUrl: imageUrl,
+                height: 250,
+                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+                type: SimpleCardType.outlined,
+                dense: false,
+              ),
+              SimpleCard.filled(
+                onTap: () {},
+                height: 100,
+                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+                child: const Center(
+                  child: SimpleText('Simple Card'),
+                ),
+              ),
+              SimpleCard.outlined(
+                onTap: () {},
+                height: 100,
+                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+                child: const Center(
+                  child: SimpleText('Simple Card'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

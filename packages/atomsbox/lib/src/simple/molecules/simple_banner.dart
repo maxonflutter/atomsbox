@@ -37,6 +37,8 @@ class SimpleBanner extends StatelessWidget {
           Theme.of(context).colorScheme.primary,
         ],
         const [0, 1],
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
         height: height,
         width: double.infinity,
         child: Center(
