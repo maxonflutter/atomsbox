@@ -1,6 +1,5 @@
 import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 part 'simple/atoms/_atoms.dart';
 part 'simple/molecules/_molecules.dart';
