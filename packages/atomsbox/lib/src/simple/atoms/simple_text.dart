@@ -70,15 +70,7 @@ class SimpleText extends Text {
   }
 
   _buildTextScaleFactor(BuildContext context) {
-    if (SimpleAppBreakpoints.isWideDesktop(context) ||
-        SimpleAppBreakpoints.isDesktop(context)) {
-      return 1.00;
-    } else if (SimpleAppBreakpoints.isWideTablet(context) ||
-        SimpleAppBreakpoints.isTablet(context)) {
-      return 0.95;
-    } else {
-      return 0.9;
-    }
+    return 1.0;
   }
 
   _buildStyle(BuildContext context) {
