@@ -26,17 +26,8 @@ class SimpleCard extends StatelessWidget {
         elevation: elevation,
         child: InkWell(
           onTap: onTap,
-          child:
-              // Flexible(
-              //   child:
-              Container(
-            constraints: BoxConstraints(maxHeight: height ?? 200),
-            // height: 400,
-            child: child,
-          ),
+          child: SizedBox(width: width, height: height, child: child),
         ),
-        // ),
-        // SizedBox(width: width, height: height, child: child)),
       );
     };
   }
