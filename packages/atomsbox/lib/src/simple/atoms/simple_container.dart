@@ -10,11 +10,13 @@ class SimpleContainer extends StatelessWidget {
     this.color,
     this.padding,
     this.margin,
+    this.image,
     this.borderRadius = SimpleConstants.borderRadius,
     this.child,
   })  : constraints = BoxConstraints(),
         decoration = BoxDecoration(
           color: color,
+          image: (image == null) ? null : DecorationImage(image: image.image),
           borderRadius: BorderRadius.circular(borderRadius),
         );
 
@@ -26,6 +28,7 @@ class SimpleContainer extends StatelessWidget {
     this.color,
     this.padding,
     this.margin,
+    this.image,
     this.borderRadius = SimpleConstants.borderRadius,
     this.child,
   })  : constraints = BoxConstraints(),
@@ -40,6 +43,7 @@ class SimpleContainer extends StatelessWidget {
   final Color? color;
   final EdgeInsets? padding;
   final EdgeInsets? margin;
+  final Image? image;
   final BoxConstraints constraints;
   final BoxDecoration decoration;
   final Widget? child;
