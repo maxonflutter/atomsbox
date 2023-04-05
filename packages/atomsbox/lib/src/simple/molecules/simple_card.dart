@@ -22,7 +22,7 @@ class SimpleCard extends StatefulWidget {
       return Card(
         clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
-        color: Theme.of(context).colorScheme.surface,
+        color: color ?? Theme.of(context).colorScheme.surface,
         elevation: elevation,
         child: InkWell(
           onTap: onTap,
@@ -51,7 +51,7 @@ class SimpleCard extends StatefulWidget {
       return Card(
         clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
-        color: Theme.of(context).colorScheme.surface,
+        color: color ?? Theme.of(context).colorScheme.surface,
         child: InkWell(
           onTap: onTap,
           child: SizedBox(width: width, height: height, child: child),
@@ -75,7 +75,7 @@ class SimpleCard extends StatefulWidget {
       return Card(
         clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
-        color: Theme.of(context).colorScheme.surface,
+        color: color ?? Theme.of(context).colorScheme.surface,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Theme.of(context).colorScheme.outline),
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
