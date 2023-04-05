@@ -8,6 +8,8 @@ class SimpleContainer extends StatelessWidget {
     this.width,
     this.height,
     this.color,
+    this.padding,
+    this.margin,
     this.borderRadius = SimpleConstants.borderRadius,
     this.child,
   })  : constraints = BoxConstraints(),
@@ -22,6 +24,8 @@ class SimpleContainer extends StatelessWidget {
     this.width,
     this.height,
     this.color,
+    this.padding,
+    this.margin,
     this.borderRadius = SimpleConstants.borderRadius,
     this.child,
   })  : constraints = BoxConstraints(),
@@ -34,6 +38,8 @@ class SimpleContainer extends StatelessWidget {
   final double? height;
   final double borderRadius;
   final Color? color;
+  final EdgeInsets? padding;
+  final EdgeInsets? margin;
   final BoxConstraints constraints;
   final BoxDecoration decoration;
   final Widget? child;
@@ -43,6 +49,8 @@ class SimpleContainer extends StatelessWidget {
     return Container(
       width: width,
       height: height,
+      padding: padding,
+      margin: margin,
       decoration: decoration,
       child: child,
     );
