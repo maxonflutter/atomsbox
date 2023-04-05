@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_constants.dart';
+import '../atoms/simple_container.dart';
 
 class SimpleTab extends StatefulWidget {
   const SimpleTab({
@@ -37,8 +38,8 @@ class _SimpleTabState extends State<SimpleTab>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 700,
+    return SimpleContainer(
+      color: Theme.of(context).colorScheme.surface,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -100,7 +101,7 @@ class SimpleTabBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.0,
+      height: 56.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         color: Theme.of(context).colorScheme.primary,
@@ -108,6 +109,10 @@ class SimpleTabBar extends StatelessWidget with PreferredSizeWidget {
       margin: EdgeInsets.symmetric(horizontal: margin ?? 0.0),
       child: TabBar(
         controller: tabController,
+        indicator: BoxDecoration(
+          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+          color: Theme.of(context).colorScheme.secondary,
+        ),
         indicatorColor: Theme.of(context).colorScheme.onPrimary,
         labelColor: Theme.of(context).colorScheme.onPrimary,
         unselectedLabelColor:
@@ -118,5 +123,5 @@ class SimpleTabBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(50.0);
+  Size get preferredSize => const Size.fromHeight(56.0);
 }
