@@ -138,12 +138,11 @@ class _SimpleCardGenericState extends State<SimpleCardGeneric> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              (hovered && widget.hoverImageUrl != null)
-                  ? hoverImage!
-                  : (widget.imageUrl != null)
-                      ? image!
-                      : const SizedBox(),
-              (image == null) ? const SizedBox() : image!,
+              // (hovered && widget.hoverImageUrl != null)
+              //     ? hoverImage!
+              //     : (widget.imageUrl != null)
+              //         ? image!
+              //         : const SizedBox(),
               (hovered && widget.hoverImageUrl != null)
                   ? SimpleImage(
                       height: 200,
