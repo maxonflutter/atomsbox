@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../atomsbox.dart';
 
-typedef CardBuilder = Card Function(BuildContext context, Color color);
+typedef CardBuilder = Card Function(BuildContext context);
 
 enum SimpleCardType { elevated, filled, outlined }
 
@@ -18,15 +18,19 @@ class SimpleCard extends StatefulWidget {
     this.height = 150,
     required this.child,
   }) {
-    builder = (context, color) {
+    builder = (context) {
       return Card(
         clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
-        color: color,
+        color: Theme.of(context).colorScheme.surface,
         elevation: elevation,
         child: InkWell(
           onTap: onTap,
-          child: SizedBox(width: width, height: height, child: child),
+          child: SizedBox(
+            width: width,
+            height: height,
+            child: child,
+          ),
         ),
       );
     };
@@ -43,11 +47,11 @@ class SimpleCard extends StatefulWidget {
     this.height = 150,
     required this.child,
   }) {
-    builder = (context, color) {
+    builder = (context) {
       return Card(
         clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
-        color: color,
+        color: Theme.of(context).colorScheme.surface,
         child: InkWell(
           onTap: onTap,
           child: SizedBox(width: width, height: height, child: child),
@@ -67,11 +71,11 @@ class SimpleCard extends StatefulWidget {
     this.height = 150,
     required this.child,
   }) {
-    builder = (context, color) {
+    builder = (context) {
       return Card(
         clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
-        color: color,
+        color: Theme.of(context).colorScheme.surface,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Theme.of(context).colorScheme.outline),
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
@@ -103,28 +107,10 @@ class SimpleCard extends StatefulWidget {
 }
 
 class _SimpleCardState extends State<SimpleCard> {
-  late bool hovered;
-
-  @override
-  void initState() {
-    hovered = false;
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
-    Color color = hovered
-        ? Theme.of(context).colorScheme.secondary
-        : Theme.of(context).colorScheme.surface;
-
-    Card card = widget.builder.call(context, color);
-
-    return MouseRegion(
-      cursor: SystemMouseCursors.basic,
-      onEnter: (event) => setState(() => hovered = true),
-      onExit: (event) => setState(() => hovered = false),
-      child: card,
-    );
+    Card card = widget.builder.call(context);
+    return card;
   }
 }
 

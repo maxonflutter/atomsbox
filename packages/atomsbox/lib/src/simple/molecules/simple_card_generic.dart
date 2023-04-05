@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../atomsbox.dart';
 
-class SimpleCardGeneric extends StatelessWidget {
+class SimpleCardGeneric extends StatefulWidget {
   const SimpleCardGeneric({
     super.key,
     this.onTap,
@@ -36,53 +36,83 @@ class SimpleCardGeneric extends StatelessWidget {
   final bool dense;
 
   @override
-  Widget build(BuildContext context) {
-    final widget = dense
-        ? _buildSimpleCardGenericDense(context)
-        : _buildSimpleCardGenericExpanded(context);
+  State<SimpleCardGeneric> createState() => _SimpleCardGenericState();
+}
 
-    if (type == SimpleCardType.elevated) {
-      return SimpleCard.elevated(
-        height: height,
-        width: width,
-        margin: margin ?? EdgeInsets.zero,
-        child: widget,
-      );
-    } else if (type == SimpleCardType.filled) {
-      return SimpleCard.filled(
-        height: height,
-        width: width,
-        margin: margin ?? EdgeInsets.zero,
-        child: widget,
-      );
-    } else {
-      return SimpleCard.outlined(
-        height: height,
-        width: width,
-        margin: margin ?? EdgeInsets.zero,
-        child: widget,
-      );
-    }
+class _SimpleCardGenericState extends State<SimpleCardGeneric> {
+  late bool hovered;
+
+  @override
+  void initState() {
+    hovered = false;
+    super.initState();
   }
 
-  LayoutBuilder _buildSimpleCardGenericExpanded(BuildContext context) {
-    final TextStyle headlineStyle = Theme.of(context).textTheme.headlineMedium!;
-    final TextStyle subheadStyle = Theme.of(context).textTheme.bodyMedium!;
-    final TextStyle supportingTextStyle =
-        Theme.of(context).textTheme.bodyMedium!;
+  @override
+  Widget build(BuildContext context) {
+    final backgroundColor =
+        hovered ? Theme.of(context).colorScheme.secondary : null;
 
-    Container();
+    final card = widget.dense
+        ? _buildSimpleCardGenericDense(context)
+        : _buildSimpleCardGenericExpanded(context, hovered);
+
+    return MouseRegion(
+      cursor: SystemMouseCursors.basic,
+      onEnter: (event) => setState(() => hovered = true),
+      onExit: (event) => setState(() => hovered = false),
+      child: (widget.type == SimpleCardType.elevated)
+          ? SimpleCard.elevated(
+              height: widget.height,
+              width: widget.width,
+              color: backgroundColor,
+              margin: widget.margin ?? EdgeInsets.zero,
+              child: card,
+            )
+          : (widget.type == SimpleCardType.filled)
+              ? SimpleCard.filled(
+                  height: widget.height,
+                  width: widget.width,
+                  color: backgroundColor,
+                  margin: widget.margin ?? EdgeInsets.zero,
+                  child: card,
+                )
+              : SimpleCard.outlined(
+                  height: widget.height,
+                  width: widget.width,
+                  color: backgroundColor,
+                  margin: widget.margin ?? EdgeInsets.zero,
+                  child: card,
+                ),
+    );
+  }
+
+  LayoutBuilder _buildSimpleCardGenericExpanded(
+    BuildContext context,
+    bool hovered,
+  ) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    final headlineStyle = textTheme.headlineMedium!
+        .copyWith(color: hovered ? colorScheme.onSecondary : null);
+    final subheadStyle = textTheme.bodyMedium!
+        .copyWith(color: hovered ? colorScheme.onSecondary : null);
+    final supportingTextStyle = textTheme.bodyMedium!
+        .copyWith(color: hovered ? colorScheme.onSecondary : null);
+    ;
+
     return LayoutBuilder(
       builder: (context, constraints) {
         return InkWell(
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          onTap: onTap,
+          onTap: widget.onTap,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              (imageUrl != null)
-                  ? Flexible(child: SimpleImage(height: 200, imageUrl!))
+              (widget.imageUrl != null)
+                  ? Flexible(child: SimpleImage(height: 200, widget.imageUrl!))
                   : const SizedBox(),
               Padding(
                 padding: const EdgeInsets.all(SimpleConstants.md),
@@ -95,19 +125,19 @@ class SimpleCardGeneric extends StatelessWidget {
                             ? headlineStyle.fontSize! * 0.75
                             : headlineStyle.fontSize!,
                       ),
-                      child: headline,
+                      child: widget.headline,
                     ),
-                    (subhead != null)
+                    (widget.subhead != null)
                         ? DefaultTextStyle(
                             style: subheadStyle,
                             child: SimpleText(
-                              subhead!,
+                              widget.subhead!,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
                           )
                         : const SizedBox(),
-                    (supportingText != null)
+                    (widget.supportingText != null)
                         ? DefaultTextStyle(
                             style: supportingTextStyle.copyWith(
                               fontSize: (constraints.maxWidth < 200)
@@ -115,7 +145,7 @@ class SimpleCardGeneric extends StatelessWidget {
                                   : supportingTextStyle.fontSize!,
                             ),
                             child: SimpleText(
-                              supportingText!,
+                              widget.supportingText!,
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -145,8 +175,9 @@ class SimpleCardGeneric extends StatelessWidget {
       builder: (context, constraints) {
         return Stack(
           children: [
-            (imageUrl != null)
-                ? Positioned.fill(child: SimpleImage(height: 200, imageUrl!))
+            (widget.imageUrl != null)
+                ? Positioned.fill(
+                    child: SimpleImage(height: 200, widget.imageUrl!))
                 : const SizedBox(),
             Positioned.fill(
               child: Container(
@@ -172,7 +203,7 @@ class SimpleCardGeneric extends StatelessWidget {
                 child: InkWell(
                   borderRadius:
                       BorderRadius.circular(SimpleConstants.borderRadius),
-                  onTap: onTap,
+                  onTap: widget.onTap,
                 ),
               ),
             ),
@@ -193,9 +224,9 @@ class SimpleCardGeneric extends StatelessWidget {
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                      child: headline,
+                      child: widget.headline,
                     ),
-                    (subhead != null)
+                    (widget.subhead != null)
                         ? DefaultTextStyle(
                             style: subheadStyle.copyWith(
                               fontSize: (constraints.maxWidth < 200)
@@ -203,7 +234,7 @@ class SimpleCardGeneric extends StatelessWidget {
                                   : subheadStyle.fontSize!,
                             ),
                             child: SimpleText(
-                              subhead!,
+                              widget.subhead!,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
