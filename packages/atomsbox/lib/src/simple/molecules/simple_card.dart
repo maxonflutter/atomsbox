@@ -26,7 +26,9 @@ class SimpleCard extends StatefulWidget {
         elevation: elevation,
         child: InkWell(
           onTap: onTap,
-          child: SizedBox(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            color: color ?? Theme.of(context).colorScheme.surface,
             width: width,
             height: height,
             child: child,
@@ -54,7 +56,13 @@ class SimpleCard extends StatefulWidget {
         color: color ?? Theme.of(context).colorScheme.surface,
         child: InkWell(
           onTap: onTap,
-          child: SizedBox(width: width, height: height, child: child),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            color: color ?? Theme.of(context).colorScheme.surface,
+            width: width,
+            height: height,
+            child: child,
+          ),
         ),
       );
     };
@@ -75,14 +83,15 @@ class SimpleCard extends StatefulWidget {
       return Card(
         clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
-        color: color ?? Theme.of(context).colorScheme.surface,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Theme.of(context).colorScheme.outline),
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
         ),
         child: InkWell(
           onTap: onTap,
-          child: SizedBox(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            color: color ?? Theme.of(context).colorScheme.surface,
             width: width,
             height: height,
             child: child,
