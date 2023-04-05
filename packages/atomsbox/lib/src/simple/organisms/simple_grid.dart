@@ -1,3 +1,4 @@
+import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_constants.dart';
@@ -20,7 +21,7 @@ class SimpleGrid extends StatelessWidget {
   const SimpleGrid({
     super.key,
     required this.gridItems,
-    this.crossAxisCount = 2,
+    this.crossAxisCount,
     this.itemHeight = 1,
     this.itemWidth = 1,
     this.title,
@@ -38,7 +39,7 @@ class SimpleGrid extends StatelessWidget {
   final double itemHeight;
 
   /// The number of items in the cross axis of the grid.
-  final int crossAxisCount;
+  final int? crossAxisCount;
 
   /// An optional title to display above the grid.
   final String? title;
@@ -54,6 +55,18 @@ class SimpleGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var defaultCrossAxisCount;
+
+    if (SimpleAppBreakpoints.isDesktop(context)) {
+      defaultCrossAxisCount = 3;
+    }
+    if (SimpleAppBreakpoints.isTablet(context)) {
+      defaultCrossAxisCount = 2;
+    }
+    if (SimpleAppBreakpoints.isMobile(context)) {
+      defaultCrossAxisCount = 1;
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -74,10 +87,10 @@ class SimpleGrid extends StatelessWidget {
             padding: EdgeInsets.zero,
             itemCount: gridItems.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: crossAxisCount,
+              crossAxisCount: crossAxisCount ?? defaultCrossAxisCount,
               childAspectRatio: itemWidth / itemHeight,
-              mainAxisSpacing: SimpleConstants.md,
-              crossAxisSpacing: SimpleConstants.md,
+              mainAxisSpacing: SimpleConstants.sm,
+              crossAxisSpacing: SimpleConstants.sm,
             ),
             itemBuilder: (context, index) {
               return gridItems[index];
