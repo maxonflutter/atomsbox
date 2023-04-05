@@ -112,7 +112,8 @@ class _SimpleCardGenericState extends State<SimpleCardGeneric> {
             mainAxisSize: MainAxisSize.min,
             children: [
               (widget.imageUrl != null)
-                  ? Flexible(child: SimpleImage(height: 200, widget.imageUrl!))
+                  ? SimpleImage(height: 200, widget.imageUrl!)
+                  // ? Flexible(child: SimpleImage(height: 200, widget.imageUrl!))
                   : const SizedBox(),
               Padding(
                 padding: const EdgeInsets.all(SimpleConstants.md),
