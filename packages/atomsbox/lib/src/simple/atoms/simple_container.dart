@@ -16,7 +16,12 @@ class SimpleContainer extends StatelessWidget {
   })  : constraints = BoxConstraints(),
         decoration = BoxDecoration(
           color: color,
-          image: (image == null) ? null : DecorationImage(image: image.image),
+          image: (image == null)
+              ? null
+              : DecorationImage(
+                  image: image.image,
+                  fit: BoxFit.cover,
+                ),
           borderRadius: BorderRadius.circular(borderRadius),
         );
 
