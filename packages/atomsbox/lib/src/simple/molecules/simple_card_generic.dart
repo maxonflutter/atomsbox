@@ -71,7 +71,7 @@ class _SimpleCardGenericState extends State<SimpleCardGeneric> {
     }
 
     if (widget.hoverImageUrl != null) {
-      precacheImage(image!.image, context);
+      precacheImage(hoverImage!.image, context);
     }
   }
 
@@ -138,23 +138,10 @@ class _SimpleCardGenericState extends State<SimpleCardGeneric> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              // (hovered && widget.hoverImageUrl != null)
-              //     ? hoverImage!
-              //     : (widget.imageUrl != null)
-              //         ? image!
-              //         : const SizedBox(),
               (hovered && widget.hoverImageUrl != null)
-                  ? SimpleImage(
-                      height: 200,
-                      width: double.infinity,
-                      widget.hoverImageUrl!,
-                    )
+                  ? hoverImage!
                   : (widget.imageUrl != null)
-                      ? SimpleImage(
-                          height: 200,
-                          width: double.infinity,
-                          widget.imageUrl!,
-                        )
+                      ? image!
                       : const SizedBox(),
               Padding(
                 padding: const EdgeInsets.all(SimpleConstants.md),
