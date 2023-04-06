@@ -70,38 +70,35 @@ class SimpleListTile extends StatelessWidget {
                     )
                   : const SizedBox(),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(SimpleConstants.sm),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      (title != null)
-                          ? DefaultTextStyle(
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: themeData.foregroundColor),
-                              child: title!,
-                            )
-                          : const SizedBox(),
-                      const SizedBox(height: 4.0),
-                      (subtitle != null)
-                          ? DefaultTextStyle(
-                              maxLines: isThreeLine ? 3 : 2,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(color: themeData.foregroundColor),
-                              child: subtitle!,
-                            )
-                          : const SizedBox(),
-                    ],
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    (title != null)
+                        ? DefaultTextStyle(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: themeData.foregroundColor),
+                            child: title!,
+                          )
+                        : const SizedBox(),
+                    const SizedBox(height: 4.0),
+                    (subtitle != null)
+                        ? DefaultTextStyle(
+                            maxLines: isThreeLine ? 3 : 2,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(color: themeData.foregroundColor),
+                            child: subtitle!,
+                          )
+                        : const SizedBox(),
+                  ],
                 ),
               ),
               (trailing != null)
