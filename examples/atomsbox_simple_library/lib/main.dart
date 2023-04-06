@@ -57,53 +57,31 @@ class AtomsboxComponents extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: SimpleTab(
-          tabs: [
-            Tab(
-              icon: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [Icon(Icons.code), SimpleText('Atoms')],
+        child: Padding(
+          padding: const EdgeInsets.all(SimpleConstants.sm),
+          child: SimpleTab(
+            tabs: [
+              Tab(
+                icon: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [Icon(Icons.code), SimpleText('Atoms')],
+                ),
               ),
-            ),
-            Tab(
-              icon: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [Icon(Icons.code), SimpleText('Molecules')],
+              Tab(
+                icon: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [Icon(Icons.code), SimpleText('Molecules')],
+                ),
               ),
-            ),
-            Tab(
-              icon: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [Icon(Icons.code), SimpleText('Organisms')],
+              Tab(
+                icon: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [Icon(Icons.code), SimpleText('Organisms')],
+                ),
               ),
-            ),
-          ],
-          children: [
-            Container(
-              color: Colors.amber,
-              child: Column(
-                children: [
-                  Text('First tab'),
-                  Container(
-                    height: 200,
-                    child: Text('One'),
-                  ),
-                  ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: 20,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          height: 50,
-                          color: Colors.red,
-                          child: Text('One'),
-                        );
-                      }),
-                ],
-              ),
-            ),
-            Text('Second tab'),
-            Text('Third tab'),
-          ],
+            ],
+            children: const [_Atoms(), _Molecules(), _Organisms()],
+          ),
         ),
       ),
     );

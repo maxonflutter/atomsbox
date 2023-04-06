@@ -69,18 +69,18 @@ class _Atoms extends StatelessWidget {
             ],
           ),
           const SizedBox(height: SimpleConstants.xlg),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
-              SimpleLabel(
-                icon: Icons.abc,
-                text: 'This is a label w/ icon',
-              ),
-              SimpleLabel(
-                text: 'This is a label',
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //   children: const [
+          //     SimpleLabel(
+          //       icon: Icons.abc,
+          //       text: 'This is a label w/ icon',
+          //     ),
+          //     SimpleLabel(
+          //       text: 'This is a label',
+          //     ),
+          //   ],
+          // ),
           const SizedBox(height: SimpleConstants.xlg),
           SimpleSlider(
             value: 0.5,
@@ -93,30 +93,66 @@ class _Atoms extends StatelessWidget {
             onChanged: (double) {},
           ),
           const SizedBox(height: SimpleConstants.xlg),
-          const SimpleText(
-            'This is a text widget',
-            textStyle: SimpleTextStyle.headlineLarge,
+
+          Column(
+            children: [
+              Text(
+                'This is a text widget',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              Text(
+                'This is a text widget',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              Text(
+                'This is a text widget',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
           ),
-          const SimpleText(
-            'This is a text widget',
-            textStyle: SimpleTextStyle.headlineMedium,
+          Theme(
+            data: SimpleTheme.darkTheme,
+            child: Column(
+              children: [
+                Text(
+                  'This is a text widget',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                Text(
+                  'This is a text widget',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                Text(
+                  'This is a text widget',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              ],
+            ),
           ),
-          const SimpleText(
-            'This is a text widget',
-            textStyle: SimpleTextStyle.headlineSmall,
-          ),
-          const SimpleText(
-            'This is a text widget',
-            textStyle: SimpleTextStyle.bodyLarge,
-          ),
-          const SimpleText(
-            'This is a text widget',
-            textStyle: SimpleTextStyle.bodyMedium,
-          ),
-          const SimpleText(
-            'This is a text widget',
-            textStyle: SimpleTextStyle.bodySmall,
-          ),
+          // const SimpleText(
+          //   'This is a text widget',
+          //   textStyle: SimpleTextStyle.headlineLarge,
+          // ),
+          // const SimpleText(
+          //   'This is a text widget',
+          //   textStyle: SimpleTextStyle.headlineMedium,
+          // ),
+          // const SimpleText(
+          //   'This is a text widget',
+          //   textStyle: SimpleTextStyle.headlineSmall,
+          // ),
+          // const SimpleText(
+          //   'This is a text widget',
+          //   textStyle: SimpleTextStyle.bodyLarge,
+          // ),
+          // const SimpleText(
+          //   'This is a text widget',
+          //   textStyle: SimpleTextStyle.bodyMedium,
+          // ),
+          // const SimpleText(
+          //   'This is a text widget',
+          //   textStyle: SimpleTextStyle.bodySmall,
+          // ),
         ],
       ),
     );

@@ -15,22 +15,22 @@ final simpleTextThemeLight = GoogleFonts.poppinsTextTheme(
 final simpleTextThemeDark = GoogleFonts.poppinsTextTheme(
   ThemeData(brightness: Brightness.dark).textTheme,
 ).copyWith(
-  displayLarge: GoogleFonts.abrilFatfaceTextTheme()
-      .displayLarge!
-      .copyWith(color: Colors.white),
-  displayMedium: GoogleFonts.abrilFatfaceTextTheme()
-      .displayMedium!
-      .copyWith(color: Colors.white),
-  displaySmall: GoogleFonts.abrilFatfaceTextTheme()
-      .displaySmall!
-      .copyWith(color: Colors.white),
-  headlineLarge: GoogleFonts.abrilFatfaceTextTheme()
-      .headlineLarge!
-      .copyWith(color: Colors.white),
-  headlineMedium: GoogleFonts.abrilFatfaceTextTheme()
-      .headlineMedium!
-      .copyWith(color: Colors.white),
-  headlineSmall: GoogleFonts.abrilFatfaceTextTheme()
-      .headlineSmall!
-      .copyWith(color: Colors.white),
+  displayLarge: GoogleFonts.abrilFatfaceTextTheme(
+    ThemeData(brightness: Brightness.dark).textTheme,
+  ).displayLarge,
+  displayMedium: GoogleFonts.abrilFatfaceTextTheme(
+    ThemeData(brightness: Brightness.dark).textTheme,
+  ).displayMedium,
+  displaySmall: GoogleFonts.abrilFatfaceTextTheme(
+    ThemeData(brightness: Brightness.dark).textTheme,
+  ).displaySmall,
+  headlineLarge: GoogleFonts.abrilFatfaceTextTheme(
+    ThemeData(brightness: Brightness.dark).textTheme,
+  ).headlineLarge,
+  headlineMedium: GoogleFonts.abrilFatfaceTextTheme(
+    ThemeData(brightness: Brightness.dark).textTheme,
+  ).headlineMedium,
+  headlineSmall: GoogleFonts.abrilFatfaceTextTheme(
+    ThemeData(brightness: Brightness.dark).textTheme,
+  ).headlineSmall,
 );

@@ -11,8 +11,7 @@ import 'simple_color_scheme.dart';
 import 'simple_text_theme.dart';
 
 class SimpleTheme {
-  static final ThemeData theme = ThemeData.light().copyWith(
-    useMaterial3: true,
+  static final ThemeData theme = ThemeData.light(useMaterial3: true).copyWith(
     primaryColorDark:
         SimpleColors.getMaterialColorFromColor(SimpleColors.primarySeedColor)
             .shade600,
