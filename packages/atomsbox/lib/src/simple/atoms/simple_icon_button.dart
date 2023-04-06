@@ -15,11 +15,10 @@ class SimpleIconButton extends StatelessWidget {
     builder = (context) {
       if (themeData == null) {
         return IconButton(
-          // style: primary
-          //     ? null
-          //     : IconButton.styleFrom(
-          //         backgroundColor: Theme.of(context).colorScheme.secondary,
-          //       ),
+          style: IconButton.styleFrom(
+            backgroundColor:
+                primary ? null : Theme.of(context).colorScheme.secondary,
+          ),
           onPressed: onPressed,
           icon: child,
         );

@@ -49,13 +49,3 @@ class SimpleColors {
     return MaterialColor(color.value, _colorShades);
   }
 }
-
-// ColorScheme.fromSeed(
-//   seedColor: const Color(0xFF304FFE),
-//   brightness: Brightness.light,
-// );
-
-// ColorScheme.fromSeed(
-//   seedColor: const Color(0xFF304FFE),
-//   brightness: Brightness.dark,
-// );

@@ -1,9 +1,8 @@
-import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
+import '../../../atomsbox.dart';
 import 'config/simple_color_scheme.dart';
 import 'config/simple_constants.dart';
-import 'config/simple_text_theme.dart';
 
 typedef ButtonBuilder = Widget Function(BuildContext context);
 

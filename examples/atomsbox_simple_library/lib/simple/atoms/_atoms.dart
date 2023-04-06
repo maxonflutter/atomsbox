@@ -25,15 +25,21 @@ class _Atoms extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SimpleButton.elevated(
+                onPressed: () {},
                 child: const Text('Elevated '),
               ),
               SimpleButton.text(
+                onPressed: () {},
                 child: const Text('Text '),
               ),
               SimpleButton.outline(
+                onPressed: () {},
                 child: const Text('Outlined '),
               ),
-              SimpleIconButton(child: const Icon(Icons.offline_bolt)),
+              SimpleIconButton(
+                onPressed: () {},
+                child: const Icon(Icons.offline_bolt),
+              ),
             ],
           ),
           const SizedBox(height: SimpleConstants.xlg),
@@ -42,28 +48,30 @@ class _Atoms extends StatelessWidget {
             children: [
               SimpleButton.elevated(
                 primary: false,
+                onPressed: () {},
                 child: const Text('Elevated '),
               ),
               SimpleButton.text(
                 primary: false,
+                onPressed: () {},
                 child: const Text('Text '),
               ),
               SimpleButton.outline(
                 primary: false,
+                onPressed: () {},
                 child: const Text('Outlined '),
               ),
               SimpleIconButton(
                 primary: false,
-                child: const Icon(
-                  Icons.offline_bolt,
-                ),
+                onPressed: () {},
+                child: const Icon(Icons.offline_bolt),
               ),
             ],
           ),
           const SizedBox(height: SimpleConstants.xlg),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+            children: const [
               SimpleLabel(
                 icon: Icons.abc,
                 text: 'This is a label w/ icon',
@@ -76,6 +84,12 @@ class _Atoms extends StatelessWidget {
           const SizedBox(height: SimpleConstants.xlg),
           SimpleSlider(
             value: 0.5,
+            onChanged: (double) {},
+          ),
+          const SizedBox(height: SimpleConstants.sm),
+          SimpleSlider(
+            value: 0.5,
+            thumbShape: SliderComponentShape.noThumb,
             onChanged: (double) {},
           ),
           const SizedBox(height: SimpleConstants.xlg),

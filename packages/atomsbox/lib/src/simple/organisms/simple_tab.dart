@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_constants.dart';
-import '../atoms/simple_container.dart';
 
 class SimpleTab extends StatefulWidget {
   const SimpleTab({
     super.key,
-    required this.tabBarChildren,
-    required this.tabBarViewChildren,
-  }) : assert(tabBarChildren.length == tabBarViewChildren.length);
+    required this.tabs,
+    required this.children,
+  }) : assert(tabs.length == children.length);
 
-  final List<Tab> tabBarChildren;
-  final List<Widget> tabBarViewChildren;
+  final List<Tab> tabs;
+  final List<Widget> children;
 
   @override
   State<SimpleTab> createState() => _SimpleTabState();
@@ -19,105 +18,79 @@ class SimpleTab extends StatefulWidget {
 
 class _SimpleTabState extends State<SimpleTab>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+  late TabController controller;
+  late Widget currentChild;
+
+  int currentTab = 0;
 
   @override
   void initState() {
-    _tabController = TabController(
-      length: widget.tabBarChildren.length,
-      vsync: this,
-    );
+    controller = TabController(length: widget.tabs.length, vsync: this);
+    currentChild = widget.children[currentTab];
+
+    controller.addListener(() {
+      setState(() {
+        currentTab = controller.index;
+        currentChild = widget.children[currentTab];
+      });
+    });
     super.initState();
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+    controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SimpleContainer(
-      color: Theme.of(context).colorScheme.surface,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SimpleTabBar(
-            tabController: _tabController,
-            tabBarChildren: widget.tabBarChildren,
-          ),
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                for (int i = 0; i < widget.tabBarViewChildren.length; i++)
-                  widget.tabBarViewChildren[i],
-              ],
-            ),
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _SimpleTabBar(
+          controller: controller,
+          children: widget.tabs,
+        ),
+        const SizedBox(height: SimpleConstants.sm),
+        AnimatedSwitcher(
+          duration: const Duration(seconds: 1),
+          child: currentChild,
+        ),
+      ],
     );
   }
 }
 
-class SimpleTabBarView extends StatelessWidget {
-  const SimpleTabBarView({
+class _SimpleTabBar extends StatelessWidget with PreferredSizeWidget {
+  const _SimpleTabBar({
     super.key,
-    required this.tabController,
-    required this.tabBarViewChildren,
+    required this.controller,
+    required this.children,
   });
 
-  final TabController tabController;
-  final List<Widget> tabBarViewChildren;
-
+  final TabController controller;
+  final List<Tab> children;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: TabBarView(
-        controller: tabController,
-        children: [
-          for (int i = 0; i < tabBarViewChildren.length; i++)
-            tabBarViewChildren[i],
-        ],
-      ),
-    );
-  }
-}
+    final colorScheme = Theme.of(context).colorScheme;
 
-class SimpleTabBar extends StatelessWidget with PreferredSizeWidget {
-  const SimpleTabBar({
-    super.key,
-    required this.tabController,
-    required this.tabBarChildren,
-    this.margin,
-  });
-
-  final TabController tabController;
-  final List<Tab> tabBarChildren;
-  final double? margin;
-
-  @override
-  Widget build(BuildContext context) {
     return Container(
       height: 56.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-        color: Theme.of(context).colorScheme.primary,
+        color: colorScheme.surfaceVariant,
       ),
-      margin: EdgeInsets.symmetric(horizontal: margin ?? 0.0),
       child: TabBar(
-        controller: tabController,
+        controller: controller,
+        indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          color: Theme.of(context).colorScheme.secondary,
+          color: colorScheme.primary,
         ),
-        indicatorColor: Theme.of(context).colorScheme.onPrimary,
-        labelColor: Theme.of(context).colorScheme.onPrimary,
-        unselectedLabelColor:
-            Theme.of(context).colorScheme.onPrimary.withOpacity(0.38),
-        tabs: tabBarChildren,
+        labelColor: colorScheme.onPrimary,
+        unselectedLabelColor: colorScheme.onSurfaceVariant,
+        tabs: children,
       ),
     );
   }

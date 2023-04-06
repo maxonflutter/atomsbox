@@ -97,11 +97,6 @@ class SimpleTextFormField extends StatelessWidget {
 
     return TextFormField(
       initialValue: initialValue,
-      // style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-      //       color: (brightness == Brightness.light)
-      //           ? Colors.black87
-      //           : Colors.white,
-      //     ),
       obscureText: obscureText,
       onChanged: onChanged,
       onEditingComplete: onEditingComplete,

@@ -11,8 +11,6 @@ class SimpleSlider extends StatelessWidget {
     this.minValue,
     this.maxValue,
     this.thumbShape,
-    this.primary = true,
-    this.brightness = Brightness.light,
   });
 
   final SliderComponentShape? thumbShape;
@@ -21,19 +19,22 @@ class SimpleSlider extends StatelessWidget {
   final double? maxValue;
   final void Function(double) onChanged;
   final void Function(double)? onChangeEnd;
-  final bool primary;
-  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 10,
-      child: Slider(
-        min: minValue ?? 0.0,
-        max: maxValue ?? 10.0,
-        value: value ?? 0.0,
-        onChanged: onChanged,
-        onChangeEnd: onChangeEnd,
+      child: SliderTheme(
+        data: SliderTheme.of(context).copyWith(
+          thumbShape: thumbShape,
+        ),
+        child: Slider(
+          min: minValue ?? 0.0,
+          max: maxValue ?? 10.0,
+          value: value ?? 0.0,
+          onChanged: onChanged,
+          onChangeEnd: onChangeEnd,
+        ),
       ),
     );
   }
@@ -76,7 +77,6 @@ class _CustomTrackShape extends RoundedRectSliderTrackShape {
 final simpleSliderThemeLight = SliderThemeData(
   trackHeight: 2.0,
   trackShape: _CustomTrackShape(),
-  thumbShape: SliderComponentShape.noThumb,
   thumbColor: SimpleColors.simpleColorSchemeLight.primary,
   activeTrackColor: SimpleColors.simpleColorSchemeLight.primary,
   inactiveTrackColor:
@@ -86,7 +86,6 @@ final simpleSliderThemeLight = SliderThemeData(
 final simpleSliderThemeDark = SliderThemeData(
   trackHeight: 2.0,
   trackShape: _CustomTrackShape(),
-  thumbShape: SliderComponentShape.noThumb,
   thumbColor: SimpleColors.simpleColorSchemeDark.primary,
   activeTrackColor: SimpleColors.simpleColorSchemeDark.primary,
   inactiveTrackColor:

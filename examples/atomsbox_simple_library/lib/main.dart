@@ -27,91 +27,9 @@ class MyApp extends StatelessWidget {
             theme: SimpleTheme.theme,
             darkTheme: SimpleTheme.darkTheme,
             themeMode: currentMode,
-            home: const MyCard(),
+            home: const AtomsboxComponents(),
           );
         });
-  }
-}
-
-class MyCard extends StatelessWidget {
-  const MyCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    const sampleText =
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
-    const imageUrl =
-        'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
-
-    return Scaffold(
-      appBar: AppBar(title: SimpleText('Cards')),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(SimpleConstants.sm),
-          child: Column(
-            children: [
-              SimpleCardUser(
-                height: 400,
-                dense: false,
-                headline: SimpleText('Massimo Del Pezzo'),
-                supportingText: sampleText,
-                imageUrl: imageUrl,
-                backgroundImageUrl: imageUrl,
-                actions: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SimpleButton.text(
-                      onPressed: () {},
-                      child: const SimpleText('Add'),
-                    ),
-                    SimpleButton.text(
-                      onPressed: () {},
-                      child: const SimpleText('Follow'),
-                    ),
-                  ],
-                ),
-              ),
-              SimpleCardGeneric(
-                onTap: () {},
-                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-                headline: const SimpleText('This is a card'),
-                subhead: sampleText,
-                supportingText: sampleText,
-                imageUrl: imageUrl,
-                type: SimpleCardType.filled,
-              ),
-              SimpleCardGeneric(
-                onTap: () {},
-                headline: const SimpleText('This is a card'),
-                subhead: sampleText,
-                supportingText: sampleText,
-                imageUrl: imageUrl,
-                height: 250,
-                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-                type: SimpleCardType.outlined,
-                dense: false,
-              ),
-              SimpleCard.filled(
-                onTap: () {},
-                height: 100,
-                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-                child: const Center(
-                  child: SimpleText('Simple Card'),
-                ),
-              ),
-              SimpleCard.outlined(
-                onTap: () {},
-                height: 100,
-                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-                child: const Center(
-                  child: SimpleText('Simple Card'),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 }
 
@@ -120,37 +38,7 @@ class AtomsboxComponents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<SimpleListTile> items = [1, 2, 3, 4]
-        .map(
-          (e) => SimpleListTile(
-            // leading: SimpleImage(
-            //   imageUrl,
-            //   width: 80,
-            //   height: 80,
-            // ),
-            title: const SimpleText(
-              'This is a list tile',
-              textStyle: SimpleTextStyle.bodyLarge,
-              fontWeight: FontWeight.bold,
-            ),
-            subtitle: const SimpleText('sampleText', maxLines: 3),
-          ),
-        )
-        .toList();
     return Scaffold(
-      // drawer: SimpleDrawer(
-      //   drawerItems: [1, 2, 3, 4].map((e) {
-      //     return SimpleListTile(
-      //       onTap: () {},
-      //       leading: const Icon(Icons.offline_bolt),
-      //       title: SimpleText(
-      //         'Navigation Item #$e',
-      //         textStyle: SimpleTextStyle.bodyLarge,
-      //         fontWeight: FontWeight.bold,
-      //       ),
-      //     );
-      //   }).toList(),
-      // ),
       appBar: AppBar(
         title: const Text('atomsbox'),
         actions: [
@@ -168,33 +56,53 @@ class AtomsboxComponents extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(SimpleConstants.sm),
-        child: Column(
-          children: [
-            SimpleTab(
-              tabBarChildren: [
-                Tab(
-                  icon: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [Icon(Icons.code), SimpleText('Atoms')],
-                  ),
-                ),
-                Tab(
-                  icon: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [Icon(Icons.code), SimpleText('Molecules')],
-                  ),
-                ),
-                Tab(
-                  icon: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [Icon(Icons.code), SimpleText('Organisms')],
-                  ),
-                ),
-              ],
-              tabBarViewChildren: const [_Atoms(), _Molecules(), _Organisms()],
+      body: SingleChildScrollView(
+        child: SimpleTab(
+          tabs: [
+            Tab(
+              icon: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [Icon(Icons.code), SimpleText('Atoms')],
+              ),
             ),
+            Tab(
+              icon: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [Icon(Icons.code), SimpleText('Molecules')],
+              ),
+            ),
+            Tab(
+              icon: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [Icon(Icons.code), SimpleText('Organisms')],
+              ),
+            ),
+          ],
+          children: [
+            Container(
+              color: Colors.amber,
+              child: Column(
+                children: [
+                  Text('First tab'),
+                  Container(
+                    height: 200,
+                    child: Text('One'),
+                  ),
+                  ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 20,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          height: 50,
+                          color: Colors.red,
+                          child: Text('One'),
+                        );
+                      }),
+                ],
+              ),
+            ),
+            Text('Second tab'),
+            Text('Third tab'),
           ],
         ),
       ),

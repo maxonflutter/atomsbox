@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'config/simple_app_breakpoints.dart';
-
 enum SimpleTextStyle {
   displayLarge,
   displayMedium,
@@ -51,7 +49,7 @@ class SimpleText extends Text {
   @override
   Widget build(BuildContext context) {
     final style = _buildStyle(context);
-    final textScaleFactor = _buildTextScaleFactor(context);
+    // final textScaleFactor = _buildTextScaleFactor(context);
 
     Widget widget = Text(
       data ?? '',
@@ -59,7 +57,7 @@ class SimpleText extends Text {
       overflow: overflow,
       maxLines: maxLines,
       style: style,
-      textScaleFactor: textScaleFactor,
+      // textScaleFactor: textScaleFactor,
     );
 
     if (textGradient) {
@@ -69,9 +67,9 @@ class SimpleText extends Text {
     return widget;
   }
 
-  _buildTextScaleFactor(BuildContext context) {
-    return 1.0;
-  }
+  // _buildTextScaleFactor(BuildContext context) {
+  //   return 1.0;
+  // }
 
   _buildStyle(BuildContext context) {
     switch (textStyle) {
