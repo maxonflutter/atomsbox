@@ -80,7 +80,11 @@ class AtomsboxComponents extends StatelessWidget {
                 ),
               ),
             ],
-            children: const [_Molecules(), _Atoms(), _Organisms()],
+            children: const [
+              _Atoms(),
+              _Molecules(),
+              _Organisms(),
+            ],
           ),
         ),
       ),

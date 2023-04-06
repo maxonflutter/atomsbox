@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../atoms/config/simple_constants.dart';
+import '../atoms/simple_card_container.dart';
 import '../atoms/simple_image.dart';
 import '../atoms/simple_text.dart';
-import '../atoms/simple_card_container.dart';
 
 class SimpleCard extends StatefulWidget {
   const SimpleCard({
@@ -13,10 +13,10 @@ class SimpleCard extends StatefulWidget {
     required this.headline,
     this.subhead,
     this.supportingText,
-    this.imageUrl,
-    this.hoverImageUrl,
-    this.width = 400,
-    this.height = 200,
+    this.image,
+    this.hoverImage,
+    this.width = double.infinity,
+    this.height,
     this.margin,
     this.type = SimpleCardContainerType.elevated,
     this.dense = true,
@@ -30,8 +30,8 @@ class SimpleCard extends StatefulWidget {
   final Widget headline;
   final String? subhead;
   final String? supportingText;
-  final String? imageUrl;
-  final String? hoverImageUrl;
+  final SimpleImage? image;
+  final SimpleImage? hoverImage;
 
   // Layout
   final double? width;
@@ -47,43 +47,10 @@ class SimpleCard extends StatefulWidget {
 class _SimpleCardState extends State<SimpleCard> {
   late bool hovered;
 
-  Image? image;
-  Image? hoverImage;
-
   @override
   void initState() {
     super.initState();
-
     hovered = false;
-
-    if (widget.imageUrl != null) {
-      image = Image.network(
-        widget.imageUrl!,
-        width: double.infinity,
-        fit: BoxFit.cover,
-      );
-    }
-
-    if (widget.hoverImageUrl != null) {
-      hoverImage = Image.network(
-        widget.hoverImageUrl!,
-        width: double.infinity,
-        fit: BoxFit.cover,
-      );
-    }
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    if (widget.imageUrl != null) {
-      precacheImage(image!.image, context);
-    }
-
-    if (widget.hoverImageUrl != null) {
-      precacheImage(hoverImage!.image, context);
-    }
   }
 
   @override
@@ -125,7 +92,7 @@ class _SimpleCardState extends State<SimpleCard> {
     );
   }
 
-  LayoutBuilder _buildSimpleCardExpanded(BuildContext context, bool hovered) {
+  InkWell _buildSimpleCardExpanded(BuildContext context, bool hovered) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -143,81 +110,61 @@ class _SimpleCardState extends State<SimpleCard> {
       fontWeight: FontWeight.bold,
     );
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return InkWell(
-          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-          onTap: widget.onTap,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              (hovered && widget.hoverImageUrl != null)
-                  ? Expanded(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(
-                          SimpleConstants.borderRadius,
-                        ),
-                        child: hoverImage!,
-                      ),
-                    )
-                  : (widget.imageUrl != null)
-                      ? Expanded(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(
-                              SimpleConstants.borderRadius,
-                            ),
-                            child: image!,
-                          ),
-                        )
-                      : const SizedBox(),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(SimpleConstants.md),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DefaultTextStyle(
-                        style: headlineStyle.copyWith(
-                          fontSize: (constraints.maxWidth < 200)
-                              ? headlineStyle.fontSize! * 0.75
-                              : headlineStyle.fontSize!,
-                        ),
-                        child: widget.headline,
-                      ),
-                      (widget.subhead != null)
-                          ? DefaultTextStyle(
-                              style: subheadStyle,
-                              child: SimpleText(
-                                widget.subhead!,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            )
-                          : const SizedBox(),
-                      const SizedBox(height: SimpleConstants.sm),
-                      (widget.supportingText != null)
-                          ? DefaultTextStyle(
-                              style: supportingTextStyle.copyWith(
-                                fontSize: (constraints.maxWidth < 200)
-                                    ? supportingTextStyle.fontSize! * 0.8
-                                    : supportingTextStyle.fontSize!,
-                              ),
-                              child: SimpleText(
-                                widget.supportingText!,
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            )
-                          : const SizedBox(),
-                    ],
+    return InkWell(
+      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+      onTap: widget.onTap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          (hovered && widget.hoverImage != null)
+              ? widget.hoverImage!
+              : (widget.image != null)
+                  ? widget.image!
+                  : const SizedBox(),
+          Padding(
+            padding: const EdgeInsets.all(SimpleConstants.sm),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                DefaultTextStyle(
+                  maxLines: 2,
+                  style: headlineStyle.copyWith(
+                    fontSize: (widget.width! < 200)
+                        ? headlineStyle.fontSize! * 0.75
+                        : headlineStyle.fontSize!,
                   ),
+                  child: widget.headline,
                 ),
-              )
-            ],
+                (widget.subhead != null)
+                    ? DefaultTextStyle(
+                        style: subheadStyle,
+                        child: SimpleText(
+                          widget.subhead!,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      )
+                    : const SizedBox(),
+                const SizedBox(height: SimpleConstants.sm),
+                (widget.supportingText != null)
+                    ? DefaultTextStyle(
+                        style: supportingTextStyle.copyWith(
+                          fontSize: (widget.width! < 200)
+                              ? supportingTextStyle.fontSize! * 0.8
+                              : supportingTextStyle.fontSize!,
+                        ),
+                        child: SimpleText(
+                          widget.supportingText!,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      )
+                    : const SizedBox(),
+              ],
+            ),
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 
@@ -235,10 +182,8 @@ class _SimpleCardState extends State<SimpleCard> {
       builder: (context, constraints) {
         return Stack(
           children: [
-            (widget.imageUrl != null)
-                ? Positioned.fill(
-                    child: SimpleImage(height: 200, widget.imageUrl!),
-                  )
+            (widget.image != null)
+                ? Positioned.fill(child: widget.image!)
                 : const SizedBox(),
             Positioned.fill(
               child: Container(

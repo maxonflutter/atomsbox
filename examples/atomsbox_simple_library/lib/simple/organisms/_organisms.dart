@@ -86,7 +86,7 @@ class _Organisms extends StatelessWidget {
           SimpleList.horizontal(
             height: 200,
             title: const SimpleText('This is a horizontal list'),
-            description: const SimpleText('This is a  list description'),
+            description: const SimpleText('This is a list description'),
             listItems: [1, 2, 3]
                 .map(
                   (e) => SimpleCard(
@@ -97,7 +97,7 @@ class _Organisms extends StatelessWidget {
                     headline: const SimpleText('This is a card'),
                     subhead: sampleText,
                     supportingText: sampleText,
-                    imageUrl: imageUrl,
+                    image: SimpleImage(imageUrl),
                     type: SimpleCardContainerType.filled,
                   ),
                 )
@@ -110,16 +110,18 @@ class _Organisms extends StatelessWidget {
             itemHeight: 1,
             itemWidth: 1,
             crossAxisCount: 2,
-            gridItems: [1, 2, 3]
+            gridItems: [1, 2, 3, 4]
                 .map(
                   (e) => SimpleCard(
+                    dense: false,
                     onTap: () {},
-                    height: 200,
-                    width: 300,
-                    headline: const SimpleText('This is a card'),
-                    subhead: sampleText,
-                    supportingText: sampleText,
-                    imageUrl: imageUrl,
+                    headline: const SimpleText(
+                      'This is a card with a long headline',
+                      fontWeight: FontWeight.bold,
+                      textStyle: SimpleTextStyle.bodyLarge,
+                      maxLines: 2,
+                    ),
+                    image: SimpleImage(imageUrl, height: 100),
                     type: SimpleCardContainerType.filled,
                   ),
                 )

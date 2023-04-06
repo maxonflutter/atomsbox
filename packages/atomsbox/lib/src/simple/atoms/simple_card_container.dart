@@ -20,7 +20,6 @@ class SimpleCardContainer extends StatefulWidget {
   }) {
     builder = (context) {
       return Card(
-        clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
         color: color ?? Theme.of(context).colorScheme.surface,
         elevation: elevation,
@@ -45,7 +44,6 @@ class SimpleCardContainer extends StatefulWidget {
   }) {
     builder = (context) {
       return Card(
-        clipBehavior: Clip.hardEdge,
         elevation: 0.0,
         margin: margin ?? EdgeInsets.zero,
         color: color ?? Theme.of(context).colorScheme.surface,
@@ -70,7 +68,6 @@ class SimpleCardContainer extends StatefulWidget {
   }) {
     builder = (context) {
       return Card(
-        clipBehavior: Clip.hardEdge,
         margin: margin ?? EdgeInsets.zero,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Theme.of(context).colorScheme.outline),
@@ -107,12 +104,14 @@ class _SimpleCardContainerState extends State<SimpleCardContainer> {
 }
 
 final simpleCardContainerThemeLight = CardTheme(
+  clipBehavior: Clip.hardEdge,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
   ),
 );
 
 final simpleCardContainerThemeDark = CardTheme(
+  clipBehavior: Clip.hardEdge,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
   ),

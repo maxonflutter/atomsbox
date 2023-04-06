@@ -14,56 +14,8 @@ class _Molecules extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: SimpleConstants.xlg),
-          SimpleUserCard(
-            dense: false,
-            onTap: () {},
-            height: 450,
-            headline: const SimpleText('Massimo Del Pezzo'),
-            supportingText: sampleText,
-            imageUrl: imageUrl,
-            subhead: sampleText,
-            type: SimpleCardContainerType.elevated,
-            actions: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SimpleButton.text(
-                  onPressed: () {},
-                  child: const SimpleText('Add'),
-                ),
-                SimpleButton.text(
-                  onPressed: () {},
-                  child: const SimpleText('Follow'),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-
-          SimpleCard(
-            onTap: () {},
-            height: 200,
-            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-            headline: const SimpleText('This is a card'),
-            subhead: sampleText,
-            supportingText: sampleText,
-            imageUrl: imageUrl,
-            type: SimpleCardContainerType.filled,
-          ),
-          SimpleCard(
-            dense: false,
-            onTap: () {},
-            height: 350,
-            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-            headline: const SimpleText('This is a card'),
-            subhead: sampleText,
-            supportingText: sampleText,
-            imageUrl: imageUrl,
-            type: SimpleCardContainerType.outlined,
-          ),
-
           SimpleListTile(
             onTap: () {},
-            isThreeLine: true,
             leading: const CircleAvatar(radius: 24),
             title: const SimpleText('This is a list tile'),
             subtitle: const SimpleText(sampleText),
@@ -90,7 +42,53 @@ class _Molecules extends StatelessWidget {
             trailing: const Icon(Icons.offline_bolt),
           ),
           const SizedBox(height: SimpleConstants.xlg),
-
+          SimpleExpansionTile(
+            initiallyExpanded: true,
+            title: const SimpleText('This is an expansion tile'),
+            children: const [SimpleText(sampleText)],
+          ),
+          const SizedBox(height: SimpleConstants.sm),
+          SimpleExpansionTile(
+            title: const SimpleText('This is an expansion tile'),
+            children: const [SimpleText(sampleText)],
+          ),
+          const SizedBox(height: SimpleConstants.sm),
+          SimpleExpansionTile.transparent(
+            title: const SimpleText('This is an expansion tile'),
+            children: const [SimpleText(sampleText)],
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
+          SimpleCard(
+            onTap: () {},
+            height: 200,
+            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+            headline: const SimpleText('This is a card'),
+            subhead: sampleText,
+            supportingText: sampleText,
+            image: SimpleImage(imageUrl),
+            type: SimpleCardContainerType.filled,
+          ),
+          SimpleCard(
+            dense: false,
+            onTap: () {},
+            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+            headline: const SimpleText('This is a card'),
+            subhead: sampleText,
+            supportingText: sampleText,
+            image: SimpleImage(imageUrl, height: 200),
+            type: SimpleCardContainerType.outlined,
+          ),
+          SimpleCard(
+            dense: false,
+            onTap: () {},
+            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+            headline: const SimpleText('This is a card'),
+            subhead: sampleText,
+            supportingText: 'sampleText',
+            image: SimpleImage(imageUrl, height: 200),
+            type: SimpleCardContainerType.outlined,
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
           const SimpleSegmentedButton(
             isSelected: [true, false, false],
             children: [
@@ -100,7 +98,6 @@ class _Molecules extends StatelessWidget {
             ],
           ),
           const SizedBox(height: SimpleConstants.sm),
-
           const SimpleSegmentedButton(
             isSelected: [true, false, false],
             children: [
@@ -109,7 +106,6 @@ class _Molecules extends StatelessWidget {
               Icon(Icons.wb_sunny),
             ],
           ),
-
           const SizedBox(height: SimpleConstants.sm),
           Row(
             children: const [
@@ -135,40 +131,29 @@ class _Molecules extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: SimpleConstants.xlg),
-
-          // SimpleCard(
-          //   height: 400,
-          //   onTap: () {},
-          //   headline: const SimpleText('This is a card'),
-          //   subhead: sampleText,
-          //   supportingText: sampleText,
-          //   imageUrl: imageUrl,
-          //   margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-          //   type: SimpleCardContainerType.outlined,
-          //   dense: false,
-          // ),
-
-          SimpleExpansionTile(
-            initiallyExpanded: true,
-            title: const SimpleText('This is an expansion tile'),
-            children: [
-              const SimpleText(sampleText),
-              SimpleIconButton(child: const Icon(Icons.abc_outlined)),
-              SimpleButton.elevated(
-                child: const SimpleText('Button'),
-              )
-            ],
-          ),
           const SizedBox(height: SimpleConstants.sm),
-          SimpleExpansionTile(
-            title: const SimpleText('This is an expansion tile'),
-            children: const [SimpleText(sampleText)],
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          SimpleExpansionTile.transparent(
-            title: const SimpleText('This is an expansion tile'),
-            children: const [SimpleText(sampleText)],
+          SimpleUserCard(
+            dense: false,
+            onTap: () {},
+            height: 450,
+            headline: const SimpleText('Massimo Del Pezzo'),
+            supportingText: sampleText,
+            imageUrl: imageUrl,
+            subhead: sampleText,
+            type: SimpleCardContainerType.elevated,
+            actions: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SimpleButton.text(
+                  onPressed: () {},
+                  child: const SimpleText('Add'),
+                ),
+                SimpleButton.text(
+                  onPressed: () {},
+                  child: const SimpleText('Follow'),
+                ),
+              ],
+            ),
           ),
         ],
       ),
