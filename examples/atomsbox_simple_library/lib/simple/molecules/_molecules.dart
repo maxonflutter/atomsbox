@@ -14,6 +14,22 @@ class _Molecules extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: SimpleConstants.xlg),
+          SimpleForm(
+            title: const SimpleText('This is a form'),
+            description: const SimpleText('This is a form description'),
+            formButton: SimpleButton.elevated(
+              onPressed: () {},
+              child: const SimpleText('Submit'),
+            ),
+            formItemNames: const ['One', 'Two', 'Three'],
+            formItems: [
+              SimpleTextFormField(),
+              SimpleTextFormField(),
+              SimpleTextFormField(),
+            ],
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
+
           // SimpleCardGeneric(
           //   title: const SimpleText('This is a card'),
           //   imageUrl: imageUrl,
@@ -30,7 +46,6 @@ class _Molecules extends StatelessWidget {
           //   paragraph: sampleText,
           //   dense: false,
           // ),
-          const SizedBox(height: SimpleConstants.xlg),
           const SimpleToggleButtons(
             isSelected: [true, false, false, false],
             children: ['Toggle 1', 'Toggle 2', 'Toggle 3', 'Toggle 4'],
