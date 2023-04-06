@@ -1,3 +1,4 @@
+import 'package:atomsbox/src/simple/atoms/config/simple_constants.dart';
 import 'package:flutter/material.dart';
 
 enum SimpleTextStyle {
@@ -228,7 +229,10 @@ class _SimpleTextGradient extends StatelessWidget {
       ]).createShader(
         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
       ),
-      child: child,
+      child: Padding(
+        padding: const EdgeInsets.all(SimpleConstants.sm),
+        child: child,
+      ),
     );
   }
 }

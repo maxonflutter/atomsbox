@@ -9,15 +9,25 @@ class SimpleLabel extends StatelessWidget {
     super.key,
     required this.text,
     this.icon,
+    this.primary = true,
   });
 
   final String text;
   final IconData? icon;
+  final bool primary;
 
   @override
   Widget build(BuildContext context) {
-    final SimpleLabelThemeData themeData =
-        Theme.of(context).extension<SimpleLabelThemeData>()!;
+    final SimpleLabelThemeData themeData;
+
+    if (primary) {
+      themeData = Theme.of(context).extension<SimpleLabelThemeData>()!;
+    } else {
+      themeData = Theme.of(context).extension<SimpleLabelThemeData>()!.copyWith(
+            backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+            foregroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+          );
+    }
 
     return Container(
       padding: const EdgeInsets.all(SimpleConstants.sm),

@@ -1,39 +1,69 @@
+import 'package:atomsbox/src/simple/atoms/config/simple_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'config/simple_color_scheme.dart';
+import 'simple_text.dart';
 
 class SimpleSlider extends StatelessWidget {
   const SimpleSlider({
     super.key,
     required this.value,
     required this.onChanged,
+    this.height,
     this.onChangeEnd,
-    this.minValue,
-    this.maxValue,
+    this.minValue = 0.0,
+    this.maxValue = 10.0,
+    this.divisions,
+    this.showMinValue = false,
+    this.showMaxValue = false,
     this.thumbShape,
   });
 
   final SliderComponentShape? thumbShape;
+  final double? height;
   final double? value;
   final double? minValue;
   final double? maxValue;
+  final int? divisions;
+  final bool showMinValue;
+  final bool showMaxValue;
   final void Function(double) onChanged;
   final void Function(double)? onChangeEnd;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 10,
+      height: height,
       child: SliderTheme(
         data: SliderTheme.of(context).copyWith(
           thumbShape: thumbShape,
         ),
-        child: Slider(
-          min: minValue ?? 0.0,
-          max: maxValue ?? 10.0,
-          value: value ?? 0.0,
-          onChanged: onChanged,
-          onChangeEnd: onChangeEnd,
+        child: Row(
+          children: [
+            ...showMinValue
+                ? [
+                    SimpleText('${minValue ?? 0.0}'),
+                    const SizedBox(width: SimpleConstants.md),
+                  ]
+                : [],
+            Expanded(
+              child: Slider(
+                min: minValue ?? 0.0,
+                max: maxValue ?? 10.0,
+                value: value ?? 0.0,
+                divisions: divisions,
+                label: value.toString(),
+                onChanged: onChanged,
+                onChangeEnd: onChangeEnd,
+              ),
+            ),
+            ...showMaxValue
+                ? [
+                    const SizedBox(width: SimpleConstants.md),
+                    SimpleText('${maxValue ?? 0.0}'),
+                  ]
+                : [],
+          ],
         ),
       ),
     );
@@ -60,10 +90,10 @@ class _CustomTrackShape extends RoundedRectSliderTrackShape {
     bool isDiscrete = false,
   }) {
     final double trackHeight = sliderTheme.trackHeight ?? 0.0;
-    final double trackLeft = offset.dx;
+    final double trackLeft = offset.dx + SimpleConstants.sm;
     final double trackTop =
         offset.dy + (parentBox.size.height - trackHeight) / 2;
-    final double trackWidth = parentBox.size.width;
+    final double trackWidth = parentBox.size.width - SimpleConstants.lg;
 
     return Rect.fromLTWH(
       trackLeft,
@@ -76,6 +106,8 @@ class _CustomTrackShape extends RoundedRectSliderTrackShape {
 
 final simpleSliderThemeLight = SliderThemeData(
   trackHeight: 2.0,
+  showValueIndicator: ShowValueIndicator.onlyForDiscrete,
+  valueIndicatorShape: ThemeData.light().sliderTheme.valueIndicatorShape,
   trackShape: _CustomTrackShape(),
   thumbColor: SimpleColors.simpleColorSchemeLight.primary,
   activeTrackColor: SimpleColors.simpleColorSchemeLight.primary,
@@ -85,6 +117,8 @@ final simpleSliderThemeLight = SliderThemeData(
 
 final simpleSliderThemeDark = SliderThemeData(
   trackHeight: 2.0,
+  showValueIndicator: ShowValueIndicator.onlyForDiscrete,
+  valueIndicatorShape: ThemeData.dark().sliderTheme.valueIndicatorShape,
   trackShape: _CustomTrackShape(),
   thumbColor: SimpleColors.simpleColorSchemeDark.primary,
   activeTrackColor: SimpleColors.simpleColorSchemeDark.primary,

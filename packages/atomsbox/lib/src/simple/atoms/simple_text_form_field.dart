@@ -31,7 +31,7 @@ class SimpleTextFormField extends StatelessWidget {
     };
   }
 
-  SimpleTextFormField.outline({
+  SimpleTextFormField.outlined({
     super.key,
     this.initialValue = '',
     this.labelText,

@@ -9,6 +9,54 @@ class _Atoms extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: SimpleConstants.xlg),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SimpleButton.elevated(
+                onPressed: () {},
+                child: const Text('Elevated '),
+              ),
+              SimpleButton.text(
+                onPressed: () {},
+                child: const Text('Text '),
+              ),
+              SimpleButton.outline(
+                onPressed: () {},
+                child: const Text('Outlined '),
+              ),
+              SimpleIconButton(
+                onPressed: () {},
+                child: const Icon(Icons.offline_bolt),
+              ),
+            ],
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SimpleButton.elevated(
+                primary: false,
+                onPressed: () {},
+                child: const Text('Elevated '),
+              ),
+              SimpleButton.text(
+                primary: false,
+                onPressed: () {},
+                child: const Text('Text '),
+              ),
+              SimpleButton.outline(
+                primary: false,
+                onPressed: () {},
+                child: const Text('Outlined '),
+              ),
+              SimpleIconButton(
+                primary: false,
+                onPressed: () {},
+                child: const Icon(Icons.offline_bolt),
+              ),
+            ],
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
           SimpleTextFormField(
             labelText: 'Underlined',
           ),
@@ -17,144 +65,137 @@ class _Atoms extends StatelessWidget {
             labelText: 'Filled',
           ),
           const SizedBox(height: SimpleConstants.sm),
-          SimpleTextFormField.outline(
+          SimpleTextFormField.outlined(
             labelText: 'Outlined',
           ),
           const SizedBox(height: SimpleConstants.xlg),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              SimpleButton.elevated(
-                onPressed: () {},
-                child: const Text('Elevated '),
+            children: const [
+              SimpleLabel(
+                icon: Icons.abc,
+                text: 'This is a label w/ icon',
               ),
-              SimpleButton.text(
-                onPressed: () {},
-                child: const Text('Text '),
-              ),
-              SimpleButton.outline(
-                onPressed: () {},
-                child: const Text('Outlined '),
-              ),
-              SimpleIconButton(
-                onPressed: () {},
-                child: const Icon(Icons.offline_bolt),
+              SimpleLabel(
+                text: 'This is a label',
               ),
             ],
           ),
           const SizedBox(height: SimpleConstants.xlg),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              SimpleButton.elevated(
+            children: const [
+              SimpleLabel(
+                icon: Icons.abc,
+                text: 'This is a label w/ icon',
                 primary: false,
-                onPressed: () {},
-                child: const Text('Elevated '),
               ),
-              SimpleButton.text(
+              SimpleLabel(
+                text: 'This is a label',
                 primary: false,
-                onPressed: () {},
-                child: const Text('Text '),
-              ),
-              SimpleButton.outline(
-                primary: false,
-                onPressed: () {},
-                child: const Text('Outlined '),
-              ),
-              SimpleIconButton(
-                primary: false,
-                onPressed: () {},
-                child: const Icon(Icons.offline_bolt),
               ),
             ],
           ),
           const SizedBox(height: SimpleConstants.xlg),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //   children: const [
-          //     SimpleLabel(
-          //       icon: Icons.abc,
-          //       text: 'This is a label w/ icon',
-          //     ),
-          //     SimpleLabel(
-          //       text: 'This is a label',
-          //     ),
-          //   ],
-          // ),
-          const SizedBox(height: SimpleConstants.xlg),
-          SimpleSlider(
-            value: 0.5,
-            onChanged: (double) {},
-          ),
+          const SliderExampleOne(),
           const SizedBox(height: SimpleConstants.sm),
-          SimpleSlider(
-            value: 0.5,
-            thumbShape: SliderComponentShape.noThumb,
-            onChanged: (double) {},
-          ),
+          const SliderExampleTwo(),
           const SizedBox(height: SimpleConstants.xlg),
-
           Column(
-            children: [
-              Text(
-                'This is a text widget',
-                style: Theme.of(context).textTheme.headlineLarge,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              SimpleText(
+                'Display Large',
+                textStyle: SimpleTextStyle.displayLarge,
               ),
-              Text(
-                'This is a text widget',
-                style: Theme.of(context).textTheme.headlineMedium,
+              SimpleText(
+                'Display Medium',
+                textStyle: SimpleTextStyle.displayMedium,
               ),
-              Text(
-                'This is a text widget',
-                style: Theme.of(context).textTheme.headlineSmall,
+              SimpleText(
+                'Display Small',
+                textStyle: SimpleTextStyle.displaySmall,
+              ),
+              SimpleText(
+                'Headline Large',
+                textStyle: SimpleTextStyle.headlineLarge,
+              ),
+              SimpleText(
+                'Headline Medium',
+                textStyle: SimpleTextStyle.headlineMedium,
+              ),
+              SimpleText(
+                'Headline Small',
+                textStyle: SimpleTextStyle.headlineSmall,
+              ),
+              SimpleText(
+                'Body Large',
+                textStyle: SimpleTextStyle.bodyLarge,
+              ),
+              SimpleText(
+                'Body Medium',
+                textStyle: SimpleTextStyle.bodyMedium,
+              ),
+              SimpleText(
+                'Body Small',
+                textStyle: SimpleTextStyle.bodySmall,
               ),
             ],
           ),
-          Theme(
-            data: SimpleTheme.darkTheme,
-            child: Column(
-              children: [
-                Text(
-                  'This is a text widget',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-                Text(
-                  'This is a text widget',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-                Text(
-                  'This is a text widget',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-              ],
-            ),
-          ),
-          // const SimpleText(
-          //   'This is a text widget',
-          //   textStyle: SimpleTextStyle.headlineLarge,
-          // ),
-          // const SimpleText(
-          //   'This is a text widget',
-          //   textStyle: SimpleTextStyle.headlineMedium,
-          // ),
-          // const SimpleText(
-          //   'This is a text widget',
-          //   textStyle: SimpleTextStyle.headlineSmall,
-          // ),
-          // const SimpleText(
-          //   'This is a text widget',
-          //   textStyle: SimpleTextStyle.bodyLarge,
-          // ),
-          // const SimpleText(
-          //   'This is a text widget',
-          //   textStyle: SimpleTextStyle.bodyMedium,
-          // ),
-          // const SimpleText(
-          //   'This is a text widget',
-          //   textStyle: SimpleTextStyle.bodySmall,
-          // ),
         ],
       ),
+    );
+  }
+}
+
+class SliderExampleOne extends StatefulWidget {
+  const SliderExampleOne({
+    super.key,
+  });
+
+  @override
+  State<SliderExampleOne> createState() => _SliderExampleOneState();
+}
+
+class _SliderExampleOneState extends State<SliderExampleOne> {
+  double sliderValue = 0.5;
+  @override
+  Widget build(BuildContext context) {
+    return SimpleSlider(
+      value: sliderValue,
+      showMinValue: true,
+      showMaxValue: true,
+      divisions: 5,
+      onChanged: (double value) {
+        setState(() {
+          sliderValue = value;
+        });
+      },
+    );
+  }
+}
+
+class SliderExampleTwo extends StatefulWidget {
+  const SliderExampleTwo({
+    super.key,
+  });
+
+  @override
+  State<SliderExampleTwo> createState() => _SliderExampleTwoState();
+}
+
+class _SliderExampleTwoState extends State<SliderExampleTwo> {
+  double sliderValue = 0.5;
+  @override
+  Widget build(BuildContext context) {
+    return SimpleSlider(
+      value: sliderValue,
+      divisions: 5,
+      onChanged: (double value) {
+        setState(() {
+          sliderValue = value;
+        });
+      },
     );
   }
 }
