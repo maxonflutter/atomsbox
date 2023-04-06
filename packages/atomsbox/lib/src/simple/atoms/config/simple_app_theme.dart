@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../molecules/simple_card.dart';
+import '../simple_card_container.dart';
 import '../../molecules/simple_expansion_tile.dart';
 import '../../molecules/simple_list_tile.dart';
 import '../simple_button.dart';
@@ -24,7 +24,7 @@ class SimpleTheme {
     textButtonTheme: simpleTextButtonThemeLight,
     outlinedButtonTheme: simpleOutlinedButtonThemeLight,
     iconButtonTheme: simpleIconButtonThemeLight,
-    cardTheme: simpleCardThemeLight,
+    cardTheme: simpleCardContainerThemeLight,
     expansionTileTheme: simpleExpansionTileThemeLight,
     sliderTheme: simpleSliderThemeLight,
     extensions: <ThemeExtension<dynamic>>[
@@ -48,7 +48,7 @@ class SimpleTheme {
     outlinedButtonTheme: simpleOutlinedButtonThemeDark,
     iconButtonTheme: simpleIconButtonThemeDark,
     expansionTileTheme: simpleExpansionTileThemeDark,
-    cardTheme: simpleCardThemeDark,
+    cardTheme: simpleCardContainerThemeDark,
     sliderTheme: simpleSliderThemeDark,
     extensions: <ThemeExtension<dynamic>>[
       simpleListTileDark,

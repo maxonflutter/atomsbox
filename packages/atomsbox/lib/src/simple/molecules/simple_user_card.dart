@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../atomsbox.dart';
+import '../atoms/config/simple_constants.dart';
+import '../atoms/simple_text.dart';
+import '../atoms/simple_card_container.dart';
 
 class SimpleCardUser extends StatelessWidget {
   const SimpleCardUser({
@@ -15,7 +17,7 @@ class SimpleCardUser extends StatelessWidget {
     this.width = 400,
     this.height = 200,
     this.margin,
-    this.type = SimpleCardType.elevated,
+    this.type = SimpleCardContainerType.elevated,
     this.dense = true,
   });
 
@@ -34,7 +36,7 @@ class SimpleCardUser extends StatelessWidget {
   final double? width;
   final double? height;
   final EdgeInsets? margin;
-  final SimpleCardType type;
+  final SimpleCardContainerType type;
   final bool dense;
 
   @override
@@ -43,7 +45,7 @@ class SimpleCardUser extends StatelessWidget {
         ? _buildSimpleCardUserDense(context)
         : _buildSimpleCardUserExpanded(context);
 
-    return SimpleCard.elevated(
+    return SimpleCardContainer.elevated(
       height: height,
       width: width,
       child: widget,

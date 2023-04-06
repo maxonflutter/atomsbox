@@ -14,7 +14,9 @@ class SimpleListTile extends StatelessWidget {
     this.leading,
     this.trailing,
     this.width,
+    this.leadingWidth = 48,
     this.isThreeLine = false,
+    this.primary = false,
   });
 
   final Function()? onTap;
@@ -22,47 +24,90 @@ class SimpleListTile extends StatelessWidget {
   final Widget? subtitle;
   final Widget? leading;
   final double? width;
+  final double? leadingWidth;
   final Widget? trailing;
   final bool isThreeLine;
+  final bool primary;
 
   @override
   Widget build(BuildContext context) {
-    final SimpleListTileThemeData themeData =
-        Theme.of(context).extension<SimpleListTileThemeData>()!;
+    final SimpleListTileThemeData themeData;
+
+    if (!primary) {
+      themeData = Theme.of(context).extension<SimpleListTileThemeData>()!;
+    } else {
+      themeData =
+          Theme.of(context).extension<SimpleListTileThemeData>()!.copyWith(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                splashColor:
+                    Theme.of(context).colorScheme.onPrimary.withOpacity(0.3),
+              );
+    }
 
     return Container(
       width: width,
-      constraints: const BoxConstraints(minHeight: 50.0),
-      child: InkWell(
-        splashColor: themeData.splashColor!.withOpacity(0.12),
-        overlayColor: MaterialStatePropertyAll(
-          themeData.splashColor!.withOpacity(0.12),
-        ),
+      constraints: const BoxConstraints(minHeight: 48.0),
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
-        onTap: onTap,
-        child: Row(
-          children: [
-            (leading != null) ? leading! : const SizedBox(),
-            const SizedBox(width: SimpleConstants.sm),
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(SimpleConstants.sm),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    (title != null) ? title! : const SizedBox(),
-                    const SizedBox(height: 4.0),
-                    (subtitle != null) ? subtitle! : const SizedBox(),
-                  ],
+      ),
+      child: Material(
+        color: themeData.backgroundColor,
+        child: InkWell(
+          splashColor: themeData.splashColor!.withOpacity(0.12),
+          overlayColor: MaterialStatePropertyAll(
+            themeData.splashColor!.withOpacity(0.12),
+          ),
+          onTap: onTap,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              (leading != null)
+                  ? SizedBox(
+                      width: leadingWidth,
+                      child: leading!,
+                    )
+                  : const SizedBox(),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(SimpleConstants.sm),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      (title != null)
+                          ? DefaultTextStyle(
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: themeData.foregroundColor),
+                              child: title!,
+                            )
+                          : const SizedBox(),
+                      const SizedBox(height: 4.0),
+                      (subtitle != null)
+                          ? DefaultTextStyle(
+                              maxLines: isThreeLine ? 3 : 2,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(color: themeData.foregroundColor),
+                              child: subtitle!,
+                            )
+                          : const SizedBox(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            (trailing != null) ? trailing! : const SizedBox(),
-            const SizedBox(width: SimpleConstants.sm),
-          ],
+              (trailing != null) ? trailing! : const SizedBox(),
+              const SizedBox(width: SimpleConstants.sm),
+            ],
+          ),
         ),
       ),
     );
@@ -71,13 +116,13 @@ class SimpleListTile extends StatelessWidget {
 
 final simpleListTileLight = SimpleListTileThemeData(
   backgroundColor: Colors.transparent,
-  foregroundColor: SimpleColors.simpleColorSchemeLight.onInverseSurface,
+  foregroundColor: SimpleColors.simpleColorSchemeLight.onSurface,
   splashColor: SimpleColors.simpleColorSchemeLight.primary.withOpacity(0.3),
 );
 
 final simpleListTileDark = SimpleListTileThemeData(
   backgroundColor: Colors.transparent,
-  foregroundColor: SimpleColors.simpleColorSchemeDark.primary,
+  foregroundColor: SimpleColors.simpleColorSchemeDark.onSurface,
   splashColor: SimpleColors.simpleColorSchemeDark.primary.withOpacity(0.3),
 );
 

@@ -12,3 +12,4 @@ export 'simple_label.dart';
 export 'simple_text.dart';
 export 'simple_text_form_field.dart';
 export 'simple_slider.dart';
+export 'simple_card_container.dart';

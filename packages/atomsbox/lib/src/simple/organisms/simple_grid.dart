@@ -20,41 +20,31 @@ import '../atoms/simple_text.dart';
 class SimpleGrid extends StatelessWidget {
   const SimpleGrid({
     super.key,
+    this.title,
+    this.description,
     required this.gridItems,
     this.crossAxisCount,
     this.itemHeight = 1,
     this.itemWidth = 1,
-    this.title,
     this.height,
     this.physics = const NeverScrollableScrollPhysics(),
   });
 
-  /// The list of widgets to be displayed in the grid.
+  final Widget? title;
+  final Widget? description;
   final List<Widget> gridItems;
-
-  /// The width ratio of each item in the grid.
   final double itemWidth;
-
-  /// The height ratio of each item in the grid.
   final double itemHeight;
-
-  /// The number of items in the cross axis of the grid.
   final int? crossAxisCount;
-
-  /// An optional title to display above the grid.
-  final String? title;
-
-  /// The optional fixed height of the grid.
   final double? height;
-
-  /// The scroll physics for the grid.
-  ///
-  /// This can be used to customize the scrolling behavior of the grid. By
-  /// default, the grid is not scrollable.
   final ScrollPhysics? physics;
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final titleStyle = textTheme.headlineSmall;
+    final descriptionStyle = textTheme.bodyMedium;
+
     var defaultCrossAxisCount;
 
     if (SimpleAppBreakpoints.isDesktop(context)) {
@@ -72,11 +62,20 @@ class SimpleGrid extends StatelessWidget {
       children: [
         ...(title != null)
             ? [
-                SimpleText(
-                  title!,
-                  textStyle: SimpleTextStyle.headlineSmall,
+                DefaultTextStyle(
+                  style: titleStyle!,
+                  child: title!,
                 ),
-                const SizedBox(height: SimpleConstants.sm)
+                const SizedBox(height: SimpleConstants.sm),
+              ]
+            : [const SizedBox()],
+        ...(description != null)
+            ? [
+                DefaultTextStyle(
+                  style: descriptionStyle!,
+                  child: description!,
+                ),
+                const SizedBox(height: SimpleConstants.sm),
               ]
             : [const SizedBox()],
         SizedBox(

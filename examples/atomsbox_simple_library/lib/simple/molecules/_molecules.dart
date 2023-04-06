@@ -14,102 +14,123 @@ class _Molecules extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: SimpleConstants.xlg),
-          SimpleForm(
-            title: const SimpleText('This is a form'),
-            description: const SimpleText('This is a form description'),
-            formButton: SimpleButton.elevated(
-              onPressed: () {},
-              child: const SimpleText('Submit'),
-            ),
-            formItemNames: const ['One', 'Two', 'Three'],
-            formItems: [
-              SimpleTextFormField(),
-              SimpleTextFormField(),
-              SimpleTextFormField(),
+          SimpleCard(
+            onTap: () {},
+            height: 200,
+            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+            headline: const SimpleText('This is a card'),
+            subhead: sampleText,
+            supportingText: sampleText,
+            imageUrl: imageUrl,
+            type: SimpleCardContainerType.filled,
+          ),
+          SimpleCard(
+            dense: false,
+            onTap: () {},
+            height: 350,
+            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+            headline: const SimpleText('This is a card'),
+            subhead: sampleText,
+            supportingText: sampleText,
+            imageUrl: imageUrl,
+            type: SimpleCardContainerType.outlined,
+          ),
+          SimpleListTile(
+            onTap: () {},
+            isThreeLine: true,
+            leading: const CircleAvatar(radius: 24),
+            title: const SimpleText('This is a list tile'),
+            subtitle: const SimpleText(sampleText),
+            trailing: const Icon(Icons.offline_bolt),
+          ),
+          const SizedBox(height: SimpleConstants.sm),
+          SimpleListTile(
+            onTap: () {},
+            isThreeLine: true,
+            leading: SimpleImage(imageUrl, height: 48),
+            title: const SimpleText('This is a list tile'),
+            subtitle: const SimpleText(sampleText),
+            trailing: const Icon(Icons.offline_bolt),
+          ),
+          const SizedBox(height: SimpleConstants.sm),
+          SimpleListTile(
+            onTap: () {},
+            primary: true,
+            isThreeLine: true,
+            leadingWidth: 96,
+            leading: SimpleImage(imageUrl, height: 96),
+            title: const SimpleText('This is a list tile'),
+            subtitle: const SimpleText(sampleText),
+            trailing: const Icon(Icons.offline_bolt),
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
+
+          const SimpleSegmentedButton(
+            isSelected: [true, false, false],
+            children: [
+              SimpleText('Songs'),
+              SimpleText('Albums'),
+              SimpleText('Playlists'),
+            ],
+          ),
+          const SizedBox(height: SimpleConstants.sm),
+
+          const SimpleSegmentedButton(
+            isSelected: [true, false, false],
+            children: [
+              Icon(Icons.wb_cloudy),
+              Icon(Icons.wb_twilight),
+              Icon(Icons.wb_sunny),
+            ],
+          ),
+
+          const SizedBox(height: SimpleConstants.sm),
+          Row(
+            children: const [
+              SimpleSegmentedButton(
+                vertical: true,
+                isSelected: [true, false, false],
+                children: [
+                  SimpleText('Songs'),
+                  SimpleText('Albums'),
+                  SimpleText('Playlists'),
+                ],
+              ),
+              SizedBox(width: SimpleConstants.sm),
+              SimpleSegmentedButton(
+                vertical: true,
+                multiSelect: true,
+                isSelected: [true, true, false],
+                children: [
+                  Icon(Icons.wb_cloudy),
+                  Icon(Icons.wb_twilight),
+                  Icon(Icons.wb_sunny),
+                ],
+              ),
             ],
           ),
           const SizedBox(height: SimpleConstants.xlg),
 
-          // SimpleCardGeneric(
-          //   title: const SimpleText('This is a card'),
-          //   imageUrl: imageUrl,
-          //   subtitle: sampleText,
-          //   paragraph: sampleText,
-          // ),
-          // const SizedBox(height: SimpleConstants.sm),
-          // SimpleCardGeneric(
+          // SimpleCard(
+          //   height: 400,
           //   onTap: () {},
-          //   height: 250,
-          //   title: const SimpleText('This is a card'),
+          //   headline: const SimpleText('This is a card'),
+          //   subhead: sampleText,
+          //   supportingText: sampleText,
           //   imageUrl: imageUrl,
-          //   subtitle: sampleText,
-          //   paragraph: sampleText,
+          //   margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+          //   type: SimpleCardContainerType.outlined,
           //   dense: false,
           // ),
-          const SimpleToggleButtons(
-            isSelected: [true, false, false, false],
-            children: ['Toggle 1', 'Toggle 2', 'Toggle 3', 'Toggle 4'],
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          const SimpleToggleButtons(
-            multiSelect: true,
-            isSelected: [true, true, false, false],
-            children: ['Toggle 1', 'Toggle 2', 'Toggle 3', 'Toggle 4'],
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          Row(
-            children: const [
-              SimpleToggleButtons(
-                vertical: true,
-                isSelected: [true, false, false, false],
-                children: ['Toggle 1', 'Toggle 2', 'Toggle 3', 'Toggle 4'],
-              ),
-              SizedBox(width: SimpleConstants.sm),
-              SimpleToggleButtons(
-                vertical: true,
-                multiSelect: true,
-                isSelected: [true, true, false, false],
-                children: ['Toggle 1', 'Toggle 2', 'Toggle 3', 'Toggle 4'],
-              ),
-            ],
-          ),
-          const SizedBox(height: SimpleConstants.xlg),
-          SimpleListTile(
-            leading: SimpleImage(
-              imageUrl,
-              width: 80,
-              height: 80,
-            ),
-            title: const SimpleText(
-              'This is a list tile',
-              textStyle: SimpleTextStyle.bodyLarge,
-              fontWeight: FontWeight.bold,
-            ),
-            subtitle: const SimpleText(sampleText, maxLines: 3),
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          SimpleListTile(
-            leading: SimpleImage(
-              imageUrl,
-              width: 80,
-              height: 80,
-            ),
-            title: const SimpleText(
-              'This is a list tile',
-              textStyle: SimpleTextStyle.bodyLarge,
-              fontWeight: FontWeight.bold,
-            ),
-            subtitle: const SimpleText(sampleText, maxLines: 3),
-          ),
-          const SizedBox(height: SimpleConstants.xlg),
+
           SimpleExpansionTile(
             initiallyExpanded: true,
             title: const SimpleText('This is an expansion tile'),
             children: [
               const SimpleText(sampleText),
-              SimpleIconButton(child: Icon(Icons.abc_outlined)),
+              SimpleIconButton(child: const Icon(Icons.abc_outlined)),
               SimpleButton.elevated(
-                child: Text('Button'),
+                child: const SimpleText('Button'),
               )
             ],
           ),
@@ -165,42 +186,6 @@ class MyCard extends StatelessWidget {
                       child: const SimpleText('Follow'),
                     ),
                   ],
-                ),
-              ),
-              SimpleCardGeneric(
-                onTap: () {},
-                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-                headline: const SimpleText('This is a card'),
-                subhead: sampleText,
-                supportingText: sampleText,
-                imageUrl: imageUrl,
-                type: SimpleCardType.filled,
-              ),
-              SimpleCardGeneric(
-                onTap: () {},
-                headline: const SimpleText('This is a card'),
-                subhead: sampleText,
-                supportingText: sampleText,
-                imageUrl: imageUrl,
-                height: 250,
-                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-                type: SimpleCardType.outlined,
-                dense: false,
-              ),
-              SimpleCard.filled(
-                onTap: () {},
-                height: 100,
-                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-                child: const Center(
-                  child: SimpleText('Simple Card'),
-                ),
-              ),
-              SimpleCard.outlined(
-                onTap: () {},
-                height: 100,
-                margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-                child: const Center(
-                  child: SimpleText('Simple Card'),
                 ),
               ),
             ],

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../atoms/config/simple_constants.dart';
 import '../atoms/simple_text.dart';
 
-class SimpleToggleButtons extends StatefulWidget {
-  const SimpleToggleButtons({
+class SimpleSegmentedButton extends StatefulWidget {
+  const SimpleSegmentedButton({
     super.key,
     this.isSelected,
     this.multiSelect = false,
@@ -17,13 +17,13 @@ class SimpleToggleButtons extends StatefulWidget {
   final bool multiSelect;
   final bool vertical;
   final bool primary;
-  final List<String> children;
+  final List<Widget> children;
 
   @override
-  State<SimpleToggleButtons> createState() => _SimpleToggleButtonsState();
+  State<SimpleSegmentedButton> createState() => _SimpleSegmentedButtonState();
 }
 
-class _SimpleToggleButtonsState extends State<SimpleToggleButtons> {
+class _SimpleSegmentedButtonState extends State<SimpleSegmentedButton> {
   final List<bool> _isSelected = [];
 
   @override
@@ -85,8 +85,7 @@ class _SimpleToggleButtonsState extends State<SimpleToggleButtons> {
               maxHeight: height,
             ),
             isSelected: _isSelected,
-            children:
-                widget.children.map((child) => SimpleText(child)).toList(),
+            children: widget.children,
           ),
         );
       },

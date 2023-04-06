@@ -102,25 +102,6 @@ class _Atoms extends StatelessWidget {
           const SizedBox(height: SimpleConstants.sm),
           const SliderExampleTwo(),
           const SizedBox(height: SimpleConstants.xlg),
-          SimpleContainer.gradient(
-            LinearGradient(
-              colors: [
-                Theme.of(context).colorScheme.primary,
-                Theme.of(context).colorScheme.secondary,
-              ],
-            ),
-            height: 100,
-            width: double.infinity,
-            color: Theme.of(context).colorScheme.primaryContainer,
-            child: Center(
-              child: SimpleText(
-                'This is a container with a gradient',
-                color: Theme.of(context).colorScheme.onPrimary,
-                textStyle: SimpleTextStyle.bodyLarge,
-              ),
-            ),
-          ),
-          const SizedBox(height: SimpleConstants.xlg),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
@@ -163,6 +144,25 @@ class _Atoms extends StatelessWidget {
             ],
           ),
           const SizedBox(height: SimpleConstants.xlg),
+          SimpleContainer.gradient(
+            LinearGradient(
+              colors: [
+                Theme.of(context).colorScheme.primary,
+                Theme.of(context).colorScheme.secondary,
+              ],
+            ),
+            height: 100,
+            width: double.infinity,
+            color: Theme.of(context).colorScheme.primaryContainer,
+            child: Center(
+              child: SimpleText(
+                'This is a container with a gradient',
+                color: Theme.of(context).colorScheme.onPrimary,
+                textStyle: SimpleTextStyle.bodyLarge,
+              ),
+            ),
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
           SimpleImage(
             'https://images.unsplash.com/photo-1680675313845-13d3f5f17080?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
             height: 200,
@@ -170,6 +170,19 @@ class _Atoms extends StatelessWidget {
             blurred: true,
             child: const SimpleText('This is a blurred image'),
           ),
+          const SizedBox(height: SimpleConstants.xlg),
+          SimpleCardContainer.filled(
+            child: const Center(child: Text('This is a filled card')),
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
+          SimpleCardContainer.elevated(
+            child: const Center(child: Text('This is an elevated card')),
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
+          SimpleCardContainer.outlined(
+            child: const Center(child: Text('This is an outlined card')),
+          ),
+          const SizedBox(height: SimpleConstants.xlg),
         ],
       ),
     );
