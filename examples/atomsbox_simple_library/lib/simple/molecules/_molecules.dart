@@ -14,6 +14,31 @@ class _Molecules extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: SimpleConstants.xlg),
+          SimpleUserCard(
+            dense: false,
+            onTap: () {},
+            height: 450,
+            headline: const SimpleText('Massimo Del Pezzo'),
+            supportingText: sampleText,
+            imageUrl: imageUrl,
+            subhead: sampleText,
+            type: SimpleCardContainerType.elevated,
+            actions: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SimpleButton.text(
+                  onPressed: () {},
+                  child: const SimpleText('Add'),
+                ),
+                SimpleButton.text(
+                  onPressed: () {},
+                  child: const SimpleText('Follow'),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: SimpleConstants.sm),
+
           SimpleCard(
             onTap: () {},
             height: 200,
@@ -35,6 +60,7 @@ class _Molecules extends StatelessWidget {
             imageUrl: imageUrl,
             type: SimpleCardContainerType.outlined,
           ),
+
           SimpleListTile(
             onTap: () {},
             isThreeLine: true,
@@ -145,52 +171,6 @@ class _Molecules extends StatelessWidget {
             children: const [SimpleText(sampleText)],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class MyCard extends StatelessWidget {
-  const MyCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    const sampleText =
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
-    const imageUrl =
-        'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
-
-    return Scaffold(
-      appBar: AppBar(title: SimpleText('Cards')),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(SimpleConstants.sm),
-          child: Column(
-            children: [
-              SimpleCardUser(
-                height: 400,
-                dense: false,
-                headline: SimpleText('Massimo Del Pezzo'),
-                supportingText: sampleText,
-                imageUrl: imageUrl,
-                backgroundImageUrl: imageUrl,
-                actions: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SimpleButton.text(
-                      onPressed: () {},
-                      child: const SimpleText('Add'),
-                    ),
-                    SimpleButton.text(
-                      onPressed: () {},
-                      child: const SimpleText('Follow'),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

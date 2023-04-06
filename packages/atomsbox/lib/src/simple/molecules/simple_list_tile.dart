@@ -104,8 +104,9 @@ class SimpleListTile extends StatelessWidget {
                   ),
                 ),
               ),
-              (trailing != null) ? trailing! : const SizedBox(),
-              const SizedBox(width: SimpleConstants.sm),
+              (trailing != null)
+                  ? trailing!
+                  : const SizedBox(width: SimpleConstants.sm),
             ],
           ),
         ),

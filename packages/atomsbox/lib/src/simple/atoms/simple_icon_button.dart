@@ -9,12 +9,15 @@ class SimpleIconButton extends StatelessWidget {
     super.key,
     this.onPressed,
     this.themeData,
+    this.constraints = const BoxConstraints.tightFor(width: 36, height: 36),
     this.primary = true,
     required this.child,
   }) {
     builder = (context) {
       if (themeData == null) {
         return IconButton(
+          constraints: constraints,
+          padding: EdgeInsets.zero,
           style: IconButton.styleFrom(
             backgroundColor:
                 primary ? null : Theme.of(context).colorScheme.secondary,
@@ -26,6 +29,8 @@ class SimpleIconButton extends StatelessWidget {
         return IconButtonTheme(
           data: themeData!.iconButtonTheme,
           child: IconButton(
+            constraints: constraints,
+            padding: EdgeInsets.zero,
             onPressed: onPressed,
             icon: child,
           ),
@@ -37,6 +42,7 @@ class SimpleIconButton extends StatelessWidget {
   late IconButtonBuilder builder;
   final Function()? onPressed;
   final ThemeData? themeData;
+  final BoxConstraints constraints;
   final bool primary;
   final Widget child;
 
