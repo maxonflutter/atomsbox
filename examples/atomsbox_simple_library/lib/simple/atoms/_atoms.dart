@@ -5,14 +5,47 @@ class _Atoms extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          AppTextExample(),
-        ],
-      ),
-    );
+    return AppBreakpoints.isMobile(context)
+        ? SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                AppTextExample(),
+                AppImageExample(),
+              ],
+            ),
+          )
+        : Container(
+            // width: 800,
+            alignment: Alignment.center,
+            child: Row(
+              children: [
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        AppTextExample(),
+                        AppImageExample(),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(width: AppConstants.xlg),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        AppTextExample(),
+                        AppImageExample(),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
   }
 }
 
