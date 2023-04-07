@@ -166,7 +166,7 @@ class _Organisms extends StatelessWidget {
           //           subhead: sampleText,
           //           supportingText: sampleText,
           //           image: AppImage.network(imageUrl),
-          //           type: AppCardContainerType.filled,
+          //           type: AppCardType.filled,
           //         ),
           //       )
           //       .toList(),
@@ -190,7 +190,7 @@ class _Organisms extends StatelessWidget {
           //             maxLines: 2,
           //           ),
           //           image: AppImage.network(imageUrl, height: 100),
-          //           type: AppCardContainerType.filled,
+          //           type: AppCardType.filled,
           //         ),
           //       )
           //       .toList(),

@@ -1,4 +1,5 @@
 import 'package:atomsbox/atomsbox.dart';
+import 'package:atomsbox_simple_library/simple/atoms/examples/app_text_example.dart';
 import 'package:flutter/material.dart';
 
 part 'simple/atoms/_atoms.dart';
@@ -19,17 +20,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<ThemeMode>(
-        valueListenable: themeNotifier,
-        builder: (_, ThemeMode currentMode, __) {
-          return MaterialApp(
-            // Remove the debug banner
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.theme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: currentMode,
-            home: const AtomsboxComponents(),
-          );
-        });
+      valueListenable: themeNotifier,
+      builder: (_, ThemeMode currentMode, __) {
+        return MaterialApp(
+          // Remove the debug banner
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.theme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: currentMode,
+          home: const AtomsboxComponents(),
+        );
+      },
+    );
   }
 }
 

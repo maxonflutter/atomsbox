@@ -8,10 +8,10 @@ import 'app_glass.dart';
 
 typedef CardBuilder = Card Function(BuildContext context);
 
-enum AppCardContainerType { elevated, filled, outlined }
+enum AppCardType { elevated, filled, outlined }
 
-class AppCardContainer extends StatefulWidget {
-  AppCardContainer.elevated({
+class AppCard extends StatefulWidget {
+  AppCard.elevated({
     super.key,
     this.onTap,
     this.color,
@@ -35,7 +35,7 @@ class AppCardContainer extends StatefulWidget {
     };
   }
 
-  AppCardContainer.filled({
+  AppCard.filled({
     super.key,
     this.onTap,
     this.color,
@@ -59,7 +59,7 @@ class AppCardContainer extends StatefulWidget {
     };
   }
 
-  AppCardContainer.outlined({
+  AppCard.outlined({
     super.key,
     this.onTap,
     this.color,
@@ -85,7 +85,7 @@ class AppCardContainer extends StatefulWidget {
     };
   }
 
-  AppCardContainer.glass({
+  AppCard.glass({
     super.key,
     this.onTap,
     this.color,
@@ -113,7 +113,7 @@ class AppCardContainer extends StatefulWidget {
       );
     };
   }
-  AppCardContainer.gradient({
+  AppCard.gradient({
     super.key,
     this.onTap,
     this.color,
@@ -162,10 +162,10 @@ class AppCardContainer extends StatefulWidget {
   final Widget child;
 
   @override
-  State<AppCardContainer> createState() => _AppCardContainerState();
+  State<AppCard> createState() => _AppCardState();
 }
 
-class _AppCardContainerState extends State<AppCardContainer> {
+class _AppCardState extends State<AppCard> {
   @override
   Widget build(BuildContext context) {
     Card card = widget.builder.call(context);
@@ -173,14 +173,14 @@ class _AppCardContainerState extends State<AppCardContainer> {
   }
 }
 
-final appCardContainerThemeLight = CardTheme(
+final appCardThemeLight = CardTheme(
   clipBehavior: Clip.hardEdge,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(AppConstants.borderRadius),
   ),
 );
 
-final appCardContainerThemeDark = CardTheme(
+final appCardThemeDark = CardTheme(
   clipBehavior: Clip.hardEdge,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(AppConstants.borderRadius),

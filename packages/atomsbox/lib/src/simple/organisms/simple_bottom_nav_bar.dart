@@ -2,24 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 
-/// A simple bottom navigation bar with customizable appearance.
-///
-/// The [SimpleBottomNavBar] widget displays a horizontal list of items, which
-/// can be used for navigation between different screens or sections of the app.
-/// The items are spaced evenly across the available space.
-///
-/// The [floating] argument is optional and defaults to true. When true, the
-/// navigation bar will be displayed with a floating appearance, and when false,
-/// it will be displayed with a non-floating appearance. The height, margin,
-/// and padding will change based on the floating state.
-///
-/// The navigation bar's background color is determined by the primary color of
-/// the current [Theme] with an alpha value of 200. It also has a customizable
-/// border radius defined by [AppConstants.borderRadius].
-///
-/// See also:
-/// * [BottomNavigationBar], which is a Material Design bottom navigation bar.
-///
 class SimpleBottomNavBar extends StatelessWidget {
   const SimpleBottomNavBar({
     super.key,

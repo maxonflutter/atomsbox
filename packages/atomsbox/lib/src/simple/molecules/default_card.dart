@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/app_card_container.dart';
+import '../atoms/app_card.dart';
 import '../atoms/app_image.dart';
 import '../atoms/app_mouse_hover.dart';
 import '../atoms/app_text.dart';
@@ -19,7 +19,7 @@ class DefaultCard extends StatefulWidget {
     this.width = double.infinity,
     this.height,
     this.margin,
-    this.type = AppCardContainerType.filled,
+    this.type = AppCardType.filled,
   });
 
   // Actions
@@ -37,7 +37,7 @@ class DefaultCard extends StatefulWidget {
   final double? width;
   final double? height;
   final EdgeInsets? margin;
-  final AppCardContainerType type;
+  final AppCardType type;
 
   @override
   State<DefaultCard> createState() => _DefaultCardState();
@@ -59,21 +59,21 @@ class _DefaultCardState extends State<DefaultCard> {
     return AppMouseHover(
       onEnter: (event) => setState(() => hovered = true),
       onExit: (event) => setState(() => hovered = false),
-      child: (widget.type == AppCardContainerType.elevated)
-          ? AppCardContainer.elevated(
+      child: (widget.type == AppCardType.elevated)
+          ? AppCard.elevated(
               height: widget.height,
               width: widget.width,
               margin: widget.margin ?? EdgeInsets.zero,
               child: card,
             )
-          : (widget.type == AppCardContainerType.filled)
-              ? AppCardContainer.filled(
+          : (widget.type == AppCardType.filled)
+              ? AppCard.filled(
                   height: widget.height,
                   width: widget.width,
                   margin: widget.margin ?? EdgeInsets.zero,
                   child: card,
                 )
-              : AppCardContainer.outlined(
+              : AppCard.outlined(
                   height: widget.height,
                   width: widget.width,
                   margin: widget.margin ?? EdgeInsets.zero,

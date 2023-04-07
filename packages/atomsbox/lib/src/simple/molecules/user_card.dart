@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 import '../atoms/app_text.dart';
-import '../atoms/app_card_container.dart';
+import '../atoms/app_card.dart';
 
 class UserCard extends StatelessWidget {
   const UserCard({
@@ -17,7 +17,7 @@ class UserCard extends StatelessWidget {
     this.width = 400,
     this.height = 200,
     this.margin,
-    this.type = AppCardContainerType.elevated,
+    this.type = AppCardType.elevated,
     this.dense = true,
   });
 
@@ -36,7 +36,7 @@ class UserCard extends StatelessWidget {
   final double? width;
   final double? height;
   final EdgeInsets? margin;
-  final AppCardContainerType type;
+  final AppCardType type;
   final bool dense;
 
   @override
@@ -44,21 +44,21 @@ class UserCard extends StatelessWidget {
     final widget =
         dense ? _buildUserCardDense(context) : _buildUserCardExpanded(context);
 
-    return (type == AppCardContainerType.elevated)
-        ? AppCardContainer.elevated(
+    return (type == AppCardType.elevated)
+        ? AppCard.elevated(
             height: height,
             width: width,
             margin: margin ?? EdgeInsets.zero,
             child: widget,
           )
-        : (type == AppCardContainerType.filled)
-            ? AppCardContainer.filled(
+        : (type == AppCardType.filled)
+            ? AppCard.filled(
                 height: height,
                 width: width,
                 margin: margin ?? EdgeInsets.zero,
                 child: widget,
               )
-            : AppCardContainer.outlined(
+            : AppCard.outlined(
                 height: height,
                 width: width,
                 margin: margin ?? EdgeInsets.zero,

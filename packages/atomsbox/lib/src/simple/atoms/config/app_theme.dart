@@ -1,16 +1,15 @@
-import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
 import '../../molecules/app_expansion_tile.dart';
 import '../../molecules/app_list_tile.dart';
-import '../app_card_container.dart';
+import '../app_card.dart';
 import '../app_elevated_button.dart';
+import '../app_filled_button.dart';
 import '../app_icon_button.dart';
 import '../app_label.dart';
 import '../app_outlined_button.dart';
 import '../app_slider.dart';
 import '../app_text_button.dart';
-import '../app_card_container.dart';
 import 'app_color_scheme.dart';
 import 'app_text_theme.dart';
 
@@ -29,7 +28,7 @@ class AppTheme {
     textButtonTheme: appTextButtonThemeLight,
     outlinedButtonTheme: appOutlinedButtonThemeLight,
     iconButtonTheme: appIconButtonThemeLight,
-    cardTheme: appCardContainerThemeLight,
+    cardTheme: appCardThemeLight,
     expansionTileTheme: appExpansionTileThemeLight,
     sliderTheme: appSliderThemeLight,
     extensions: <ThemeExtension<dynamic>>[appListTileLight, appLabelLight],
@@ -51,7 +50,7 @@ class AppTheme {
     outlinedButtonTheme: appOutlinedButtonThemeDark,
     iconButtonTheme: appIconButtonThemeDark,
     expansionTileTheme: appExpansionTileThemeDark,
-    cardTheme: appCardContainerThemeDark,
+    cardTheme: appCardThemeDark,
     sliderTheme: appSliderThemeDark,
     extensions: <ThemeExtension<dynamic>>[appListTileDark, appLabelDark],
   );

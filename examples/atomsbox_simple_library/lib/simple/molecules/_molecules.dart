@@ -92,7 +92,7 @@ class _Molecules extends StatelessWidget {
           //   subhead: sampleText,
           //   supportingText: sampleText,
           //   image: AppImage.network(imageUrl),
-          //   type: AppCardContainerType.filled,
+          //   type: AppCardType.filled,
           // ),
 
           // const SizedBox(height: AppConstants.xlg),
@@ -147,7 +147,7 @@ class _Molecules extends StatelessWidget {
             supportingText: sampleText,
             imageUrl: imageUrl,
             subhead: sampleText,
-            type: AppCardContainerType.filled,
+            type: AppCardType.filled,
             actions: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

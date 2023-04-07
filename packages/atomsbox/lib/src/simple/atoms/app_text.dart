@@ -11,9 +11,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -41,9 +41,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -71,9 +71,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -101,9 +101,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -131,9 +131,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -161,9 +161,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -191,9 +191,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -221,9 +221,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -251,9 +251,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -281,9 +281,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -311,9 +311,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -341,9 +341,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -371,9 +371,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -401,9 +401,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -431,9 +431,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -461,9 +461,9 @@ class AppText extends Text {
     this.fontSize,
     this.fontWeight,
     this.letterSpacing,
-    this.textAlign,
-    this.maxLines,
-    this.overflow,
+    super.textAlign,
+    super.maxLines,
+    super.overflow,
   }) {
     builder = (context) {
       return Text(
@@ -489,9 +489,6 @@ class AppText extends Text {
   final double? fontSize;
   final FontWeight? fontWeight;
   final double? letterSpacing;
-  final TextAlign? textAlign;
-  final int? maxLines;
-  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
