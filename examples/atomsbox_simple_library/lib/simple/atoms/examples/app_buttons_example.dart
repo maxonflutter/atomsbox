@@ -14,7 +14,7 @@ class AppButtonsExample extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -112,6 +112,7 @@ class AppButtonsExample extends StatelessWidget {
           Container(
             height: 125,
             width: 400,
+            padding: const EdgeInsets.all(AppConstants.sm),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppConstants.borderRadius),
               image: DecorationImage(
@@ -124,7 +125,7 @@ class AppButtonsExample extends StatelessWidget {
             ),
             child: Wrap(
               runAlignment: WrapAlignment.center,
-              alignment: WrapAlignment.center,
+              alignment: WrapAlignment.start,
               spacing: AppConstants.sm,
               runSpacing: AppConstants.sm,
               children: [
