@@ -11,6 +11,7 @@ class _Atoms extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
+                AppTextFormFieldsExample(),
                 AppCardsExample(),
                 AppButtonsExample(),
                 AppTextExample(),
@@ -40,8 +41,8 @@ class _Atoms extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
+                      AppTextFormFieldsExample(),
                       AppCardsExample(),
-                      AppImageExample(),
                     ],
                   ),
                 ),
@@ -145,37 +146,8 @@ class _Atoms extends StatelessWidget {
 //             child: const Center(child: Text('This is an gradient card')),
 //           ),
 //           const SizedBox(height: AppConstants.sm),
+//  
 //           
-//           const SizedBox(height: AppConstants.xlg),
-//           AppTextFormField(labelText: 'Underlined'),
-//           const SizedBox(height: AppConstants.sm),
-//           AppTextFormField.filled(labelText: 'Filled'),
-//           const SizedBox(height: AppConstants.sm),
-//           AppTextFormField.outlined(labelText: 'Outlined'),
-//           const SizedBox(height: AppConstants.sm),
-//           AppTextFormField.gradient(labelText: 'Gradient'),
-//           const SizedBox(height: AppConstants.sm),
-//           Container(
-//             height: 75,
-//             decoration: const BoxDecoration(
-//               image: DecorationImage(
-//                 fit: BoxFit.cover,
-//                 image: NetworkImage(
-//                   'https://images.unsplash.com/photo-1680675313845-13d3f5f17080?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
-//                 ),
-//               ),
-//             ),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 Expanded(
-//                   child: AppTextFormField.glass(
-//                     labelText: 'Glass',
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
 //           const SizedBox(height: AppConstants.xlg),
 //           Row(
 //             mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -3,6 +3,7 @@ import 'package:atomsbox_simple_library/simple/atoms/examples/app_buttons_exampl
 import 'package:atomsbox_simple_library/simple/atoms/examples/app_cards_example.dart';
 import 'package:atomsbox_simple_library/simple/atoms/examples/app_image_example.dart';
 import 'package:atomsbox_simple_library/simple/atoms/examples/app_text_example.dart';
+import 'package:atomsbox_simple_library/simple/atoms/examples/app_text_form_fields_example.dart';
 import 'package:flutter/material.dart';
 
 part 'simple/atoms/_atoms.dart';

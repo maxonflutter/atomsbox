@@ -12,6 +12,7 @@ class AppButtonsExample extends StatelessWidget {
         vertical: AppConstants.xlg,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,

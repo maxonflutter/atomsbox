@@ -5,6 +5,7 @@ export 'extensions/date_time_extensions.dart';
 export 'extensions/duration_extensions.dart';
 export 'app_icon_button.dart';
 export 'app_image.dart';
+export 'app_gradient_text.dart';
 export 'app_label.dart';
 export 'app_text.dart';
 export 'app_text_form_field.dart';

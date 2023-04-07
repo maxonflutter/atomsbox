@@ -14,9 +14,15 @@ class AppTextExample extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AppText.displayLarge('This is text'),
-          AppText.displayMedium('This is text'),
-          AppText.displaySmall('This is text'),
+          AppGradientText(
+            child: AppText.displayLarge('This is text'),
+          ),
+          AppGradientText(
+            child: AppText.displayMedium('This is text'),
+          ),
+          AppGradientText(
+            child: AppText.displaySmall('This is text'),
+          ),
           AppText.headlineLarge('This is text'),
           AppText.headlineMedium('This is text'),
           AppText.headlineSmall('This is text'),
