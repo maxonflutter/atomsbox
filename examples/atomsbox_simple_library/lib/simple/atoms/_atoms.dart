@@ -10,41 +10,39 @@ class _Atoms extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
+                AppButtonsExample(),
                 AppTextExample(),
                 AppImageExample(),
               ],
             ),
           )
-        : Container(
-            // width: 800,
-            alignment: Alignment.center,
-            child: Row(
-              children: [
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        AppTextExample(),
-                        AppImageExample(),
-                      ],
-                    ),
+        : Row(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      AppButtonsExample(),
+                      AppTextExample(),
+                      AppImageExample(),
+                    ],
                   ),
                 ),
-                const SizedBox(width: AppConstants.xlg),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        AppTextExample(),
-                        AppImageExample(),
-                      ],
-                    ),
+              ),
+              const SizedBox(width: AppConstants.xlg),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      AppTextExample(),
+                      AppImageExample(),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           );
   }
 }
@@ -143,104 +141,7 @@ class _Atoms extends StatelessWidget {
 //             child: const Center(child: Text('This is an gradient card')),
 //           ),
 //           const SizedBox(height: AppConstants.sm),
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               AppElevatedButton(
-//                 onPressed: () {},
-//                 child: const Text('Elevated'),
-//               ),
-//               AppTextButton(
-//                 onPressed: () {},
-//                 child: const Text('Text'),
-//               ),
-//               AppOutlinedButton(
-//                 onPressed: () {},
-//                 child: const Text('Outlined'),
-//               ),
-//               AppIconButton(
-//                 onPressed: () {},
-//                 child: const Icon(Icons.offline_bolt),
-//               ),
-//             ],
-//           ),
-//           const SizedBox(height: AppConstants.sm),
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               AppElevatedButton.secondary(
-//                 onPressed: () {},
-//                 child: const Text('Elevated'),
-//               ),
-//               AppTextButton.secondary(
-//                 onPressed: () {},
-//                 child: const Text('Text'),
-//               ),
-//               AppOutlinedButton.secondary(
-//                 onPressed: () {},
-//                 child: const Text('Outlined'),
-//               ),
-//               AppIconButton.secondary(
-//                 onPressed: () {},
-//                 child: const Icon(Icons.offline_bolt),
-//               ),
-//             ],
-//           ),
-//           const SizedBox(height: AppConstants.sm),
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               AppElevatedButton.gradient(
-//                 onPressed: () {},
-//                 child: const Text('Elevated'),
-//               ),
-//               AppTextButton.gradient(
-//                 onPressed: () {},
-//                 child: const Text('Text'),
-//               ),
-//               AppOutlinedButton.gradient(
-//                 onPressed: () {},
-//                 child: const Text('Outlined'),
-//               ),
-//               AppIconButton.gradient(
-//                 onPressed: () {},
-//                 child: const Icon(Icons.offline_bolt),
-//               ),
-//             ],
-//           ),
-//           const SizedBox(height: AppConstants.sm),
-//           Container(
-//             height: 75,
-//             decoration: const BoxDecoration(
-//               image: DecorationImage(
-//                 fit: BoxFit.cover,
-//                 image: NetworkImage(
-//                   'https://images.unsplash.com/photo-1680675313845-13d3f5f17080?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
-//                 ),
-//               ),
-//             ),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 AppElevatedButton.glass(
-//                   onPressed: () {},
-//                   child: const Text('Elevated '),
-//                 ),
-//                 AppTextButton.glass(
-//                   onPressed: () {},
-//                   child: const Text('Text'),
-//                 ),
-//                 AppOutlinedButton.glass(
-//                   onPressed: () {},
-//                   child: const Text('Outlined'),
-//                 ),
-//                 AppIconButton.glass(
-//                   onPressed: () {},
-//                   child: const Icon(Icons.offline_bolt),
-//                 ),
-//               ],
-//             ),
-//           ),
+//           
 //           const SizedBox(height: AppConstants.xlg),
 //           AppTextFormField(labelText: 'Underlined'),
 //           const SizedBox(height: AppConstants.sm),

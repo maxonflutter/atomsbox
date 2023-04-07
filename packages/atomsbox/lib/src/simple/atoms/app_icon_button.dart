@@ -76,7 +76,7 @@ class AppIconButton extends StatelessWidget {
   }) {
     builder = (context) {
       return Padding(
-        padding: const EdgeInsets.all(AppConstants.sm * 0.5),
+        padding: const EdgeInsets.all(AppConstants.sm * 0),
         child: ClipOval(
           child: AppGradient(
             child: SizedBox(

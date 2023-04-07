@@ -1,9 +1,7 @@
-import 'dart:ui';
-
-import 'package:atomsbox/src/simple/atoms/app_gradient.dart';
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
+import 'app_gradient.dart';
 import 'config/app_color_scheme.dart';
 import 'config/app_constants.dart';
 import 'config/app_typedef.dart';
@@ -36,7 +34,7 @@ class AppFilledButton extends StatelessWidget {
       return FilledButton(
         style: FilledButton.styleFrom(
           minimumSize: minimumSize,
-          foregroundColor: Theme.of(context).colorScheme.secondary,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
         ),
         onPressed: onPressed,
         child: child,
@@ -56,6 +54,7 @@ class AppFilledButton extends StatelessWidget {
         child: FilledButton(
           style: FilledButton.styleFrom(
             minimumSize: minimumSize,
+            backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.onPrimary,
           ),
           onPressed: onPressed,
@@ -76,6 +75,7 @@ class AppFilledButton extends StatelessWidget {
         child: FilledButton(
           style: FilledButton.styleFrom(
             minimumSize: minimumSize,
+            backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.onPrimary,
           ),
           onPressed: onPressed,
