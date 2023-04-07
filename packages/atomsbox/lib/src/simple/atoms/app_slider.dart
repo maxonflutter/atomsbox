@@ -1,11 +1,11 @@
-import 'package:atomsbox/src/simple/atoms/config/simple_constants.dart';
+import 'package:atomsbox/src/simple/atoms/config/app_constants.dart';
 import 'package:flutter/material.dart';
 
-import 'config/simple_color_scheme.dart';
-import 'simple_text.dart';
+import 'config/app_color_scheme.dart';
+import 'app_text.dart';
 
-class SimpleSlider extends StatelessWidget {
-  const SimpleSlider({
+class AppSlider extends StatelessWidget {
+  const AppSlider({
     super.key,
     required this.value,
     required this.onChanged,
@@ -42,8 +42,8 @@ class SimpleSlider extends StatelessWidget {
           children: [
             ...showMinValue
                 ? [
-                    SimpleText('${minValue ?? 0.0}'),
-                    const SizedBox(width: SimpleConstants.md),
+                    AppText('${minValue ?? 0.0}'),
+                    const SizedBox(width: AppConstants.md),
                   ]
                 : [],
             Expanded(
@@ -59,8 +59,8 @@ class SimpleSlider extends StatelessWidget {
             ),
             ...showMaxValue
                 ? [
-                    const SizedBox(width: SimpleConstants.md),
-                    SimpleText('${maxValue ?? 0.0}'),
+                    const SizedBox(width: AppConstants.md),
+                    AppText('${maxValue ?? 0.0}'),
                   ]
                 : [],
           ],
@@ -90,10 +90,10 @@ class _CustomTrackShape extends RoundedRectSliderTrackShape {
     bool isDiscrete = false,
   }) {
     final double trackHeight = sliderTheme.trackHeight ?? 0.0;
-    final double trackLeft = offset.dx + SimpleConstants.sm;
+    final double trackLeft = offset.dx + AppConstants.sm;
     final double trackTop =
         offset.dy + (parentBox.size.height - trackHeight) / 2;
-    final double trackWidth = parentBox.size.width - SimpleConstants.lg;
+    final double trackWidth = parentBox.size.width - AppConstants.lg;
 
     return Rect.fromLTWH(
       trackLeft,
@@ -104,24 +104,22 @@ class _CustomTrackShape extends RoundedRectSliderTrackShape {
   }
 }
 
-final simpleSliderThemeLight = SliderThemeData(
+final appSliderThemeLight = SliderThemeData(
   trackHeight: 2.0,
   showValueIndicator: ShowValueIndicator.onlyForDiscrete,
   valueIndicatorShape: ThemeData.light().sliderTheme.valueIndicatorShape,
   trackShape: _CustomTrackShape(),
-  thumbColor: SimpleColors.simpleColorSchemeLight.primary,
-  activeTrackColor: SimpleColors.simpleColorSchemeLight.primary,
-  inactiveTrackColor:
-      SimpleColors.simpleColorSchemeLight.surface.withOpacity(0.38),
+  thumbColor: AppColors.appColorSchemeLight.primary,
+  activeTrackColor: AppColors.appColorSchemeLight.primary,
+  inactiveTrackColor: AppColors.appColorSchemeLight.surface.withOpacity(0.38),
 );
 
-final simpleSliderThemeDark = SliderThemeData(
+final appSliderThemeDark = SliderThemeData(
   trackHeight: 2.0,
   showValueIndicator: ShowValueIndicator.onlyForDiscrete,
   valueIndicatorShape: ThemeData.dark().sliderTheme.valueIndicatorShape,
   trackShape: _CustomTrackShape(),
-  thumbColor: SimpleColors.simpleColorSchemeDark.primary,
-  activeTrackColor: SimpleColors.simpleColorSchemeDark.primary,
-  inactiveTrackColor:
-      SimpleColors.simpleColorSchemeDark.surface.withOpacity(0.38),
+  thumbColor: AppColors.appColorSchemeDark.primary,
+  activeTrackColor: AppColors.appColorSchemeDark.primary,
+  inactiveTrackColor: AppColors.appColorSchemeDark.surface.withOpacity(0.38),
 );

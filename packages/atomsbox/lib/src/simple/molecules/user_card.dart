@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_constants.dart';
-import '../atoms/simple_text.dart';
-import '../atoms/simple_card_container.dart';
+import '../atoms/config/app_constants.dart';
+import '../atoms/app_text.dart';
+import '../atoms/app_card_container.dart';
 
-class SimpleUserCard extends StatelessWidget {
-  const SimpleUserCard({
+class UserCard extends StatelessWidget {
+  const UserCard({
     super.key,
     this.onTap,
     this.actions,
@@ -17,7 +17,7 @@ class SimpleUserCard extends StatelessWidget {
     this.width = 400,
     this.height = 200,
     this.margin,
-    this.type = SimpleCardContainerType.elevated,
+    this.type = AppCardContainerType.elevated,
     this.dense = true,
   });
 
@@ -36,30 +36,29 @@ class SimpleUserCard extends StatelessWidget {
   final double? width;
   final double? height;
   final EdgeInsets? margin;
-  final SimpleCardContainerType type;
+  final AppCardContainerType type;
   final bool dense;
 
   @override
   Widget build(BuildContext context) {
-    final widget = dense
-        ? _buildSimpleUserCardDense(context)
-        : _buildSimpleUserCardExpanded(context);
+    final widget =
+        dense ? _buildUserCardDense(context) : _buildUserCardExpanded(context);
 
-    return (type == SimpleCardContainerType.elevated)
-        ? SimpleCardContainer.elevated(
+    return (type == AppCardContainerType.elevated)
+        ? AppCardContainer.elevated(
             height: height,
             width: width,
             margin: margin ?? EdgeInsets.zero,
             child: widget,
           )
-        : (type == SimpleCardContainerType.filled)
-            ? SimpleCardContainer.filled(
+        : (type == AppCardContainerType.filled)
+            ? AppCardContainer.filled(
                 height: height,
                 width: width,
                 margin: margin ?? EdgeInsets.zero,
                 child: widget,
               )
-            : SimpleCardContainer.outlined(
+            : AppCardContainer.outlined(
                 height: height,
                 width: width,
                 margin: margin ?? EdgeInsets.zero,
@@ -67,7 +66,7 @@ class SimpleUserCard extends StatelessWidget {
               );
   }
 
-  LayoutBuilder _buildSimpleUserCardExpanded(BuildContext context) {
+  LayoutBuilder _buildUserCardExpanded(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -117,7 +116,7 @@ class SimpleUserCard extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.all(SimpleConstants.sm),
+                padding: const EdgeInsets.all(AppConstants.sm),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -134,7 +133,7 @@ class SimpleUserCard extends StatelessWidget {
                         ? DefaultTextStyle(
                             style: subheadStyle,
                             textAlign: TextAlign.center,
-                            child: SimpleText(
+                            child: AppText(
                               subhead!,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -148,7 +147,7 @@ class SimpleUserCard extends StatelessWidget {
                                   ? supportingTextStyle.fontSize! * 0.8
                                   : supportingTextStyle.fontSize!,
                             ),
-                            child: SimpleText(
+                            child: AppText(
                               supportingText!,
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
@@ -166,8 +165,8 @@ class SimpleUserCard extends StatelessWidget {
     );
   }
 
-  SizedBox _buildSimpleUserCardDense(BuildContext context) {
-    // TODO: Add a dense version of the SimpleUserCard
+  SizedBox _buildUserCardDense(BuildContext context) {
+    // TODO: Add a dense version of the UserCard
     return const SizedBox();
   }
 }

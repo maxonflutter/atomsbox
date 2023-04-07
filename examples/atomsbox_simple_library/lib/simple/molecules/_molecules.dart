@@ -13,144 +13,152 @@ class _Molecules extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const SizedBox(height: SimpleConstants.xlg),
-          SimpleListTile(
+          const SizedBox(height: AppConstants.xlg),
+
+          DefaultCard(
             onTap: () {},
-            leading: const CircleAvatar(radius: 24),
-            title: const SimpleText('This is a list tile'),
-            subtitle: const SimpleText(sampleText),
-            trailing: const Icon(Icons.offline_bolt),
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          SimpleListTile(
-            onTap: () {},
-            isThreeLine: true,
-            leading: SimpleImage(imageUrl, height: 48),
-            title: const SimpleText('This is a list tile'),
-            subtitle: const SimpleText(sampleText),
-            trailing: const Icon(Icons.offline_bolt),
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          SimpleListTile(
-            onTap: () {},
-            primary: true,
-            isThreeLine: true,
-            leadingWidth: 96,
-            leading: SimpleImage(imageUrl, height: 96),
-            title: const SimpleText('This is a list tile'),
-            subtitle: const SimpleText(sampleText),
-            trailing: const Icon(Icons.offline_bolt),
-          ),
-          const SizedBox(height: SimpleConstants.xlg),
-          SimpleExpansionTile(
-            initiallyExpanded: true,
-            title: const SimpleText('This is an expansion tile'),
-            children: const [SimpleText(sampleText)],
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          SimpleExpansionTile(
-            title: const SimpleText('This is an expansion tile'),
-            children: const [SimpleText(sampleText)],
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          SimpleExpansionTile.transparent(
-            title: const SimpleText('This is an expansion tile'),
-            children: const [SimpleText(sampleText)],
-          ),
-          const SizedBox(height: SimpleConstants.xlg),
-          SimpleCard(
-            onTap: () {},
-            height: 200,
-            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-            headline: const SimpleText('This is a card'),
+            margin: const EdgeInsets.only(bottom: AppConstants.sm),
+            headline: AppText('This is a card'),
             subhead: sampleText,
             supportingText: sampleText,
-            image: SimpleImage(imageUrl),
-            type: SimpleCardContainerType.filled,
+            image: AppImage.network(imageUrl, height: 200),
           ),
-          SimpleCard(
-            dense: false,
-            onTap: () {},
-            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-            headline: const SimpleText('This is a card'),
+          DefaultCard(
+            margin: const EdgeInsets.only(bottom: AppConstants.sm),
+            headline: AppText('This is a card'),
             subhead: sampleText,
             supportingText: sampleText,
-            image: SimpleImage(imageUrl, height: 200),
-            type: SimpleCardContainerType.outlined,
-          ),
-          SimpleCard(
-            dense: false,
-            onTap: () {},
-            margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
-            headline: const SimpleText('This is a card'),
-            subhead: sampleText,
-            supportingText: 'sampleText',
-            image: SimpleImage(imageUrl, height: 200),
-            type: SimpleCardContainerType.outlined,
-          ),
-          const SizedBox(height: SimpleConstants.xlg),
-          const SimpleSegmentedButton(
-            isSelected: [true, false, false],
-            children: [
-              SimpleText('Songs'),
-              SimpleText('Albums'),
-              SimpleText('Playlists'),
-            ],
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          const SimpleSegmentedButton(
-            isSelected: [true, false, false],
-            children: [
-              Icon(Icons.wb_cloudy),
-              Icon(Icons.wb_twilight),
-              Icon(Icons.wb_sunny),
-            ],
-          ),
-          const SizedBox(height: SimpleConstants.sm),
-          Row(
-            children: const [
-              SimpleSegmentedButton(
-                vertical: true,
-                isSelected: [true, false, false],
-                children: [
-                  SimpleText('Songs'),
-                  SimpleText('Albums'),
-                  SimpleText('Playlists'),
-                ],
+            // image: AppImage.network(imageUrl, height: 200),
+            actions: [
+              AppFilledButton(
+                onPressed: () {},
+                child: AppText('Action 1'),
               ),
-              SizedBox(width: SimpleConstants.sm),
-              SimpleSegmentedButton(
-                vertical: true,
-                multiSelect: true,
-                isSelected: [true, true, false],
-                children: [
-                  Icon(Icons.wb_cloudy),
-                  Icon(Icons.wb_twilight),
-                  Icon(Icons.wb_sunny),
-                ],
+              AppFilledButton(
+                onPressed: () {},
+                child: AppText('Action 2'),
               ),
             ],
           ),
-          const SizedBox(height: SimpleConstants.sm),
-          SimpleUserCard(
+          // SimpleListTile(
+          //   onTap: () {},
+          //   leading: const CircleAvatar(radius: 24),
+          //   title: const AppText('This is a list tile'),
+          //   subtitle: const AppText(sampleText),
+          //   trailing: const Icon(Icons.offline_bolt),
+          // ),
+          // const SizedBox(height: AppConstants.sm),
+          // SimpleListTile(
+          //   onTap: () {},
+          //   isThreeLine: true,
+          //   leading: AppImage.network(imageUrl, height: 48),
+          //   title: const AppText('This is a list tile'),
+          //   subtitle: const AppText(sampleText),
+          //   trailing: const Icon(Icons.offline_bolt),
+          // ),
+          // const SizedBox(height: AppConstants.sm),
+          // SimpleListTile(
+          //   onTap: () {},
+          //   primary: true,
+          //   isThreeLine: true,
+          //   leadingWidth: 96,
+          //   leading: AppImage.network(imageUrl, height: 96),
+          //   title: const AppText('This is a list tile'),
+          //   subtitle: const AppText(sampleText),
+          //   trailing: const Icon(Icons.offline_bolt),
+          // ),
+          // const SizedBox(height: AppConstants.xlg),
+          // SimpleExpansionTile(
+          //   initiallyExpanded: true,
+          //   title: const AppText('This is an expansion tile'),
+          //   children: const [AppText(sampleText)],
+          // ),
+          // const SizedBox(height: AppConstants.sm),
+          // SimpleExpansionTile(
+          //   title: const AppText('This is an expansion tile'),
+          //   children: const [AppText(sampleText)],
+          // ),
+          // const SizedBox(height: AppConstants.sm),
+          // SimpleExpansionTile.transparent(
+          //   title: const AppText('This is an expansion tile'),
+          //   children: const [AppText(sampleText)],
+          // ),
+          // const SizedBox(height: AppConstants.xlg),
+          // SimpleCard(
+          //   onTap: () {},
+          //   height: 200,
+          //   margin: const EdgeInsets.only(bottom: AppConstants.sm),
+          //   headline: const AppText('This is a card'),
+          //   subhead: sampleText,
+          //   supportingText: sampleText,
+          //   image: AppImage.network(imageUrl),
+          //   type: AppCardContainerType.filled,
+          // ),
+
+          // const SizedBox(height: AppConstants.xlg),
+          // const SimpleSegmentedButton(
+          //   isSelected: [true, false, false],
+          //   children: [
+          //     AppText('Songs'),
+          //     AppText('Albums'),
+          //     AppText('Playlists'),
+          //   ],
+          // ),
+          // const SizedBox(height: AppConstants.sm),
+          // const SimpleSegmentedButton(
+          //   isSelected: [true, false, false],
+          //   children: [
+          //     Icon(Icons.wb_cloudy),
+          //     Icon(Icons.wb_twilight),
+          //     Icon(Icons.wb_sunny),
+          //   ],
+          // ),
+          // const SizedBox(height: AppConstants.sm),
+          // Row(
+          //   children: const [
+          //     SimpleSegmentedButton(
+          //       vertical: true,
+          //       isSelected: [true, false, false],
+          //       children: [
+          //         AppText('Songs'),
+          //         AppText('Albums'),
+          //         AppText('Playlists'),
+          //       ],
+          //     ),
+          //     SizedBox(width: AppConstants.sm),
+          //     SimpleSegmentedButton(
+          //       vertical: true,
+          //       multiSelect: true,
+          //       isSelected: [true, true, false],
+          //       children: [
+          //         Icon(Icons.wb_cloudy),
+          //         Icon(Icons.wb_twilight),
+          //         Icon(Icons.wb_sunny),
+          //       ],
+          //     ),
+          //   ],
+          // ),
+          // const SizedBox(height: AppConstants.sm),
+          UserCard(
             dense: false,
             onTap: () {},
             height: 450,
-            headline: const SimpleText('Massimo Del Pezzo'),
+            headline: AppText('Massimo Del Pezzo'),
             supportingText: sampleText,
             imageUrl: imageUrl,
             subhead: sampleText,
-            type: SimpleCardContainerType.elevated,
+            type: AppCardContainerType.filled,
             actions: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SimpleButton.text(
+                AppFilledButton(
                   onPressed: () {},
-                  child: const SimpleText('Add'),
+                  child: AppText('Add'),
                 ),
-                SimpleButton.text(
+                const SizedBox(width: AppConstants.sm),
+                AppFilledButton(
                   onPressed: () {},
-                  child: const SimpleText('Follow'),
+                  child: AppText('Follow'),
                 ),
               ],
             ),

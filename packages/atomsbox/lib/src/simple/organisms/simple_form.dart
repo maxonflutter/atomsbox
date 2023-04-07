@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_constants.dart';
-import '../atoms/simple_button.dart';
-import '../atoms/simple_label.dart';
-import '../atoms/simple_text_form_field.dart';
+import '../atoms/app_label.dart';
+import '../atoms/app_text_form_field.dart';
+import '../atoms/config/app_constants.dart';
 
 class SimpleForm extends StatefulWidget {
   const SimpleForm({
@@ -18,9 +16,9 @@ class SimpleForm extends StatefulWidget {
 
   final Widget? title;
   final Widget? description;
-  final List<SimpleTextFormField> formItems;
+  final List<AppTextFormField> formItems;
   final List<String> formItemNames;
-  final SimpleButton formButton;
+  final Widget formButton;
 
   @override
   State<SimpleForm> createState() => _SimpleFormState();
@@ -44,7 +42,7 @@ class _SimpleFormState extends State<SimpleForm> {
                   style: titleStyle!,
                   child: widget.title!,
                 ),
-                const SizedBox(height: SimpleConstants.sm),
+                const SizedBox(height: AppConstants.sm),
               ]
             : [const SizedBox()],
         ...(widget.description != null)
@@ -53,37 +51,37 @@ class _SimpleFormState extends State<SimpleForm> {
                   style: descriptionStyle!,
                   child: widget.description!,
                 ),
-                const SizedBox(height: SimpleConstants.sm),
+                const SizedBox(height: AppConstants.sm),
               ]
             : [const SizedBox()],
         ...widget.formItems.map(
           (item) {
             var listIndex = widget.formItems.indexOf(item);
-            return _buildSimpleTextFormField(context, listIndex);
+            return _buildAppTextFormField(context, listIndex);
           },
         ),
-        const SizedBox(height: SimpleConstants.sm),
+        const SizedBox(height: AppConstants.sm),
         Center(child: widget.formButton),
       ],
     );
   }
 
-  Container _buildSimpleTextFormField(
+  Container _buildAppTextFormField(
     BuildContext context,
     int listIndex,
   ) {
     return Container(
-      margin: const EdgeInsets.only(bottom: SimpleConstants.sm),
+      margin: const EdgeInsets.only(bottom: AppConstants.sm),
       child: Row(
         children: [
           Flexible(
             flex: 1,
-            child: SimpleLabel(
+            child: AppLabel(
               text: widget.formItemNames[listIndex],
               primary: listIndex == index ? false : true,
             ),
           ),
-          const SizedBox(width: SimpleConstants.sm),
+          const SizedBox(width: AppConstants.sm),
           Flexible(
             flex: 3,
             child: Focus(

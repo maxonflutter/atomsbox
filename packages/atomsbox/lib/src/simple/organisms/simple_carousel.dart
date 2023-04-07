@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_constants.dart';
-import '../atoms/simple_text.dart';
+import '../atoms/config/app_constants.dart';
+import '../atoms/app_text.dart';
 
 // A simple carousel widget for displaying a list of widgets.
 class SimpleCarousel extends StatelessWidget {
@@ -43,7 +43,7 @@ class SimpleCarousel extends StatelessWidget {
                   style: titleStyle!,
                   child: title!,
                 ),
-                const SizedBox(height: SimpleConstants.sm),
+                const SizedBox(height: AppConstants.sm),
               ]
             : [const SizedBox()],
         ...(description != null)
@@ -52,7 +52,7 @@ class SimpleCarousel extends StatelessWidget {
                   style: descriptionStyle!,
                   child: description!,
                 ),
-                const SizedBox(height: SimpleConstants.sm),
+                const SizedBox(height: AppConstants.sm),
               ]
             : [const SizedBox()],
         CarouselSlider(

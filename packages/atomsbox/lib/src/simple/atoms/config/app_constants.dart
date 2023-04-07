@@ -1,7 +1,7 @@
-/// The [SimpleConstants] class is a collection of static constants that can be used
+/// The [AppConstants] class is a collection of static constants that can be used
 /// throughout the application for a consistent look and feel.
 ///
-class SimpleConstants {
+class AppConstants {
   /// The default borderRadius
   static const double borderRadius = 8.0;
 

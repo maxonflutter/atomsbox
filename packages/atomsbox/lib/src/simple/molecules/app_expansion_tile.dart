@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_color_scheme.dart';
-import '../atoms/config/simple_constants.dart';
+import '../atoms/config/app_color_scheme.dart';
+import '../atoms/config/app_constants.dart';
+import '../atoms/config/app_typedef.dart';
 
-import 'package:flutter/material.dart';
-
-typedef ExpansionTileBuilder = ExpansionTileTheme Function(
-  BuildContext context,
-);
-
-class SimpleExpansionTile extends StatelessWidget {
-  SimpleExpansionTile({
+class AppExpansionTile extends StatelessWidget {
+  AppExpansionTile({
     super.key,
     this.initiallyExpanded = false,
     required this.title,
@@ -34,7 +29,7 @@ class SimpleExpansionTile extends StatelessWidget {
     };
   }
 
-  SimpleExpansionTile.transparent({
+  AppExpansionTile.transparent({
     super.key,
     this.initiallyExpanded = false,
     required this.title,
@@ -76,34 +71,34 @@ class SimpleExpansionTile extends StatelessWidget {
   }
 }
 
-final simpleExpansionTileThemeLight = ExpansionTileThemeData(
-  collapsedBackgroundColor: SimpleColors.simpleColorSchemeLight.primary,
+final appExpansionTileThemeLight = ExpansionTileThemeData(
+  collapsedBackgroundColor: AppColors.appColorSchemeLight.primary,
   backgroundColor: Colors.transparent,
   expandedAlignment: Alignment.centerLeft,
   collapsedShape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    borderRadius: BorderRadius.circular(AppConstants.borderRadius),
   ),
   shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    borderRadius: BorderRadius.circular(AppConstants.borderRadius),
   ),
-  collapsedIconColor: SimpleColors.simpleColorSchemeLight.onPrimary,
-  collapsedTextColor: SimpleColors.simpleColorSchemeLight.onPrimary,
-  tilePadding: const EdgeInsets.symmetric(horizontal: SimpleConstants.sm),
-  childrenPadding: const EdgeInsets.all(SimpleConstants.sm),
+  collapsedIconColor: AppColors.appColorSchemeLight.onPrimary,
+  collapsedTextColor: AppColors.appColorSchemeLight.onPrimary,
+  tilePadding: const EdgeInsets.symmetric(horizontal: AppConstants.sm),
+  childrenPadding: const EdgeInsets.all(AppConstants.sm),
 );
 
-final simpleExpansionTileThemeDark = ExpansionTileThemeData(
-  collapsedBackgroundColor: SimpleColors.simpleColorSchemeDark.primary,
+final appExpansionTileThemeDark = ExpansionTileThemeData(
+  collapsedBackgroundColor: AppColors.appColorSchemeDark.primary,
   backgroundColor: Colors.transparent,
   expandedAlignment: Alignment.centerLeft,
   collapsedShape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    borderRadius: BorderRadius.circular(AppConstants.borderRadius),
   ),
   shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+    borderRadius: BorderRadius.circular(AppConstants.borderRadius),
   ),
-  collapsedIconColor: SimpleColors.simpleColorSchemeDark.onPrimary,
-  collapsedTextColor: SimpleColors.simpleColorSchemeDark.onPrimary,
-  tilePadding: const EdgeInsets.symmetric(horizontal: SimpleConstants.sm),
-  childrenPadding: const EdgeInsets.all(SimpleConstants.sm),
+  collapsedIconColor: AppColors.appColorSchemeDark.onPrimary,
+  collapsedTextColor: AppColors.appColorSchemeDark.onPrimary,
+  tilePadding: const EdgeInsets.symmetric(horizontal: AppConstants.sm),
+  childrenPadding: const EdgeInsets.all(AppConstants.sm),
 );

@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             // Remove the debug banner
             debugShowCheckedModeBanner: false,
-            theme: SimpleTheme.theme,
-            darkTheme: SimpleTheme.darkTheme,
+            theme: AppTheme.theme,
+            darkTheme: AppTheme.darkTheme,
             themeMode: currentMode,
             home: const AtomsboxComponents(),
           );
@@ -58,25 +58,25 @@ class AtomsboxComponents extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(SimpleConstants.sm),
+          padding: const EdgeInsets.all(AppConstants.sm),
           child: SimpleTab(
             tabs: [
               Tab(
                 icon: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [Icon(Icons.code), SimpleText('Atoms')],
+                  children: [Icon(Icons.code), AppText('Atoms')],
                 ),
               ),
               Tab(
                 icon: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [Icon(Icons.code), SimpleText('Molecules')],
+                  children: [Icon(Icons.code), AppText('Molecules')],
                 ),
               ),
               Tab(
                 icon: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [Icon(Icons.code), SimpleText('Organisms')],
+                  children: [Icon(Icons.code), AppText('Organisms')],
                 ),
               ),
             ],

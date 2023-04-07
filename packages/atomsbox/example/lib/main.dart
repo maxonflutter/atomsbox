@@ -85,9 +85,9 @@
 //           Column(
 //             crossAxisAlignment: CrossAxisAlignment.start,
 //             children: const [
-//               SizedBox(height: SimpleConstants.lg),
+//               SizedBox(height: AppConstants.lg),
 //               SimpleText("More examples at atomsbox.com"),
-//               SizedBox(height: SimpleConstants.lg),
+//               SizedBox(height: AppConstants.lg),
 //               SimpleSliderExample(),
 //               SimpleButtonExample(),
 //               SimpleTextFormFieldExample(),
@@ -112,10 +112,10 @@
 //       child: Column(
 //         crossAxisAlignment: CrossAxisAlignment.start,
 //         children: const [
-//           SizedBox(height: SimpleConstants.lg),
+//           SizedBox(height: AppConstants.lg),
 
 //           SimpleText("More examples at atomsbox.com"),
-//           SizedBox(height: SimpleConstants.lg),
+//           SizedBox(height: AppConstants.lg),
 //           SimpleListTileExample(),
 //           SimpleToggleButtonsExample(),
 //           SimpleAccordionExample(),
@@ -138,9 +138,9 @@
 //       child: Column(
 //         crossAxisAlignment: CrossAxisAlignment.start,
 //         children: const [
-//           SizedBox(height: SimpleConstants.lg),
+//           SizedBox(height: AppConstants.lg),
 //           SimpleText("More examples at atomsbox.com"),
-//           SizedBox(height: SimpleConstants.lg),
+//           SizedBox(height: AppConstants.lg),
 //           SimpleGridExample(),
 //           SimpleListExample(),
 //           SimpleAudioPlayerExample(),
@@ -165,7 +165,7 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         SizedBox(height: SimpleConstants.sm),
+//         SizedBox(height: AppConstants.sm),
 //         SimpleAccordion(
 //           initiallyExpanded: true,
 //           title: 'Accordion #1',
@@ -180,7 +180,7 @@
 //             ),
 //           ],
 //         ),
-//         SizedBox(height: SimpleConstants.sm),
+//         SizedBox(height: AppConstants.sm),
 //         SimpleAccordion(
 //           title: 'Accordion #2',
 //           children: [
@@ -194,7 +194,7 @@
 //             )
 //           ],
 //         ),
-//         SizedBox(height: SimpleConstants.sm),
+//         SizedBox(height: AppConstants.sm),
 //         SimpleAccordion(
 //           title: 'Accordion #3',
 //           children: [
@@ -208,7 +208,7 @@
 //             )
 //           ],
 //         ),
-//         SizedBox(height: SimpleConstants.lg),
+//         SizedBox(height: AppConstants.lg),
 //       ],
 //     );
 //   }
@@ -227,7 +227,7 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleListTile(
 //           onTap: () {
 //             ScaffoldMessenger.of(context).showSnackBar(
@@ -270,7 +270,7 @@
 //             ],
 //           ),
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleListTile(
 //           onTap: () {},
 //           leading: const SimpleImage(
@@ -293,7 +293,7 @@
 //           ),
 //           colorPalette: ColorPalette.primaryContainer,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleListTile(
 //           onTap: () {},
 //           leading: const SimpleImage(
@@ -316,7 +316,7 @@
 //           ),
 //           colorPalette: ColorPalette.secondaryContainer,
 //         ),
-//         const SizedBox(height: SimpleConstants.lg),
+//         const SizedBox(height: AppConstants.lg),
 //       ],
 //     );
 //   }
@@ -335,7 +335,7 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         SizedBox(height: SimpleConstants.sm),
+//         SizedBox(height: AppConstants.sm),
 //         SimpleToggleButtons(
 //           multiSelect: true,
 //           isSelected: [true, true, false],
@@ -345,7 +345,7 @@
 //             SimpleText('Third'),
 //           ],
 //         ),
-//         SizedBox(height: SimpleConstants.sm),
+//         SizedBox(height: AppConstants.sm),
 //         SimpleToggleButtons(
 //           multiSelect: false,
 //           vertical: true,
@@ -356,7 +356,7 @@
 //             SimpleText('Third'),
 //           ],
 //         ),
-//         SizedBox(height: SimpleConstants.lg),
+//         SizedBox(height: AppConstants.lg),
 //       ],
 //     );
 //   }
@@ -375,7 +375,7 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleAudioPlayer(
 //           dense: true,
 //           url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
@@ -393,7 +393,7 @@
 //             position: Duration(seconds: 10),
 //           ),
 //         ),
-//         const SizedBox(height: SimpleConstants.xlg),
+//         const SizedBox(height: AppConstants.xlg),
 //       ],
 //     );
 //   }
@@ -412,7 +412,7 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleGrid(
 //           gridItems: [
 //             SimpleCard(
@@ -445,7 +445,7 @@
 //             ),
 //           ],
 //         ),
-//         const SizedBox(height: SimpleConstants.xlg),
+//         const SizedBox(height: AppConstants.xlg),
 //       ],
 //     );
 //   }
@@ -464,7 +464,7 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleList(
 //           listItems: [
 //             SimpleListTile(
@@ -513,13 +513,13 @@
 //             ),
 //           ],
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         const SimpleText(
 //           'This is a SimpleList (horizontal)',
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleList(
 //           physics: const AlwaysScrollableScrollPhysics(),
 //           height: 100,
@@ -596,7 +596,7 @@
 //           ],
 //           type: SimpleListType.horizontal,
 //         ),
-//         const SizedBox(height: SimpleConstants.xlg),
+//         const SizedBox(height: AppConstants.xlg),
 //       ],
 //     );
 //   }
@@ -622,7 +622,7 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleSlider(
 //           value: _value[0],
 //           onChanged: (value) {
@@ -632,7 +632,7 @@
 //           },
 //           thumbShape: SliderComponentShape.noThumb,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleSlider(
 //           value: _value[1],
 //           onChanged: (value) {
@@ -641,7 +641,7 @@
 //             });
 //           },
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleSlider(
 //           value: _value[2],
 //           onChanged: (value) {
@@ -652,7 +652,7 @@
 //           thumbShape: SliderComponentShape.noThumb,
 //           colorPalette: ColorPalette.secondaryContainer,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleSlider(
 //           value: _value[3],
 //           onChanged: (value) {
@@ -662,7 +662,7 @@
 //           },
 //           colorPalette: ColorPalette.secondaryContainer,
 //         ),
-//         const SizedBox(height: SimpleConstants.xlg),
+//         const SizedBox(height: AppConstants.xlg),
 //       ],
 //     );
 //   }
@@ -683,7 +683,7 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         Row(
 //           children: [
 //             Flexible(
@@ -696,7 +696,7 @@
 //                 // ),
 //               ),
 //             ),
-//             const SizedBox(width: SimpleConstants.sm),
+//             const SizedBox(width: AppConstants.sm),
 //             Flexible(
 //               child: SimpleButton(
 //                 onPressed: () {},
@@ -709,7 +709,7 @@
 //             ),
 //           ],
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         Row(
 //           children: [
 //             Flexible(
@@ -719,7 +719,7 @@
 //                 // child: const SimpleText('Outline Button'),
 //               ),
 //             ),
-//             const SizedBox(width: SimpleConstants.sm),
+//             const SizedBox(width: AppConstants.sm),
 //             Flexible(
 //               child: SimpleButton.outline(
 //                 onPressed: () {},
@@ -729,7 +729,7 @@
 //             ),
 //           ],
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         Row(
 //           children: [
 //             Flexible(
@@ -744,7 +744,7 @@
 //                 // ),
 //               ),
 //             ),
-//             const SizedBox(width: SimpleConstants.sm),
+//             const SizedBox(width: AppConstants.sm),
 //             Flexible(
 //               child: SimpleButton.text(
 //                 onPressed: () {},
@@ -759,7 +759,7 @@
 //             ),
 //           ],
 //         ),
-//         const SizedBox(height: SimpleConstants.xlg),
+//         const SizedBox(height: AppConstants.xlg),
 //       ],
 //     );
 //   }
@@ -778,17 +778,17 @@
 //           textStyle: TextStyleEnum.titleMedium,
 //           fontWeight: FontWeight.bold,
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleTextFormField(labelText: 'Underline'),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleTextFormField.outline(
 //           labelText: 'Outline',
 //         ),
-//         const SizedBox(height: SimpleConstants.sm),
+//         const SizedBox(height: AppConstants.sm),
 //         SimpleTextFormField.filled(
 //           labelText: 'Filled',
 //         ),
-//         const SizedBox(height: SimpleConstants.xlg),
+//         const SizedBox(height: AppConstants.xlg),
 //       ],
 //     );
 //   }

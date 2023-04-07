@@ -96,12 +96,12 @@
 //       mainAxisAlignment: MainAxisAlignment.spaceAround,
 //       children: [
 //         _image,
-//         const SizedBox(height: SimpleConstants.md),
+//         const SizedBox(height: AppConstants.md),
 //         _description,
 //         _name,
-//         const SizedBox(height: SimpleConstants.md),
+//         const SizedBox(height: AppConstants.md),
 //         audioSeekbar,
-//         const SizedBox(height: SimpleConstants.md),
+//         const SizedBox(height: AppConstants.md),
 //         audioControls,
 //       ],
 //     );
@@ -111,14 +111,14 @@
 //       BuildContext context, Size size, _image, _description, _name) {
 //     return Container(
 //       padding: const EdgeInsets.only(
-//         left: SimpleConstants.sm,
-//         right: SimpleConstants.sm,
-//         top: SimpleConstants.sm,
+//         left: AppConstants.sm,
+//         right: AppConstants.sm,
+//         top: AppConstants.sm,
 //       ),
 //       decoration: BoxDecoration(
 //         color: Theme.of(context).colorScheme.secondaryContainer,
 //         borderRadius: BorderRadius.circular(
-//           SimpleConstants.borderRadius,
+//           AppConstants.borderRadius,
 //         ),
 //       ),
 //       child: Column(
@@ -128,7 +128,7 @@
 //             crossAxisAlignment: CrossAxisAlignment.center,
 //             children: [
 //               _image,
-//               const SizedBox(width: SimpleConstants.sm),
+//               const SizedBox(width: AppConstants.sm),
 //               Expanded(
 //                 child: Column(
 //                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,11 +136,11 @@
 //                   children: [_name, _description],
 //                 ),
 //               ),
-//               const SizedBox(width: SimpleConstants.sm),
+//               const SizedBox(width: AppConstants.sm),
 //               audioControls,
 //             ],
 //           ),
-//           const SizedBox(width: SimpleConstants.sm),
+//           const SizedBox(width: AppConstants.sm),
 //           audioSeekbar,
 //         ],
 //       ),

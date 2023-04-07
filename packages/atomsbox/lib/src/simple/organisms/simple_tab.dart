@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_constants.dart';
+import '../atoms/config/app_constants.dart';
 
 class SimpleTab extends StatefulWidget {
   const SimpleTab({
@@ -52,7 +52,7 @@ class _SimpleTabState extends State<SimpleTab>
           controller: controller,
           children: widget.tabs,
         ),
-        const SizedBox(height: SimpleConstants.sm),
+        const SizedBox(height: AppConstants.sm),
         AnimatedSwitcher(
           duration: const Duration(seconds: 1),
           child: currentChild,
@@ -78,14 +78,14 @@ class _SimpleTabBar extends StatelessWidget with PreferredSizeWidget {
     return Container(
       height: 56.0,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+        borderRadius: BorderRadius.circular(AppConstants.borderRadius),
         color: colorScheme.surfaceVariant,
       ),
       child: TabBar(
         controller: controller,
         indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
-          borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+          borderRadius: BorderRadius.circular(AppConstants.borderRadius),
           color: colorScheme.primary,
         ),
         labelColor: colorScheme.onPrimary,

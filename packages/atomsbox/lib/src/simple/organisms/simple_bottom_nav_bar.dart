@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_constants.dart';
+import '../atoms/config/app_constants.dart';
 
 /// A simple bottom navigation bar with customizable appearance.
 ///
@@ -15,7 +15,7 @@ import '../atoms/config/simple_constants.dart';
 ///
 /// The navigation bar's background color is determined by the primary color of
 /// the current [Theme] with an alpha value of 200. It also has a customizable
-/// border radius defined by [SimpleConstants.borderRadius].
+/// border radius defined by [AppConstants.borderRadius].
 ///
 /// See also:
 /// * [BottomNavigationBar], which is a Material Design bottom navigation bar.
@@ -48,21 +48,21 @@ class SimpleBottomNavBar extends StatelessWidget {
 
     var decoration = BoxDecoration(
       color: Theme.of(context).colorScheme.primary.withAlpha(200),
-      borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+      borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     );
 
     if (floating == true) {
       height = 60.0;
       margin = const EdgeInsets.symmetric(
-        horizontal: SimpleConstants.xlg,
-        vertical: SimpleConstants.lg,
+        horizontal: AppConstants.xlg,
+        vertical: AppConstants.lg,
       );
     } else {
       height = 85.0;
       padding = const EdgeInsets.only(
-        top: SimpleConstants.sm,
-        left: SimpleConstants.xlg,
-        right: SimpleConstants.xlg,
+        top: AppConstants.sm,
+        left: AppConstants.xlg,
+        right: AppConstants.xlg,
       );
     }
 

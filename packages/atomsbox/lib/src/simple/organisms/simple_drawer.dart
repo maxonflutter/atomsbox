@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_constants.dart';
-import '../atoms/simple_text.dart';
+import '../atoms/config/app_constants.dart';
+import '../atoms/app_text.dart';
 
 /// A simple drawer widget that displays a list of primary and secondary items.
 ///
@@ -44,12 +44,9 @@ class SimpleDrawer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 100,
-                child: SimpleText(
-                  SimpleConstants.appName,
-                  textStyle: SimpleTextStyle.headlineMedium,
-                ),
+                child: AppText.headlineMedium(AppConstants.appName),
               ),
               Expanded(
                 child: ListView(

@@ -1,7 +1,7 @@
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 
-class SimpleColors {
+class AppColors {
   static Color primarySeedColor = const Color(0xFF192256);
   static Color secondarySeedColor = const Color(0xFF9C254D);
 
@@ -19,8 +19,8 @@ class SimpleColors {
     tones: FlexTones.vivid(Brightness.dark),
   );
 
-  static final simpleColorSchemeLight = schemeLight;
-  static final simpleColorSchemeDark = schemeDark;
+  static final appColorSchemeLight = schemeLight;
+  static final appColorSchemeDark = schemeDark;
 
   static Color getShade(Color color, {bool darker = false, double value = .1}) {
     assert(value >= 0 && value <= 1);

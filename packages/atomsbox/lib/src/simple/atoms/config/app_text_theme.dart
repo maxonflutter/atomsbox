@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final simpleTextThemeLight = GoogleFonts.poppinsTextTheme(
+final appTextThemeLight = GoogleFonts.poppinsTextTheme(
   ThemeData(brightness: Brightness.light).textTheme,
 ).copyWith(
   displayLarge: GoogleFonts.abrilFatfaceTextTheme().displayLarge,
@@ -12,7 +12,7 @@ final simpleTextThemeLight = GoogleFonts.poppinsTextTheme(
   headlineSmall: GoogleFonts.abrilFatfaceTextTheme().headlineSmall,
 );
 
-final simpleTextThemeDark = GoogleFonts.poppinsTextTheme(
+final appTextThemeDark = GoogleFonts.poppinsTextTheme(
   ThemeData(brightness: Brightness.dark).textTheme,
 ).copyWith(
   displayLarge: GoogleFonts.abrilFatfaceTextTheme(

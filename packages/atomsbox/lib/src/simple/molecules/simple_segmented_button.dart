@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/config/simple_constants.dart';
-import '../atoms/simple_text.dart';
+import '../atoms/config/app_constants.dart';
+import '../atoms/app_text.dart';
 
 class SimpleSegmentedButton extends StatefulWidget {
   const SimpleSegmentedButton({
@@ -56,13 +56,13 @@ class _SimpleSegmentedButtonState extends State<SimpleSegmentedButton> {
               : height,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
-            borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+            borderRadius: BorderRadius.circular(AppConstants.borderRadius),
           ),
           child: ToggleButtons(
             selectedBorderColor: Theme.of(context).colorScheme.outlineVariant,
             borderColor: Theme.of(context).colorScheme.outline,
             fillColor: Theme.of(context).colorScheme.primaryContainer,
-            borderRadius: BorderRadius.circular(SimpleConstants.borderRadius),
+            borderRadius: BorderRadius.circular(AppConstants.borderRadius),
             direction: widget.vertical ? Axis.vertical : Axis.horizontal,
             onPressed: (int index) {
               if (widget.multiSelect) {
