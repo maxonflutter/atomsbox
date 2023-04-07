@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../atoms/app_card.dart';
-import '../atoms/app_image.dart';
-import '../atoms/app_mouse_hover.dart';
 import '../atoms/app_text.dart';
 import '../atoms/config/app_constants.dart';
 
@@ -56,7 +54,8 @@ class _DefaultCardState extends State<DefaultCard> {
   Widget build(BuildContext context) {
     final card = _buildDefaultCardExpanded(context, hovered);
 
-    return AppMouseHover(
+    return MouseRegion(
+      cursor: SystemMouseCursors.basic,
       onEnter: (event) => setState(() => hovered = true),
       onExit: (event) => setState(() => hovered = false),
       child: (widget.type == AppCardType.elevated)
