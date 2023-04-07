@@ -8,8 +8,10 @@ class _Atoms extends StatelessWidget {
     return AppBreakpoints.isMobile(context)
         ? SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
+                AppCardsExample(),
                 AppButtonsExample(),
                 AppTextExample(),
                 AppImageExample(),
@@ -21,6 +23,7 @@ class _Atoms extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       AppButtonsExample(),
@@ -34,9 +37,10 @@ class _Atoms extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      AppTextExample(),
+                      AppCardsExample(),
                       AppImageExample(),
                     ],
                   ),
