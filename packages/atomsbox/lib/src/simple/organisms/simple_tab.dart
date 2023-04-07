@@ -46,6 +46,7 @@ class _SimpleTabState extends State<SimpleTab>
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         _SimpleTabBar(
