@@ -26,7 +26,7 @@ class AppListExample extends StatelessWidget {
             description: AppText('This is a  list description'),
             listItems: [1, 2, 3]
                 .map(
-                  (e) => DefaultCard(
+                  (e) => AppDefaultCard(
                     width: 300,
                     margin: const EdgeInsets.only(bottom: AppConstants.sm),
                     headline: AppText('This is a card'),

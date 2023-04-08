@@ -4,8 +4,8 @@ import '../atoms/app_card.dart';
 import '../atoms/app_text.dart';
 import '../atoms/config/app_constants.dart';
 
-class DefaultCard extends StatefulWidget {
-  const DefaultCard({
+class AppDefaultCard extends StatefulWidget {
+  const AppDefaultCard({
     super.key,
     this.onTap,
     this.actions,
@@ -38,10 +38,10 @@ class DefaultCard extends StatefulWidget {
   final AppCardType type;
 
   @override
-  State<DefaultCard> createState() => _DefaultCardState();
+  State<AppDefaultCard> createState() => _AppDefaultCardState();
 }
 
-class _DefaultCardState extends State<DefaultCard> {
+class _AppDefaultCardState extends State<AppDefaultCard> {
   late bool hovered;
 
   @override
@@ -52,7 +52,7 @@ class _DefaultCardState extends State<DefaultCard> {
 
   @override
   Widget build(BuildContext context) {
-    final card = _buildDefaultCard(context, hovered);
+    final card = _buildAppDefaultCard(context, hovered);
 
     return MouseRegion(
       cursor: SystemMouseCursors.basic,
@@ -90,7 +90,7 @@ class _DefaultCardState extends State<DefaultCard> {
     );
   }
 
-  InkWell _buildDefaultCard(
+  InkWell _buildAppDefaultCard(
     BuildContext context,
     bool hovered,
   ) {
@@ -179,7 +179,7 @@ class _DefaultCardState extends State<DefaultCard> {
 }
 
 
-// LayoutBuilder _buildDefaultCardDense(BuildContext context) {
+// LayoutBuilder _buildAppDefaultCardDense(BuildContext context) {
 //     final TextStyle headlineStyle = Theme.of(context)
 //         .textTheme
 //         .headlineMedium!

@@ -62,7 +62,7 @@ class AppGridExample extends StatelessWidget {
             childAspectRatio: 0.75,
             gridItems: [1, 2, 3, 4]
                 .map(
-                  (e) => UserCard(
+                  (e) => AppUserCard(
                     type: AppCardType.outlined,
                     onTap: () {},
                     imageUrl: imageUrl,

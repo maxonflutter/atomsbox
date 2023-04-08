@@ -14,8 +14,8 @@ class _Molecules extends StatelessWidget {
                 AppSegmentedButtonExample(),
                 AppExpansionTileExample(),
                 AppListTileExamples(),
-                AppDefaultCardExamples(),
-                AppUserCardExample(),
+                AppAppDefaultCardExamples(),
+                AppAppUserCardExample(),
               ],
             ),
           )
@@ -28,8 +28,8 @@ class _Molecules extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      AppUserCardExample(),
-                      AppDefaultCardExamples(),
+                      AppAppUserCardExample(),
+                      AppAppDefaultCardExamples(),
                     ],
                   ),
                 ),

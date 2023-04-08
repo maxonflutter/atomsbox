@@ -4,8 +4,8 @@ import '../atoms/config/app_constants.dart';
 import '../atoms/app_text.dart';
 import '../atoms/app_card.dart';
 
-class UserCard extends StatelessWidget {
-  const UserCard({
+class AppUserCard extends StatelessWidget {
+  const AppUserCard({
     super.key,
     this.onTap,
     this.actions,
@@ -39,7 +39,7 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widget = _buildUserCard(context);
+    final widget = _buildAppUserCard(context);
 
     return (type == AppCardType.elevated)
         ? AppCard.elevated(
@@ -63,7 +63,7 @@ class UserCard extends StatelessWidget {
               );
   }
 
-  LayoutBuilder _buildUserCard(BuildContext context) {
+  LayoutBuilder _buildAppUserCard(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 

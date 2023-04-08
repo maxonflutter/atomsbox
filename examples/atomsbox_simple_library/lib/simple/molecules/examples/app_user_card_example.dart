@@ -1,8 +1,8 @@
 import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
-class AppUserCardExample extends StatelessWidget {
-  const AppUserCardExample({super.key});
+class AppAppUserCardExample extends StatelessWidget {
+  const AppAppUserCardExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class AppUserCardExample extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          UserCard(
+          AppUserCard(
             type: AppCardType.filled,
             onTap: () {},
             height: 450,
@@ -44,7 +44,7 @@ class AppUserCardExample extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppConstants.sm),
-          UserCard(
+          AppUserCard(
             type: AppCardType.outlined,
             onTap: () {},
             height: 450,
