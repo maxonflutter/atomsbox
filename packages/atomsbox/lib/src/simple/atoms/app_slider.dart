@@ -23,8 +23,8 @@ class AppSlider extends StatelessWidget {
   final double? minValue;
   final double? maxValue;
   final int? divisions;
-  final void Function(double) onChanged;
-  final void Function(double)? onChangeEnd;
+  final Function(double)? onChanged;
+  final Function(double)? onChangeEnd;
 
   @override
   Widget build(BuildContext context) {

@@ -24,8 +24,6 @@ class _AppSliderExampleState extends State<AppSliderExample> {
         children: [
           AppSlider(
             value: sliderValueOne,
-            showMinValue: true,
-            showMaxValue: true,
             divisions: 5,
             onChanged: (double value) {
               setState(() {
@@ -36,8 +34,6 @@ class _AppSliderExampleState extends State<AppSliderExample> {
           AppSlider(
             thumbShape: SliderComponentShape.noThumb,
             value: sliderValueTwo,
-            showMinValue: false,
-            showMaxValue: false,
             onChanged: (double value) {
               setState(() {
                 sliderValueTwo = value;
