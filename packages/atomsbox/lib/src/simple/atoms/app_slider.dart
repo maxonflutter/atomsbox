@@ -34,16 +34,14 @@ class AppSlider extends StatelessWidget {
         data: SliderTheme.of(context).copyWith(
           thumbShape: thumbShape,
         ),
-        child: Expanded(
-          child: Slider(
-            min: minValue ?? 0.0,
-            max: maxValue ?? 10.0,
-            value: value ?? 0.0,
-            divisions: divisions,
-            label: value.toString(),
-            onChanged: onChanged,
-            onChangeEnd: onChangeEnd,
-          ),
+        child: Slider(
+          min: minValue ?? 0.0,
+          max: maxValue ?? 10.0,
+          value: value ?? 0.0,
+          divisions: divisions,
+          label: value.toString(),
+          onChanged: onChanged,
+          onChangeEnd: onChangeEnd,
         ),
       ),
     );
