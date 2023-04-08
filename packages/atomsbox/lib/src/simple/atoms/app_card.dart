@@ -16,7 +16,8 @@ class AppCard extends StatefulWidget {
     this.onTap,
     this.color,
     this.margin,
-    this.clipBehavior = Clip.hardEdge,
+    this.shape,
+    this.clipBehavior,
     this.elevation = 4.0,
     this.width,
     this.height,
@@ -26,6 +27,8 @@ class AppCard extends StatefulWidget {
       return Card(
         margin: margin ?? EdgeInsets.zero,
         color: color ?? Theme.of(context).colorScheme.surface,
+        clipBehavior: clipBehavior ?? Theme.of(context).cardTheme.clipBehavior,
+        shape: shape ?? Theme.of(context).cardTheme.shape,
         elevation: elevation,
         child: InkWell(
           onTap: onTap,
@@ -40,7 +43,8 @@ class AppCard extends StatefulWidget {
     this.onTap,
     this.color,
     this.margin,
-    this.clipBehavior = Clip.hardEdge,
+    this.clipBehavior,
+    this.shape,
     this.elevation = 0.0,
     this.width,
     this.height,
@@ -51,6 +55,8 @@ class AppCard extends StatefulWidget {
         elevation: 0.0,
         margin: margin ?? EdgeInsets.zero,
         color: color ?? Theme.of(context).colorScheme.surface,
+        clipBehavior: clipBehavior ?? Theme.of(context).cardTheme.clipBehavior,
+        shape: shape ?? Theme.of(context).cardTheme.shape,
         child: InkWell(
           onTap: onTap,
           child: SizedBox(width: width, height: height, child: child),
@@ -64,7 +70,8 @@ class AppCard extends StatefulWidget {
     this.onTap,
     this.color,
     this.margin,
-    this.clipBehavior = Clip.hardEdge,
+    this.clipBehavior,
+    this.shape,
     this.elevation,
     this.width,
     this.height,
@@ -73,10 +80,12 @@ class AppCard extends StatefulWidget {
     builder = (context) {
       return Card(
         margin: margin ?? EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: Theme.of(context).colorScheme.outline),
-          borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-        ),
+        shape: shape ??
+            RoundedRectangleBorder(
+              side: BorderSide(color: Theme.of(context).colorScheme.outline),
+              borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+            ),
+        clipBehavior: clipBehavior ?? Theme.of(context).cardTheme.clipBehavior,
         child: InkWell(
           onTap: onTap,
           child: SizedBox(width: width, height: height, child: child),
@@ -90,7 +99,8 @@ class AppCard extends StatefulWidget {
     this.onTap,
     this.color,
     this.margin,
-    this.clipBehavior = Clip.hardEdge,
+    this.clipBehavior,
+    this.shape,
     this.elevation = 0.0,
     this.width,
     this.height,
@@ -101,9 +111,11 @@ class AppCard extends StatefulWidget {
         margin: margin ?? EdgeInsets.zero,
         elevation: elevation,
         color: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-        ),
+        clipBehavior: clipBehavior ?? Theme.of(context).cardTheme.clipBehavior,
+        shape: shape ??
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+            ),
         child: InkWell(
           onTap: onTap,
           child: AppGlass(
@@ -118,7 +130,8 @@ class AppCard extends StatefulWidget {
     this.onTap,
     this.color,
     this.margin,
-    this.clipBehavior = Clip.hardEdge,
+    this.clipBehavior,
+    this.shape,
     this.elevation = 0.0,
     this.width,
     this.height,
@@ -128,9 +141,11 @@ class AppCard extends StatefulWidget {
       return Card(
         margin: margin ?? EdgeInsets.zero,
         elevation: elevation,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-        ),
+        clipBehavior: clipBehavior ?? Theme.of(context).cardTheme.clipBehavior,
+        shape: shape ??
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+            ),
         child: InkWell(
           onTap: onTap,
           child: AppGradient(
@@ -155,7 +170,8 @@ class AppCard extends StatefulWidget {
   final Function()? onTap;
   final Color? color;
   final EdgeInsets? margin;
-  final Clip clipBehavior;
+  final Clip? clipBehavior;
+  final ShapeBorder? shape;
   final double? elevation;
   final double? width;
   final double? height;
