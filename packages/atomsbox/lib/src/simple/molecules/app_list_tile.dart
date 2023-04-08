@@ -96,7 +96,10 @@ class AppListTile extends StatelessWidget {
                 ),
               ),
               (trailing != null)
-                  ? trailing!
+                  ? Padding(
+                      padding: const EdgeInsets.all(AppConstants.sm),
+                      child: trailing!,
+                    )
                   : const SizedBox(width: AppConstants.sm),
             ],
           ),

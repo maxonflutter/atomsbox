@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
-import '../atoms/app_text.dart';
 
-class SimpleSegmentedButton extends StatefulWidget {
-  const SimpleSegmentedButton({
+class AppSegmentedButton extends StatefulWidget {
+  const AppSegmentedButton({
     super.key,
     this.isSelected,
     this.multiSelect = false,
@@ -21,10 +19,10 @@ class SimpleSegmentedButton extends StatefulWidget {
   final List<Widget> children;
 
   @override
-  State<SimpleSegmentedButton> createState() => _SimpleSegmentedButtonState();
+  State<AppSegmentedButton> createState() => _AppSegmentedButtonState();
 }
 
-class _SimpleSegmentedButtonState extends State<SimpleSegmentedButton> {
+class _AppSegmentedButtonState extends State<AppSegmentedButton> {
   final List<bool> _isSelected = [];
 
   @override

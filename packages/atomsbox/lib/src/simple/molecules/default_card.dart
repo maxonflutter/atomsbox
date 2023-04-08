@@ -52,7 +52,7 @@ class _DefaultCardState extends State<DefaultCard> {
 
   @override
   Widget build(BuildContext context) {
-    final card = _buildDefaultCardExpanded(context, hovered);
+    final card = _buildDefaultCard(context, hovered);
 
     return MouseRegion(
       cursor: SystemMouseCursors.basic,
@@ -62,6 +62,9 @@ class _DefaultCardState extends State<DefaultCard> {
           ? AppCard.elevated(
               height: widget.height,
               width: widget.width,
+              color: hovered
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).colorScheme.surface,
               margin: widget.margin ?? EdgeInsets.zero,
               child: card,
             )
@@ -69,19 +72,25 @@ class _DefaultCardState extends State<DefaultCard> {
               ? AppCard.filled(
                   height: widget.height,
                   width: widget.width,
+                  color: hovered
+                      ? Theme.of(context).colorScheme.secondary
+                      : Theme.of(context).colorScheme.surface,
                   margin: widget.margin ?? EdgeInsets.zero,
                   child: card,
                 )
               : AppCard.outlined(
                   height: widget.height,
                   width: widget.width,
+                  color: hovered
+                      ? Theme.of(context).colorScheme.secondary
+                      : Theme.of(context).colorScheme.surface,
                   margin: widget.margin ?? EdgeInsets.zero,
                   child: card,
                 ),
     );
   }
 
-  InkWell _buildDefaultCardExpanded(
+  InkWell _buildDefaultCard(
     BuildContext context,
     bool hovered,
   ) {
@@ -122,11 +131,8 @@ class _DefaultCardState extends State<DefaultCard> {
               children: [
                 DefaultTextStyle(
                   maxLines: 2,
-                  style: headlineStyle.copyWith(
-                    fontSize: (widget.width! < 200)
-                        ? headlineStyle.fontSize! * 0.75
-                        : headlineStyle.fontSize!,
-                  ),
+                  style:
+                      headlineStyle.copyWith(fontSize: headlineStyle.fontSize),
                   child: widget.headline,
                 ),
                 (widget.subhead != null)
@@ -143,10 +149,7 @@ class _DefaultCardState extends State<DefaultCard> {
                 (widget.supportingText != null)
                     ? DefaultTextStyle(
                         style: supportingTextStyle.copyWith(
-                          fontSize: (widget.width! < 200)
-                              ? supportingTextStyle.fontSize! * 0.8
-                              : supportingTextStyle.fontSize!,
-                        ),
+                            fontSize: supportingTextStyle.fontSize),
                         child: AppText(
                           widget.supportingText!,
                           maxLines: 3,

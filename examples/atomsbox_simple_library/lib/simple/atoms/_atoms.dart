@@ -21,6 +21,7 @@ class _Atoms extends StatelessWidget {
             ),
           )
         : Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: SingleChildScrollView(

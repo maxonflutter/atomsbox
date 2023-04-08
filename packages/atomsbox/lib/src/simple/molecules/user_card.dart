@@ -18,7 +18,6 @@ class UserCard extends StatelessWidget {
     this.height = 200,
     this.margin,
     this.type = AppCardType.elevated,
-    this.dense = true,
   });
 
   // Actions
@@ -37,12 +36,10 @@ class UserCard extends StatelessWidget {
   final double? height;
   final EdgeInsets? margin;
   final AppCardType type;
-  final bool dense;
 
   @override
   Widget build(BuildContext context) {
-    final widget =
-        dense ? _buildUserCardDense(context) : _buildUserCardExpanded(context);
+    final widget = _buildUserCard(context);
 
     return (type == AppCardType.elevated)
         ? AppCard.elevated(
@@ -66,7 +63,7 @@ class UserCard extends StatelessWidget {
               );
   }
 
-  LayoutBuilder _buildUserCardExpanded(BuildContext context) {
+  LayoutBuilder _buildUserCard(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -78,9 +75,50 @@ class UserCard extends StatelessWidget {
       fontStyle: FontStyle.italic,
       fontWeight: FontWeight.bold,
     );
+
     return LayoutBuilder(
       builder: (context, constraints) {
         final radius = constraints.maxHeight * 0.2;
+
+        final _headline = DefaultTextStyle(
+          textAlign: TextAlign.center,
+          style: headlineStyle.copyWith(
+            fontSize: (constraints.maxWidth < 200)
+                ? headlineStyle.fontSize! * 0.75
+                : headlineStyle.fontSize!,
+          ),
+          child: headline,
+        );
+
+        final _subhead = (subhead != null)
+            ? DefaultTextStyle(
+                style: subheadStyle,
+                textAlign: TextAlign.center,
+                child: AppText(
+                  subhead!,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
+            : null;
+
+        final _supportingText = (supportingText != null)
+            ? DefaultTextStyle(
+                textAlign: TextAlign.center,
+                style: supportingTextStyle.copyWith(
+                  fontSize: (constraints.maxWidth < 200)
+                      ? supportingTextStyle.fontSize! * 0.8
+                      : supportingTextStyle.fontSize!,
+                ),
+                child: AppText(
+                  supportingText!,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
+            : null;
+
+        final _actions = (actions != null) ? actions! : null;
 
         return Column(
           children: [
@@ -120,41 +158,10 @@ class UserCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    DefaultTextStyle(
-                      textAlign: TextAlign.center,
-                      style: headlineStyle.copyWith(
-                        fontSize: (constraints.maxWidth < 200)
-                            ? headlineStyle.fontSize! * 0.75
-                            : headlineStyle.fontSize!,
-                      ),
-                      child: headline,
-                    ),
-                    (subhead != null)
-                        ? DefaultTextStyle(
-                            style: subheadStyle,
-                            textAlign: TextAlign.center,
-                            child: AppText(
-                              subhead!,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          )
-                        : const SizedBox(),
-                    (supportingText != null)
-                        ? DefaultTextStyle(
-                            style: supportingTextStyle.copyWith(
-                              fontSize: (constraints.maxWidth < 200)
-                                  ? supportingTextStyle.fontSize! * 0.8
-                                  : supportingTextStyle.fontSize!,
-                            ),
-                            child: AppText(
-                              supportingText!,
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          )
-                        : const SizedBox(),
-                    (actions != null) ? actions! : const SizedBox(),
+                    _headline,
+                    if (_subhead != null) _subhead,
+                    if (_supportingText != null) _supportingText,
+                    if (_actions != null) _actions,
                   ],
                 ),
               ),
@@ -163,10 +170,5 @@ class UserCard extends StatelessWidget {
         );
       },
     );
-  }
-
-  SizedBox _buildUserCardDense(BuildContext context) {
-    // TODO: Add a dense version of the UserCard
-    return const SizedBox();
   }
 }

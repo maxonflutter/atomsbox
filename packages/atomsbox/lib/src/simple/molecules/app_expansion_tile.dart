@@ -1,3 +1,4 @@
+import 'package:atomsbox/src/simple/atoms/app_gradient.dart';
 import 'package:flutter/material.dart';
 
 import '../atoms/config/app_color_scheme.dart';
@@ -29,7 +30,7 @@ class AppExpansionTile extends StatelessWidget {
     };
   }
 
-  AppExpansionTile.transparent({
+  AppExpansionTile.secondary({
     super.key,
     this.initiallyExpanded = false,
     required this.title,
@@ -41,9 +42,10 @@ class AppExpansionTile extends StatelessWidget {
     builder = (context) {
       return ExpansionTileTheme(
         data: Theme.of(context).expansionTileTheme.copyWith(
-              collapsedBackgroundColor: Colors.transparent,
-              collapsedIconColor: Theme.of(context).colorScheme.primary,
-              collapsedTextColor: Theme.of(context).colorScheme.primary,
+              textColor: Theme.of(context).colorScheme.secondary,
+              collapsedBackgroundColor: Theme.of(context).colorScheme.secondary,
+              collapsedIconColor: Theme.of(context).colorScheme.onSecondary,
+              collapsedTextColor: Theme.of(context).colorScheme.onSecondary,
             ),
         child: ExpansionTile(
           title: title,
@@ -51,6 +53,35 @@ class AppExpansionTile extends StatelessWidget {
           trailing: trailing,
           onExpansionChanged: onExpansionChanged,
           children: children ?? [],
+        ),
+      );
+    };
+  }
+
+  AppExpansionTile.gradient({
+    super.key,
+    this.initiallyExpanded = false,
+    required this.title,
+    this.leading,
+    this.trailing,
+    this.onExpansionChanged,
+    this.children,
+  }) {
+    builder = (context) {
+      return ExpansionTileTheme(
+        data: Theme.of(context).expansionTileTheme.copyWith(
+              backgroundColor: Theme.of(context).colorScheme.background,
+              collapsedBackgroundColor: Colors.transparent,
+              collapsedIconColor: Theme.of(context).colorScheme.onPrimary,
+            ),
+        child: AppGradient(
+          child: ExpansionTile(
+            title: title,
+            leading: leading,
+            trailing: trailing,
+            onExpansionChanged: onExpansionChanged,
+            children: children ?? [],
+          ),
         ),
       );
     };
