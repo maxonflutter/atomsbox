@@ -14,7 +14,9 @@ class AppTextFormField extends StatelessWidget {
     this.focusNode,
     this.initialValue = '',
     this.labelText,
+    this.errorText,
     this.obscureText = false,
+    this.keyboardType,
     this.onChanged,
     this.onEditingComplete,
     this.onFieldSubmitted,
@@ -27,6 +29,8 @@ class AppTextFormField extends StatelessWidget {
       return InputDecoration(
         labelText: labelText,
         labelStyle: Theme.of(context).textTheme.bodyMedium,
+        errorText: errorText,
+        errorStyle: Theme.of(context).textTheme.bodyMedium,
         contentPadding: contentPadding,
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Theme.of(context).colorScheme.outline),
@@ -48,7 +52,9 @@ class AppTextFormField extends StatelessWidget {
     this.focusNode,
     this.initialValue = '',
     this.labelText,
+    this.errorText,
     this.obscureText = false,
+    this.keyboardType,
     this.onChanged,
     this.onEditingComplete,
     this.onFieldSubmitted,
@@ -61,6 +67,8 @@ class AppTextFormField extends StatelessWidget {
       return InputDecoration(
         labelText: labelText,
         labelStyle: Theme.of(context).textTheme.bodyMedium,
+        errorText: errorText,
+        errorStyle: Theme.of(context).textTheme.bodyMedium,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppConstants.sm,
         ),
@@ -84,7 +92,9 @@ class AppTextFormField extends StatelessWidget {
     this.focusNode,
     this.initialValue = '',
     this.labelText,
+    this.errorText,
     this.obscureText = false,
+    this.keyboardType,
     this.onChanged,
     this.onEditingComplete,
     this.onFieldSubmitted,
@@ -99,6 +109,8 @@ class AppTextFormField extends StatelessWidget {
         fillColor: Theme.of(context).colorScheme.surfaceVariant,
         labelText: labelText,
         labelStyle: Theme.of(context).textTheme.bodyMedium,
+        errorText: errorText,
+        errorStyle: Theme.of(context).textTheme.bodyMedium,
         floatingLabelStyle: Theme.of(context).textTheme.bodyMedium,
         contentPadding: contentPadding,
         border: OutlineInputBorder(
@@ -119,7 +131,9 @@ class AppTextFormField extends StatelessWidget {
     this.focusNode,
     this.initialValue = '',
     this.labelText,
+    this.errorText,
     this.obscureText = false,
+    this.keyboardType,
     this.onChanged,
     this.onEditingComplete,
     this.onFieldSubmitted,
@@ -133,6 +147,11 @@ class AppTextFormField extends StatelessWidget {
         filled: false,
         labelText: labelText,
         labelStyle: Theme.of(context)
+            .textTheme
+            .bodyMedium!
+            .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+        errorText: errorText,
+        errorStyle: Theme.of(context)
             .textTheme
             .bodyMedium!
             .copyWith(color: Theme.of(context).colorScheme.onPrimary),
@@ -159,7 +178,9 @@ class AppTextFormField extends StatelessWidget {
     this.focusNode,
     this.initialValue = '',
     this.labelText,
+    this.errorText,
     this.obscureText = false,
+    this.keyboardType,
     this.onChanged,
     this.onEditingComplete,
     this.onFieldSubmitted,
@@ -173,6 +194,11 @@ class AppTextFormField extends StatelessWidget {
         filled: false,
         labelText: labelText,
         labelStyle: Theme.of(context)
+            .textTheme
+            .bodyMedium!
+            .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+        errorText: errorText,
+        errorStyle: Theme.of(context)
             .textTheme
             .bodyMedium!
             .copyWith(color: Theme.of(context).colorScheme.onPrimary),
@@ -196,10 +222,12 @@ class AppTextFormField extends StatelessWidget {
   final void Function(String)? onFieldSubmitted;
   final String? initialValue;
   final String? labelText;
+  final String? errorText;
   final bool obscureText;
   final Function(String)? onChanged;
   final VoidCallback? onEditingComplete;
   final EdgeInsets? contentPadding;
+  final TextInputType? keyboardType;
   final bool useGradient;
   final bool useGlassEffect;
 
@@ -208,6 +236,7 @@ class AppTextFormField extends StatelessWidget {
     InputDecoration inputDecoration = _builder.call(context);
 
     TextFormField textFormField = TextFormField(
+      keyboardType: keyboardType,
       initialValue: initialValue,
       controller: controller,
       focusNode: focusNode,
