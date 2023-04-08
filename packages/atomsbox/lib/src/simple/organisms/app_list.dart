@@ -42,21 +42,18 @@ class AppList extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        (title != null)
-            ? DefaultTextStyle(
-                style: titleStyle!,
-                child: title!,
-              )
-            : const SizedBox(),
-        ...(description != null)
-            ? [
-                DefaultTextStyle(
-                  style: descriptionStyle!,
-                  child: description!,
-                ),
-                const SizedBox(height: AppConstants.sm),
-              ]
-            : [const SizedBox()],
+        if (title != null)
+          DefaultTextStyle(
+            style: titleStyle!,
+            child: title!,
+          ),
+        if (description != null)
+          DefaultTextStyle(
+            style: descriptionStyle!,
+            child: description!,
+          ),
+        if (title != null || description != null)
+          const SizedBox(height: AppConstants.sm),
         SizedBox(
           height: height,
           child: type == AppListType.horizontal

@@ -1,10 +1,8 @@
-import 'dart:ui';
-
-import 'package:atomsbox/src/simple/atoms/app_gradient.dart';
 import 'package:flutter/material.dart';
 
-import '../../../atomsbox.dart';
 import 'app_glass.dart';
+import 'app_gradient.dart';
+import 'config/app_constants.dart';
 
 typedef CardBuilder = Card Function(BuildContext context);
 

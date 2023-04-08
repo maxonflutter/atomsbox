@@ -36,24 +36,18 @@ class _SimpleFormState extends State<SimpleForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ...(widget.title != null)
-            ? [
-                DefaultTextStyle(
-                  style: titleStyle!,
-                  child: widget.title!,
-                ),
-                const SizedBox(height: AppConstants.sm),
-              ]
-            : [const SizedBox()],
-        ...(widget.description != null)
-            ? [
-                DefaultTextStyle(
-                  style: descriptionStyle!,
-                  child: widget.description!,
-                ),
-                const SizedBox(height: AppConstants.sm),
-              ]
-            : [const SizedBox()],
+        if (widget.title != null)
+          DefaultTextStyle(
+            style: titleStyle!,
+            child: widget.title!,
+          ),
+        if (widget.description != null)
+          DefaultTextStyle(
+            style: descriptionStyle!,
+            child: widget.description!,
+          ),
+        if (widget.title != null || widget.description != null)
+          const SizedBox(height: AppConstants.sm),
         ...widget.formItems.map(
           (item) {
             var listIndex = widget.formItems.indexOf(item);

@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
-import '../atoms/app_text.dart';
 
 // A simple carousel widget for displaying a list of widgets.
 class SimpleCarousel extends StatelessWidget {
@@ -37,24 +36,18 @@ class SimpleCarousel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ...(title != null)
-            ? [
-                DefaultTextStyle(
-                  style: titleStyle!,
-                  child: title!,
-                ),
-                const SizedBox(height: AppConstants.sm),
-              ]
-            : [const SizedBox()],
-        ...(description != null)
-            ? [
-                DefaultTextStyle(
-                  style: descriptionStyle!,
-                  child: description!,
-                ),
-                const SizedBox(height: AppConstants.sm),
-              ]
-            : [const SizedBox()],
+        if (title != null)
+          DefaultTextStyle(
+            style: titleStyle!,
+            child: title!,
+          ),
+        if (description != null)
+          DefaultTextStyle(
+            style: descriptionStyle!,
+            child: description!,
+          ),
+        if (title != null || description != null)
+          const SizedBox(height: AppConstants.sm),
         CarouselSlider(
           options: CarouselOptions(
             height: size.height * heightFactor,
