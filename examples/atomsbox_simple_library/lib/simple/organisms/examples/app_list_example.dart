@@ -42,6 +42,33 @@ class AppListExample extends StatelessWidget {
                 )
                 .toList(),
           ),
+          const SizedBox(height: AppConstants.sm),
+          AppList.vertical(
+            title: AppText('This is a vertical list'),
+            description: AppText('This is a list description'),
+            listItems: [1, 2, 3]
+                .map(
+                  (e) => AppDefaultCard(
+                    type: AppCardType.elevated,
+                    width: 300,
+                    headline: AppText('This is a card'),
+                    subhead: sampleText,
+                    supportingText: sampleText,
+                    actions: [
+                      AppIconButton.gradient(
+                        onPressed: () {},
+                        child: Icon(Icons.remove),
+                      ),
+                      AppIconButton.gradient(
+                        onPressed: () {},
+                        child: Icon(Icons.add),
+                      ),
+                    ],
+                  ),
+                )
+                .toList(),
+          ),
+          const SizedBox(height: AppConstants.sm),
           AppList.horizontal(
             title: AppText('This is a horizontal list'),
             description: AppText('This is a  list description'),

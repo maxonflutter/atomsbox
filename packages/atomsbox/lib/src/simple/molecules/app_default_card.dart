@@ -161,12 +161,15 @@ class _AppDefaultCardState extends State<AppDefaultCard> {
                   children: (widget.actions == null)
                       ? []
                       : widget.actions!
-                          .map((action) => Container(
+                          .map(
+                            (action) => Container(
                               margin: const EdgeInsets.only(
                                 top: AppConstants.sm,
                                 right: AppConstants.sm,
                               ),
-                              child: action))
+                              child: action,
+                            ),
+                          )
                           .toList(),
                 ),
               ],
@@ -177,89 +180,3 @@ class _AppDefaultCardState extends State<AppDefaultCard> {
     );
   }
 }
-
-
-// LayoutBuilder _buildAppDefaultCardDense(BuildContext context) {
-//     final TextStyle headlineStyle = Theme.of(context)
-//         .textTheme
-//         .headlineMedium!
-//         .copyWith(color: Theme.of(context).colorScheme.onPrimary);
-//     final TextStyle subheadStyle = Theme.of(context)
-//         .textTheme
-//         .bodyMedium!
-//         .copyWith(color: Theme.of(context).colorScheme.onPrimary);
-
-//     return LayoutBuilder(
-//       builder: (context, constraints) {
-//         return Stack(
-//           children: [
-//             (image != null) ? Positioned.fill(child: image!) : const SizedBox(),
-//             Positioned.fill(
-//               child: Container(
-//                 decoration: BoxDecoration(
-//                   borderRadius:
-//                       BorderRadius.circular(AppConstants.borderRadius),
-//                   gradient: LinearGradient(
-//                     begin: Alignment.topCenter,
-//                     end: Alignment.bottomCenter,
-//                     colors: [
-//                       Colors.transparent,
-//                       Theme.of(context).colorScheme.primary.withAlpha(150),
-//                       Theme.of(context).colorScheme.primary,
-//                     ],
-//                     stops: const [0.2, 0.6, 1],
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Positioned.fill(
-//               child: Material(
-//                 color: Colors.transparent,
-//                 child: InkWell(
-//                   borderRadius:
-//                       BorderRadius.circular(AppConstants.borderRadius),
-//                   onTap: onTap,
-//                 ),
-//               ),
-//             ),
-//             Positioned(
-//               bottom: 0.0,
-//               left: 0.0,
-//               child: Container(
-//                 padding: const EdgeInsets.all(AppConstants.md),
-//                 width: constraints.maxWidth,
-//                 child: Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     DefaultTextStyle(
-//                       style: headlineStyle.copyWith(
-//                         fontSize: (constraints.maxWidth < 200)
-//                             ? headlineStyle.fontSize! * 0.75
-//                             : headlineStyle.fontSize!,
-//                       ),
-//                       overflow: TextOverflow.ellipsis,
-//                       maxLines: 1,
-//                       child: headline,
-//                     ),
-//                     (subhead != null)
-//                         ? DefaultTextStyle(
-//                             style: subheadStyle.copyWith(
-//                               fontSize: (constraints.maxWidth < 200)
-//                                   ? subheadStyle.fontSize! * 0.75
-//                                   : subheadStyle.fontSize!,
-//                             ),
-//                             child: AppText(
-//                               subhead!,
-//                               maxLines: 1,
-//                               overflow: TextOverflow.ellipsis,
-//                             ),
-//                           )
-//                         : const SizedBox(),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           ],
-//         );
-//       },
-//     );
