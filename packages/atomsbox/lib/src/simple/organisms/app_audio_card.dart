@@ -57,20 +57,17 @@ class AppAudioCard extends StatelessWidget {
   }) {
     builder = (context) {
       return AppCard.elevated(
-        child: Padding(
-          padding: const EdgeInsets.all(AppConstants.sm),
-          child: Column(
-            children: [
-              AppListTile(
-                leadingWidth: 48,
-                leading: AppImage.network(imageUrl!, height: 48),
-                title: AppText.bodyLarge(songName ?? ''),
-                subtitle: AppText.bodySmall(artistName ?? ''),
-                trailing: audioControls,
-              ),
-              seekbar,
-            ],
-          ),
+        child: Column(
+          children: [
+            AppListTile(
+              leadingWidth: 48,
+              leading: AppImage.network(imageUrl!, height: 48),
+              title: AppText.bodyLarge(songName ?? ''),
+              subtitle: AppText.bodySmall(artistName ?? ''),
+              trailing: audioControls,
+            ),
+            seekbar,
+          ],
         ),
       );
     };
