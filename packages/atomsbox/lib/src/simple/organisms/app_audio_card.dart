@@ -58,6 +58,7 @@ class AppAudioCard extends StatelessWidget {
     builder = (context) {
       return AppCard.elevated(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             AppListTile(
               leadingWidth: 48,
