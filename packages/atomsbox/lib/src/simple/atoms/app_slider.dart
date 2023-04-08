@@ -14,8 +14,6 @@ class AppSlider extends StatelessWidget {
     this.minValue = 0.0,
     this.maxValue = 10.0,
     this.divisions,
-    this.showMinValue = false,
-    this.showMaxValue = false,
     this.thumbShape,
   });
 
@@ -25,8 +23,6 @@ class AppSlider extends StatelessWidget {
   final double? minValue;
   final double? maxValue;
   final int? divisions;
-  final bool showMinValue;
-  final bool showMaxValue;
   final void Function(double) onChanged;
   final void Function(double)? onChangeEnd;
 
@@ -38,32 +34,16 @@ class AppSlider extends StatelessWidget {
         data: SliderTheme.of(context).copyWith(
           thumbShape: thumbShape,
         ),
-        child: Row(
-          children: [
-            ...showMinValue
-                ? [
-                    AppText('${minValue ?? 0.0}'),
-                    const SizedBox(width: AppConstants.md),
-                  ]
-                : [],
-            Expanded(
-              child: Slider(
-                min: minValue ?? 0.0,
-                max: maxValue ?? 10.0,
-                value: value ?? 0.0,
-                divisions: divisions,
-                label: value.toString(),
-                onChanged: onChanged,
-                onChangeEnd: onChangeEnd,
-              ),
-            ),
-            ...showMaxValue
-                ? [
-                    const SizedBox(width: AppConstants.md),
-                    AppText('${maxValue ?? 0.0}'),
-                  ]
-                : [],
-          ],
+        child: Expanded(
+          child: Slider(
+            min: minValue ?? 0.0,
+            max: maxValue ?? 10.0,
+            value: value ?? 0.0,
+            divisions: divisions,
+            label: value.toString(),
+            onChanged: onChanged,
+            onChangeEnd: onChangeEnd,
+          ),
         ),
       ),
     );
