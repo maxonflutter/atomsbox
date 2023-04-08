@@ -10,11 +10,14 @@ import 'config/app_typedef.dart';
 class AppTextFormField extends StatelessWidget {
   AppTextFormField({
     super.key,
+    this.controller,
+    this.focusNode,
     this.initialValue = '',
     this.labelText,
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.onFieldSubmitted,
     this.contentPadding =
         const EdgeInsets.symmetric(horizontal: AppConstants.sm),
     this.useGradient = false,
@@ -41,11 +44,14 @@ class AppTextFormField extends StatelessWidget {
 
   AppTextFormField.outlined({
     super.key,
+    this.controller,
+    this.focusNode,
     this.initialValue = '',
     this.labelText,
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.onFieldSubmitted,
     this.contentPadding =
         const EdgeInsets.symmetric(horizontal: AppConstants.sm),
     this.useGradient = false,
@@ -74,11 +80,14 @@ class AppTextFormField extends StatelessWidget {
 
   AppTextFormField.filled({
     super.key,
+    this.controller,
+    this.focusNode,
     this.initialValue = '',
     this.labelText,
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.onFieldSubmitted,
     this.contentPadding =
         const EdgeInsets.symmetric(horizontal: AppConstants.sm),
     this.useGradient = false,
@@ -106,11 +115,14 @@ class AppTextFormField extends StatelessWidget {
 
   AppTextFormField.gradient({
     super.key,
+    this.controller,
+    this.focusNode,
     this.initialValue = '',
     this.labelText,
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.onFieldSubmitted,
     this.contentPadding =
         const EdgeInsets.symmetric(horizontal: AppConstants.sm),
     this.useGradient = true,
@@ -143,11 +155,14 @@ class AppTextFormField extends StatelessWidget {
 
   AppTextFormField.glass({
     super.key,
+    this.controller,
+    this.focusNode,
     this.initialValue = '',
     this.labelText,
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.onFieldSubmitted,
     this.contentPadding =
         const EdgeInsets.symmetric(horizontal: AppConstants.sm),
     this.useGradient = false,
@@ -176,6 +191,9 @@ class AppTextFormField extends StatelessWidget {
   }
 
   late final InputDecorationBuilder _builder;
+  final TextEditingController? controller;
+  final FocusNode? focusNode;
+  final void Function(String)? onFieldSubmitted;
   final String? initialValue;
   final String? labelText;
   final bool obscureText;
@@ -191,6 +209,9 @@ class AppTextFormField extends StatelessWidget {
 
     TextFormField textFormField = TextFormField(
       initialValue: initialValue,
+      controller: controller,
+      focusNode: focusNode,
+      onFieldSubmitted: onFieldSubmitted,
       obscureText: obscureText,
       onChanged: onChanged,
       onEditingComplete: onEditingComplete,
