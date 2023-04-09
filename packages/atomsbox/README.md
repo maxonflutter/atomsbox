@@ -27,19 +27,9 @@ and the Flutter guide for
 ---
 
 
-A curated library of pre-styled, reusable Flutter widgets organized based on Atomic Design principles to build apps at acale.
+A curated library of pre-styled, reusable Flutter widgets organized based on Atomic Design principles to build apps at scale.
 
 **Learn more at [atomsbox.com](https://atomsbox.com)!**
-
-
----
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
