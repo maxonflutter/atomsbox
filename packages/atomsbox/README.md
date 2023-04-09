@@ -26,11 +26,11 @@ and the Flutter guide for
 
 ---
 
-Widgets that make it easy to integrate blocs and cubits into [Flutter](https://flutter.dev). Built to work with [package:bloc](https://pub.dev/packages/bloc).
 
-**Learn more at [bloclibrary.dev](https://bloclibrary.dev)!**
+A curated library of pre-styled, reusable Flutter widgets organized based on Atomic Design principles to build apps at acale.
 
-_\*Note: All widgets exported by the `flutter_bloc` package integrate with both `Cubit` and `Bloc` instances._
+**Learn more at [atomsbox.com](https://atomsbox.com)!**
+
 
 ---
 
@@ -54,6 +54,11 @@ to `/example` folder.
 ```dart
 const like = 'sample';
 ```
+
+## Gallery 
+<img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/atomsbox.png?token=GHSAT0AAAAAABVFB3LITLEONBOCSCP5AHJGZBSXIFQ" height="100" alt="Flutter atomsbox Package" />
+
+## Examples
 
 ## Additional information
 
