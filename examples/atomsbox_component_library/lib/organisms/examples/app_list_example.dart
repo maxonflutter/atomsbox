@@ -78,7 +78,6 @@ class AppListExample extends StatelessWidget {
                     child: AppListTile(
                       width: 300,
                       onTap: () {},
-                      primary: true,
                       isThreeLine: true,
                       leadingWidth: 96,
                       leading: AppImage.network(imageUrl, height: 96),

@@ -4,7 +4,25 @@ import '../atoms/config/app_constants.dart';
 import '../atoms/app_text.dart';
 import '../atoms/app_card.dart';
 
+/// A customizable, pre-styled user card widget for displaying user-related
+/// information.
+///
+/// The [AppUserCard] widget displays user-related information in a visually
+/// appealing and pre-styled card layout. The widget is organized into various
+/// sections, such as headline, subhead, supporting text, and actions. Each
+/// section is optional and can be customized according to the developer's needs.
+///
+/// The card can be displayed in three different styles: elevated, filled,
+/// or outlined, which can be specified using the [type] property.
+///
+/// See also:
+///
+/// * [AppCard], which provides the underlying card implementation.
+/// * [CircleAvatar], which is used to display the user's profile image.
 class AppUserCard extends StatelessWidget {
+  /// Creates an [AppUserCard] widget.
+  ///
+  /// The [headline] property must be provided and not null.
   const AppUserCard({
     super.key,
     this.onTap,
@@ -20,21 +38,46 @@ class AppUserCard extends StatelessWidget {
     this.type = AppCardType.elevated,
   });
 
-  // Actions
+  /// A callback that is invoked when the card is tapped.
   final Function()? onTap;
+
+  /// A widget to display custom actions, such as buttons, icons, or menus.
   final Widget? actions;
 
-  // Content
+  /// A widget to display the main headline, usually a [Text] widget.
   final Widget headline;
+
+  /// An optional string for displaying a subhead below the headline.
   final String? subhead;
+
+  /// An optional string for displaying supporting text below the subhead.
   final String? supportingText;
+
+  /// An optional URL for the user's profile image.
   final String? imageUrl;
+
+  /// An optional URL for the card's background image.
   final String? backgroundImageUrl;
 
-  // Layout
+  /// The width of the card.
+  ///
+  /// Defaults to 400.
   final double? width;
+
+  /// The height of the card.
+  ///
+  /// Defaults to 200.
   final double? height;
+
+  /// The margin around the card.
+  ///
+  /// Defaults to EdgeInsets.zero.
   final EdgeInsets? margin;
+
+  /// The type of the card, which can be one of the following:
+  /// elevated, filled, or outlined.
+  ///
+  /// Defaults to AppCardType.elevated.
   final AppCardType type;
 
   @override

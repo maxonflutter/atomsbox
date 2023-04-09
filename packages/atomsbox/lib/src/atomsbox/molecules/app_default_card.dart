@@ -4,7 +4,22 @@ import '../atoms/app_card.dart';
 import '../atoms/app_text.dart';
 import '../atoms/config/app_constants.dart';
 
+/// A customizable card widget with hover effect and optional content.
+///
+/// The [AppDefaultCard] is a versatile card widget that can be used to display
+/// various types of content, including a headline, subhead, supporting text, image,
+/// and hover image. It also has an optional list of actions.
+///
+/// The layout, styling, and behavior of the card can be customized using the
+/// provided properties.
+///
+/// It supports three card types: filled, elevated, and outlined.
 class AppDefaultCard extends StatefulWidget {
+  /// Creates a customizable card widget.
+  ///
+  /// The [headline] parameter must not be null.
+  /// The [type] parameter defaults to [AppCardType.filled].
+
   const AppDefaultCard({
     super.key,
     this.onTap,
@@ -20,23 +35,38 @@ class AppDefaultCard extends StatefulWidget {
     this.type = AppCardType.filled,
   });
 
-  // Actions
+  /// An optional callback function that is triggered when the card is tapped.
   final Function()? onTap;
+
+  /// An optional list of action widgets to be displayed on the card.
   final List<Widget>? actions;
 
-  // Content
+  /// The main content of the card, usually a text widget representing the headline.
   final Widget headline;
+
+  /// An optional subheading displayed below the headline.
   final String? subhead;
+
+  /// An optional supporting text displayed below the subheading.
   final String? supportingText;
+
+  /// An optional image to be displayed above the content.
   final Image? image;
+
+  /// An optional hover image to be displayed when the card is hovered.
   final Image? hoverImage;
 
-  // Layout
+  /// The width of the card, defaults to double.infinity.
   final double? width;
-  final double? height;
-  final EdgeInsets? margin;
-  final AppCardType type;
 
+  /// The height of the card.
+  final double? height;
+
+  /// The margin around the card.
+  final EdgeInsets? margin;
+
+  /// The card type, which determines its appearance. Defaults to [AppCardType.filled].
+  final AppCardType type;
   @override
   State<AppDefaultCard> createState() => _AppDefaultCardState();
 }

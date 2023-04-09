@@ -2,7 +2,26 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 
+/// A segmented button widget that can be used for selecting one or multiple options.
+///
+/// The [AppSegmentedButton] widget is a customizable segmented button that can
+/// be used to present the user with a set of mutually exclusive options or a
+/// set of options that can be selected in combination. It supports both
+/// horizontal and vertical layouts and can have a primary or secondary appearance.
+///
+/// The widget automatically manages the selection state of its children and
+/// updates the UI accordingly.
+///
+/// See also:
+/// * [ToggleButtons], which is the underlying widget used to manage the
+/// selection state and appearance of the segmented options.
 class AppSegmentedButton extends StatefulWidget {
+  /// Creates a segmented button widget.
+  ///
+  /// The [children] parameter must not be null and should contain at least one
+  /// widget.
+  ///
+  /// If [isSelected] is provided, it should have the same length as [children].
   const AppSegmentedButton({
     super.key,
     this.isSelected,
@@ -12,10 +31,29 @@ class AppSegmentedButton extends StatefulWidget {
     required this.children,
   });
 
+  /// The list of initial selection states for each child in [children].
+  ///
+  /// If not provided, all children will be unselected by default.
   final List<bool>? isSelected;
+
+  /// Whether multiple children can be selected at the same time.
+  ///
+  /// Defaults to false.
   final bool multiSelect;
+
+  /// Whether the segmented button should be displayed vertically.
+  ///
+  /// Defaults to false.
   final bool vertical;
+
+  /// Whether the segmented button should have a primary or secondary appearance.
+  ///
+  /// Defaults to true.
   final bool primary;
+
+  /// The list of widgets to be displayed as segmented options.
+  ///
+  /// This parameter must not be null and should contain at least one widget.
   final List<Widget> children;
 
   @override

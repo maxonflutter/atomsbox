@@ -5,7 +5,26 @@ import '../atoms/config/app_color_scheme.dart';
 import '../atoms/config/app_constants.dart';
 import '../atoms/config/app_typedef.dart';
 
+/// A custom expansion tile widget that follows the application's design language.
+///
+/// The [AppExpansionTile] widget displays a title and an optional leading and
+/// trailing widget. The tile can be expanded or collapsed to reveal or hide
+/// its children widgets.
+///
+/// The widget provides three constructors to create different styles of
+/// expansion tiles: the default [AppExpansionTile], [AppExpansionTile.secondary],
+/// and [AppExpansionTile.gradient].
+///
+/// See also:
+///
+/// * [ExpansionTile], the Flutter widget that this custom widget is based on.
+/// * [ExpansionTileThemeData], which defines the appearance of the
+/// [ExpansionTile] widget.
 class AppExpansionTile extends StatelessWidget {
+  /// Creates an [AppExpansionTile] with the default appearance.
+  ///
+  /// If the [initiallyExpanded] property is true, the tile is initially expanded.
+
   AppExpansionTile({
     super.key,
     this.initiallyExpanded = false,
@@ -29,6 +48,10 @@ class AppExpansionTile extends StatelessWidget {
       );
     };
   }
+
+  /// Creates an [AppExpansionTile] with a secondary appearance.
+  ///
+  /// If the [initiallyExpanded] property is true, the tile is initially expanded.
 
   AppExpansionTile.secondary({
     super.key,
@@ -57,6 +80,10 @@ class AppExpansionTile extends StatelessWidget {
       );
     };
   }
+
+  /// Creates an [AppExpansionTile] with a gradient background.
+  ///
+  /// If the [initiallyExpanded] property is true, the tile is initially expanded.
 
   AppExpansionTile.gradient({
     super.key,
@@ -87,12 +114,25 @@ class AppExpansionTile extends StatelessWidget {
     };
   }
 
+  /// A builder for creating an [ExpansionTile] with the theme data applied.
   late ExpansionTileBuilder builder;
+
+  /// Whether the tile is initially expanded.
   final bool initiallyExpanded;
+
+  /// The primary content of the tile.
   final Widget title;
+
+  /// An optional widget to display before the title.
   final Widget? leading;
+
+  /// An optional widget to display after the title.
   final Widget? trailing;
+
+  /// Called when the tile expands or collapses.
   final Function(bool)? onExpansionChanged;
+
+  /// The widgets that are revealed when the tile is expanded.
   final List<Widget>? children;
 
   @override

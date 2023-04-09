@@ -5,14 +5,37 @@ import '../atoms/app_text.dart';
 import '../atoms/app_text_form_field.dart';
 import '../atoms/config/app_constants.dart';
 
+/// A search widget with autocomplete functionality.
+///
+/// The [AppSearchWithAutocomplete] widget provides a search bar with an
+/// autocomplete feature, allowing users to see suggestions based on
+/// their input as they type.
+///
+/// This widget is a combination of an [AppCard] with a search
+/// icon, a text field for user input, and a dropdown list of options.
+///
+/// See also:
+///
+/// * [AppCard], which is used to display the search icon.
+/// * [AppTextFormField], which is used for the text input field.
+/// * [RawAutocomplete], which is the core functionality of the autocomplete feature.
 class AppSearchWithAutocomplete extends StatelessWidget {
+  /// Creates an [AppSearchWithAutocomplete] widget.
+  ///
+  /// The [controller] argument is required and must not be null. It is used to
+  /// manage the text field's content.
   const AppSearchWithAutocomplete({
     super.key,
-    required this.controller,
+    // required this.controller,
   });
 
-  final TextEditingController controller;
+  /// The controller for the text field.
+  ///
+  /// This is required to manage the text field's content and must not be null.
+  // final TextEditingController controller;
 
+  /// A list of options that the autocomplete feature will use to generate
+  /// suggestions based on the user's input.
   static const List<String> _options = <String>[
     'one',
     'two',
@@ -54,7 +77,7 @@ class AppSearchWithAutocomplete extends StatelessWidget {
                   VoidCallback onFieldSubmitted,
                 ) {
                   return AppTextFormField.filled(
-                    controller: controller,
+                    controller: textEditingController,
                     focusNode: focusNode,
                     onFieldSubmitted: (String value) {
                       onFieldSubmitted();
