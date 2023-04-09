@@ -2,6 +2,31 @@ import 'package:flutter/material.dart';
 
 import 'config/app_typedef.dart';
 
+/// A customizable text widget.
+///
+/// The [AppText] widget provides an extended [Text] widget that allows
+/// customization of text styles based on predefined typography categories
+/// (e.g., display, headline, title, body, and label) and sizes (large, medium,
+/// and small). This makes it easier to maintain a consistent text appearance
+/// throughout the application.
+///
+/// Each category and size combination has a dedicated constructor, such as
+/// [AppText.displayLarge], [AppText.headlineMedium], [AppText.titleSmall], and so on.
+///
+/// The [color], [height], [fontSize], [fontWeight], and [letterSpacing]
+/// arguments are optional and can be used to further customize the text style.
+///
+/// The [textAlign], [maxLines], and [overflow] arguments are inherited from the
+/// [Text] widget and have the same behavior.
+///
+/// Example usage:
+///
+/// dart /// AppText.headlineLarge( /// 'This is a large headline', /// color: Colors.blue, /// letterSpacing: 1.2, /// ), /// ///
+/// See also:
+///
+/// * [Text], which is the base widget for displaying text.
+/// * [TextStyle], which holds the style properties for the text.
+/// * [Theme], which holds the text theme used for styling the text.
 class AppText extends Text {
   AppText(
     super.data, {
@@ -483,11 +508,33 @@ class AppText extends Text {
     };
   }
 
+  /// A TextBuilder type function that is responsible for building the actual Text
+  /// widget with the desired text style based on the provided customization options.
   late TextBuilder builder;
+
+  /// The color of the text.
+  ///
+  /// This is an optional Color type property.
   final Color? color;
+
+  /// The height of the text, which affects the line height.
+  ///
+  /// This is an optional double type property.
   final double? height;
+
+  /// fontSize: The size of the text font.
+  ///
+  /// This is an optional double type property.
   final double? fontSize;
+
+  /// The thickness of the text font, represented by the FontWeight enumeration.
+  ///
+  ///  This is an optional property.
   final FontWeight? fontWeight;
+
+  /// The amount of space between the letters of the text.
+  ///
+  ///  This is an optional double type property.
   final double? letterSpacing;
 
   @override

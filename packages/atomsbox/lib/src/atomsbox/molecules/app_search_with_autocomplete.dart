@@ -6,7 +6,12 @@ import '../atoms/app_text_form_field.dart';
 import '../atoms/config/app_constants.dart';
 
 class AppSearchWithAutocomplete extends StatelessWidget {
-  const AppSearchWithAutocomplete({super.key});
+  const AppSearchWithAutocomplete({
+    super.key,
+    required this.controller,
+  });
+
+  final TextEditingController controller;
 
   static const List<String> _options = <String>[
     'one',
@@ -49,7 +54,7 @@ class AppSearchWithAutocomplete extends StatelessWidget {
                   VoidCallback onFieldSubmitted,
                 ) {
                   return AppTextFormField.filled(
-                    controller: textEditingController,
+                    controller: controller,
                     focusNode: focusNode,
                     onFieldSubmitted: (String value) {
                       onFieldSubmitted();

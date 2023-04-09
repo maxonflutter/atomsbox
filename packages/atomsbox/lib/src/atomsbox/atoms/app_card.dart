@@ -19,8 +19,6 @@ enum AppCardType { elevated, filled, outlined }
 /// Each style has its own constructor, and some properties can be customized.
 /// The card can react to touch events when an [onTap] callback is provided.
 ///
-/// ## Card Styles
-///
 /// Use the following constructors to create the respective card styles:
 /// - [AppCard.elevated]
 /// - [AppCard.filled]

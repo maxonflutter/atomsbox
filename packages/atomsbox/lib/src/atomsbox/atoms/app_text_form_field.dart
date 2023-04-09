@@ -12,7 +12,7 @@ class AppTextFormField extends StatelessWidget {
     super.key,
     this.controller,
     this.focusNode,
-    this.initialValue = '',
+    this.initialValue,
     this.labelText,
     this.errorText,
     this.obscureText = false,
@@ -50,7 +50,7 @@ class AppTextFormField extends StatelessWidget {
     super.key,
     this.controller,
     this.focusNode,
-    this.initialValue = '',
+    this.initialValue,
     this.labelText,
     this.errorText,
     this.obscureText = false,
@@ -90,7 +90,7 @@ class AppTextFormField extends StatelessWidget {
     super.key,
     this.controller,
     this.focusNode,
-    this.initialValue = '',
+    this.initialValue,
     this.labelText,
     this.errorText,
     this.obscureText = false,
@@ -129,7 +129,7 @@ class AppTextFormField extends StatelessWidget {
     super.key,
     this.controller,
     this.focusNode,
-    this.initialValue = '',
+    this.initialValue,
     this.labelText,
     this.errorText,
     this.obscureText = false,
@@ -176,7 +176,7 @@ class AppTextFormField extends StatelessWidget {
     super.key,
     this.controller,
     this.focusNode,
-    this.initialValue = '',
+    this.initialValue,
     this.labelText,
     this.errorText,
     this.obscureText = false,
@@ -258,3 +258,55 @@ class AppTextFormField extends StatelessWidget {
     return textFormField;
   }
 }
+
+
+
+// class AppTextFormField extends StatelessWidget {
+//   AppTextFormField({}) {_builder = (context) {};}
+//   AppTextFormField.outlined({})  {_builder = (context) {};}
+//   AppTextFormField.filled({}) {_builder = (context) {};}
+//   AppTextFormField.gradient({})  {_builder = (context) {};}
+//   AppTextFormField.glass({}) {_builder = (context) {};}
+
+//   late final InputDecorationBuilder _builder;
+//   final TextEditingController? controller;
+//   final FocusNode? focusNode;
+//   final void Function(String)? onFieldSubmitted;
+//   final String? initialValue;
+//   final String? labelText;
+//   final String? errorText;
+//   final bool obscureText;
+//   final Function(String)? onChanged;
+//   final VoidCallback? onEditingComplete;
+//   final EdgeInsets? contentPadding;
+//   final TextInputType? keyboardType;
+//   final bool useGradient;
+//   final bool useGlassEffect;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     InputDecoration inputDecoration = _builder.call(context);
+
+//     TextFormField textFormField = TextFormField(
+//       keyboardType: keyboardType,
+//       initialValue: initialValue,
+//       controller: controller,
+//       focusNode: focusNode,
+//       onFieldSubmitted: onFieldSubmitted,
+//       obscureText: obscureText,
+//       onChanged: onChanged,
+//       onEditingComplete: onEditingComplete,
+//       decoration: inputDecoration,
+//     );
+
+//     if (useGradient) {
+//       return AppGradientBackground(child: textFormField);
+//     }
+
+//     if (useGlassEffect) {
+//       return AppGlass(child: textFormField);
+//     }
+
+//     return textFormField;
+//   }
+// }

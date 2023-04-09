@@ -1,30 +1,45 @@
-import 'dart:ui';
-
-import 'package:atomsbox/src/atomsbox/atoms/app_gradient_background.dart';
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
+import 'app_gradient_background.dart';
 import 'config/app_color_scheme.dart';
 import 'config/app_constants.dart';
 import 'config/app_typedef.dart';
 
+/// A versatile outlined button with various styles.
+///
+/// The [AppOutlinedButton] widget displays an outlined button with a single child
+/// and can have various styles, including primary, secondary, glass, and gradient
+/// backgrounds. This widget is a convenient way to create multiple button styles
+/// using a single class.
+///
+/// The constructors [AppOutlinedButton.secondary], [AppOutlinedButton.glass], and
+/// [AppOutlinedButton.gradient] create buttons with different styles.
+///
+/// The [minimumSize] argument is optional and allows you to set the minimum size
+/// of the button.
+///
+/// The [onPressed] callback is called when the button is tapped.
+///
+/// The [child] argument is required and contains the widget to display inside the button.
+///
+/// See also:
+///
+/// * [OutlinedButton], which is the base widget for creating outlined buttons.
 class AppOutlinedButton extends StatelessWidget {
+  /// Creates an [AppOutlinedButton] with the primary style.
+  ///
+  /// The [child] parameter must not be null.
   AppOutlinedButton({
     super.key,
     this.onPressed,
     this.minimumSize,
-    this.primary = true,
     required this.child,
   }) {
     builder = (context) {
       return OutlinedButton(
         style: OutlinedButton.styleFrom(
           minimumSize: minimumSize,
-          foregroundColor:
-              primary ? null : Theme.of(context).colorScheme.secondary,
-          side: primary
-              ? null
-              : BorderSide(color: Theme.of(context).colorScheme.secondary),
         ),
         onPressed: onPressed,
         child: child,
@@ -32,11 +47,13 @@ class AppOutlinedButton extends StatelessWidget {
     };
   }
 
+  /// Creates an [AppOutlinedButton] with the secondary style.
+  ///
+  /// The [child] parameter must not be null.
   AppOutlinedButton.secondary({
     super.key,
     this.onPressed,
     this.minimumSize,
-    this.primary = false,
     required this.child,
   }) {
     builder = (context) {
@@ -52,11 +69,13 @@ class AppOutlinedButton extends StatelessWidget {
     };
   }
 
+  /// Creates an [AppOutlinedButton] with a glass style.
+  ///
+  /// The [child] parameter must not be null.
   AppOutlinedButton.glass({
     super.key,
     this.onPressed,
     this.minimumSize,
-    this.primary = false,
     required this.child,
   }) {
     builder = (context) {
@@ -72,11 +91,14 @@ class AppOutlinedButton extends StatelessWidget {
       );
     };
   }
+
+  /// Creates an [AppOutlinedButton] with a gradient background.
+  ///
+  /// The [child] parameter must not be null.
   AppOutlinedButton.gradient({
     super.key,
     this.onPressed,
     this.minimumSize,
-    this.primary = false,
     required this.child,
   }) {
     builder = (context) {
@@ -94,12 +116,21 @@ class AppOutlinedButton extends StatelessWidget {
     };
   }
 
+  /// The builder function to create a button with the desired style.
   late ButtonBuilder builder;
-  final Function()? onPressed;
-  final Size? minimumSize;
-  final bool primary;
-  final Widget child;
 
+  /// The callback function that is called when the button is tapped.
+  ///
+  /// If null, the button will be disabled.
+  final Function()? onPressed;
+
+  /// The minimum size of the button.
+  ///
+  /// If null, the button will have a default minimum size.
+  final Size? minimumSize;
+
+  /// The widget to display inside the button.
+  final Widget child;
   @override
   Widget build(BuildContext context) {
     Widget button = builder.call(context);

@@ -1,10 +1,42 @@
-import 'package:atomsbox/src/atomsbox/atoms/config/app_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'config/app_color_scheme.dart';
-import 'app_text.dart';
+import 'config/app_constants.dart';
 
+/// A customizable slider widget.
+///
+/// The [AppSlider] widget displays a slider with a customizable thumb shape,
+/// height, and range. It allows users to select a value within the specified
+/// range by moving the slider thumb.
+///
+/// The [value] argument is required and represents the current value of the slider.
+///
+/// The [onChanged] callback is called when the user starts dragging the slider
+/// thumb, and it is required. It provides the new value as the user drags the thumb.
+///
+/// The [onChangeEnd] callback is optional and called when the user stops dragging
+/// the slider thumb. It provides the final value after the user finishes dragging.
+///
+/// The [height] argument is optional and allows you to set the height of the slider.
+///
+/// The [minValue] and [maxValue] arguments are optional and represent the minimum
+/// and maximum values of the slider, respectively. If not provided, the default
+/// values are 0.0 for [minValue] and 10.0 for [maxValue].
+///
+/// The [divisions] argument is optional and represents the number of discrete
+/// divisions. If not provided, the slider will have continuous values.
+///
+/// The [thumbShape] argument is optional and allows you to customize the slider
+/// thumb shape.
+///
+/// See also:
+///
+/// * [Slider], which is the base widget for creating sliders.
+/// * [SliderTheme], which allows you to customize the appearance of the slider.
 class AppSlider extends StatelessWidget {
+  /// Creates a customizable slider widget.
+  ///
+  /// The [value] and [onChanged] parameters must not be null.
   const AppSlider({
     super.key,
     required this.value,
@@ -17,13 +49,38 @@ class AppSlider extends StatelessWidget {
     this.thumbShape,
   });
 
+  /// The custom shape of the slider thumb.
+  ///
+  /// If null, the default thumb shape will be used.
   final SliderComponentShape? thumbShape;
+
+  /// The height of the slider.
+  ///
+  /// If null, the slider will have a default height.
   final double? height;
+
+  /// The current value of the slider.
   final double? value;
+
+  /// The minimum value of the slider.
   final double? minValue;
+
+  /// The maximum value of the slider.
   final double? maxValue;
+
+  /// The number of discrete divisions.
+  ///
+  /// If null, the slider will have continuous values.
   final int? divisions;
+
+  /// The callback function called when the user starts dragging the slider thumb.
+  ///
+  /// Provides the new value as the user drags the thumb.
   final Function(double)? onChanged;
+
+  /// The callback function called when the user stops dragging the slider thumb.
+  ///
+  /// Provides the final value after the user finishes dragging.
   final Function(double)? onChangeEnd;
 
   @override
@@ -31,9 +88,7 @@ class AppSlider extends StatelessWidget {
     return SizedBox(
       height: height,
       child: SliderTheme(
-        data: SliderTheme.of(context).copyWith(
-          thumbShape: thumbShape,
-        ),
+        data: SliderTheme.of(context).copyWith(thumbShape: thumbShape),
         child: Slider(
           min: minValue ?? 0.0,
           max: maxValue ?? 10.0,
