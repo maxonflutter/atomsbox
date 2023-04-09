@@ -69,11 +69,37 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+| Category  	| Component                    	| Example              	|   	|   	|
+|-----------	|------------------------------	|----------------------	|---	|---	|
+| atoms     	| App Text                     	| https://atomsbox.com 	|   	|   	|
+| atoms     	| App Image                    	|                      	|   	|   	|
+| atoms     	| App Icon Button              	|                      	|   	|   	|
+| atoms     	| App Text Button              	|                      	|   	|   	|
+| atoms     	| App Elevated Button          	|                      	|   	|   	|
+| atoms     	| App Filled Button            	|                      	|   	|   	|
+| atoms     	| App Outlined Button          	|                      	|   	|   	|
+| atoms     	| App Card                     	|                      	|   	|   	|
+| atoms     	| App Glass                    	|                      	|   	|   	|
+| atoms     	| App Gradient Background      	|                      	|   	|   	|
+| atoms     	| App Slider                   	|                      	|   	|   	|
+| atoms     	| App Text Form Field          	|                      	|   	|   	|
+| atoms     	| App Gradient Text            	|                      	|   	|   	|
+| atoms     	| App Label                    	|                      	|   	|   	|
+| molecules 	| App Expansion Tile           	|                      	|   	|   	|
+| molecules 	| App Segmented Button         	|                      	|   	|   	|
+| molecules 	| App List Tile                	|                      	|   	|   	|
+| molecules 	| App Default Card             	|                      	|   	|   	|
+| molecules 	| App User Card                	|                      	|   	|   	|
+| molecules 	| App Product Card             	|                      	|   	|   	|
+| molecules 	| App Search With Autocomplete 	|                      	|   	|   	|
+| organisms 	| App Form                     	|                      	|   	|   	|
+| organisms 	| App Grid                     	|                      	|   	|   	|
+| organisms 	| App List                     	|                      	|   	|   	|
+| organisms 	| App Drawer                   	|                      	|   	|   	|
+| organisms 	| App Bottom Nav Bar           	|                      	|   	|   	|
+| organisms 	| App Carousel                 	|                      	|   	|   	|
+| organisms 	| App Tab                      	|                      	|   	|   	|
+| organisms 	| App Audio Player             	|                      	|   	|   	|
 
 ## Gallery 
 
