@@ -57,26 +57,23 @@ const like = 'sample';
 
 ## Gallery 
 
-
 <table>
     <tbody>
         <tr>
             <td align="center" style="background-color: white">
                 <a href="https://verygood.ventures">
-                <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_extension_tile_example_light.png?token=GHSAT0AAAAAABVFB3LJRIPZ5BMVTZ4TFXOSZBSXOXQ" height="100" alt="Flutter atomsbox Package" /></a>
+                <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_extension_tile_example_light.png?token=GHSAT0AAAAAABVFB3LJRIPZ5BMVTZ4TFXOSZBSXOXQ" height="300" alt="Flutter atomsbox Package"/>
+                </a>
+            </td>           
+            <td align="center" style="background-color: white">
+                <a href="https://verygood.ventures">
+                <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_form_example_light.png?token=GHSAT0AAAAAABVFB3LJ4UXL64B3RSHLOWNWZBSXO2A" height="300" alt="Flutter atomsbox Package" />
+                </a>
             </td>
             <td align="center" style="background-color: white">
                 <a href="https://verygood.ventures">
-                <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_form_example_light.png?token=GHSAT0AAAAAABVFB3LJ4UXL64B3RSHLOWNWZBSXO2A" height="100" alt="Flutter atomsbox Package" />
-
-                              
-                
-            </td>
-            <td align="center" style="background-color: white">
-                <a href="https://verygood.ventures">
-<img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_grid_example_light.png?token=GHSAT0AAAAAABVFB3LJV7P22UN7OGEDKVL4ZBSXO3Q" height="100" alt="Flutter atomsbox Package" />
-
-            
+<img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_grid_example_light.png?token=GHSAT0AAAAAABVFB3LJV7P22UN7OGEDKVL4ZBSXO3Q" height="300" alt="Flutter atomsbox Package" />
+                </a>
             </td>
         </tr>
     </tbody>
