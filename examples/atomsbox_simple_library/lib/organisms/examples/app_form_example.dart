@@ -14,7 +14,7 @@ class AppFormExample extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SimpleForm(
+          AppForm(
             title: AppText('This is a form'),
             description: AppText('This is a form description'),
             formButton: AppElevatedButton(
