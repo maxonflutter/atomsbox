@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../atoms/app_label.dart';
-import '../atoms/app_text_form_field.dart';
 import '../atoms/config/app_constants.dart';
 
-class SimpleForm extends StatefulWidget {
-  const SimpleForm({
+class AppForm extends StatefulWidget {
+  const AppForm({
     super.key,
     this.title,
     this.description,
@@ -16,15 +15,15 @@ class SimpleForm extends StatefulWidget {
 
   final Widget? title;
   final Widget? description;
-  final List<AppTextFormField> formItems;
+  final List<Widget> formItems;
   final List<String> formItemNames;
   final Widget formButton;
 
   @override
-  State<SimpleForm> createState() => _SimpleFormState();
+  State<AppForm> createState() => _AppFormState();
 }
 
-class _SimpleFormState extends State<SimpleForm> {
+class _AppFormState extends State<AppForm> {
   int index = 0;
 
   @override
