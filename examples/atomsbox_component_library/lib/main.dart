@@ -55,6 +55,33 @@ class AtomsboxComponents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: AppDrawer(
+        title: AppText.headlineMedium(AppConstants.appName),
+        drawerItems: [
+          AppListTile(
+            onTap: () {},
+            title: AppText('Drawer Item #1'),
+          ),
+          AppListTile(
+            onTap: () {},
+            title: AppText('Drawer Item #2'),
+          ),
+        ],
+      ),
+      bottomNavigationBar: AppBottomNavBar(items: [
+        AppIconButton(
+          onPressed: () {},
+          child: const Icon(Icons.home),
+        ),
+        AppIconButton(
+          onPressed: () {},
+          child: const Icon(Icons.library_add),
+        ),
+        AppIconButton(
+          onPressed: () {},
+          child: const Icon(Icons.people),
+        ),
+      ]),
       appBar: AppBar(
         title: const Text('atomsbox'),
         actions: [
@@ -75,7 +102,7 @@ class AtomsboxComponents extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(AppConstants.sm),
-          child: SimpleTab(
+          child: AppTab(
             tabs: [
               Tab(
                 icon: Column(
