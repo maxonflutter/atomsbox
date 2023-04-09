@@ -46,14 +46,39 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 TODO: List prerequisites and provide or point to information on how to
 start using the package.
 
+## Installation
+
+In your `pubspec.yaml` file within your Flutter Project: 
+
+```yaml
+dependencies:
+  atomsbox: <latest_version>
+```
+
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      // Remove the debug banner
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.theme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: currentMode,
+      home: const HomeScreen(),
+    );
+  }
+}
 ```
+
 
 ## Gallery 
 
