@@ -6,13 +6,12 @@ import '../atoms/app_text.dart';
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
     super.key,
+    required this.title,
     required this.drawerItems,
     this.drawerSecondaryItems,
   });
 
-  /// The primary items to display in the drawer.
-  ///
-  /// This list of widgets will be displayed at the top of the drawer.
+  final Widget title;
   final List<Widget> drawerItems;
 
   /// The secondary items to display in the drawer.
@@ -33,7 +32,7 @@ class AppDrawer extends StatelessWidget {
             children: [
               SizedBox(
                 height: 100,
-                child: AppText.headlineMedium(AppConstants.appName),
+                child: title,
               ),
               Expanded(
                 child: ListView(

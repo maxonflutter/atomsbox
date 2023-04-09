@@ -1,795 +1,245 @@
-// import 'package:atomsbox/atomsbox.dart';
-// import 'package:flutter/material.dart';
+import 'package:atomsbox/atomsbox.dart';
+import 'package:flutter/material.dart';
 
-// void main() => runApp(const AtomsboxDemo());
+void main() {
+  runApp(const MyApp());
+}
 
-// class AtomsboxDemo extends StatelessWidget {
-//   const AtomsboxDemo({super.key});
+class MyApp extends StatelessWidget {
+  static final ValueNotifier<ThemeMode> themeNotifier =
+      ValueNotifier(ThemeMode.light);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Simple',
-//       theme: SimpleTheme.theme,
-//       home: DefaultTabController(
-//         length: 3,
-//         child: Scaffold(
-//           drawer: SimpleDrawer(
-//             drawerItems: [
-//               SimpleListTile(
-//                 onTap: () {},
-//                 title: 'This is a drawer item',
-//                 colorPalette: ColorPalette.transparent,
-//               ),
-//               SimpleListTile(
-//                 onTap: () {},
-//                 title: 'This is a drawer item',
-//                 colorPalette: ColorPalette.transparent,
-//               ),
-//               SimpleListTile(
-//                 onTap: () {},
-//                 title: 'This is a drawer item',
-//                 colorPalette: ColorPalette.transparent,
-//               ),
-//             ],
-//             drawerSecondaryItems: [
-//               SimpleListTile(
-//                 onTap: () {},
-//                 title: 'A secondary drawer item',
-//                 leading: const Icon(Icons.settings),
-//                 colorPalette: ColorPalette.transparent,
-//               ),
-//             ],
-//           ),
-//           appBar: AppBar(
-//             automaticallyImplyLeading: false,
-//             title: const SimpleText(
-//               'simple',
-//               textStyle: TextStyleEnum.headlineMedium,
-//             ),
-//           ),
-//           body: SimpleTab(
-//             tabBarItemNames: const [
-//               'Atoms',
-//               'Molecules',
-//               'Organisms',
-//             ],
-//             tabBarItemIcons: const [
-//               Icons.home,
-//               Icons.code,
-//               Icons.people,
-//             ],
-//             tabBarViewChildren: const [
-//               _Atoms(),
-//               _Molecules(),
-//               _Organisms(),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  const MyApp({Key? key}) : super(key: key);
 
-// class _Atoms extends StatelessWidget {
-//   const _Atoms({
-//     super.key,
-//   });
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (_, ThemeMode currentMode, __) {
+        return MaterialApp(
+          // Remove the debug banner
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.theme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: currentMode,
+          home: const AtomsboxComponents(),
+        );
+      },
+    );
+  }
+}
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: const [
-//               SizedBox(height: AppConstants.lg),
-//               SimpleText("More examples at atomsbox.com"),
-//               SizedBox(height: AppConstants.lg),
-//               SimpleSliderExample(),
-//               SimpleButtonExample(),
-//               SimpleTextFormFieldExample(),
+class AtomsboxComponents extends StatelessWidget {
+  const AtomsboxComponents({super.key});
 
-//               /// More examples at atomsbox.com
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('atomsbox'),
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 4.0),
+            child: IconButton(
+              onPressed: () {
+                MyApp.themeNotifier.value =
+                    MyApp.themeNotifier.value == ThemeMode.light
+                        ? ThemeMode.dark
+                        : ThemeMode.light;
+              },
+              icon: const Icon(Icons.light_mode),
+            ),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(AppConstants.sm),
+          child: AppTab(
+            tabs: [
+              Tab(
+                icon: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [Icon(Icons.code), AppText('Example #1')],
+                ),
+              ),
+              Tab(
+                icon: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [Icon(Icons.code), AppText('Example #2')],
+                ),
+              ),
+              Tab(
+                icon: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [Icon(Icons.code), AppText('Example #3')],
+                ),
+              ),
+            ],
+            children: const [
+              AppFormExample(),
+              AppExpansionTileExample(),
+              AppGridExample(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-// class _Molecules extends StatelessWidget {
-//   const _Molecules({
-//     super.key,
-//   });
+class AppFormExample extends StatelessWidget {
+  const AppFormExample({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: const [
-//           SizedBox(height: AppConstants.lg),
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppConstants.sm,
+        vertical: AppConstants.xlg,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppForm(
+            title: AppText('This is a form'),
+            description: AppText('This is a form description'),
+            formButton: AppFilledButton.gradient(
+              onPressed: () {},
+              child: AppText('Submit'),
+            ),
+            formItemNames: const ['One', 'Two', 'Three'],
+            formItems: [
+              AppTextFormField(),
+              AppTextFormField(),
+              AppTextFormField(),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-//           SimpleText("More examples at atomsbox.com"),
-//           SizedBox(height: AppConstants.lg),
-//           SimpleListTileExample(),
-//           SimpleToggleButtonsExample(),
-//           SimpleAccordionExample(),
+class AppExpansionTileExample extends StatelessWidget {
+  const AppExpansionTileExample({super.key});
 
-//           /// More examples at atomsbox.com
-//         ],
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    const sampleText =
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 
-// class _Organisms extends StatelessWidget {
-//   const _Organisms({
-//     super.key,
-//   });
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppConstants.sm,
+        vertical: AppConstants.xlg,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppExpansionTile(
+            title: AppText('This is an expansion tile'),
+            children: [
+              AppText(sampleText),
+            ],
+          ),
+          const SizedBox(height: AppConstants.sm),
+          AppExpansionTile.secondary(
+            title: AppText('This is an expansion tile'),
+            children: [
+              AppText(sampleText),
+            ],
+          ),
+          const SizedBox(height: AppConstants.sm),
+          AppExpansionTile.gradient(
+            title: AppText('This is an expansion tile'),
+            children: [
+              AppText(sampleText),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: const [
-//           SizedBox(height: AppConstants.lg),
-//           SimpleText("More examples at atomsbox.com"),
-//           SizedBox(height: AppConstants.lg),
-//           SimpleGridExample(),
-//           SimpleListExample(),
-//           SimpleAudioPlayerExample(),
+class AppGridExample extends StatelessWidget {
+  const AppGridExample({super.key});
 
-//           /// More examples at atomsbox.com
-//         ],
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
 
-// class SimpleAccordionExample extends StatelessWidget {
-//   const SimpleAccordionExample({super.key});
+    const sampleText =
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+    const imageUrl =
+        'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: const [
-//         SimpleText(
-//           'These are SimpleAccordion widgets',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         SizedBox(height: AppConstants.sm),
-//         SimpleAccordion(
-//           initiallyExpanded: true,
-//           title: 'Accordion #1',
-//           children: [
-//             SimpleText(
-//               'This is the child of the accordion #1',
-//               textStyle: TextStyleEnum.bodySmall,
-//             ),
-//             SimpleText(
-//               'This is another child of the accordion #1',
-//               textStyle: TextStyleEnum.bodySmall,
-//             ),
-//           ],
-//         ),
-//         SizedBox(height: AppConstants.sm),
-//         SimpleAccordion(
-//           title: 'Accordion #2',
-//           children: [
-//             SimpleText(
-//               'This is the child of the accordion #2',
-//               textStyle: TextStyleEnum.bodySmall,
-//             ),
-//             SimpleText(
-//               'This is another child of the accordion #2',
-//               textStyle: TextStyleEnum.bodySmall,
-//             )
-//           ],
-//         ),
-//         SizedBox(height: AppConstants.sm),
-//         SimpleAccordion(
-//           title: 'Accordion #3',
-//           children: [
-//             SimpleText(
-//               'This is the child of the accordion #3',
-//               textStyle: TextStyleEnum.bodySmall,
-//             ),
-//             SimpleText(
-//               'This is another child of the accordion #3',
-//               textStyle: TextStyleEnum.bodySmall,
-//             )
-//           ],
-//         ),
-//         SizedBox(height: AppConstants.lg),
-//       ],
-//     );
-//   }
-// }
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppConstants.sm,
+        vertical: AppConstants.xlg,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppGrid(
+            title: AppText('This is a grid'),
+            description: AppText('This is a description'),
+            crossAxisCount: 2,
+            childAspectRatio: 0.7,
+            gridItems: [1, 2, 3, 4]
+                .map(
+                  (e) => AppUserCard(
+                    type: AppCardType.outlined,
+                    onTap: () {},
+                    imageUrl: imageUrl,
+                    headline: AppText.bodyLarge('Max on Flutter', maxLines: 1),
+                    supportingText: 'Supporting text',
+                    actions: AppFilledButton(
+                      onPressed: () {},
+                      child: AppText('Add'),
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+          const SizedBox(height: AppConstants.xlg),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              const gridItems = [1, 2, 3, 4, 5, 6];
+              const crossAxisCount = 2;
+              const gridItemHeight = 48;
+              const horizontalSpacing = AppConstants.sm * (crossAxisCount + 1);
+              const verticalSpacing = AppConstants.sm * (crossAxisCount + 1);
 
-// class SimpleListTileExample extends StatelessWidget {
-//   const SimpleListTileExample({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const SimpleText(
-//           'These are SimpleListTile widgets',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleListTile(
-//           onTap: () {
-//             ScaffoldMessenger.of(context).showSnackBar(
-//               SnackBar(
-//                 backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-//                 content: SimpleText(
-//                   'Tapped on the list tile',
-//                   color: Theme.of(context).colorScheme.onPrimaryContainer,
-//                 ),
-//               ),
-//             );
-//           },
-//           leading: const SimpleImage(
-//             height: 100,
-//             width: 100,
-//             imageUrl:
-//                 'https://images.unsplash.com/photo-1679854493493-0ae0d2cb2800?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-//           ),
-//           title: 'This is a title',
-//           subtitle: 'This is a subtitle',
-//           tagline: 'This is a tagline',
-//           trailing: Row(
-//             children: [
-//               SimpleIconButton(
-//                 onPressed: () {
-//                   ScaffoldMessenger.of(context).showSnackBar(
-//                     SnackBar(
-//                       backgroundColor:
-//                           Theme.of(context).colorScheme.primaryContainer,
-//                       content: SimpleText(
-//                         'Tapped on the traling icon',
-//                         color: Theme.of(context).colorScheme.onPrimaryContainer,
-//                       ),
-//                     ),
-//                   );
-//                 },
-//                 icon: Icons.add,
-//                 colorPalette: ColorPalette.primary,
-//               ),
-//             ],
-//           ),
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleListTile(
-//           onTap: () {},
-//           leading: const SimpleImage(
-//             height: 100,
-//             width: 100,
-//             imageUrl:
-//                 'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80',
-//           ),
-//           title: 'This is a title',
-//           subtitle: 'This is a subtitle',
-//           tagline: 'This is a tagline',
-//           trailing: Row(
-//             children: [
-//               SimpleIconButton(
-//                 onPressed: () {},
-//                 icon: Icons.add,
-//                 colorPalette: ColorPalette.primary,
-//               ),
-//             ],
-//           ),
-//           colorPalette: ColorPalette.primaryContainer,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleListTile(
-//           onTap: () {},
-//           leading: const SimpleImage(
-//             height: 100,
-//             width: 100,
-//             imageUrl:
-//                 'https://images.unsplash.com/photo-1679882779946-240701eeb54f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-//           ),
-//           title: 'This is a title',
-//           subtitle: 'This is a subtitle',
-//           tagline: 'This is a tagline',
-//           trailing: Row(
-//             children: [
-//               SimpleIconButton(
-//                 onPressed: () {},
-//                 icon: Icons.add,
-//                 colorPalette: ColorPalette.secondary,
-//               ),
-//             ],
-//           ),
-//           colorPalette: ColorPalette.secondaryContainer,
-//         ),
-//         const SizedBox(height: AppConstants.lg),
-//       ],
-//     );
-//   }
-// }
-
-// class SimpleToggleButtonsExample extends StatelessWidget {
-//   const SimpleToggleButtonsExample({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: const [
-//         SimpleText(
-//           'These are SimpleToggleButtons',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         SizedBox(height: AppConstants.sm),
-//         SimpleToggleButtons(
-//           multiSelect: true,
-//           isSelected: [true, true, false],
-//           children: [
-//             SimpleText('First'),
-//             SimpleText('Second'),
-//             SimpleText('Third'),
-//           ],
-//         ),
-//         SizedBox(height: AppConstants.sm),
-//         SimpleToggleButtons(
-//           multiSelect: false,
-//           vertical: true,
-//           isSelected: [true, false, false],
-//           children: [
-//             SimpleText('First'),
-//             SimpleText('Second'),
-//             SimpleText('Third'),
-//           ],
-//         ),
-//         SizedBox(height: AppConstants.lg),
-//       ],
-//     );
-//   }
-// }
-
-// class SimpleAudioPlayerExample extends StatelessWidget {
-//   const SimpleAudioPlayerExample({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const SimpleText(
-//           'This is a SimpleAudioPlayer widget',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleAudioPlayer(
-//           dense: true,
-//           url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-//           name: 'SoundHelix-Song-1',
-//           description: 'SoundHelix',
-//           imageUrl:
-//               'https://images.unsplash.com/photo-1680034200882-698487d46a79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1365&q=80',
-//           audioControls: SimpleAudioControls(
-//             dense: true,
-//             pause: () {},
-//             play: () {},
-//           ),
-//           audioSeekbar: const SimpleAudioSeekbar(
-//             duration: Duration(seconds: 100),
-//             position: Duration(seconds: 10),
-//           ),
-//         ),
-//         const SizedBox(height: AppConstants.xlg),
-//       ],
-//     );
-//   }
-// }
-
-// class SimpleGridExample extends StatelessWidget {
-//   const SimpleGridExample({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const SimpleText(
-//           'This is a SimpleGrid widget',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleGrid(
-//           gridItems: [
-//             SimpleCard(
-//               onTap: () {},
-//               imageUrl:
-//                   'https://images.unsplash.com/photo-1679882779946-240701eeb54f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-//               title: 'This is a dense card',
-//               tagline: 'This is a tagline',
-//             ),
-//             SimpleCard(
-//               onTap: () {},
-//               imageUrl:
-//                   'https://images.unsplash.com/photo-1679882779946-240701eeb54f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-//               title: 'This is a dense card',
-//               tagline: 'This is a tagline',
-//             ),
-//             SimpleCard(
-//               onTap: () {},
-//               imageUrl:
-//                   'https://images.unsplash.com/photo-1679882779946-240701eeb54f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-//               title: 'This is a dense card',
-//               tagline: 'This is a tagline',
-//             ),
-//             SimpleCard(
-//               onTap: () {},
-//               imageUrl:
-//                   'https://images.unsplash.com/photo-1679882779946-240701eeb54f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-//               title: 'This is a dense card',
-//               tagline: 'This is a tagline',
-//             ),
-//           ],
-//         ),
-//         const SizedBox(height: AppConstants.xlg),
-//       ],
-//     );
-//   }
-// }
-
-// class SimpleListExample extends StatelessWidget {
-//   const SimpleListExample({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const SimpleText(
-//           'This is a SimpleList (vertical)',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleList(
-//           listItems: [
-//             SimpleListTile(
-//               onTap: () {},
-//               leading: const SimpleImage(
-//                 height: 100,
-//                 width: 100,
-//                 imageUrl:
-//                     'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80',
-//               ),
-//               title: 'This is a title',
-//               subtitle: 'This is a subtitle',
-//               tagline: 'This is a tagline',
-//               trailing: Row(
-//                 children: [
-//                   SimpleIconButton(
-//                     onPressed: () {},
-//                     icon: Icons.add,
-//                     colorPalette: ColorPalette.primary,
-//                   ),
-//                 ],
-//               ),
-//               colorPalette: ColorPalette.primaryContainer,
-//             ),
-//             SimpleListTile(
-//               onTap: () {},
-//               leading: const SimpleImage(
-//                 height: 100,
-//                 width: 100,
-//                 imageUrl:
-//                     'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80',
-//               ),
-//               title: 'This is a title',
-//               subtitle: 'This is a subtitle',
-//               tagline: 'This is a tagline',
-//               trailing: Row(
-//                 children: [
-//                   SimpleIconButton(
-//                     onPressed: () {},
-//                     icon: Icons.add,
-//                     colorPalette: ColorPalette.primary,
-//                   ),
-//                 ],
-//               ),
-//               colorPalette: ColorPalette.primaryContainer,
-//             ),
-//           ],
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         const SimpleText(
-//           'This is a SimpleList (horizontal)',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleList(
-//           physics: const AlwaysScrollableScrollPhysics(),
-//           height: 100,
-//           listItems: [
-//             SimpleListTile(
-//               width: 300,
-//               onTap: () {},
-//               leading: const SimpleImage(
-//                 height: 100,
-//                 width: 100,
-//                 imageUrl:
-//                     'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80',
-//               ),
-//               title: 'This is a title',
-//               subtitle: 'This is a subtitle',
-//               tagline: 'This is a tagline',
-//               trailing: Row(
-//                 children: [
-//                   SimpleIconButton(
-//                     onPressed: () {},
-//                     icon: Icons.add,
-//                     colorPalette: ColorPalette.secondary,
-//                   ),
-//                 ],
-//               ),
-//               colorPalette: ColorPalette.secondaryContainer,
-//             ),
-//             SimpleListTile(
-//               width: 300,
-//               onTap: () {},
-//               leading: const SimpleImage(
-//                 height: 100,
-//                 width: 100,
-//                 imageUrl:
-//                     'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80',
-//               ),
-//               title: 'This is a title',
-//               subtitle: 'This is a subtitle',
-//               tagline: 'This is a tagline',
-//               trailing: Row(
-//                 children: [
-//                   SimpleIconButton(
-//                     onPressed: () {},
-//                     icon: Icons.add,
-//                     colorPalette: ColorPalette.secondary,
-//                   ),
-//                 ],
-//               ),
-//               colorPalette: ColorPalette.secondaryContainer,
-//             ),
-//             SimpleListTile(
-//               width: 300,
-//               onTap: () {},
-//               leading: const SimpleImage(
-//                 height: 100,
-//                 width: 100,
-//                 imageUrl:
-//                     'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80',
-//               ),
-//               title: 'This is a title',
-//               subtitle: 'This is a subtitle',
-//               tagline: 'This is a tagline',
-//               trailing: Row(
-//                 children: [
-//                   SimpleIconButton(
-//                     onPressed: () {},
-//                     icon: Icons.add,
-//                     colorPalette: ColorPalette.secondary,
-//                   ),
-//                 ],
-//               ),
-//               colorPalette: ColorPalette.secondaryContainer,
-//             ),
-//           ],
-//           type: SimpleListType.horizontal,
-//         ),
-//         const SizedBox(height: AppConstants.xlg),
-//       ],
-//     );
-//   }
-// }
-
-// class SimpleSliderExample extends StatefulWidget {
-//   const SimpleSliderExample({super.key});
-
-//   @override
-//   State<SimpleSliderExample> createState() => _SimpleSliderExampleState();
-// }
-
-// class _SimpleSliderExampleState extends State<SimpleSliderExample> {
-//   final _value = [1.0, 5.0, 3.0, 7.0];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const SimpleText(
-//           'These are SimpleSlider widgets',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleSlider(
-//           value: _value[0],
-//           onChanged: (value) {
-//             setState(() {
-//               _value[0] = value;
-//             });
-//           },
-//           thumbShape: SliderComponentShape.noThumb,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleSlider(
-//           value: _value[1],
-//           onChanged: (value) {
-//             setState(() {
-//               _value[1] = value;
-//             });
-//           },
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleSlider(
-//           value: _value[2],
-//           onChanged: (value) {
-//             setState(() {
-//               _value[2] = value;
-//             });
-//           },
-//           thumbShape: SliderComponentShape.noThumb,
-//           colorPalette: ColorPalette.secondaryContainer,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleSlider(
-//           value: _value[3],
-//           onChanged: (value) {
-//             setState(() {
-//               _value[3] = value;
-//             });
-//           },
-//           colorPalette: ColorPalette.secondaryContainer,
-//         ),
-//         const SizedBox(height: AppConstants.xlg),
-//       ],
-//     );
-//   }
-// }
-
-// class SimpleButtonExample extends StatelessWidget {
-//   const SimpleButtonExample({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const SimpleText(
-//           'These are SimpleButton widgets',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         Row(
-//           children: [
-//             Flexible(
-//               child: SimpleButton(
-//                 onPressed: () {},
-//                 colorPalette: ColorPalette.primary,
-//                 // child: SimpleText(
-//                 //   'Button',
-//                 //   color: Theme.of(context).colorScheme.onPrimary,
-//                 // ),
-//               ),
-//             ),
-//             const SizedBox(width: AppConstants.sm),
-//             Flexible(
-//               child: SimpleButton(
-//                 onPressed: () {},
-//                 colorPalette: ColorPalette.secondary,
-//                 // child: SimpleText(
-//                 //   'Button',
-//                 //   color: Theme.of(context).colorScheme.onSecondary,
-//                 // ),
-//               ),
-//             ),
-//           ],
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         Row(
-//           children: [
-//             Flexible(
-//               child: SimpleButton.outline(
-//                 onPressed: () {},
-//                 colorPalette: ColorPalette.primary,
-//                 // child: const SimpleText('Outline Button'),
-//               ),
-//             ),
-//             const SizedBox(width: AppConstants.sm),
-//             Flexible(
-//               child: SimpleButton.outline(
-//                 onPressed: () {},
-//                 colorPalette: ColorPalette.secondary,
-//                 // child: const SimpleText('Outline Button'),
-//               ),
-//             ),
-//           ],
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         Row(
-//           children: [
-//             Flexible(
-//               child: SimpleButton.text(
-//                 onPressed: () {},
-//                 colorPalette: ColorPalette.primary,
-//                 // child: const SimpleText(
-//                 //   'Text Button',
-//                 //   // Optional parameters to enhance the text button style
-//                 //   textGradient: true,
-//                 //   fontWeight: FontWeight.bold,
-//                 // ),
-//               ),
-//             ),
-//             const SizedBox(width: AppConstants.sm),
-//             Flexible(
-//               child: SimpleButton.text(
-//                 onPressed: () {},
-//                 colorPalette: ColorPalette.secondary,
-//                 // child: const SimpleText(
-//                 //   'Text Button',
-//                 //   // Optional parameters to enhance the text button style
-//                 //   textGradient: true,
-//                 //   fontWeight: FontWeight.bold,
-//                 // ),
-//               ),
-//             ),
-//           ],
-//         ),
-//         const SizedBox(height: AppConstants.xlg),
-//       ],
-//     );
-//   }
-// }
-
-// class SimpleTextFormFieldExample extends StatelessWidget {
-//   const SimpleTextFormFieldExample({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const SimpleText(
-//           'These are SimpleTextFormField widgets',
-//           textStyle: TextStyleEnum.titleMedium,
-//           fontWeight: FontWeight.bold,
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleTextFormField(labelText: 'Underline'),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleTextFormField.outline(
-//           labelText: 'Outline',
-//         ),
-//         const SizedBox(height: AppConstants.sm),
-//         SimpleTextFormField.filled(
-//           labelText: 'Filled',
-//         ),
-//         const SizedBox(height: AppConstants.xlg),
-//       ],
-//     );
-//   }
-// }
+              return AppGrid(
+                title: AppText('This is a grid'),
+                description: AppText('This is a description'),
+                crossAxisCount: crossAxisCount,
+                height: gridItemHeight * (gridItems.length / crossAxisCount) +
+                    verticalSpacing,
+                childAspectRatio: (constraints.maxWidth - horizontalSpacing) /
+                    crossAxisCount /
+                    gridItemHeight,
+                gridItems: gridItems
+                    .map(
+                      (e) => AppListTile(
+                        onTap: () {},
+                        leadingWidth: 48,
+                        leading: AppImage.network(imageUrl, height: 48),
+                        title: AppText.bodySmall(
+                          'This is a list tile',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                    .toList(),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
