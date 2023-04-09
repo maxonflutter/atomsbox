@@ -1,4 +1,4 @@
-import 'package:atomsbox/src/simple/atoms/config/app_constants.dart';
+import 'package:atomsbox/src/atomsbox/atoms/config/app_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'config/app_color_scheme.dart';

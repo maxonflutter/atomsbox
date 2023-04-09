@@ -74,7 +74,7 @@ class AppAudioCard extends StatelessWidget {
     };
   }
 
-  late AppAudioCardBuilder builder;
+  late AudioCardBuilder builder;
   final String? imageUrl;
   final String? songUrl;
   final String? songName;

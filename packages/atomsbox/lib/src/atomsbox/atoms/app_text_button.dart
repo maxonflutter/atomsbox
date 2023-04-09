@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:atomsbox/src/simple/atoms/app_gradient.dart';
+import 'package:atomsbox/src/atomsbox/atoms/app_gradient_background.dart';
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
@@ -72,7 +72,7 @@ class AppTextButton extends StatelessWidget {
     required this.child,
   }) {
     builder = (context) {
-      return AppGradient(
+      return AppGradientBackground(
         child: TextButton(
           style: TextButton.styleFrom(
             minimumSize: minimumSize,

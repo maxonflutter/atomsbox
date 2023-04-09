@@ -1,3 +1,3 @@
 library atomsbox;
 
-export 'src/simple/simple.dart';
+export 'src/atomsbox/atomsbox.dart';

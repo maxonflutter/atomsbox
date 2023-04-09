@@ -1,19 +1,33 @@
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
-import 'app_gradient.dart';
+import 'app_gradient_background.dart';
 import 'config/app_color_scheme.dart';
 import 'config/app_constants.dart';
 import 'config/app_typedef.dart';
 
+/// A custom filled button widget with various styles.
+///
+/// The [AppFilledButton] is a custom [FilledButton] that supports different
+/// styles such as primary, secondary, glass, and gradient. It is a convenient
+/// way to use filled buttons with predefined styles in your application.
+///
+/// The [onPressed] callback is called when the button is tapped or activated.
+///
+/// The [minimumSize] property sets the minimum size constraints for the button.
+///
+/// The [child] property is the widget displayed as the button's label.
 class AppFilledButton extends StatelessWidget {
+  /// Creates a primary styled filled button.
+  ///
+  /// The [child] parameter must not be null.
+
   AppFilledButton({
     super.key,
     this.onPressed,
     this.minimumSize,
     required this.child,
   }) {
-    primary = true;
     builder = (context) {
       return FilledButton(
         style: FilledButton.styleFrom(minimumSize: minimumSize),
@@ -23,13 +37,15 @@ class AppFilledButton extends StatelessWidget {
     };
   }
 
+  /// Creates a secondary styled filled button.
+  ///
+  /// The [child] parameter must not be null.
   AppFilledButton.secondary({
     super.key,
     this.onPressed,
     this.minimumSize,
     required this.child,
   }) {
-    primary = false;
     builder = (context) {
       return FilledButton(
         style: FilledButton.styleFrom(
@@ -42,11 +58,13 @@ class AppFilledButton extends StatelessWidget {
     };
   }
 
+  /// Creates a glass styled filled button.
+  ///
+  /// The [child] parameter must not be null.
   AppFilledButton.glass({
     super.key,
     this.onPressed,
     this.minimumSize,
-    this.primary = false,
     required this.child,
   }) {
     builder = (context) {
@@ -63,15 +81,18 @@ class AppFilledButton extends StatelessWidget {
       );
     };
   }
+
+  /// Creates a gradient styled filled button.
+  ///
+  /// The [child] parameter must not be null.
   AppFilledButton.gradient({
     super.key,
     this.onPressed,
     this.minimumSize,
-    this.primary = false,
     required this.child,
   }) {
     builder = (context) {
-      return AppGradient(
+      return AppGradientBackground(
         child: FilledButton(
           style: FilledButton.styleFrom(
             minimumSize: minimumSize,
@@ -85,11 +106,23 @@ class AppFilledButton extends StatelessWidget {
     };
   }
 
+  /// Internal builder for creating an [FilledButton] with the specified style.
   late ButtonBuilder builder;
-  late final bool primary;
+
+  /// The callback that is called when the button is tapped or activated.
+  ///
+  /// If this is set to null, the button will be disabled.
   final Function()? onPressed;
+
+  /// The minimum size of the button.
+  ///
+  /// If non-null, the button will constrain its size to be at least as large as
+  /// the given size. If null, the button will use its default minimum size constraints.
   final Size? minimumSize;
 
+  /// The widget that is displayed as the button's label.
+  ///
+  /// Typically a [Text] widget that contains the text label for the button.
   final Widget child;
 
   @override

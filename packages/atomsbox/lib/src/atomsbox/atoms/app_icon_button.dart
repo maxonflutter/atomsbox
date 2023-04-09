@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
-import 'app_gradient.dart';
+import 'app_gradient_background.dart';
 import 'config/app_color_scheme.dart';
 import 'config/app_constants.dart';
 import 'config/app_typedef.dart';
@@ -78,7 +78,7 @@ class AppIconButton extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.all(AppConstants.sm * 0),
         child: ClipOval(
-          child: AppGradient(
+          child: AppGradientBackground(
             child: SizedBox(
               width: 40,
               height: 40,

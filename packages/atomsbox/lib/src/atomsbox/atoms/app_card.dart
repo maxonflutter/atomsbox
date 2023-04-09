@@ -1,14 +1,56 @@
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
-import 'app_gradient.dart';
+import 'app_gradient_background.dart';
 import 'config/app_constants.dart';
-
-typedef CardBuilder = Card Function(BuildContext context);
+import 'config/app_typedef.dart';
 
 enum AppCardType { elevated, filled, outlined }
 
-class AppCard extends StatefulWidget {
+/// A versatile card widget with multiple styles.
+///
+/// The [AppCard] widget displays a card with one of the following styles:
+/// - elevated
+/// - filled
+/// - outlined
+/// - glass
+/// - gradient
+///
+/// Each style has its own constructor, and some properties can be customized.
+/// The card can react to touch events when an [onTap] callback is provided.
+///
+/// ## Card Styles
+///
+/// Use the following constructors to create the respective card styles:
+/// - [AppCard.elevated]
+/// - [AppCard.filled]
+/// - [AppCard.outlined]
+/// - [AppCard.glass]
+/// - [AppCard.gradient]
+///
+/// ## Customization
+///
+/// The appearance of the card can be customized using the following properties:
+/// - [color] for the card's background color
+/// - [margin] for the card's margin
+/// - [clipBehavior] for the card's clip behavior
+/// - [shape] for the card's shape
+/// - [elevation] for the card's elevation
+/// - [width] for the card's width
+/// - [height] for the card's height
+/// - [child] for the card's content
+///
+/// See also:
+///
+/// * [Card], the base Flutter card widget.
+/// * [InkWell], which is used for handling tap events.
+class AppCard extends StatelessWidget {
+  /// Creates an elevated card with the given properties.
+  ///
+  /// If the [color] argument is null, the card will use the color from the
+  /// closest enclosing [Theme].
+  ///
+  /// The [elevation] defaults to 4.0.
   AppCard.elevated({
     super.key,
     this.onTap,
@@ -36,6 +78,12 @@ class AppCard extends StatefulWidget {
     };
   }
 
+  /// Creates a filled card with the given properties.
+  ///
+  /// If the [color] argument is null, the card will use the color from the
+  /// closest enclosing [Theme].
+  ///
+  /// The [elevation] defaults to 0.0.
   AppCard.filled({
     super.key,
     this.onTap,
@@ -63,6 +111,10 @@ class AppCard extends StatefulWidget {
     };
   }
 
+  /// Creates an outlined card with the given properties.
+  ///
+  /// If the [color] argument is null, the card will use the color from the
+  /// closest enclosing [Theme].
   AppCard.outlined({
     super.key,
     this.onTap,
@@ -92,6 +144,12 @@ class AppCard extends StatefulWidget {
     };
   }
 
+  /// Creates a glass card with the given properties.
+  ///
+  /// The [color] argument is ignored since this card style uses a transparent
+  /// background.
+  ///
+  /// The [elevation] defaults to 0.0.
   AppCard.glass({
     super.key,
     this.onTap,
@@ -123,6 +181,12 @@ class AppCard extends StatefulWidget {
       );
     };
   }
+
+  /// Creates a gradient card with the given properties.
+  ///
+  /// The [color] argument is ignored since this
+  ///
+  ///
   AppCard.gradient({
     super.key,
     this.onTap,
@@ -146,7 +210,7 @@ class AppCard extends StatefulWidget {
             ),
         child: InkWell(
           onTap: onTap,
-          child: AppGradient(
+          child: AppGradientBackground(
             child: DefaultTextStyle(
               style: Theme.of(context)
                   .textTheme
@@ -164,6 +228,7 @@ class AppCard extends StatefulWidget {
     };
   }
 
+  /// Internal builder for creating a [Card] with the specified style.
   late CardBuilder builder;
   final Function()? onTap;
   final Color? color;
@@ -173,16 +238,11 @@ class AppCard extends StatefulWidget {
   final double? elevation;
   final double? width;
   final double? height;
+
   final Widget child;
-
-  @override
-  State<AppCard> createState() => _AppCardState();
-}
-
-class _AppCardState extends State<AppCard> {
   @override
   Widget build(BuildContext context) {
-    Card card = widget.builder.call(context);
+    Card card = builder.call(context);
     return card;
   }
 }

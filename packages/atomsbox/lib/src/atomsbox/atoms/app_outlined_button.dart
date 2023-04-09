@@ -1,13 +1,15 @@
+import 'dart:ui';
+
+import 'package:atomsbox/src/atomsbox/atoms/app_gradient_background.dart';
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
-import 'app_gradient.dart';
 import 'config/app_color_scheme.dart';
 import 'config/app_constants.dart';
 import 'config/app_typedef.dart';
 
-class AppElevatedButton extends StatelessWidget {
-  AppElevatedButton({
+class AppOutlinedButton extends StatelessWidget {
+  AppOutlinedButton({
     super.key,
     this.onPressed,
     this.minimumSize,
@@ -15,11 +17,14 @@ class AppElevatedButton extends StatelessWidget {
     required this.child,
   }) {
     builder = (context) {
-      return ElevatedButton(
-        style: ElevatedButton.styleFrom(
+      return OutlinedButton(
+        style: OutlinedButton.styleFrom(
           minimumSize: minimumSize,
           foregroundColor:
               primary ? null : Theme.of(context).colorScheme.secondary,
+          side: primary
+              ? null
+              : BorderSide(color: Theme.of(context).colorScheme.secondary),
         ),
         onPressed: onPressed,
         child: child,
@@ -27,7 +32,7 @@ class AppElevatedButton extends StatelessWidget {
     };
   }
 
-  AppElevatedButton.secondary({
+  AppOutlinedButton.secondary({
     super.key,
     this.onPressed,
     this.minimumSize,
@@ -35,10 +40,11 @@ class AppElevatedButton extends StatelessWidget {
     required this.child,
   }) {
     builder = (context) {
-      return ElevatedButton(
-        style: ElevatedButton.styleFrom(
+      return OutlinedButton(
+        style: OutlinedButton.styleFrom(
           minimumSize: minimumSize,
           foregroundColor: Theme.of(context).colorScheme.secondary,
+          side: BorderSide(color: Theme.of(context).colorScheme.secondary),
         ),
         onPressed: onPressed,
         child: child,
@@ -46,7 +52,7 @@ class AppElevatedButton extends StatelessWidget {
     };
   }
 
-  AppElevatedButton.glass({
+  AppOutlinedButton.glass({
     super.key,
     this.onPressed,
     this.minimumSize,
@@ -55,12 +61,9 @@ class AppElevatedButton extends StatelessWidget {
   }) {
     builder = (context) {
       return AppGlass(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.zero,
+        child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
             minimumSize: minimumSize,
-            elevation: 0.0,
-            backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.onPrimary,
           ),
           onPressed: onPressed,
@@ -69,8 +72,7 @@ class AppElevatedButton extends StatelessWidget {
       );
     };
   }
-
-  AppElevatedButton.gradient({
+  AppOutlinedButton.gradient({
     super.key,
     this.onPressed,
     this.minimumSize,
@@ -78,13 +80,13 @@ class AppElevatedButton extends StatelessWidget {
     required this.child,
   }) {
     builder = (context) {
-      return AppGradient(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            minimumSize: minimumSize,
-            backgroundColor: Colors.transparent,
-            foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          ),
+      return AppGradientBackground(
+        colors: [
+          Theme.of(context).colorScheme.primaryContainer,
+          Theme.of(context).colorScheme.secondaryContainer
+        ],
+        child: OutlinedButton(
+          style: OutlinedButton.styleFrom(minimumSize: minimumSize),
           onPressed: onPressed,
           child: child,
         ),
@@ -105,36 +107,46 @@ class AppElevatedButton extends StatelessWidget {
   }
 }
 
-final appElevatedButtonThemeLight = ElevatedButtonThemeData(
-  style: ElevatedButton.styleFrom(
+final appOutlinedButtonThemeDark = OutlinedButtonThemeData(
+  style: OutlinedButton.styleFrom(
+    padding: EdgeInsets.zero,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+      side: BorderSide(
+        color: AppColors.appColorSchemeDark.primary,
+        strokeAlign: BorderSide.strokeAlignOutside,
+      ),
     ),
-    minimumSize: const Size(100, 45),
-    foregroundColor: AppColors.appColorSchemeLight.primary,
-    backgroundColor: AppColors.appColorSchemeLight.surface,
-    disabledForegroundColor:
-        AppColors.appColorSchemeLight.onSurface.withOpacity(0.38),
-    disabledBackgroundColor:
-        AppColors.appColorSchemeLight.onSurface.withOpacity(0.12),
-    shadowColor: AppColors.appColorSchemeLight.shadow,
-    surfaceTintColor: AppColors.appColorSchemeLight.surfaceTint,
-  ),
-);
-
-final appElevatedButtonThemeDark = ElevatedButtonThemeData(
-  style: ElevatedButton.styleFrom(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-    ),
+    side: BorderSide(color: AppColors.appColorSchemeDark.primary),
     minimumSize: const Size(100, 45),
     foregroundColor: AppColors.appColorSchemeDark.primary,
-    backgroundColor: AppColors.appColorSchemeDark.surface,
+    backgroundColor: Colors.transparent,
     disabledForegroundColor:
         AppColors.appColorSchemeDark.onSurface.withOpacity(0.38),
     disabledBackgroundColor:
         AppColors.appColorSchemeDark.onSurface.withOpacity(0.12),
-    shadowColor: AppColors.appColorSchemeDark.shadow,
-    surfaceTintColor: AppColors.appColorSchemeDark.surfaceTint,
+    shadowColor: null,
+    surfaceTintColor: null,
+  ),
+);
+final appOutlinedButtonThemeLight = OutlinedButtonThemeData(
+  style: OutlinedButton.styleFrom(
+    padding: EdgeInsets.zero,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+    ),
+    side: BorderSide(
+      color: AppColors.appColorSchemeLight.primary,
+      strokeAlign: BorderSide.strokeAlignCenter,
+    ),
+    minimumSize: const Size(100, 45),
+    foregroundColor: AppColors.appColorSchemeLight.primary,
+    backgroundColor: Colors.transparent,
+    disabledForegroundColor:
+        AppColors.appColorSchemeLight.onSurface.withOpacity(0.38),
+    disabledBackgroundColor:
+        AppColors.appColorSchemeLight.onSurface.withOpacity(0.12),
+    shadowColor: null,
+    surfaceTintColor: null,
   ),
 );

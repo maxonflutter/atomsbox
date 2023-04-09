@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:atomsbox/src/simple/atoms/app_gradient.dart';
+import 'package:atomsbox/src/atomsbox/atoms/app_gradient_background.dart';
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
@@ -248,7 +248,7 @@ class AppTextFormField extends StatelessWidget {
     );
 
     if (useGradient) {
-      return AppGradient(child: textFormField);
+      return AppGradientBackground(child: textFormField);
     }
 
     if (useGlassEffect) {

@@ -1,4 +1,4 @@
-import 'package:atomsbox/src/simple/atoms/app_gradient.dart';
+import 'package:atomsbox/src/atomsbox/atoms/app_gradient_background.dart';
 import 'package:flutter/material.dart';
 
 import '../atoms/config/app_color_scheme.dart';
@@ -74,7 +74,7 @@ class AppExpansionTile extends StatelessWidget {
               collapsedBackgroundColor: Colors.transparent,
               collapsedIconColor: Theme.of(context).colorScheme.onPrimary,
             ),
-        child: AppGradient(
+        child: AppGradientBackground(
           child: ExpansionTile(
             title: title,
             leading: leading,
