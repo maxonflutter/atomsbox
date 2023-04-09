@@ -62,17 +62,17 @@ const like = 'sample';
         <tr>
             <td align="center" style="background-color: white">
                 <a href="https://verygood.ventures">
-                <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_extension_tile_example_light.png?token=GHSAT0AAAAAABVFB3LJRIPZ5BMVTZ4TFXOSZBSXOXQ" height="300" alt="Flutter atomsbox Package"/>
+                <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_extension_tile_example_light.png?token=GHSAT0AAAAAABVFB3LJRIPZ5BMVTZ4TFXOSZBSXOXQ" height="500" alt="atomsbox pre-styled extension tile"/>
                 </a>
             </td>           
             <td align="center" style="background-color: white">
                 <a href="https://verygood.ventures">
-                <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_form_example_light.png?token=GHSAT0AAAAAABVFB3LJ4UXL64B3RSHLOWNWZBSXO2A" height="300" alt="Flutter atomsbox Package" />
+                <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_form_example_light.png?token=GHSAT0AAAAAABVFB3LJ4UXL64B3RSHLOWNWZBSXO2A" height="500" alt="atomsbox pre-styled form" />
                 </a>
             </td>
             <td align="center" style="background-color: white">
                 <a href="https://verygood.ventures">
-<img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_grid_example_light.png?token=GHSAT0AAAAAABVFB3LJV7P22UN7OGEDKVL4ZBSXO3Q" height="300" alt="Flutter atomsbox Package" />
+<img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/app_grid_example_light.png?token=GHSAT0AAAAAABVFB3LJV7P22UN7OGEDKVL4ZBSXO3Q" height="500" alt="atomsbox pre-styled grid" />
                 </a>
             </td>
         </tr>
