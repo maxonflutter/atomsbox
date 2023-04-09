@@ -1,4 +1,4 @@
-name: atomsbox_simple_library
+name: atomsbox_component_library
 description: A collection of examples on how to implement the pre-styled components from atomsbox
 publish_to: 'none'
 version: 1.0.0+1

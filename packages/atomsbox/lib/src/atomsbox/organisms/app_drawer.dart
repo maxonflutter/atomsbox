@@ -3,21 +3,8 @@ import 'package:flutter/material.dart';
 import '../atoms/config/app_constants.dart';
 import '../atoms/app_text.dart';
 
-/// A simple drawer widget that displays a list of primary and secondary items.
-///
-/// The [SimpleDrawer] widget is a pre-styled drawer that displays a list of
-/// primary and secondary items, separated by a divider. The drawer items are
-/// provided as lists of widgets.
-///
-/// The [drawerItems] argument is required and contains the primary items to
-/// display in the drawer. The [drawerSecondaryItems] argument is optional and
-/// contains the secondary items to display in the drawer, separated by a divider.
-///
-/// See also:
-/// * [Drawer], which is the underlying widget used to create the drawer.
-///
-class SimpleDrawer extends StatelessWidget {
-  const SimpleDrawer({
+class AppDrawer extends StatelessWidget {
+  const AppDrawer({
     super.key,
     required this.drawerItems,
     this.drawerSecondaryItems,

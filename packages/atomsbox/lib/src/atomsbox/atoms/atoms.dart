@@ -3,7 +3,6 @@ export 'config/app_constants.dart';
 export 'config/app_breakpoints.dart';
 export 'extensions/date_time_extensions.dart';
 export 'extensions/duration_extensions.dart';
-export 'audio_player_state.dart';
 export 'app_icon_button.dart';
 export 'app_image.dart';
 export 'app_gradient_text.dart';

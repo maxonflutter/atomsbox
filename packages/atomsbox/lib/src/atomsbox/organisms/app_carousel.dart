@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 
-// A simple carousel widget for displaying a list of widgets.
-class SimpleCarousel extends StatelessWidget {
-  const SimpleCarousel({
+class AppCarousel extends StatelessWidget {
+  const AppCarousel({
     super.key,
     this.title,
     this.description,

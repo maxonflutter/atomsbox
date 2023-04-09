@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 
-class SimpleTab extends StatefulWidget {
-  const SimpleTab({
+class AppTab extends StatefulWidget {
+  const AppTab({
     super.key,
     required this.tabs,
     required this.children,
@@ -13,11 +13,10 @@ class SimpleTab extends StatefulWidget {
   final List<Widget> children;
 
   @override
-  State<SimpleTab> createState() => _SimpleTabState();
+  State<AppTab> createState() => _AppTabState();
 }
 
-class _SimpleTabState extends State<SimpleTab>
-    with SingleTickerProviderStateMixin {
+class _AppTabState extends State<AppTab> with SingleTickerProviderStateMixin {
   late TabController controller;
   late Widget currentChild;
 
@@ -49,7 +48,7 @@ class _SimpleTabState extends State<SimpleTab>
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        _SimpleTabBar(
+        _AppTabBar(
           controller: controller,
           children: widget.tabs,
         ),
@@ -63,8 +62,8 @@ class _SimpleTabState extends State<SimpleTab>
   }
 }
 
-class _SimpleTabBar extends StatelessWidget with PreferredSizeWidget {
-  const _SimpleTabBar({
+class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
+  const _AppTabBar({
     super.key,
     required this.controller,
     required this.children,

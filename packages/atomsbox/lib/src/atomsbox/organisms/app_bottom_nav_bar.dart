@@ -1,9 +1,10 @@
+
 import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 
-class SimpleBottomNavBar extends StatelessWidget {
-  const SimpleBottomNavBar({
+class AppBottomNavBar extends StatelessWidget {
+  const AppBottomNavBar({
     super.key,
     required this.items,
     this.floating = true,

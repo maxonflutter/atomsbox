@@ -1,20 +1,20 @@
 import 'package:atomsbox/atomsbox.dart';
-import 'package:atomsbox_simple_library/organisms/examples/app_form_example.dart';
-import 'package:atomsbox_simple_library/organisms/examples/app_list_example.dart';
+import 'package:flutter/material.dart';
+
 import 'atoms/examples/app_buttons_example.dart';
 import 'atoms/examples/app_cards_example.dart';
 import 'atoms/examples/app_image_example.dart';
 import 'atoms/examples/app_slider_example.dart';
 import 'atoms/examples/app_text_example.dart';
 import 'atoms/examples/app_text_form_fields_example.dart';
-import 'molecules/examples/app_segmented_button_example.dart';
 import 'molecules/examples/app_default_card_example.dart';
 import 'molecules/examples/app_expansion_tile_example.dart';
-import 'molecules/examples/app_user_card_example.dart';
-import 'organisms/examples/app_grid_example.dart';
-import 'package:flutter/material.dart';
-
 import 'molecules/examples/app_list_tile_example.dart';
+import 'molecules/examples/app_segmented_button_example.dart';
+import 'molecules/examples/app_user_card_example.dart';
+import 'organisms/examples/app_form_example.dart';
+import 'organisms/examples/app_grid_example.dart';
+import 'organisms/examples/app_list_example.dart';
 
 part 'atoms/_atoms.dart';
 part 'molecules/_molecules.dart';
