@@ -8,26 +8,49 @@ import 'config/app_color_scheme.dart';
 import 'config/app_constants.dart';
 import 'config/app_typedef.dart';
 
+/// A customizable icon button with various styles.
+///
+/// The [AppIconButton] widget provides multiple constructors to create icon buttons
+/// with different appearances, such as primary, secondary, glass, and gradient styles.
+///
+/// The [onPressed] callback will be called when the button is tapped. The button takes in a required
+/// [child] widget, which is typically a [Icon] widget.
+///
+/// The [onPressed] callback will be called when the button is tapped.
+///
+/// Use the different constructors to create the desired button style:
+/// * [AppIconButton] for primary style.
+/// * [AppIconButton.secondary] for secondary style.
+/// * [AppIconButton.glass] for glass effect style.
+/// * [AppIconButton.gradient] for gradient background style.
+///
+/// See also:
+///
+/// * [IconButton], which is the base widget used to create the different styles of [AppIconButton].
 class AppIconButton extends StatelessWidget {
+  /// Creates an [AppIconButton] with the primary style.
+  ///
+  /// The [child] parameter must not be null.
   AppIconButton({
     super.key,
     this.onPressed,
-    this.primary = true,
     required this.child,
   }) {
     builder = (context) {
       return IconButton(
-        style: IconButton.styleFrom(),
         onPressed: onPressed,
         icon: child,
       );
     };
   }
 
+  /// Creates an [AppIconButton] with the secondary style.
+  ///
+  /// The [child] parameter must not be null.
+
   AppIconButton.secondary({
     super.key,
     this.onPressed,
-    this.primary = false,
     required this.child,
   }) {
     builder = (context) {
@@ -41,10 +64,12 @@ class AppIconButton extends StatelessWidget {
     };
   }
 
+  /// Creates an [AppIconButton] with the glass style.
+  ///
+  /// The [child] parameter must not be null.
   AppIconButton.glass({
     super.key,
     this.onPressed,
-    this.primary = false,
     required this.child,
   }) {
     builder = (context) {
@@ -68,10 +93,13 @@ class AppIconButton extends StatelessWidget {
       );
     };
   }
+
+  /// Creates an [AppIconButton] with the gradient style.
+  ///
+  /// The [child] parameter must not be null.
   AppIconButton.gradient({
     super.key,
     this.onPressed,
-    this.primary = false,
     required this.child,
   }) {
     builder = (context) {
@@ -96,9 +124,18 @@ class AppIconButton extends StatelessWidget {
     };
   }
 
+  /// A callback that returns an [IconButton] with the desired style.
   late IconButtonBuilder builder;
-  final Function()? onPressed;
-  final bool primary;
+
+  /// The callback that is called when the button is tapped.
+  ///
+  /// If null, the button will be disabled.
+  final VoidCallback? onPressed;
+
+  /// The icon to display inside the button.
+  ///
+  /// This should typically be an [Icon] widget, but can be any [Widget] that
+  /// visually represents the button's intended action.
   final Widget child;
 
   @override
