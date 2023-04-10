@@ -44,7 +44,9 @@ class AppGradientBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+        borderRadius: BorderRadius.circular(
+          AppConstants.borderRadius,
+        ),
         gradient: LinearGradient(
           colors: colors ??
               [

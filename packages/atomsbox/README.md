@@ -128,7 +128,10 @@ class MyApp extends StatelessWidget {
 
 
 
-## Examples
+## Components & Examples
+
+
+
 - [Music App](https://bloclibrary.dev/#/fluttercountertutorial) - an example of how to build a music app UI with atomsbox
 - [News App](https://github.com/felangel/bloc/tree/master/examples/flutter_form_validation) - an example of how to build a news app UI with atomsboxform validation.
 

@@ -82,6 +82,7 @@ class AppIconButton extends StatelessWidget {
               height: 40,
               child: IconButton(
                 style: IconButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.primary,
                   backgroundColor: Colors.transparent,
                 ),
                 onPressed: onPressed,

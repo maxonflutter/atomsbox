@@ -149,7 +149,7 @@ final appOutlinedButtonThemeDark = OutlinedButtonThemeData(
       ),
     ),
     side: BorderSide(color: AppColors.appColorSchemeDark.primary),
-    minimumSize: const Size(100, 45),
+    minimumSize: const Size(100, 48),
     foregroundColor: AppColors.appColorSchemeDark.primary,
     backgroundColor: Colors.transparent,
     disabledForegroundColor:
@@ -170,7 +170,7 @@ final appOutlinedButtonThemeLight = OutlinedButtonThemeData(
       color: AppColors.appColorSchemeLight.primary,
       strokeAlign: BorderSide.strokeAlignCenter,
     ),
-    minimumSize: const Size(100, 45),
+    minimumSize: const Size(100, 48),
     foregroundColor: AppColors.appColorSchemeLight.primary,
     backgroundColor: Colors.transparent,
     disabledForegroundColor:

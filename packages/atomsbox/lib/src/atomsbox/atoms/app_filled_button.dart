@@ -95,7 +95,9 @@ class AppFilledButton extends StatelessWidget {
       return AppGradientBackground(
         child: FilledButton(
           style: FilledButton.styleFrom(
+            padding: EdgeInsets.zero,
             minimumSize: minimumSize,
+            side: BorderSide.none,
             backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.onPrimary,
           ),
@@ -137,7 +139,7 @@ final appFilledButtonThemeLight = FilledButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     ),
-    minimumSize: const Size(100, 45),
+    minimumSize: const Size(100, 48),
     foregroundColor: AppColors.appColorSchemeLight.onPrimary,
     backgroundColor: AppColors.appColorSchemeLight.primary,
     disabledForegroundColor:
@@ -154,7 +156,7 @@ final appFilledButtonThemeDark = FilledButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     ),
-    minimumSize: const Size(100, 45),
+    minimumSize: const Size(100, 48),
     foregroundColor: AppColors.appColorSchemeLight.onPrimary,
     backgroundColor: AppColors.appColorSchemeLight.primary,
     disabledForegroundColor:

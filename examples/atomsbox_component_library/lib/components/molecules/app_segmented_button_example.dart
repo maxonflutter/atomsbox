@@ -10,23 +10,7 @@ class AppSegmentedButtonExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: AppText('atomsbox'),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 4.0),
-            child: IconButton(
-              onPressed: () {
-                MyApp.themeNotifier.value =
-                    MyApp.themeNotifier.value == ThemeMode.light
-                        ? ThemeMode.dark
-                        : ThemeMode.light;
-              },
-              icon: const Icon(Icons.light_mode),
-            ),
-          ),
-        ],
-      ),
+      appBar: ExampleAppBar(),
       body: Center(
         child: Container(
           margin: const EdgeInsets.all(AppConstants.sm),

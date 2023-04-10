@@ -11,23 +11,7 @@ class AppExpansionTileExample extends StatelessWidget {
     const sampleText =
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
     return Scaffold(
-      appBar: AppBar(
-        title: AppText('atomsbox'),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 4.0),
-            child: IconButton(
-              onPressed: () {
-                MyApp.themeNotifier.value =
-                    MyApp.themeNotifier.value == ThemeMode.light
-                        ? ThemeMode.dark
-                        : ThemeMode.light;
-              },
-              icon: const Icon(Icons.light_mode),
-            ),
-          ),
-        ],
-      ),
+      appBar: ExampleAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(

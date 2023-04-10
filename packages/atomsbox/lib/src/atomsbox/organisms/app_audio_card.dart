@@ -40,8 +40,16 @@ class AppAudioCard extends StatelessWidget {
     this.songUrl,
     this.songName,
     this.artistName,
-    required this.seekbar,
-    required this.audioControls,
+    // Audio Controls properties
+    required this.play,
+    required this.pause,
+    required this.audioPlayerState,
+    // Seekbar properties
+    required this.position,
+    required this.duration,
+    this.onChanged,
+    this.showDuration = true,
+    this.showPosition = true,
   }) {
     builder = (context) {
       return AppCard.elevated(
@@ -61,8 +69,17 @@ class AppAudioCard extends StatelessWidget {
               AppText.bodyLarge(songName ?? ''),
               AppText.bodySmall(artistName ?? ''),
               const SizedBox(height: AppConstants.sm),
-              seekbar,
-              audioControls,
+              _AppAudioControls(
+                audioPlayerState: audioPlayerState,
+                play: play,
+                pause: pause,
+              ),
+              _AppAudioSeekbar(
+                position: position,
+                duration: duration,
+                showDuration: showDuration,
+                showPosition: showPosition,
+              ),
             ],
           ),
         ),
@@ -76,8 +93,16 @@ class AppAudioCard extends StatelessWidget {
     this.songUrl,
     this.songName,
     this.artistName,
-    required this.seekbar,
-    required this.audioControls,
+    // Audio Controls properties
+    required this.play,
+    required this.pause,
+    required this.audioPlayerState,
+    // Seekbar properties
+    required this.position,
+    required this.duration,
+    this.onChanged,
+    this.showDuration = false,
+    this.showPosition = false,
   }) {
     builder = (context) {
       return AppCard.elevated(
@@ -89,9 +114,18 @@ class AppAudioCard extends StatelessWidget {
               leading: AppImage.network(imageUrl!, height: 48),
               title: AppText.bodyLarge(songName ?? ''),
               subtitle: AppText.bodySmall(artistName ?? ''),
-              trailing: audioControls,
+              trailing: _AppAudioControls(
+                audioPlayerState: audioPlayerState,
+                play: play,
+                pause: pause,
+              ),
             ),
-            seekbar,
+            _AppAudioSeekbar(
+              position: position,
+              duration: duration,
+              showDuration: showDuration,
+              showPosition: showPosition,
+            ),
           ],
         ),
       );
@@ -103,8 +137,14 @@ class AppAudioCard extends StatelessWidget {
   final String? songUrl;
   final String? songName;
   final String? artistName;
-  final _AppAudioSeekbar seekbar;
-  final _AppAudioControls audioControls;
+  final VoidCallback play;
+  final VoidCallback pause;
+  final AudioPlayerState audioPlayerState;
+  final Duration position;
+  final Duration duration;
+  final Function(double)? onChanged;
+  final bool showDuration;
+  final bool showPosition;
 
   @override
   Widget build(BuildContext context) {

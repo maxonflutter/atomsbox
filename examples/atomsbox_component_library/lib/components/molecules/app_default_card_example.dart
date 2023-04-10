@@ -14,23 +14,7 @@ class AppDefaultCardExample extends StatelessWidget {
         'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
 
     return Scaffold(
-      appBar: AppBar(
-        title: AppText('atomsbox'),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 4.0),
-            child: IconButton(
-              onPressed: () {
-                MyApp.themeNotifier.value =
-                    MyApp.themeNotifier.value == ThemeMode.light
-                        ? ThemeMode.dark
-                        : ThemeMode.light;
-              },
-              icon: const Icon(Icons.light_mode),
-            ),
-          ),
-        ],
-      ),
+      appBar: ExampleAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
