@@ -112,17 +112,17 @@ class AppGridSettings {
   final double? desktopChildAspectRatio;
 
   const AppGridSettings({
-    this.crossAxisCount = 0,
+    this.crossAxisCount = 1,
     this.mainAxisSpacing = AppConstants.sm,
     this.crossAxisSpacing = AppConstants.sm,
     this.childAspectRatio = 1.0,
-    this.tabletCrossAxisCount,
-    this.tabletMainAxisSpacing,
-    this.tabletCrossAxisSpacing,
-    this.tabletChildAspectRatio,
-    this.desktopCrossAxisCount,
-    this.desktopMainAxisSpacing,
-    this.desktopCrossAxisSpacing,
-    this.desktopChildAspectRatio,
+    this.tabletCrossAxisCount = 2,
+    this.tabletMainAxisSpacing = AppConstants.sm,
+    this.tabletCrossAxisSpacing = AppConstants.sm,
+    this.tabletChildAspectRatio = 1.0,
+    this.desktopCrossAxisCount = 3,
+    this.desktopMainAxisSpacing = AppConstants.sm,
+    this.desktopCrossAxisSpacing = AppConstants.sm,
+    this.desktopChildAspectRatio = 1.0,
   });
 }
