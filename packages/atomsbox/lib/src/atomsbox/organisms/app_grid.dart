@@ -31,26 +31,18 @@ class AppGrid extends StatelessWidget {
 
     if (AppBreakpoints.isDesktop(context)) {
       gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount:
-            gridSettings.desktopCrossAxisCount ?? gridSettings.crossAxisCount,
-        mainAxisSpacing:
-            gridSettings.desktopMainAxisSpacing ?? gridSettings.mainAxisSpacing,
-        crossAxisSpacing: gridSettings.desktopCrossAxisSpacing ??
-            gridSettings.crossAxisSpacing,
-        childAspectRatio: gridSettings.desktopChildAspectRatio ??
-            gridSettings.childAspectRatio,
+        crossAxisCount: gridSettings.desktopCrossAxisCount,
+        mainAxisSpacing: gridSettings.desktopMainAxisSpacing,
+        crossAxisSpacing: gridSettings.desktopCrossAxisSpacing,
+        childAspectRatio: gridSettings.desktopChildAspectRatio,
       );
     }
     if (AppBreakpoints.isTablet(context)) {
       gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount:
-            gridSettings.tabletCrossAxisCount ?? gridSettings.crossAxisCount,
-        mainAxisSpacing:
-            gridSettings.tabletMainAxisSpacing ?? gridSettings.mainAxisSpacing,
-        crossAxisSpacing: gridSettings.tabletCrossAxisSpacing ??
-            gridSettings.crossAxisSpacing,
-        childAspectRatio: gridSettings.tabletChildAspectRatio ??
-            gridSettings.childAspectRatio,
+        crossAxisCount: gridSettings.tabletCrossAxisCount,
+        mainAxisSpacing: gridSettings.tabletMainAxisSpacing,
+        crossAxisSpacing: gridSettings.tabletCrossAxisSpacing,
+        childAspectRatio: gridSettings.tabletChildAspectRatio,
       );
     } else {
       gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
@@ -99,17 +91,17 @@ class AppGridSettings {
   final double crossAxisSpacing;
   final double childAspectRatio;
 
-  // Optional tablet settings
-  final int? tabletCrossAxisCount;
-  final double? tabletMainAxisSpacing;
-  final double? tabletCrossAxisSpacing;
-  final double? tabletChildAspectRatio;
+  // Tablet settings
+  final int tabletCrossAxisCount;
+  final double tabletMainAxisSpacing;
+  final double tabletCrossAxisSpacing;
+  final double tabletChildAspectRatio;
 
-  // Optional desktop settings
-  final int? desktopCrossAxisCount;
-  final double? desktopMainAxisSpacing;
-  final double? desktopCrossAxisSpacing;
-  final double? desktopChildAspectRatio;
+  // Desktop settings
+  final int desktopCrossAxisCount;
+  final double desktopMainAxisSpacing;
+  final double desktopCrossAxisSpacing;
+  final double desktopChildAspectRatio;
 
   const AppGridSettings({
     this.crossAxisCount = 1,
