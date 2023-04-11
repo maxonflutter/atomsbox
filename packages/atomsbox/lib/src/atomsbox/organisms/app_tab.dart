@@ -37,6 +37,14 @@ class _AppTabState extends State<AppTab> with SingleTickerProviderStateMixin {
   }
 
   @override
+  void didUpdateWidget(oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.children != oldWidget.children) {
+      currentChild = widget.children[currentTab];
+    }
+  }
+
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
