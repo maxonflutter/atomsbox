@@ -36,8 +36,7 @@ class AppGrid extends StatelessWidget {
         crossAxisSpacing: gridSettings.desktopCrossAxisSpacing,
         childAspectRatio: gridSettings.desktopChildAspectRatio,
       );
-    }
-    if (AppBreakpoints.isTablet(context)) {
+    } else if (AppBreakpoints.isTablet(context)) {
       gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: gridSettings.tabletCrossAxisCount,
         mainAxisSpacing: gridSettings.tabletMainAxisSpacing,
