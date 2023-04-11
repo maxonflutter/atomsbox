@@ -186,8 +186,10 @@ class AppGridExample extends StatelessWidget {
           AppGrid(
             title: AppText('This is a grid'),
             description: AppText('This is a description'),
-            crossAxisCount: 2,
-            childAspectRatio: 0.7,
+            gridSettings: const AppGridSettings(
+              crossAxisCount: 2,
+              childAspectRatio: 0.7,
+            ),
             gridItems: [1, 2, 3, 4]
                 .map(
                   (e) => AppUserCard(
@@ -216,12 +218,14 @@ class AppGridExample extends StatelessWidget {
               return AppGrid(
                 title: AppText('This is a grid'),
                 description: AppText('This is a description'),
-                crossAxisCount: crossAxisCount,
                 height: gridItemHeight * (gridItems.length / crossAxisCount) +
                     verticalSpacing,
-                childAspectRatio: (constraints.maxWidth - horizontalSpacing) /
-                    crossAxisCount /
-                    gridItemHeight,
+                gridSettings: AppGridSettings(
+                  crossAxisCount: crossAxisCount,
+                  childAspectRatio: (constraints.maxWidth - horizontalSpacing) /
+                      crossAxisCount /
+                      gridItemHeight,
+                ),
                 gridItems: gridItems
                     .map(
                       (e) => AppListTile(

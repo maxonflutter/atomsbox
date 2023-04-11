@@ -127,17 +127,17 @@ class _AppDefaultCardState extends State<AppDefaultCard> {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    final headlineStyle = textTheme.headlineMedium!.copyWith(
+    final headlineStyle = textTheme.headlineSmall!.copyWith(
       color: hovered ? colorScheme.onSecondary : null,
     );
 
-    final supportingTextStyle = textTheme.bodySmall!.copyWith(
-      color: hovered ? colorScheme.onSecondary : null,
-    );
-
-    final subheadStyle = textTheme.bodyMedium!.copyWith(
+    final subheadStyle = textTheme.bodyLarge!.copyWith(
       color: hovered ? colorScheme.onSecondary : colorScheme.primary,
       fontWeight: FontWeight.bold,
+    );
+
+    final supportingTextStyle = textTheme.bodyMedium!.copyWith(
+      color: hovered ? colorScheme.onSecondary : null,
     );
 
     return InkWell(
@@ -160,7 +160,7 @@ class _AppDefaultCardState extends State<AppDefaultCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DefaultTextStyle(
-                  maxLines: 2,
+                  maxLines: 1,
                   style:
                       headlineStyle.copyWith(fontSize: headlineStyle.fontSize),
                   child: widget.headline,

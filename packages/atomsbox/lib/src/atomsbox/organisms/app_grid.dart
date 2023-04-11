@@ -9,19 +9,17 @@ class AppGrid extends StatelessWidget {
     this.title,
     this.description,
     required this.gridItems,
-    this.crossAxisCount,
-    this.childAspectRatio = 1.0,
+    required this.gridSettings,
     this.height,
     this.physics = const NeverScrollableScrollPhysics(),
   });
 
   final Widget? title;
   final Widget? description;
-  final List<Widget> gridItems;
-  final double childAspectRatio;
-  final int? crossAxisCount;
   final double? height;
   final ScrollPhysics? physics;
+  final AppGridSettings gridSettings;
+  final List<Widget> gridItems;
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +27,38 @@ class AppGrid extends StatelessWidget {
     final titleStyle = textTheme.headlineSmall;
     final descriptionStyle = textTheme.bodyMedium;
 
-    var defaultCrossAxisCount;
+    SliverGridDelegateWithFixedCrossAxisCount gridDelegate;
 
     if (AppBreakpoints.isDesktop(context)) {
-      defaultCrossAxisCount = 3;
+      gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount:
+            gridSettings.desktopCrossAxisCount ?? gridSettings.crossAxisCount,
+        mainAxisSpacing:
+            gridSettings.desktopMainAxisSpacing ?? gridSettings.mainAxisSpacing,
+        crossAxisSpacing: gridSettings.desktopCrossAxisSpacing ??
+            gridSettings.crossAxisSpacing,
+        childAspectRatio: gridSettings.desktopChildAspectRatio ??
+            gridSettings.childAspectRatio,
+      );
     }
     if (AppBreakpoints.isTablet(context)) {
-      defaultCrossAxisCount = 2;
-    }
-    if (AppBreakpoints.isMobile(context)) {
-      defaultCrossAxisCount = 1;
+      gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount:
+            gridSettings.tabletCrossAxisCount ?? gridSettings.crossAxisCount,
+        mainAxisSpacing:
+            gridSettings.tabletMainAxisSpacing ?? gridSettings.mainAxisSpacing,
+        crossAxisSpacing: gridSettings.tabletCrossAxisSpacing ??
+            gridSettings.crossAxisSpacing,
+        childAspectRatio: gridSettings.tabletChildAspectRatio ??
+            gridSettings.childAspectRatio,
+      );
+    } else {
+      gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: gridSettings.crossAxisCount,
+        mainAxisSpacing: gridSettings.mainAxisSpacing,
+        crossAxisSpacing: gridSettings.crossAxisSpacing,
+        childAspectRatio: gridSettings.childAspectRatio,
+      );
     }
 
     return Column(
@@ -63,16 +83,46 @@ class AppGrid extends StatelessWidget {
             physics: physics,
             padding: EdgeInsets.zero,
             itemCount: gridItems.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: crossAxisCount ?? defaultCrossAxisCount,
-              childAspectRatio: childAspectRatio,
-              mainAxisSpacing: AppConstants.sm,
-              crossAxisSpacing: AppConstants.sm,
-            ),
+            gridDelegate: gridDelegate,
             itemBuilder: (context, index) => gridItems[index],
           ),
         ),
       ],
     );
   }
+}
+
+class AppGridSettings {
+  // Default settings
+  final int crossAxisCount;
+  final double mainAxisSpacing;
+  final double crossAxisSpacing;
+  final double childAspectRatio;
+
+  // Optional tablet settings
+  final int? tabletCrossAxisCount;
+  final double? tabletMainAxisSpacing;
+  final double? tabletCrossAxisSpacing;
+  final double? tabletChildAspectRatio;
+
+  // Optional desktop settings
+  final int? desktopCrossAxisCount;
+  final double? desktopMainAxisSpacing;
+  final double? desktopCrossAxisSpacing;
+  final double? desktopChildAspectRatio;
+
+  const AppGridSettings({
+    this.crossAxisCount = 0,
+    this.mainAxisSpacing = AppConstants.sm,
+    this.crossAxisSpacing = AppConstants.sm,
+    this.childAspectRatio = 1.0,
+    this.tabletCrossAxisCount,
+    this.tabletMainAxisSpacing,
+    this.tabletCrossAxisSpacing,
+    this.tabletChildAspectRatio,
+    this.desktopCrossAxisCount,
+    this.desktopMainAxisSpacing,
+    this.desktopCrossAxisSpacing,
+    this.desktopChildAspectRatio,
+  });
 }
