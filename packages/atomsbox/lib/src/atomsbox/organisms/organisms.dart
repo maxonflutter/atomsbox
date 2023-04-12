@@ -6,3 +6,4 @@ export 'app_list.dart';
 export 'app_tab.dart';
 export 'app_form.dart';
 export 'app_audio_card.dart';
+export 'app_data_table.dart';
