@@ -87,7 +87,7 @@ class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
       height: 56.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-        color: colorScheme.surfaceVariant,
+        color: colorScheme.surface,
       ),
       child: TabBar(
         controller: controller,
@@ -97,7 +97,7 @@ class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
           color: colorScheme.primary,
         ),
         labelColor: colorScheme.onPrimary,
-        unselectedLabelColor: colorScheme.onSurfaceVariant,
+        unselectedLabelColor: colorScheme.onSurface,
         tabs: children,
       ),
     );
