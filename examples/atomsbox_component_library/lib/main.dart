@@ -1,6 +1,7 @@
 import 'package:atomsbox/atomsbox.dart';
-import 'package:atomsbox_component_library/components/organisms/app_form_example.dart';
-import 'package:atomsbox_component_library/components/organisms/app_list_example.dart';
+import 'package:atomsbox_component_library/components/organisms/app_bottom_nav_bar_example.dart';
+import 'components/organisms/app_form_example.dart';
+import 'components/organisms/app_list_example.dart';
 import 'package:flutter/material.dart';
 
 import 'components/atoms/app_card_example.dart';
@@ -98,6 +99,21 @@ class AtomsboxExamples extends StatelessWidget {
                     );
                   },
                   child: AppText('AppAudioCard'),
+                ),
+                const SizedBox(height: AppConstants.sm * 0.5),
+                AppFilledButton.gradient(
+                  minimumSize: const Size(200, 48),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const AppBottomNavBarExample();
+                        },
+                      ),
+                    );
+                  },
+                  child: AppText('AppBottomNavBar'),
                 ),
                 const SizedBox(height: AppConstants.sm * 0.5),
                 AppFilledButton.gradient(

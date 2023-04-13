@@ -1,74 +1,132 @@
-
+import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
-import '../atoms/config/app_constants.dart';
-
-class AppBottomNavBar extends StatelessWidget {
-  const AppBottomNavBar({
-    super.key,
+class AppBottomNavBar extends StatefulWidget {
+  AppBottomNavBar({
+    Key? key,
+    this.currentIndex = 0,
     required this.items,
-    this.floating = true,
-  });
+    this.height = 56.0,
+    this.floating = false,
+  })  : assert(items.length > 1),
+        assert(items.length <= 5),
+        super(key: key);
 
-  /// The list of widgets that will be displayed as items in the navigation bar.
-  ///
-  /// Typically, these will be [Icon] or [Text] widgets. They should be of a
-  /// similar size to ensure proper alignment and spacing.
-  final List<Widget> items;
-
-  /// Whether the navigation bar should have a floating style.
-  ///
-  /// When set to true, the navigation bar will have a smaller height and
-  /// symmetrical margin. When set to false, it will have a larger height and
-  /// padding at the top, left, and right.
+  final int currentIndex;
+  final double height;
+  final List<AppBottomNavBarItem> items;
   final bool floating;
 
   @override
+  State<AppBottomNavBar> createState() => _AppBottomNavBarState();
+}
+
+class _AppBottomNavBarState extends State<AppBottomNavBar> {
+  late int _currentIndex;
+
+  @override
+  void initState() {
+    _currentIndex = widget.currentIndex;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    double height;
-    EdgeInsets? margin;
-    EdgeInsets? padding;
+    Size size = MediaQuery.of(context).size;
 
-    var decoration = BoxDecoration(
-      color: Theme.of(context).colorScheme.primary.withAlpha(200),
-      borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-    );
-
-    if (floating == true) {
-      height = 60.0;
-      margin = const EdgeInsets.symmetric(
-        horizontal: AppConstants.xlg,
-        vertical: AppConstants.lg,
-      );
-    } else {
-      height = 85.0;
-      padding = const EdgeInsets.only(
-        top: AppConstants.sm,
-        left: AppConstants.xlg,
-        right: AppConstants.xlg,
-      );
-    }
-
-    return floating
-        ? Container(
-            height: height,
-            margin: margin,
-            decoration: decoration,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: items,
-            ),
-          )
-        : Container(
-            height: height,
-            padding: padding,
-            decoration: decoration,
-            child: SafeArea(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: items,
+    final _items = widget.items
+        .asMap()
+        .map((index, item) {
+          return MapEntry(
+            index,
+            LayoutBuilder(
+              builder: (context, constraints) => SizedBox(
+                width: constraints.maxWidth.isFinite
+                    ? (constraints.maxWidth - AppConstants.lg) /
+                        widget.items.length
+                    : (size.width - AppConstants.lg) / widget.items.length,
+                child: _buildAppBottomNavBarItem(context, index, item),
               ),
             ),
           );
+        })
+        .values
+        .toList();
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+      child: widget.floating
+          ? Container(
+              margin: EdgeInsets.only(
+                left: AppConstants.sm,
+                right: AppConstants.sm,
+                bottom: MediaQuery.of(context).viewPadding.bottom,
+              ),
+              height: widget.height,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(AppConstants.sm),
+              ),
+              child: Material(
+                borderRadius: BorderRadius.circular(AppConstants.sm),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: _items,
+                ),
+              ),
+            )
+          : BottomAppBar(
+              padding: EdgeInsets.zero,
+              height: widget.height + MediaQuery.of(context).viewPadding.bottom,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: _items,
+              ),
+            ),
+    );
   }
+
+  InkWell _buildAppBottomNavBarItem(
+    BuildContext context,
+    int index,
+    AppBottomNavBarItem item,
+  ) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+      onTap: item.onTap,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            item.icon,
+            color: _currentIndex == index
+                ? Theme.of(context).colorScheme.primary
+                : Theme.of(context).colorScheme.onSurface,
+          ),
+          if (item.title != null)
+            AppText(
+              '${item.title}',
+              color: _currentIndex == index
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.onSurface,
+              overflow: TextOverflow.ellipsis,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class AppBottomNavBarItem {
+  AppBottomNavBarItem({
+    required this.icon,
+    this.title,
+    this.onTap,
+  });
+
+  final IconData icon;
+  final String? title;
+  final VoidCallback? onTap;
 }
