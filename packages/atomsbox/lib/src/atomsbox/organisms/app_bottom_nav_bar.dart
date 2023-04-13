@@ -64,11 +64,12 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
               ),
               height: widget.height,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary.withAlpha(100),
+                color: Theme.of(context).colorScheme.primaryContainer,
                 borderRadius: BorderRadius.circular(AppConstants.sm),
               ),
               child: Material(
                 borderRadius: BorderRadius.circular(AppConstants.sm),
+                color: Colors.transparent,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -102,15 +103,21 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
           Icon(
             item.icon,
             color: _currentIndex == index
-                ? Theme.of(context).colorScheme.primary
-                : Theme.of(context).colorScheme.onSurface,
+                ? Theme.of(context).colorScheme.onPrimaryContainer
+                : Theme.of(context)
+                    .colorScheme
+                    .onPrimaryContainer
+                    .withAlpha(100),
           ),
           if (item.label != null)
             AppText.bodySmall(
               '${item.label}',
               color: _currentIndex == index
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.onSurface,
+                  ? Theme.of(context).colorScheme.onPrimaryContainer
+                  : Theme.of(context)
+                      .colorScheme
+                      .onPrimaryContainer
+                      .withAlpha(100),
               overflow: TextOverflow.ellipsis,
             ),
         ],
