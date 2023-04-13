@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_breakpoints.dart';
 import '../atoms/config/app_constants.dart';
-import '../molecules/app_title_with_subtitle.dart';
+import '../molecules/app_text_block.dart';
 
 class AppGrid extends StatelessWidget {
   const AppGrid({
@@ -52,7 +52,7 @@ class AppGrid extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppTitleWithSubtitle(title: title, subtitle: description),
+        AppTextBlock(title: title, subtitle: description),
         SizedBox(
           height: height,
           child: GridView.builder(

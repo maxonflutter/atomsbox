@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../molecules/app_title_with_subtitle.dart';
+import '../molecules/app_text_block.dart';
 
 class AppCarousel extends StatelessWidget {
   const AppCarousel({
@@ -32,7 +32,7 @@ class AppCarousel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppTitleWithSubtitle(title: title, subtitle: description),
+        AppTextBlock(title: title, subtitle: description),
         CarouselSlider(
           options: CarouselOptions(
             height: size.height * heightFactor,

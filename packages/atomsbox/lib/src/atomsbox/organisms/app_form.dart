@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../atoms/app_label.dart';
 import '../atoms/config/app_constants.dart';
-import '../molecules/app_title_with_subtitle.dart';
+import '../molecules/app_text_block.dart';
 
 class AppForm extends StatefulWidget {
   const AppForm({
@@ -32,7 +32,7 @@ class _AppFormState extends State<AppForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppTitleWithSubtitle(title: widget.title, subtitle: widget.description),
+        AppTextBlock(title: widget.title, subtitle: widget.description),
         ...widget.formItems.map(
           (item) {
             var listIndex = widget.formItems.indexOf(item);

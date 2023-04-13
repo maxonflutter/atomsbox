@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
-import '../molecules/app_title_with_subtitle.dart';
+import '../molecules/app_text_block.dart';
 
 enum AppListType { horizontal, vertical }
 
@@ -38,7 +38,7 @@ class AppList extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        AppTitleWithSubtitle(title: title, subtitle: description),
+        AppTextBlock(title: title, subtitle: description),
         SizedBox(
           height: height,
           child: type == AppListType.horizontal

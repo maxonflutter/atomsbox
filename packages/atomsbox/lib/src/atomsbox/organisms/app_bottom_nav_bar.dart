@@ -105,9 +105,9 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
                 ? Theme.of(context).colorScheme.primary
                 : Theme.of(context).colorScheme.onSurface,
           ),
-          if (item.title != null)
-            AppText(
-              '${item.title}',
+          if (item.label != null)
+            AppText.bodySmall(
+              '${item.label}',
               color: _currentIndex == index
                   ? Theme.of(context).colorScheme.primary
                   : Theme.of(context).colorScheme.onSurface,
@@ -122,11 +122,11 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
 class AppBottomNavBarItem {
   AppBottomNavBarItem({
     required this.icon,
-    this.title,
+    this.label,
     this.onTap,
   });
 
   final IconData icon;
-  final String? title;
+  final String? label;
   final VoidCallback? onTap;
 }

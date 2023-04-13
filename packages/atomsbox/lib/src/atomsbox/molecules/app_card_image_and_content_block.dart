@@ -1,3 +1,4 @@
+import 'package:atomsbox/src/atomsbox/molecules/app_text_block.dart';
 import 'package:flutter/material.dart';
 
 import '../atoms/app_card.dart';
@@ -6,7 +7,7 @@ import '../atoms/config/app_constants.dart';
 
 /// A customizable card widget with hover effect and optional content.
 ///
-/// The [AppDefaultCard] is a versatile card widget that can be used to display
+/// The [AppCardImageAndContentBlock] is a versatile card widget that can be used to display
 /// various types of content, including a headline, subhead, supporting text, image,
 /// and hover image. It also has an optional list of actions.
 ///
@@ -14,13 +15,13 @@ import '../atoms/config/app_constants.dart';
 /// provided properties.
 ///
 /// It supports three card types: filled, elevated, and outlined.
-class AppDefaultCard extends StatefulWidget {
+class AppCardImageAndContentBlock extends StatefulWidget {
   /// Creates a customizable card widget.
   ///
   /// The [headline] parameter must not be null.
   /// The [type] parameter defaults to [AppCardType.filled].
 
-  const AppDefaultCard({
+  const AppCardImageAndContentBlock({
     super.key,
     this.onTap,
     this.actions,
@@ -68,10 +69,12 @@ class AppDefaultCard extends StatefulWidget {
   /// The card type, which determines its appearance. Defaults to [AppCardType.filled].
   final AppCardType type;
   @override
-  State<AppDefaultCard> createState() => _AppDefaultCardState();
+  State<AppCardImageAndContentBlock> createState() =>
+      _AppCardImageAndContentBlockState();
 }
 
-class _AppDefaultCardState extends State<AppDefaultCard> {
+class _AppCardImageAndContentBlockState
+    extends State<AppCardImageAndContentBlock> {
   late bool hovered;
 
   @override
@@ -82,7 +85,7 @@ class _AppDefaultCardState extends State<AppDefaultCard> {
 
   @override
   Widget build(BuildContext context) {
-    final card = _buildAppDefaultCard(context, hovered);
+    final card = _buildAppCardImageAndContentBlock(context, hovered);
 
     return MouseRegion(
       cursor: SystemMouseCursors.basic,
@@ -120,7 +123,7 @@ class _AppDefaultCardState extends State<AppDefaultCard> {
     );
   }
 
-  InkWell _buildAppDefaultCard(
+  InkWell _buildAppCardImageAndContentBlock(
     BuildContext context,
     bool hovered,
   ) {
@@ -159,34 +162,15 @@ class _AppDefaultCardState extends State<AppDefaultCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                DefaultTextStyle(
-                  maxLines: 1,
-                  style:
-                      headlineStyle.copyWith(fontSize: headlineStyle.fontSize),
-                  child: widget.headline,
+                AppTextBlock(
+                  title: widget.headline,
+                  subtitle: (widget.subhead != null)
+                      ? AppText(widget.subhead!)
+                      : null,
+                  supportingText: (widget.subhead != null)
+                      ? AppText(widget.supportingText!)
+                      : null,
                 ),
-                (widget.subhead != null)
-                    ? DefaultTextStyle(
-                        style: subheadStyle,
-                        child: AppText(
-                          widget.subhead!,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      )
-                    : const SizedBox(),
-                const SizedBox(height: AppConstants.sm),
-                (widget.supportingText != null)
-                    ? DefaultTextStyle(
-                        style: supportingTextStyle.copyWith(
-                            fontSize: supportingTextStyle.fontSize),
-                        child: AppText(
-                          widget.supportingText!,
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      )
-                    : const SizedBox(),
                 Row(
                   children: (widget.actions == null)
                       ? []
@@ -210,3 +194,33 @@ class _AppDefaultCardState extends State<AppDefaultCard> {
     );
   }
 }
+
+
+// DefaultTextStyle(
+//                   maxLines: 1,
+//                   style:
+//                       headlineStyle.copyWith(fontSize: headlineStyle.fontSize),
+//                   child: widget.headline,
+//                 ),
+//                 (widget.subhead != null)
+//                     ? DefaultTextStyle(
+//                         style: subheadStyle,
+//                         child: AppText(
+//                           widget.subhead!,
+//                           maxLines: 1,
+//                           overflow: TextOverflow.ellipsis,
+//                         ),
+//                       )
+//                     : const SizedBox(),
+//                 const SizedBox(height: AppConstants.sm),
+//                 (widget.supportingText != null)
+//                     ? DefaultTextStyle(
+//                         style: supportingTextStyle.copyWith(
+//                             fontSize: supportingTextStyle.fontSize),
+//                         child: AppText(
+//                           widget.supportingText!,
+//                           maxLines: 3,
+//                           overflow: TextOverflow.ellipsis,
+//                         ),
+//                       )
+//                     : const SizedBox(),
