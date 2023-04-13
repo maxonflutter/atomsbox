@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_breakpoints.dart';
 import '../atoms/config/app_constants.dart';
+import '../molecules/app_title_with_subtitle.dart';
 
 class AppGrid extends StatelessWidget {
   const AppGrid({
@@ -23,10 +24,6 @@ class AppGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final titleStyle = textTheme.headlineSmall;
-    final descriptionStyle = textTheme.bodyMedium;
-
     SliverGridDelegateWithFixedCrossAxisCount gridDelegate;
 
     if (AppBreakpoints.isDesktop(context)) {
@@ -55,18 +52,7 @@ class AppGrid extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (title != null)
-          DefaultTextStyle(
-            style: titleStyle!,
-            child: title!,
-          ),
-        if (description != null)
-          DefaultTextStyle(
-            style: descriptionStyle!,
-            child: description!,
-          ),
-        if (title != null || description != null)
-          const SizedBox(height: AppConstants.sm),
+        AppTitleWithSubtitle(title: title, subtitle: description),
         SizedBox(
           height: height,
           child: GridView.builder(

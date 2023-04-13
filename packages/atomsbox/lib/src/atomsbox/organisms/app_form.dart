@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../atoms/app_label.dart';
 import '../atoms/config/app_constants.dart';
+import '../molecules/app_title_with_subtitle.dart';
 
 class AppForm extends StatefulWidget {
   const AppForm({
@@ -28,25 +29,10 @@ class _AppFormState extends State<AppForm> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final titleStyle = textTheme.headlineSmall;
-    final descriptionStyle = textTheme.bodyMedium;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.title != null)
-          DefaultTextStyle(
-            style: titleStyle!,
-            child: widget.title!,
-          ),
-        if (widget.description != null)
-          DefaultTextStyle(
-            style: descriptionStyle!,
-            child: widget.description!,
-          ),
-        if (widget.title != null || widget.description != null)
-          const SizedBox(height: AppConstants.sm),
+        AppTitleWithSubtitle(title: widget.title, subtitle: widget.description),
         ...widget.formItems.map(
           (item) {
             var listIndex = widget.formItems.indexOf(item);

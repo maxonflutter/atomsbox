@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../atoms/config/app_constants.dart';
+import '../molecules/app_title_with_subtitle.dart';
 
 class AppCarousel extends StatelessWidget {
   const AppCarousel({
@@ -28,25 +28,11 @@ class AppCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final textTheme = Theme.of(context).textTheme;
-    final titleStyle = textTheme.headlineSmall;
-    final descriptionStyle = textTheme.bodyMedium;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (title != null)
-          DefaultTextStyle(
-            style: titleStyle!,
-            child: title!,
-          ),
-        if (description != null)
-          DefaultTextStyle(
-            style: descriptionStyle!,
-            child: description!,
-          ),
-        if (title != null || description != null)
-          const SizedBox(height: AppConstants.sm),
+        AppTitleWithSubtitle(title: title, subtitle: description),
         CarouselSlider(
           options: CarouselOptions(
             height: size.height * heightFactor,

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
+import '../molecules/app_title_with_subtitle.dart';
 
 enum AppListType { horizontal, vertical }
 
 class AppList extends StatelessWidget {
-  final double? height;
-
   const AppList.vertical({
     super.key,
     this.title,
@@ -27,33 +26,19 @@ class AppList extends StatelessWidget {
 
   final Widget? title;
   final Widget? description;
+  final double? height;
   final List<Widget> listItems;
   final ScrollPhysics? physics;
   final AppListType type;
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final titleStyle = textTheme.headlineSmall;
-    final descriptionStyle = textTheme.bodyMedium;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (title != null)
-          DefaultTextStyle(
-            style: titleStyle!,
-            child: title!,
-          ),
-        if (description != null)
-          DefaultTextStyle(
-            style: descriptionStyle!,
-            child: description!,
-          ),
-        if (title != null || description != null)
-          const SizedBox(height: AppConstants.sm),
+        AppTitleWithSubtitle(title: title, subtitle: description),
         SizedBox(
           height: height,
           child: type == AppListType.horizontal
@@ -72,8 +57,9 @@ class AppList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: listItems.map((item) {
             return Container(
-                margin: const EdgeInsets.only(right: AppConstants.sm),
-                child: item);
+              margin: const EdgeInsets.only(right: AppConstants.sm),
+              child: item,
+            );
           }).toList(),
         ),
       ),
@@ -85,8 +71,7 @@ class AppList extends StatelessWidget {
       shrinkWrap: true,
       physics: physics,
       padding: EdgeInsets.zero,
-      scrollDirection:
-          type == AppListType.horizontal ? Axis.horizontal : Axis.vertical,
+      scrollDirection: Axis.vertical,
       itemCount: listItems.length,
       itemBuilder: (context, index) {
         return Container(
