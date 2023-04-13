@@ -98,8 +98,9 @@ class _AppCardImageOverlayState extends State<AppCardImageOverlay> {
                     ? widget.image!
                     : const SizedBox(),
           ),
-          Padding(
-            padding: const EdgeInsets.all(AppConstants.sm),
+          Positioned(
+            left: AppConstants.sm,
+            bottom: AppConstants.sm,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -108,7 +109,7 @@ class _AppCardImageOverlayState extends State<AppCardImageOverlay> {
                   subtitle: (widget.subhead != null)
                       ? AppText(widget.subhead!)
                       : null,
-                  supportingText: (widget.subhead != null)
+                  supportingText: (widget.supportingText != null)
                       ? AppText(widget.supportingText!)
                       : null,
                 ),

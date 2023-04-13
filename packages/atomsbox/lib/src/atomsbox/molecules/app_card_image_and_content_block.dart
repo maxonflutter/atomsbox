@@ -167,7 +167,7 @@ class _AppCardImageAndContentBlockState
                   subtitle: (widget.subhead != null)
                       ? AppText(widget.subhead!)
                       : null,
-                  supportingText: (widget.subhead != null)
+                  supportingText: (widget.supportingText != null)
                       ? AppText(widget.supportingText!)
                       : null,
                 ),
