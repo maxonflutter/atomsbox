@@ -21,6 +21,7 @@ class AppDataTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppTitleWithSubtitle(title: title, subtitle: description),
         ClipRRect(
@@ -32,8 +33,12 @@ class AppDataTable extends StatelessWidget {
             columns: columns
                 .map(
                   (column) => DataColumn(
-                    label:
-                        Expanded(child: AppText(column, color: Colors.white)),
+                    label: Expanded(
+                      child: AppText(
+                        column,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
                   ),
                 )
                 .toList(),
