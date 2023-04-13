@@ -58,6 +58,8 @@ class AppCardImageOverlay extends StatelessWidget {
   }
 
   InkWell _buildAppCardImageOverlay(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return InkWell(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
       onTap: onTap,
@@ -85,8 +87,9 @@ class AppCardImageOverlay extends StatelessWidget {
           ),
           LayoutBuilder(
             builder: (context, constraints) => SizedBox(
-              width: constraints.maxWidth,
-              height: constraints.maxHeight,
+              width: (constraints.maxWidth.isFinite)
+                  ? constraints.maxWidth * 0.8
+                  : size.width * 0.8,
               child: Positioned(
                 left: AppConstants.sm,
                 bottom: AppConstants.sm,
