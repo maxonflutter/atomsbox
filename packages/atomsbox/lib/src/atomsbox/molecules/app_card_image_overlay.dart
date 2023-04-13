@@ -5,16 +5,15 @@ import '../atoms/app_text.dart';
 import '../atoms/config/app_constants.dart';
 import 'app_text_block.dart';
 
-class AppCardImageOverlay extends StatefulWidget {
+class AppCardImageOverlay extends StatelessWidget {
   const AppCardImageOverlay({
     super.key,
     this.onTap,
     this.actions,
     required this.headline,
+    required this.image,
     this.subhead,
     this.supportingText,
-    this.image,
-    this.hoverImage,
     this.width = double.infinity,
     this.height,
     this.margin,
@@ -23,80 +22,66 @@ class AppCardImageOverlay extends StatefulWidget {
 
   final Function()? onTap;
   final List<Widget>? actions;
+  final Image image;
   final Widget headline;
   final String? subhead;
   final String? supportingText;
-  final Image? image;
-  final Image? hoverImage;
   final double? width;
   final double? height;
   final EdgeInsets? margin;
   final AppCardType type;
 
   @override
-  State<AppCardImageOverlay> createState() => _AppCardImageOverlayState();
-}
-
-class _AppCardImageOverlayState extends State<AppCardImageOverlay> {
-  late bool hovered;
-
-  @override
-  void initState() {
-    hovered = false;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final card = _buildAppCardImageOverlay(context, hovered);
+    final card = _buildAppCardImageOverlay(context);
 
-    return (widget.type == AppCardType.elevated)
+    return (type == AppCardType.elevated)
         ? AppCard.elevated(
-            height: widget.height,
-            width: widget.width,
-            color: hovered
-                ? Theme.of(context).colorScheme.secondary
-                : Theme.of(context).colorScheme.surface,
-            margin: widget.margin ?? EdgeInsets.zero,
+            height: height,
+            width: width,
+            margin: margin ?? EdgeInsets.zero,
             child: card,
           )
-        : (widget.type == AppCardType.filled)
+        : (type == AppCardType.filled)
             ? AppCard.filled(
-                height: widget.height,
-                width: widget.width,
-                color: hovered
-                    ? Theme.of(context).colorScheme.secondary
-                    : Theme.of(context).colorScheme.surface,
-                margin: widget.margin ?? EdgeInsets.zero,
+                height: height,
+                width: width,
+                margin: margin ?? EdgeInsets.zero,
                 child: card,
               )
             : AppCard.outlined(
-                height: widget.height,
-                width: widget.width,
-                color: hovered
-                    ? Theme.of(context).colorScheme.secondary
-                    : Theme.of(context).colorScheme.surface,
-                margin: widget.margin ?? EdgeInsets.zero,
+                height: height,
+                width: width,
+                margin: margin ?? EdgeInsets.zero,
                 child: card,
               );
   }
 
-  InkWell _buildAppCardImageOverlay(
-    BuildContext context,
-    bool hovered,
-  ) {
+  InkWell _buildAppCardImageOverlay(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-      onTap: widget.onTap,
+      onTap: onTap,
       child: Stack(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-            child: (hovered && widget.hoverImage != null)
-                ? widget.hoverImage!
-                : (widget.image != null)
-                    ? widget.image!
-                    : const SizedBox(),
+            child: image,
+          ),
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [0.5, 1.0],
+                  colors: [
+                    Colors.transparent,
+                    Theme.of(context).colorScheme.primary,
+                  ],
+                ),
+              ),
+            ),
           ),
           Positioned(
             left: AppConstants.sm,
@@ -105,18 +90,16 @@ class _AppCardImageOverlayState extends State<AppCardImageOverlay> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppTextBlock(
-                  title: widget.headline,
-                  subtitle: (widget.subhead != null)
-                      ? AppText(widget.subhead!)
-                      : null,
-                  supportingText: (widget.supportingText != null)
-                      ? AppText(widget.supportingText!)
+                  title: headline,
+                  subtitle: (subhead != null) ? AppText(subhead!) : null,
+                  supportingText: (supportingText != null)
+                      ? AppText(supportingText!)
                       : null,
                 ),
                 Row(
-                  children: (widget.actions == null)
+                  children: (actions == null)
                       ? []
-                      : widget.actions!
+                      : actions!
                           .map(
                             (action) => Container(
                               margin: const EdgeInsets.only(
