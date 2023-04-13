@@ -79,6 +79,7 @@ class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
 
   final TabController controller;
   final List<Tab> children;
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -91,11 +92,12 @@ class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
       ),
       child: TabBar(
         controller: controller,
-        indicatorSize: TabBarIndicatorSize.tab,
+        dividerColor: Colors.transparent,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(AppConstants.borderRadius),
           color: colorScheme.primary,
         ),
+        indicatorSize: TabBarIndicatorSize.tab,
         labelColor: colorScheme.onPrimary,
         unselectedLabelColor: colorScheme.onSurface,
         tabs: children,

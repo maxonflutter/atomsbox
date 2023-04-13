@@ -37,14 +37,16 @@ class AppGridExample extends StatelessWidget {
                     return AppGrid(
                       title: AppText('This is a grid'),
                       description: AppText('This is a description'),
-                      crossAxisCount: crossAxisCount,
+                      gridSettings: AppGridSettings(
+                        childAspectRatio:
+                            (constraints.maxWidth - horizontalSpacing) /
+                                crossAxisCount /
+                                gridItemHeight,
+                        crossAxisCount: crossAxisCount,
+                      ),
                       height:
                           gridItemHeight * (gridItems.length / crossAxisCount) +
                               verticalSpacing,
-                      childAspectRatio:
-                          (constraints.maxWidth - horizontalSpacing) /
-                              crossAxisCount /
-                              gridItemHeight,
                       gridItems: gridItems
                           .map(
                             (e) => AppListTile(
@@ -65,8 +67,10 @@ class AppGridExample extends StatelessWidget {
                 AppGrid(
                   title: AppText('This is a grid'),
                   description: AppText('This is a description'),
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.75,
+                  gridSettings: AppGridSettings(
+                    childAspectRatio: 0.75,
+                    crossAxisCount: 2,
+                  ),
                   gridItems: [1, 2, 3, 4]
                       .map(
                         (e) => AppUserCard(
@@ -74,7 +78,7 @@ class AppGridExample extends StatelessWidget {
                           onTap: () {},
                           imageUrl: imageUrl,
                           headline: AppText.bodyLarge(
-                            'Massimo Del Pezzo',
+                            'Max on Flutter',
                             maxLines: 1,
                           ),
                           actions: AppFilledButton(
