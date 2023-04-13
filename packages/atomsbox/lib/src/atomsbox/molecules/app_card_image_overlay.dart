@@ -85,14 +85,14 @@ class AppCardImageOverlay extends StatelessWidget {
               ),
             ),
           ),
-          LayoutBuilder(
-            builder: (context, constraints) => SizedBox(
-              width: (constraints.maxWidth.isFinite)
-                  ? constraints.maxWidth * 0.8
-                  : size.width * 0.8,
-              child: Positioned(
-                left: AppConstants.sm,
-                bottom: AppConstants.sm,
+          Positioned(
+            left: AppConstants.sm,
+            bottom: AppConstants.sm,
+            child: LayoutBuilder(
+              builder: (context, constraints) => SizedBox(
+                width: (constraints.maxWidth.isFinite)
+                    ? constraints.maxWidth - AppConstants.lg
+                    : size.width - AppConstants.lg,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
