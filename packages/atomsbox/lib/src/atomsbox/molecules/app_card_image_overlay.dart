@@ -83,35 +83,41 @@ class AppCardImageOverlay extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            left: AppConstants.sm,
-            bottom: AppConstants.sm,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppTextBlock(
-                  title: headline,
-                  subtitle: (subhead != null) ? AppText(subhead!) : null,
-                  supportingText: (supportingText != null)
-                      ? AppText(supportingText!)
-                      : null,
+          LayoutBuilder(
+            builder: (context, constraints) => SizedBox(
+              width: constraints.maxWidth,
+              height: constraints.maxHeight,
+              child: Positioned(
+                left: AppConstants.sm,
+                bottom: AppConstants.sm,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AppTextBlock(
+                      title: headline,
+                      subtitle: (subhead != null) ? AppText(subhead!) : null,
+                      supportingText: (supportingText != null)
+                          ? AppText(supportingText!)
+                          : null,
+                    ),
+                    Row(
+                      children: (actions == null)
+                          ? []
+                          : actions!
+                              .map(
+                                (action) => Container(
+                                  margin: const EdgeInsets.only(
+                                    top: AppConstants.sm,
+                                    right: AppConstants.sm,
+                                  ),
+                                  child: action,
+                                ),
+                              )
+                              .toList(),
+                    ),
+                  ],
                 ),
-                Row(
-                  children: (actions == null)
-                      ? []
-                      : actions!
-                          .map(
-                            (action) => Container(
-                              margin: const EdgeInsets.only(
-                                top: AppConstants.sm,
-                                right: AppConstants.sm,
-                              ),
-                              child: action,
-                            ),
-                          )
-                          .toList(),
-                ),
-              ],
+              ),
             ),
           ),
         ],
