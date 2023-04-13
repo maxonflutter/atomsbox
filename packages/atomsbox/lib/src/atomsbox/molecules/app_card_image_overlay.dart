@@ -57,39 +57,40 @@ class AppCardImageOverlay extends StatelessWidget {
               );
   }
 
-  InkWell _buildAppCardImageOverlay(BuildContext context) {
+  LayoutBuilder _buildAppCardImageOverlay(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return InkWell(
-      borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-      onTap: onTap,
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-            child: image,
-          ),
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: const [0.5, 1.0],
-                  colors: [
-                    Colors.transparent,
-                    Theme.of(context).colorScheme.primary,
-                  ],
+    return LayoutBuilder(
+      builder: (context, constraints) => InkWell(
+        borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+        onTap: onTap,
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+              child: image,
+            ),
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius:
+                      BorderRadius.circular(AppConstants.borderRadius),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0.5, 1.0],
+                    colors: [
+                      Colors.transparent,
+                      Theme.of(context).colorScheme.primary,
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            left: AppConstants.sm,
-            bottom: AppConstants.sm,
-            child: LayoutBuilder(
-              builder: (context, constraints) => SizedBox(
+            Positioned(
+              left: AppConstants.sm,
+              bottom: AppConstants.sm,
+              child: SizedBox(
                 width: (constraints.maxWidth.isFinite)
                     ? constraints.maxWidth - AppConstants.lg
                     : size.width - AppConstants.lg,
@@ -130,8 +131,8 @@ class AppCardImageOverlay extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
