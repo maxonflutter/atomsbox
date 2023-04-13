@@ -64,7 +64,7 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
               ),
               height: widget.height,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
+                color: Theme.of(context).colorScheme.primary.withAlpha(100),
                 borderRadius: BorderRadius.circular(AppConstants.sm),
               ),
               child: Material(
