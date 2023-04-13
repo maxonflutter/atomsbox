@@ -98,9 +98,17 @@ class AppCardImageOverlay extends StatelessWidget {
                   children: [
                     AppTextBlock(
                       title: headline,
-                      subtitle: (subhead != null) ? AppText(subhead!) : null,
+                      subtitle: (subhead != null)
+                          ? AppText(
+                              subhead!,
+                              color: Theme.of(context).colorScheme.onPrimary,
+                            )
+                          : null,
                       supportingText: (supportingText != null)
-                          ? AppText(supportingText!)
+                          ? AppText(
+                              supportingText!,
+                              color: Theme.of(context).colorScheme.onPrimary,
+                            )
                           : null,
                     ),
                     Row(
