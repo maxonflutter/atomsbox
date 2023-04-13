@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../main.dart';
 
-class AppDefaultCardExample extends StatelessWidget {
-  const AppDefaultCardExample({super.key});
+class AppCardImageAndContentBlockExample extends StatelessWidget {
+  const AppCardImageAndContentBlockExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class AppDefaultCardExample extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppDefaultCard(
+                AppCardImageAndContentBlock(
                   margin: const EdgeInsets.only(bottom: AppConstants.sm),
                   headline: AppText('This is a card'),
                   subhead: sampleText,
@@ -36,7 +36,7 @@ class AppDefaultCardExample extends StatelessWidget {
                         onPressed: () {}, child: AppText('Action 2')),
                   ],
                 ),
-                AppDefaultCard(
+                AppCardImageAndContentBlock(
                   type: AppCardType.elevated,
                   margin: const EdgeInsets.only(bottom: AppConstants.sm),
                   headline: AppText('This is a card'),
@@ -49,7 +49,7 @@ class AppDefaultCardExample extends StatelessWidget {
                         onPressed: () {}, child: AppText('Action 2')),
                   ],
                 ),
-                AppDefaultCard(
+                AppCardImageAndContentBlock(
                   type: AppCardType.outlined,
                   margin: const EdgeInsets.only(bottom: AppConstants.sm),
                   headline: AppText('This is a card'),
@@ -66,7 +66,7 @@ class AppDefaultCardExample extends StatelessWidget {
                     ),
                   ],
                 ),
-                AppDefaultCard(
+                AppCardImageAndContentBlock(
                   onTap: () {},
                   margin: const EdgeInsets.only(bottom: AppConstants.sm),
                   headline: AppText('This is a card'),
@@ -78,7 +78,7 @@ class AppDefaultCardExample extends StatelessWidget {
                     width: double.infinity,
                   ),
                 ),
-                AppDefaultCard(
+                AppCardImageAndContentBlock(
                   type: AppCardType.elevated,
                   onTap: () {},
                   margin: const EdgeInsets.only(bottom: AppConstants.sm),
@@ -91,7 +91,7 @@ class AppDefaultCardExample extends StatelessWidget {
                     width: double.infinity,
                   ),
                 ),
-                AppDefaultCard(
+                AppCardImageAndContentBlock(
                   type: AppCardType.outlined,
                   onTap: () {},
                   margin: const EdgeInsets.only(bottom: AppConstants.sm),

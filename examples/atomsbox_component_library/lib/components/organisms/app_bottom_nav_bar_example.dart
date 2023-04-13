@@ -15,12 +15,12 @@ class AppBottomNavBarExample extends StatelessWidget {
         items: [
           AppBottomNavBarItem(
             icon: Icons.home,
-            title: 'Home',
+            label: 'Home',
             onTap: () {},
           ),
           AppBottomNavBarItem(
             icon: Icons.search,
-            title: 'Search',
+            label: 'Search',
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -29,7 +29,7 @@ class AppBottomNavBarExample extends StatelessWidget {
               );
             },
           ),
-          AppBottomNavBarItem(icon: Icons.add, title: 'Add'),
+          AppBottomNavBarItem(icon: Icons.add, label: 'Add'),
         ],
       ),
       extendBody: true,
@@ -56,7 +56,7 @@ class AppBottomNavBarExampleTwo extends StatelessWidget {
         items: [
           AppBottomNavBarItem(
             icon: Icons.home,
-            title: 'Home',
+            label: 'Home',
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -67,10 +67,10 @@ class AppBottomNavBarExampleTwo extends StatelessWidget {
           ),
           AppBottomNavBarItem(
             icon: Icons.search,
-            title: 'Search',
+            label: 'Search',
             onTap: () {},
           ),
-          AppBottomNavBarItem(icon: Icons.add, title: 'Add'),
+          AppBottomNavBarItem(icon: Icons.add, label: 'Add'),
         ],
       ),
       extendBody: true,

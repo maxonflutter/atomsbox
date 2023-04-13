@@ -202,12 +202,12 @@ class AtomsboxExamples extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return const AppDefaultCardExample();
+                          return const AppCardImageAndContentBlockExample();
                         },
                       ),
                     );
                   },
-                  child: AppText('AppDefaultCard'),
+                  child: AppText('AppCardImageAndContentBlock'),
                 ),
                 const SizedBox(height: AppConstants.sm * 0.5),
                 AppFilledButton.secondary(

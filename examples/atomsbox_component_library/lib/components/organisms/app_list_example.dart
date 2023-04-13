@@ -29,7 +29,7 @@ class AppListExample extends StatelessWidget {
                   description: AppText('This is a  list description'),
                   listItems: [1, 2, 3]
                       .map(
-                        (e) => AppDefaultCard(
+                        (e) => AppCardImageAndContentBlock(
                           width: 300,
                           margin:
                               const EdgeInsets.only(bottom: AppConstants.sm),
@@ -52,7 +52,7 @@ class AppListExample extends StatelessWidget {
                   description: AppText('This is a list description'),
                   listItems: [1, 2, 3]
                       .map(
-                        (e) => AppDefaultCard(
+                        (e) => AppCardImageAndContentBlock(
                           type: AppCardType.elevated,
                           width: 300,
                           headline: AppText('This is a card'),
