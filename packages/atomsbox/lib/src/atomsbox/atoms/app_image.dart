@@ -22,7 +22,8 @@ class AppImage extends Image {
   }) : super.network(
           imageUrl,
           errorBuilder: (context, error, stackTrace) {
-            return const Placeholder();
+            // TODO: Replace with an asset image of a placeholder.
+            return Placeholder();
           },
         );
 
@@ -38,6 +39,7 @@ class AppImage extends Image {
   }) : super.asset(
           assetPath,
           errorBuilder: (context, error, stackTrace) {
+            // TODO: Replace with an asset image of a placeholder.
             return const Placeholder();
           },
         );

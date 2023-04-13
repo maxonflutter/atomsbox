@@ -5,7 +5,30 @@ import '../atoms/app_text.dart';
 import '../atoms/config/app_constants.dart';
 import 'app_text_block.dart';
 
+/// A widget that displays an image with an overlay containing a headline, subhead,
+/// and optional supporting text, with optional actions.
+///
+/// The [AppCardImageOverlay] widget displays an image and overlays it with a
+/// gradient, headline, subhead, and optional supporting text. It also supports
+/// onTap functionality and a list of actions that can be displayed in the
+/// bottom-right corner.
+///
+/// The image is displayed using the [Image] widget, and the text is displayed
+/// using [AppText] and [AppTextBlock] widgets.
+///
+/// The card can be displayed in three different styles: filled, elevated, or
+/// outlined, determined by the [type] property.
+///
+/// See also:
+///
+/// * [Image], which displays the image in the widget.
+/// * [AppText], which displays the subhead and supporting text.
+/// * [AppTextBlock], which displays the headline, subhead, and supporting text.
 class AppCardImageOverlay extends StatelessWidget {
+  /// Creates an AppCardImageOverlay widget.
+  ///
+  /// The [headline] and [image] parameters must not be null.
+  /// The [type] parameter defaults to [AppCardType.filled] if not provided.
   const AppCardImageOverlay({
     super.key,
     this.onTap,
@@ -20,15 +43,39 @@ class AppCardImageOverlay extends StatelessWidget {
     this.type = AppCardType.filled,
   });
 
+  /// The callback that is called when the card is tapped.
   final Function()? onTap;
+
+  /// The list of action widgets to display in the bottom-right corner of the card.
   final List<Widget>? actions;
+
+  /// The image to display as a background.
   final Image image;
+
+  /// The headline text widget to display on the overlay.
   final Widget headline;
+
+  /// The subhead text to display on the overlay.
   final String? subhead;
+
+  /// The supporting text to display on the overlay.
   final String? supportingText;
+
+  /// The width of the card.
+  ///
+  /// Defaults to [double.infinity].
   final double? width;
+
+  /// The height of the card.
   final double? height;
+
+  /// The margin around the card.
   final EdgeInsets? margin;
+
+  /// The type of card to display.
+  ///
+  /// Can be [AppCardType.filled], [AppCardType.elevated], or [AppCardType.outlined].
+  /// Defaults to [AppCardType.filled].
   final AppCardType type;
 
   @override

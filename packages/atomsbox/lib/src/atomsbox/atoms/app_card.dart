@@ -182,9 +182,8 @@ class AppCard extends StatelessWidget {
 
   /// Creates a gradient card with the given properties.
   ///
-  /// The [color] argument is ignored since this
-  ///
-  ///
+  /// The [color] argument is ignored since this card style
+  /// uses a gradient
   AppCard.gradient({
     super.key,
     this.onTap,

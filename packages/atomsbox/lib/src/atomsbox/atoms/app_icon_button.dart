@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
@@ -104,20 +102,17 @@ class AppIconButton extends StatelessWidget {
     required this.child,
   }) {
     builder = (context) {
-      return Padding(
-        padding: const EdgeInsets.all(AppConstants.sm * 0),
-        child: ClipOval(
-          child: AppGradientBackground(
-            child: SizedBox(
-              width: 40,
-              height: 40,
-              child: IconButton(
-                style: IconButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                ),
-                onPressed: onPressed,
-                icon: child,
+      return ClipOval(
+        child: AppGradientBackground(
+          child: SizedBox(
+            width: 40,
+            height: 40,
+            child: IconButton(
+              style: IconButton.styleFrom(
+                backgroundColor: Colors.transparent,
               ),
+              onPressed: onPressed,
+              icon: child,
             ),
           ),
         ),

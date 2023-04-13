@@ -4,7 +4,22 @@ import '../atoms/config/app_breakpoints.dart';
 import '../atoms/config/app_constants.dart';
 import '../molecules/app_text_block.dart';
 
+/// A responsive grid widget.
+///
+/// The [AppGrid] widget displays a grid of items with an optional title and
+/// description. The grid is responsive and its layout settings can be
+/// customized for different device sizes.
+///
+/// See also:
+///
+/// * [AppTextBlock], which is used to display the title and description.
+/// * [AppGridSettings], which defines the grid layout settings for different
+/// device sizes.
 class AppGrid extends StatelessWidget {
+  /// Creates a responsive grid widget.
+  ///
+  /// The [gridItems] and [gridSettings] parameters must not be null.
+
   const AppGrid({
     super.key,
     this.title,
@@ -15,11 +30,28 @@ class AppGrid extends StatelessWidget {
     this.physics = const NeverScrollableScrollPhysics(),
   });
 
+  /// The optional title widget to display at the top of the grid.
   final Widget? title;
+
+  /// The optional description widget to display below the title.
   final Widget? description;
+
+  /// The fixed height of the grid, if needed.
   final double? height;
+
+  /// The scrolling physics for the grid.
+  ///
+  /// Defaults to [NeverScrollableScrollPhysics].
   final ScrollPhysics? physics;
+
+  /// The layout settings for the grid on different device sizes.
+  ///
+  /// Must not be null.
   final AppGridSettings gridSettings;
+
+  /// The list of items to display in the grid.
+  ///
+  /// Must not be null.
   final List<Widget> gridItems;
 
   @override
@@ -69,6 +101,10 @@ class AppGrid extends StatelessWidget {
   }
 }
 
+/// A class that defines grid layout settings for different device sizes.
+///
+/// The layout settings include the number of items per row, spacing between
+/// items, and child aspect ratio.
 class AppGridSettings {
   // Default settings
   final int crossAxisCount;

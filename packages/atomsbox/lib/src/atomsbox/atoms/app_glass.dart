@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'atoms.dart';
+import 'config/app_constants.dart';
 
 /// A widget that applies a frosted glass effect to its child.
 ///

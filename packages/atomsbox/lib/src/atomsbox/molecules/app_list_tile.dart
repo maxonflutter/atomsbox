@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../atoms/config/app_color_scheme.dart';
 import '../atoms/config/app_constants.dart';
 
-/// A custom list tile widget that conforms to the application's design language.
+/// A custom list tile widget.
 ///
 /// The [AppListTile] widget provides a consistent appearance and behavior for
 /// list items in the application. It is a custom implementation of the Flutter

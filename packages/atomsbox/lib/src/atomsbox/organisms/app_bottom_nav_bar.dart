@@ -1,6 +1,21 @@
-import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
+import '../atoms/app_text.dart';
+import '../atoms/config/app_constants.dart';
+
+/// A custom bottom navigation bar widget.
+///
+/// The [AppBottomNavBar] is a custom widget that displays a bottom navigation
+/// bar with a specified list of items. It supports different styles, like
+/// floating or fixed, and allows you to customize its appearance.
+///
+/// The navigation bar requires at least two items and can contain a maximum
+/// of five items.
+///
+/// See also:
+///
+/// * [AppBottomNavBarItem], which represents a single item in the bottom
+/// navigation bar.
 class AppBottomNavBar extends StatefulWidget {
   AppBottomNavBar({
     Key? key,
@@ -12,9 +27,24 @@ class AppBottomNavBar extends StatefulWidget {
         assert(items.length <= 5),
         super(key: key);
 
+  /// The index of the currently active item.
+  ///
+  /// Defaults to 0.
   final int currentIndex;
+
+  /// The height of the bottom navigation bar.
+  ///
+  /// Defaults to 56.0.
   final double height;
+
+  /// The list of items to be displayed in the bottom navigation bar.
+  ///
+  /// Must contain at least two items and at most five items.
   final List<AppBottomNavBarItem> items;
+
+  /// Determines if the bottom navigation bar should be floating.
+  ///
+  /// Defaults to false.
   final bool floating;
 
   @override
@@ -126,6 +156,10 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
   }
 }
 
+/// A single item in the [AppBottomNavBar] widget.
+///
+/// Represents a navigation item in the custom bottom navigation bar. It
+/// contains an [icon] and an optional [label] and [onTap] callback.
 class AppBottomNavBarItem {
   AppBottomNavBarItem({
     required this.icon,
@@ -133,7 +167,12 @@ class AppBottomNavBarItem {
     this.onTap,
   });
 
+  /// The icon to be displayed in the navigation item.
   final IconData icon;
+
+  /// The optional text label for the navigation item.
   final String? label;
+
+  /// The optional callback to be executed when the navigation item is tapped.
   final VoidCallback? onTap;
 }

@@ -1,11 +1,11 @@
-import 'package:atomsbox/src/atomsbox/atoms/app_gradient_background.dart';
 import 'package:flutter/material.dart';
 
+import '../atoms/app_gradient_background.dart';
 import '../atoms/config/app_color_scheme.dart';
 import '../atoms/config/app_constants.dart';
 import '../atoms/config/app_typedef.dart';
 
-/// A custom expansion tile widget that follows the application's design language.
+/// A custom expansion tile widget.
 ///
 /// The [AppExpansionTile] widget displays a title and an optional leading and
 /// trailing widget. The tile can be expanded or collapsed to reveal or hide
@@ -24,7 +24,6 @@ class AppExpansionTile extends StatelessWidget {
   /// Creates an [AppExpansionTile] with the default appearance.
   ///
   /// If the [initiallyExpanded] property is true, the tile is initially expanded.
-
   AppExpansionTile({
     super.key,
     this.initiallyExpanded = false,
@@ -52,7 +51,6 @@ class AppExpansionTile extends StatelessWidget {
   /// Creates an [AppExpansionTile] with a secondary appearance.
   ///
   /// If the [initiallyExpanded] property is true, the tile is initially expanded.
-
   AppExpansionTile.secondary({
     super.key,
     this.initiallyExpanded = false,
@@ -84,7 +82,6 @@ class AppExpansionTile extends StatelessWidget {
   /// Creates an [AppExpansionTile] with a gradient background.
   ///
   /// If the [initiallyExpanded] property is true, the tile is initially expanded.
-
   AppExpansionTile.gradient({
     super.key,
     this.initiallyExpanded = false,

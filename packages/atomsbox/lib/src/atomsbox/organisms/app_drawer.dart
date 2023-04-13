@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../atoms/config/app_constants.dart';
-import '../atoms/app_text.dart';
-
+/// A customizable app drawer widget.
+///
+/// The [AppDrawer] widget displays a drawer with a title and a list of drawer
+/// items. It also supports an optional list of secondary drawer items.
+///
+/// See also:
+///
+/// * [Drawer], which is used internally to create the app drawer.
 class AppDrawer extends StatelessWidget {
+  /// Creates an app drawer widget.
+  ///
+  /// The [title] and [drawerItems] parameters must not be null.
+  ///
+  /// The [drawerSecondaryItems] parameter is optional and can be used to display
+  /// secondary items in the drawer, separated by a divider.
   const AppDrawer({
     super.key,
     required this.title,
@@ -11,14 +22,20 @@ class AppDrawer extends StatelessWidget {
     this.drawerSecondaryItems,
   });
 
+  /// The title widget to display at the top of the app drawer.
+  ///
+  /// Must not be null.
   final Widget title;
+
+  /// The list of drawer items to display in the app drawer.
+  ///
+  /// Must not be null.
   final List<Widget> drawerItems;
 
-  /// The secondary items to display in the drawer.
+  /// The optional list of secondary drawer items to display in the app drawer.
   ///
-  /// This list of widgets, if provided, will be displayed at the bottom of the
-  /// drawer, separated by a divider. If this list is not provided or is null,
-  /// no divider or secondary items will be displayed.
+  /// When provided, these items will be separated from the primary drawer items
+  /// by a divider.
   final List<Widget>? drawerSecondaryItems;
 
   @override

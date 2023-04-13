@@ -2,7 +2,30 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 
+/// A block of text with optional title, subtitle, and supporting text.
+///
+/// The [AppTextBlock] widget displays a block of text with an optional title,
+/// subtitle, and supporting text. Each piece of text can have its own style
+/// applied.
+///
+/// The [title], [subtitle], and [supportingText] arguments are optional. If
+/// provided, they will be displayed in a vertical column, with the title at the
+/// top, followed by the subtitle, and then the supporting text. If any of these
+/// arguments is omitted, the corresponding text will not be displayed.
+///
+/// The text styles are determined by the current [Theme] and applied
+/// automatically. If you want to customize the text styles, wrap the text
+/// widgets in a [DefaultTextStyle] widget or apply styles directly to the text
+/// widgets before passing them to the [AppTextBlock].
+///
+/// See also:
+///
+/// * [Text], which is used to display a single run of text with a single style.
+/// * [Column], which is used to arrange the text widgets vertically.
 class AppTextBlock extends StatelessWidget {
+  /// Creates a text block widget.
+  ///
+  /// The [title], [subtitle], and [supportingText] arguments are optional.
   const AppTextBlock({
     super.key,
     this.title,
@@ -10,8 +33,19 @@ class AppTextBlock extends StatelessWidget {
     this.supportingText,
   });
 
+  /// The title to display.
+  ///
+  /// If null, no title will be displayed.
   final Widget? title;
+
+  /// The subtitle to display.
+  ///
+  /// If null, no subtitle will be displayed.
   final Widget? subtitle;
+
+  /// The supporting text to display.
+  ///
+  /// If null, no supporting text will be displayed.
   final Widget? supportingText;
 
   @override

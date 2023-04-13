@@ -41,9 +41,7 @@ class AppGradientText extends StatelessWidget {
         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: AppConstants.sm,
-        ),
+        padding: const EdgeInsets.symmetric(vertical: AppConstants.sm),
         child: child,
       ),
     );

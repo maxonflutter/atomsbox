@@ -2,14 +2,32 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 
+/// A custom tab bar widget for displaying tabs with associated content.
+///
+/// The [AppTab] widget displays a group of tabs with corresponding content.
+/// Each tab has an associated [Tab] widget and a [Widget] representing the
+/// content of the tab. The length of [tabs] and [children] should be the same,
+/// as each tab is linked to a corresponding child widget.
+///
+/// See also:
+///
+/// * [Tab], which represents a single tab in the [AppTab] widget.
+/// * [TabController], which manages the state and animation of the tabs.
 class AppTab extends StatefulWidget {
+  /// Creates an [AppTab] widget with the provided [tabs] and [children].
+  ///
+  /// The [tabs] and [children] arguments must not be null, and their lengths
+  /// must be the same.
   const AppTab({
     super.key,
     required this.tabs,
     required this.children,
   }) : assert(tabs.length == children.length);
 
+  /// A list of [Tab] widgets representing each tab in the [AppTab] widget.
   final List<Tab> tabs;
+
+  /// A list of [Widget]s representing the content for each tab in the [AppTab] widget.
   final List<Widget> children;
 
   @override
@@ -70,6 +88,11 @@ class _AppTabState extends State<AppTab> with SingleTickerProviderStateMixin {
   }
 }
 
+/// A custom [TabBar] with preferred size and styling for the [AppTab] widget.
+///
+/// [_AppTabBar] is a private widget used internally by the [AppTab] widget.
+/// It inherits from the [PreferredSizeWidget] mixin to provide a preferred size
+/// for the tab bar.
 class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
   const _AppTabBar({
     super.key,
@@ -77,7 +100,10 @@ class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
     required this.children,
   });
 
+  /// The [TabController] managing the state and animation of the tabs.
   final TabController controller;
+
+  /// A list of [Tab] widgets representing each tab in the [_AppTabBar] widget.
   final List<Tab> children;
 
   @override

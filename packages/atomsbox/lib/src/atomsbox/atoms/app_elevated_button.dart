@@ -80,7 +80,6 @@ class AppElevatedButton extends StatelessWidget {
       return AppGlass(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.zero,
             minimumSize: minimumSize,
             elevation: 0.0,
             backgroundColor: Colors.transparent,

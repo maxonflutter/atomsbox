@@ -1,9 +1,9 @@
-import 'package:atomsbox/src/atomsbox/molecules/app_text_block.dart';
 import 'package:flutter/material.dart';
 
 import '../atoms/app_card.dart';
 import '../atoms/app_text.dart';
 import '../atoms/config/app_constants.dart';
+import 'app_text_block.dart';
 
 /// A customizable card widget with hover effect and optional content.
 ///
@@ -194,33 +194,3 @@ class _AppCardImageAndContentBlockState
     );
   }
 }
-
-
-// DefaultTextStyle(
-//                   maxLines: 1,
-//                   style:
-//                       headlineStyle.copyWith(fontSize: headlineStyle.fontSize),
-//                   child: widget.headline,
-//                 ),
-//                 (widget.subhead != null)
-//                     ? DefaultTextStyle(
-//                         style: subheadStyle,
-//                         child: AppText(
-//                           widget.subhead!,
-//                           maxLines: 1,
-//                           overflow: TextOverflow.ellipsis,
-//                         ),
-//                       )
-//                     : const SizedBox(),
-//                 const SizedBox(height: AppConstants.sm),
-//                 (widget.supportingText != null)
-//                     ? DefaultTextStyle(
-//                         style: supportingTextStyle.copyWith(
-//                             fontSize: supportingTextStyle.fontSize),
-//                         child: AppText(
-//                           widget.supportingText!,
-//                           maxLines: 3,
-//                           overflow: TextOverflow.ellipsis,
-//                         ),
-//                       )
-//                     : const SizedBox(),

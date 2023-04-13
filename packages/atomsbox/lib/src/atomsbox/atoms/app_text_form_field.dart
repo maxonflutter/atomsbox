@@ -1,9 +1,7 @@
-import 'dart:ui';
-
-import 'package:atomsbox/src/atomsbox/atoms/app_gradient_background.dart';
 import 'package:flutter/material.dart';
 
 import 'app_glass.dart';
+import 'app_gradient_background.dart';
 import 'config/app_constants.dart';
 import 'config/app_typedef.dart';
 
