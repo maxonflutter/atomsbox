@@ -12,14 +12,21 @@ and the Flutter guide for
 -->
 
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/atomsbox.png?token=GHSAT0AAAAAABVFB3LITLEONBOCSCP5AHJGZBSXIFQ" height="100" alt="Flutter atomsbox Package" />
+
+<p align="left">
+<img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atomsbox-logo-white.png?alt=media&token=d572973f-f913-41da-9f42-271d73cac269" height="75" alt="atomsbox"/>
 </p>
+
+A curated library of pre-styled, reusable Flutter widgets organized based on Atomic Design principles to build apps at scale.
+**Learn more at [atomsbox.com](https://atomsbox.com)!**
+
+---
+
 
 <p align="center">
 <a href="https://pub.dev/packages/flutter_bloc"><img src="https://img.shields.io/pub/v/flutter_bloc.svg" alt="Pub"></a>
 <a href="https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#bloc--rx"><img src="https://img.shields.io/badge/flutter-website-deepskyblue.svg" alt="Flutter Website"></a>
-<a href="https://github.com/felangel/bloc"><img src="https://tinyurl.com/bloc-library" alt="Bloc Library"></a>
+<a href="https://github.com/maxonflutter/atomsbox"><img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atoms.png?alt=media&token=8306d1d6-7814-48c4-b929-0a3a891a96dc" alt="atomsbox"></a>
 </p>
 
 ---
