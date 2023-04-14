@@ -88,76 +88,78 @@ class MyApp extends StatelessWidget {
 </table>
 
 
-
+1. Create an AppCardImageAndContentBlock pre-styled component:
 ```dart 
-import 'package:atomsbox/atomsbox.dart';
-import 'package:flutter/material.dart';
+AppCardImageAndContentBlock(
+  margin: const EdgeInsets.only(bottom: AppConstants.sm),
+  headline: AppText('This is a card'),
+  subhead: sampleText,
+  actions: [
+    AppFilledButton(
+        onPressed: () {}, child: AppText('Action 1')),
+    AppFilledButton.gradient(
+        onPressed: () {}, child: AppText('Action 2')),
+  ],
+), 
+```
 
-import '../../main.dart';
+2. Create an AppForm pre-styled component:
+```dart 
+AppForm(
+  title: AppText('This is a form'),
+  description: AppText('This is a form description'),
+  formButton: AppFilledButton(
+    onPressed: () {},
+    child: AppText('Submit'),
+  ),
+  formItemNames: const ['One', 'Two', 'Three'],
+  formItems: [
+    AppTextFormField(),
+    AppTextFormField(),
+    AppTextFormField(),
+  ],
+),
+```
 
-class AppCardImageAndContentBlockExample extends StatelessWidget {
-  const AppCardImageAndContentBlockExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    const sampleText = 'Lorem ipsum dolor sit amet';
-    const imageUrl ='https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
-
-    return Scaffold(
-      appBar: ExampleAppBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AppCardImageAndContentBlock(
-                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
-                  headline: AppText('This is a card'),
-                  subhead: sampleText,
-                  actions: [
-                    AppFilledButton(
-                        onPressed: () {}, child: AppText('Action 1')),
-                    AppFilledButton.gradient(
-                        onPressed: () {}, child: AppText('Action 2')),
-                  ],
-                ),
-                AppCardImageAndContentBlock(
-                  type: AppCardType.elevated,
-                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
-                  headline: AppText('This is a card'),
-                  supportingText: sampleText,
-                  actions: [
-                    AppFilledButton(
-                        onPressed: () {}, child: AppText('Action 1')),
-                    AppIconButton.gradient(
-                      onPressed: () {},
-                      child: const Icon(Icons.offline_bolt),
-                    ),
-                  ],
-                ),
-                AppCardImageAndContentBlock(
-                  onTap: () {},
-                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
-                  headline: AppText('This is a card'),
-                  subhead: sampleText,
-                  image: AppImage.network(
-                    imageUrl,
-                    height: 150,
-                    width: double.infinity,
-                  ),
-                ),                
-              ],
-            ),
-          ),
-        ),
+3. Create an AppTab pre-styled component:
+```dart 
+AppTab(
+  tabs: [
+    Tab(
+      icon: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [Icon(Icons.code), AppText('Atoms')],
       ),
-    );
-  }
-}
+    ),
+    Tab(
+      icon: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [Icon(Icons.code), AppText('Molecules')],
+      ),
+    ),
+  ],
+  children: [
+    Column(
+      children: [
+        AppCard.elevated(
+          height: 300,
+          width: double.infinity,
+          child: Center(child: AppText('Atoms')),
+        ),
+      ],
+    ),
+    Column(
+      children: [
+        AppCard.elevated(
+          height: 300,
+          width: double.infinity,
+          child: Center(child: AppText('Molecules')),
+        ),
+      ],
+    ),
+  ],
+),
+
 ```
 
 
