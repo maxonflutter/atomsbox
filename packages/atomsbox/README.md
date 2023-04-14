@@ -23,35 +23,16 @@ A curated library of pre-styled, reusable Flutter widgets organized based on Ato
 ---
 
 
-<p align="center">
-<a href="https://pub.dev/packages/flutter_bloc"><img src="https://img.shields.io/pub/v/flutter_bloc.svg" alt="Pub"></a>
-<a href="https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#bloc--rx"><img src="https://img.shields.io/badge/flutter-website-deepskyblue.svg" alt="Flutter Website"></a>
-<a href="https://github.com/maxonflutter/atomsbox"><img style="height=50" src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atoms.png?alt=media&token=8306d1d6-7814-48c4-b929-0a3a891a96dc" alt="atomsbox"></a>
-</p>
-
----
-
-
-A curated library of pre-styled, reusable Flutter widgets organized based on Atomic Design principles to build apps at scale.
-
-**Learn more at [atomsbox.com](https://atomsbox.com)!**
 
 ## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Installation
-
-In your `pubspec.yaml` file within your Flutter Project: 
-
+To use any pre-styled component from atomsbox, follow these steps:
+1. Add the latest version of the package in your `pubspec.yaml`:
 ```yaml
 dependencies:
   atomsbox: <latest_version>
 ```
 
-## Usage
-
+2. To keep atomsbox design, import the package and use the pre-defined theme from the library
 ```dart
 import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +55,13 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+
+## Usage
+
+
+
+
+
 | Category  	| Component                    	| Example              	|   	|   	|
 |-----------	|------------------------------	|----------------------	|---	|---	|
 | atoms     	| App Text                     	| https://atomsbox.com 	|   	|   	|
@@ -140,8 +128,14 @@ class MyApp extends StatelessWidget {
 - [Music App](https://bloclibrary.dev/#/fluttercountertutorial) - an example of how to build a music app UI with atomsbox
 - [News App](https://github.com/felangel/bloc/tree/master/examples/flutter_form_validation) - an example of how to build a news app UI with atomsboxform validation.
 
-## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## Contributions
+Contributions are welcome! If you find a bug, have a feature request, or would like to improve the package, go ahead and create a new issue:
+* [Report a bug] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=bug&template=bug_report.md&title=) 
+* [Improve documentation] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=documentation&template=documentation.md&title=docs%3A+)
+* [Request a feature] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)
+* [Optimize the performace of existing components] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=enhancement&template=performance-update.md&title=perf%3A+)
+* [Enhance the test suite of the package] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=test&template=test.md&title=test%3A+)
+
+
+Feel free to get in touch to discuss more, email at: massimo@atomsbox.com
