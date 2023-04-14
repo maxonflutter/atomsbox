@@ -18,6 +18,7 @@ and the Flutter guide for
 </p>
 
 A curated library of pre-styled, reusable Flutter widgets organized based on Atomic Design principles to build apps at scale.
+
 **Learn more at [atomsbox.com](https://atomsbox.com)!**
 
 ---
