@@ -85,9 +85,11 @@ class MyApp extends StatelessWidget {
 
 
 
+## Components & Examples
+
 | Category  	| Component                    	| Example              	|   	|   	|
 |-----------	|------------------------------	|----------------------	|---	|---	|
-| atoms     	| App Text                     	| https://atomsbox.com 	|   	|   	|
+| atoms     	| [App Text](https://atomsbox.com)                     	|  	|   	|   	|
 | atoms     	| App Image                    	|                      	|   	|   	|
 | atoms     	| App Icon Button              	|                      	|   	|   	|
 | atoms     	| App Text Button              	|                      	|   	|   	|
@@ -119,7 +121,6 @@ class MyApp extends StatelessWidget {
 
 
 
-## Components & Examples
 
 
 
