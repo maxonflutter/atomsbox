@@ -58,37 +58,7 @@ class MyApp extends StatelessWidget {
 
 ## Usage
 
-<table>
-    <tbody>
-        <tr>
-            <td align="center" style="background-color: white">
-                <a href="https://atomsbox.com">
-                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/app_card_image_and_content_bloc_example.png?alt=media&token=493c7258-878e-4eb1-8f80-9eaa13d59863" height="500" alt="atomsbox pre-styled card"/>
-                </a>
-            </td>           
-            <td align="center" style="background-color: white">
-                <a href="https://atomsbox.com">
-                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/app_form_example.png?alt=media&token=c3c71cb4-7b81-4bed-b4ba-92b0a0c54f76" height="500" alt="atomsbox pre-styled form" />
-                </a>
-            </td>
-            <td align="center" style="background-color: white">
-                <a href="https://atomsbox.com">
-                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/app_tab_example.png?alt=media&token=7a356e82-cff1-4efc-8e23-84f2b6a320f1" height="500" alt="atomsbox pre-styled tab" />
-                </a>
-            </td>
-        </tr><tr>
-            <td align="center" style="background-color: white">
-            </td>           
-            <td align="center" style="background-color: white">
-            </td>
-            <td align="center" style="background-color: white">
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-
-1. Create an AppCardImageAndContentBlock pre-styled component:
+### Create an AppCardImageAndContentBlock pre-styled component:
 ```dart 
 AppCardImageAndContentBlock(
   margin: const EdgeInsets.only(bottom: AppConstants.sm),
@@ -103,7 +73,20 @@ AppCardImageAndContentBlock(
 ), 
 ```
 
-2. Create an AppForm pre-styled component:
+
+<table>
+    <tbody>
+        <tr>
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/app_card_image_and_content_bloc_example.png?alt=media&token=493c7258-878e-4eb1-8f80-9eaa13d59863" height="500" alt="atomsbox pre-styled card"/>
+                </a>
+            </td>  
+        </tr>         
+    </tbody>
+</table>
+
+### Create an AppForm pre-styled component:
 ```dart 
 AppForm(
   title: AppText('This is a form'),
@@ -121,7 +104,20 @@ AppForm(
 ),
 ```
 
-3. Create an AppTab pre-styled component:
+
+<table>
+    <tbody>
+        <tr>
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/app_form_example.png?alt=media&token=c3c71cb4-7b81-4bed-b4ba-92b0a0c54f76" height="500" alt="atomsbox pre-styled form" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### Create an AppTab pre-styled component:
 ```dart 
 AppTab(
   tabs: [
@@ -159,9 +155,20 @@ AppTab(
     ),
   ],
 ),
-
 ```
 
+
+<table>
+    <tbody>
+        <tr>
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/app_tab_example.png?alt=media&token=7a356e82-cff1-4efc-8e23-84f2b6a320f1" height="500" alt="atomsbox pre-styled tab" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 
 ## Components & Examples
