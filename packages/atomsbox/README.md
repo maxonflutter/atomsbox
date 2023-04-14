@@ -26,7 +26,7 @@ A curated library of pre-styled, reusable Flutter widgets organized based on Ato
 <p align="center">
 <a href="https://pub.dev/packages/flutter_bloc"><img src="https://img.shields.io/pub/v/flutter_bloc.svg" alt="Pub"></a>
 <a href="https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#bloc--rx"><img src="https://img.shields.io/badge/flutter-website-deepskyblue.svg" alt="Flutter Website"></a>
-<a href="https://github.com/maxonflutter/atomsbox"><img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atoms.png?alt=media&token=8306d1d6-7814-48c4-b929-0a3a891a96dc" alt="atomsbox"></a>
+<a href="https://github.com/maxonflutter/atomsbox"><img style="height=50" src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atoms.png?alt=media&token=8306d1d6-7814-48c4-b929-0a3a891a96dc" alt="atomsbox"></a>
 </p>
 
 ---
