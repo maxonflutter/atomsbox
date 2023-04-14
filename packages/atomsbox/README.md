@@ -216,7 +216,55 @@ Here is an extensive list of the currently available pre-styled components with 
 ## Apps
 
 - [Music App](https://bloclibrary.dev/#/fluttercountertutorial) - an example of how to build a music app UI with atomsbox
+
+<table>
+    <tbody>
+        <tr>
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_feed_screen.png?alt=media&token=b1b2cee7-b511-4799-bc08-94a2cea07cb1" height="500" alt="atomsbox news-app"/>
+                </a>
+            </td>  
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_category_screen.png?alt=media&token=d1d0aab3-f044-4475-80d5-673c0f57993a" height="500" alt="atomsbox news-app"/>
+                </a>
+            </td> 
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_details_screen.png?alt=media&token=f70a8548-32b6-4693-95fb-27544b45edab" height="500" alt="atomsbox news-app"/>
+                </a>
+            </td>  
+        </tr>         
+    </tbody>
+</table>
+
+
 - [News App](https://github.com/felangel/bloc/tree/master/examples/flutter_form_validation) - an example of how to build a news app UI with atomsboxform validation.
+
+
+<table>
+    <tbody>
+        <tr>
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_feed_screen.png?alt=media&token=b1b2cee7-b511-4799-bc08-94a2cea07cb1" height="500" alt="atomsbox news-app"/>
+                </a>
+            </td>  
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_category_screen.png?alt=media&token=d1d0aab3-f044-4475-80d5-673c0f57993a" height="500" alt="atomsbox news-app"/>
+                </a>
+            </td> 
+            <td align="center" style="background-color: white">
+                <a href="https://atomsbox.com">
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_details_screen.png?alt=media&token=f70a8548-32b6-4693-95fb-27544b45edab" height="500" alt="atomsbox news-app"/>
+                </a>
+            </td>  
+        </tr>         
+    </tbody>
+</table>
+
 
 
 ## Contributions
