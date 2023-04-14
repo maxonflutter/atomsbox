@@ -11,8 +11,6 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-<p align="right">
-
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/maxonflutter/atomsbox/main/packages/atomsbox/screenshots/atomsbox.png?token=GHSAT0AAAAAABVFB3LITLEONBOCSCP5AHJGZBSXIFQ" height="100" alt="Flutter atomsbox Package" />
