@@ -131,11 +131,11 @@ class MyApp extends StatelessWidget {
 
 ## Contributions
 Contributions are welcome! If you find a bug, have a feature request, or would like to improve the package, go ahead and create a new issue:
-* [Report a bug] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=bug&template=bug_report.md&title=) 
-* [Improve documentation] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=documentation&template=documentation.md&title=docs%3A+)
-* [Request a feature] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)
-* [Optimize the performace of existing components] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=enhancement&template=performance-update.md&title=perf%3A+)
-* [Enhance the test suite of the package] (https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=test&template=test.md&title=test%3A+)
+* [Report a bug](https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=bug&template=bug_report.md&title=) 
+* [Improve documentation](https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=documentation&template=documentation.md&title=docs%3A+)
+* [Request a feature](https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)
+* [Optimize the performance of existing components](https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=enhancement&template=performance-update.md&title=perf%3A+)
+* [Enhance the test suite of the package](https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=test&template=test.md&title=test%3A+)
 
 
 Feel free to get in touch to discuss more, email at: massimo@atomsbox.com
