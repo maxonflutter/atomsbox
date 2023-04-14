@@ -58,7 +58,6 @@ class MyApp extends StatelessWidget {
 
 ## Usage
 
-
 <table>
     <tbody>
         <tr>
@@ -77,52 +76,134 @@ class MyApp extends StatelessWidget {
                 <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/app_tab_example.png?alt=media&token=7a356e82-cff1-4efc-8e23-84f2b6a320f1" height="500" alt="atomsbox pre-styled tab" />
                 </a>
             </td>
+        </tr><tr>
+            <td align="center" style="background-color: white">
+            </td>           
+            <td align="center" style="background-color: white">
+            </td>
+            <td align="center" style="background-color: white">
+            </td>
         </tr>
     </tbody>
 </table>
 
 
 
+```dart 
+import 'package:atomsbox/atomsbox.dart';
+import 'package:flutter/material.dart';
+
+import '../../main.dart';
+
+class AppCardImageAndContentBlockExample extends StatelessWidget {
+  const AppCardImageAndContentBlockExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const sampleText = 'Lorem ipsum dolor sit amet';
+    const imageUrl ='https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
+
+    return Scaffold(
+      appBar: ExampleAppBar(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppCardImageAndContentBlock(
+                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
+                  headline: AppText('This is a card'),
+                  subhead: sampleText,
+                  actions: [
+                    AppFilledButton(
+                        onPressed: () {}, child: AppText('Action 1')),
+                    AppFilledButton.gradient(
+                        onPressed: () {}, child: AppText('Action 2')),
+                  ],
+                ),
+                AppCardImageAndContentBlock(
+                  type: AppCardType.elevated,
+                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
+                  headline: AppText('This is a card'),
+                  supportingText: sampleText,
+                  actions: [
+                    AppFilledButton(
+                        onPressed: () {}, child: AppText('Action 1')),
+                    AppIconButton.gradient(
+                      onPressed: () {},
+                      child: const Icon(Icons.offline_bolt),
+                    ),
+                  ],
+                ),
+                AppCardImageAndContentBlock(
+                  onTap: () {},
+                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
+                  headline: AppText('This is a card'),
+                  subhead: sampleText,
+                  image: AppImage.network(
+                    imageUrl,
+                    height: 150,
+                    width: double.infinity,
+                  ),
+                ),                
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
 
 
 ## Components & Examples
+Contributions are welcome! However, you can also request new components by opening a new issue and describing the desired component: [Request a feature](https://github.com/maxonflutter/atomsbox/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)
 
-| Category  	| Component                    	| Example              	|   	|   	|
-|-----------	|------------------------------	|----------------------	|---	|---	|
-| atoms     	| [App Text](https://atomsbox.com)                     	|  	|   	|   	|
-| atoms     	| App Image                    	|                      	|   	|   	|
-| atoms     	| App Icon Button              	|                      	|   	|   	|
-| atoms     	| App Text Button              	|                      	|   	|   	|
-| atoms     	| App Elevated Button          	|                      	|   	|   	|
-| atoms     	| App Filled Button            	|                      	|   	|   	|
-| atoms     	| App Outlined Button          	|                      	|   	|   	|
-| atoms     	| App Card                     	|                      	|   	|   	|
-| atoms     	| App Glass                    	|                      	|   	|   	|
-| atoms     	| App Gradient Background      	|                      	|   	|   	|
-| atoms     	| App Slider                   	|                      	|   	|   	|
-| atoms     	| App Text Form Field          	|                      	|   	|   	|
-| atoms     	| App Gradient Text            	|                      	|   	|   	|
-| atoms     	| App Label                    	|                      	|   	|   	|
-| molecules 	| App Expansion Tile           	|                      	|   	|   	|
-| molecules 	| App Segmented Button         	|                      	|   	|   	|
-| molecules 	| App List Tile                	|                      	|   	|   	|
-| molecules 	| App Default Card             	|                      	|   	|   	|
-| molecules 	| App User Card                	|                      	|   	|   	|
-| molecules 	| App Product Card             	|                      	|   	|   	|
-| molecules 	| App Search With Autocomplete 	|                      	|   	|   	|
-| organisms 	| App Form                     	|                      	|   	|   	|
-| organisms 	| App Grid                     	|                      	|   	|   	|
-| organisms 	| App List                     	|                      	|   	|   	|
-| organisms 	| App Drawer                   	|                      	|   	|   	|
-| organisms 	| App Bottom Nav Bar           	|                      	|   	|   	|
-| organisms 	| App Carousel                 	|                      	|   	|   	|
-| organisms 	| App Tab                      	|                      	|   	|   	|
-| organisms 	| App Audio Player             	|                      	|   	|   	|
+Here is an extensive list of the currently available pre-styled components with their respective examples
+
+| Category  	| Component                    	|
+|-----------	|------------------------------	|
+| atoms     	| App Text                     	|
+| atoms     	| App Image                    	|
+| atoms     	| App Icon Button              	|
+| atoms     	| App Text Button              	|
+| atoms     	| App Elevated Button          	|
+| atoms     	| App Filled Button            	|
+| atoms     	| App Outlined Button          	|
+| atoms     	| App Card                     	|
+| atoms     	| App Glass                    	|
+| atoms     	| App Gradient Background      	|
+| atoms     	| App Slider                   	|
+| atoms     	| App Text Form Field          	|
+| atoms     	| App Gradient Text            	|
+| atoms     	| App Label                    	|
+| molecules 	| App Expansion Tile           	|
+| molecules 	| App Segmented Button         	|
+| molecules 	| App List Tile                	|
+| molecules 	| App Default Card             	|
+| molecules 	| App User Card                	|
+| molecules 	| App Product Card             	|
+| molecules 	| App Search With Autocomplete 	|
+| organisms 	| App Form                     	|
+| organisms 	| App Grid                     	|
+| organisms 	| App List                     	|
+| organisms 	| App Drawer                   	|
+| organisms 	| App Bottom Nav Bar           	|
+| organisms 	| App Carousel                 	|
+| organisms 	| App Tab                      	|
+| organisms 	| App Audio Player             	|
 
 
 
 
 
+## Apps
 
 - [Music App](https://bloclibrary.dev/#/fluttercountertutorial) - an example of how to build a music app UI with atomsbox
 - [News App](https://github.com/felangel/bloc/tree/master/examples/flutter_form_validation) - an example of how to build a news app UI with atomsboxform validation.
