@@ -9,7 +9,7 @@ class AppFormExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ExampleAppBar(),
+      appBar: const ExampleAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
@@ -20,7 +20,7 @@ class AppFormExample extends StatelessWidget {
               AppForm(
                 title: AppText('This is a form'),
                 description: AppText('This is a form description'),
-                formButton: AppElevatedButton(
+                formButton: AppFilledButton(
                   onPressed: () {},
                   child: AppText('Submit'),
                 ),

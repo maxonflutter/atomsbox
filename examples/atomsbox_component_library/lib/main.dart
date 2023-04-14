@@ -12,7 +12,7 @@ import 'components/atoms/app_text_button_example.dart';
 import 'components/atoms/app_text_example.dart';
 import 'components/atoms/app_text_form_field_example.dart';
 import 'components/atoms/app_text_gradient_example.dart';
-import 'components/molecules/app_default_card_example.dart';
+import 'components/molecules/app_card_image_and_content_block_example.dart';
 import 'components/molecules/app_expansion_tile_example.dart';
 import 'components/molecules/app_list_tile_example.dart';
 import 'components/molecules/app_search_with_autocomplete_example.dart';

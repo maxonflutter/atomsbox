@@ -28,11 +28,10 @@ class AppCardImageAndContentBlockExample extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: AppConstants.sm),
                   headline: AppText('This is a card'),
                   subhead: sampleText,
-                  supportingText: sampleText,
                   actions: [
                     AppFilledButton(
                         onPressed: () {}, child: AppText('Action 1')),
-                    AppFilledButton(
+                    AppFilledButton.gradient(
                         onPressed: () {}, child: AppText('Action 2')),
                   ],
                 ),
@@ -45,9 +44,34 @@ class AppCardImageAndContentBlockExample extends StatelessWidget {
                   actions: [
                     AppFilledButton(
                         onPressed: () {}, child: AppText('Action 1')),
-                    AppFilledButton(
-                        onPressed: () {}, child: AppText('Action 2')),
+                    AppIconButton.gradient(
+                      onPressed: () {},
+                      child: const Icon(Icons.offline_bolt),
+                    ),
                   ],
+                ),
+                AppCardImageAndContentBlock(
+                  onTap: () {},
+                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
+                  headline: AppText('This is a card'),
+                  subhead: sampleText,
+                  image: AppImage.network(
+                    imageUrl,
+                    height: 150,
+                    width: double.infinity,
+                  ),
+                ),
+                AppCardImageAndContentBlock(
+                  type: AppCardType.elevated,
+                  onTap: () {},
+                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
+                  headline: AppText('This is a card'),
+                  subhead: sampleText,
+                  image: AppImage.network(
+                    imageUrl,
+                    height: 150,
+                    width: double.infinity,
+                  ),
                 ),
                 AppCardImageAndContentBlock(
                   type: AppCardType.outlined,
@@ -67,37 +91,11 @@ class AppCardImageAndContentBlockExample extends StatelessWidget {
                   ],
                 ),
                 AppCardImageAndContentBlock(
-                  onTap: () {},
-                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
-                  headline: AppText('This is a card'),
-                  subhead: sampleText,
-                  supportingText: sampleText,
-                  image: AppImage.network(
-                    imageUrl,
-                    height: 150,
-                    width: double.infinity,
-                  ),
-                ),
-                AppCardImageAndContentBlock(
-                  type: AppCardType.elevated,
-                  onTap: () {},
-                  margin: const EdgeInsets.only(bottom: AppConstants.sm),
-                  headline: AppText('This is a card'),
-                  subhead: sampleText,
-                  supportingText: sampleText,
-                  image: AppImage.network(
-                    imageUrl,
-                    height: 150,
-                    width: double.infinity,
-                  ),
-                ),
-                AppCardImageAndContentBlock(
                   type: AppCardType.outlined,
                   onTap: () {},
                   margin: const EdgeInsets.only(bottom: AppConstants.sm),
                   headline: AppText('This is a card'),
                   subhead: sampleText,
-                  supportingText: sampleText,
                   image: AppImage.network(
                     imageUrl,
                     height: 150,
