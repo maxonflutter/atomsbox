@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
 
 ## Usage
 
-### Create an AppCardImageAndContentBlock pre-styled component:
+#### Create an AppCardImageAndContentBlock pre-styled component
 ```dart 
 AppCardImageAndContentBlock(
   margin: const EdgeInsets.only(bottom: AppConstants.sm),
@@ -87,7 +87,7 @@ AppCardImageAndContentBlock(
     </tbody>
 </table>
 
-### Create an AppForm pre-styled component:
+#### Create an AppForm pre-styled component
 ```dart 
 AppForm(
   title: AppText('This is a form'),
@@ -118,7 +118,7 @@ AppForm(
     </tbody>
 </table>
 
-### Create an AppTab pre-styled component:
+#### Create an AppTab pre-styled component
 ```dart 
 AppTab(
   tabs: [
