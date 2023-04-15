@@ -60,6 +60,7 @@ class MyApp extends StatelessWidget {
 ```
 
 ## Usage
+Three examples of how to use atomsbox components in your Flutter apps. More components are available, check the component gallery at **[atomsbox.com](https://atomsbox.com)!**
 
 #### Create an AppCardImageAndContentBlock pre-styled component
 ```dart 
