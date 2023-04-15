@@ -257,7 +257,7 @@ Here is an extensive list of the currently available pre-styled components with 
             </td> 
             <td align="center" style="background-color: white">
                 <a href="https://atomsbox.com">
-                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_details_screen.png?alt=media&token=f70a8548-32b6-4693-95fb-27544b45edab" height="500" alt="atomsbox news-app"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_details_screen.jpg?alt=media&token=27d31e4c-c4b7-4d70-9ea3-77fe1b78a84b" height="500" alt="atomsbox news-app"/>
                 </a>
             </td>  
         </tr>         
