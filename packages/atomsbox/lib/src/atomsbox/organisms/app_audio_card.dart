@@ -48,41 +48,49 @@ class AppAudioCard extends StatelessWidget {
     required this.position,
     required this.duration,
     this.onChanged,
-    this.showDuration = true,
-    this.showPosition = true,
   }) {
     builder = (context) {
-      return AppCard.elevated(
-        child: Padding(
-          padding: const EdgeInsets.all(AppConstants.sm),
-          child: Column(
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          if (imageUrl != null)
+            Expanded(
+              child: Container(
+                clipBehavior: Clip.hardEdge,
+                decoration: BoxDecoration(
+                  borderRadius:
+                      BorderRadius.circular(AppConstants.borderRadius),
+                ),
+                child: AppImage.network(imageUrl!, width: double.infinity),
+              ),
+            ),
+          const SizedBox(height: AppConstants.lg),
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (imageUrl != null)
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                    AppConstants.borderRadius,
-                  ),
-                  child: AppImage.network(imageUrl!),
-                ),
-              const SizedBox(height: AppConstants.sm),
-              AppText.bodyLarge(songName ?? ''),
+              AppText.headlineMedium(songName ?? ''),
               AppText.bodySmall(artistName ?? ''),
-              const SizedBox(height: AppConstants.sm),
+            ],
+          ),
+          const SizedBox(height: AppConstants.lg),
+          Column(
+            children: [
+              _AppAudioSeekbar(
+                position: position,
+                duration: duration,
+                showDuration: true,
+                showPosition: true,
+              ),
               _AppAudioControls(
                 audioPlayerState: audioPlayerState,
                 play: play,
                 pause: pause,
-              ),
-              _AppAudioSeekbar(
-                position: position,
-                duration: duration,
-                showDuration: showDuration,
-                showPosition: showPosition,
+                showSecondaryButtons: true,
               ),
             ],
           ),
-        ),
+        ],
       );
     };
   }
@@ -101,8 +109,6 @@ class AppAudioCard extends StatelessWidget {
     required this.position,
     required this.duration,
     this.onChanged,
-    this.showDuration = false,
-    this.showPosition = false,
   }) {
     builder = (context) {
       return AppCard.elevated(
@@ -110,7 +116,11 @@ class AppAudioCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             AppListTile(
-              leadingWidth: 48,
+              contentPadding: const EdgeInsets.only(
+                top: AppConstants.sm,
+                left: AppConstants.sm,
+                right: AppConstants.sm,
+              ),
               leading: AppImage.network(imageUrl!, height: 48),
               title: AppText.bodyLarge(songName ?? ''),
               subtitle: AppText.bodySmall(artistName ?? ''),
@@ -118,13 +128,14 @@ class AppAudioCard extends StatelessWidget {
                 audioPlayerState: audioPlayerState,
                 play: play,
                 pause: pause,
+                showSecondaryButtons: false,
               ),
             ),
             _AppAudioSeekbar(
               position: position,
               duration: duration,
-              showDuration: showDuration,
-              showPosition: showPosition,
+              showDuration: false,
+              showPosition: false,
             ),
           ],
         ),
@@ -143,8 +154,6 @@ class AppAudioCard extends StatelessWidget {
   final Duration position;
   final Duration duration;
   final Function(double)? onChanged;
-  final bool showDuration;
-  final bool showPosition;
 
   @override
   Widget build(BuildContext context) {
@@ -196,14 +205,12 @@ class _AppAudioSeekbar extends StatelessWidget {
 class _AppAudioControls extends StatelessWidget {
   const _AppAudioControls({
     Key? key,
-    this.iconSize = 50,
     required this.play,
     required this.pause,
     required this.audioPlayerState,
     this.showSecondaryButtons = false,
   }) : super(key: key);
 
-  final double iconSize;
   final VoidCallback play;
   final VoidCallback pause;
   final AudioPlayerState audioPlayerState;
@@ -211,43 +218,7 @@ class _AppAudioControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget primaryButton;
-
-    switch (audioPlayerState) {
-      case AudioPlayerState.buffering:
-        primaryButton = Container(
-          padding: const EdgeInsets.all(AppConstants.sm),
-          width: 48,
-          height: 48,
-          child: const CircularProgressIndicator(),
-        );
-        break;
-      case AudioPlayerState.loading:
-        primaryButton = Container(
-          padding: const EdgeInsets.all(AppConstants.sm),
-          width: 48,
-          height: 48,
-          child: const CircularProgressIndicator(),
-        );
-        break;
-      case AudioPlayerState.paused:
-        primaryButton = AppIconButton(
-          onPressed: play,
-          child: const Icon(Icons.play_arrow),
-        );
-        break;
-      case AudioPlayerState.playing:
-        primaryButton = AppIconButton(
-          onPressed: pause,
-          child: const Icon(Icons.pause),
-        );
-        break;
-      default:
-        primaryButton = AppIconButton(
-          onPressed: () {},
-          child: const Icon(Icons.replay),
-        );
-    }
+    final primaryButton = _buildPrimaryButton(audioPlayerState);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -257,9 +228,7 @@ class _AppAudioControls extends StatelessWidget {
             onPressed: () {},
             child: const Icon(Icons.skip_previous),
           ),
-        const SizedBox(width: AppConstants.sm),
         primaryButton,
-        const SizedBox(width: AppConstants.sm),
         if (showSecondaryButtons)
           AppIconButton(
             onPressed: () {},
@@ -267,5 +236,32 @@ class _AppAudioControls extends StatelessWidget {
           ),
       ],
     );
+  }
+
+  Widget _buildPrimaryButton(audioPlayerState) {
+    switch (audioPlayerState) {
+      case AudioPlayerState.buffering:
+      case AudioPlayerState.loading:
+        return const SizedBox(
+          width: 48,
+          height: 48,
+          child: CircularProgressIndicator(),
+        );
+      case AudioPlayerState.paused:
+        return AppIconButton(
+          onPressed: play,
+          child: const Icon(Icons.play_arrow),
+        );
+      case AudioPlayerState.playing:
+        return AppIconButton(
+          onPressed: pause,
+          child: const Icon(Icons.pause),
+        );
+      default:
+        return AppIconButton(
+          onPressed: () {},
+          child: const Icon(Icons.replay),
+        );
+    }
   }
 }
