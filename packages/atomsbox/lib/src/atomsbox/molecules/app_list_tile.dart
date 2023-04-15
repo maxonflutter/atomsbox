@@ -11,7 +11,7 @@ import '../atoms/config/app_constants.dart';
 ///
 /// This widget can include a [leading] and [trailing] widget, a [title], and a
 /// [subtitle]. Additionally, it provides optional properties such as [width],
-/// [leadingWidth], and [isThreeLine] for further customization.
+/// [leadingWidth], [contentPadding] and [isThreeLine] for further customization.
 ///
 /// The appearance of the [AppListTile] is defined by the [AppListTileThemeData]
 /// provided in the current [Theme].
@@ -39,6 +39,8 @@ class AppListTile extends StatelessWidget {
     this.trailing,
     this.width,
     this.leadingWidth = 48,
+    this.contentPadding =
+        const EdgeInsets.symmetric(horizontal: AppConstants.sm),
     this.isThreeLine = false,
   });
 
@@ -77,6 +79,11 @@ class AppListTile extends StatelessWidget {
   /// Typically an [Icon] or a [Text] widget.
   final Widget? trailing;
 
+  /// A widget to define the padding of the list tile.
+  ///
+  /// If null, the default padding is used (horizontal: 8).
+  final EdgeInsetsGeometry contentPadding;
+
   /// Whether this list tile displays three lines of text.
   ///
   /// If true, the subtitle can display up to three lines of text. If false (the default),
@@ -103,53 +110,52 @@ class AppListTile extends StatelessWidget {
             themeData.splashColor!.withOpacity(0.12),
           ),
           onTap: onTap,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              (leading != null)
-                  ? ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(AppConstants.borderRadius),
-                      child: SizedBox(
-                        width: leadingWidth,
-                        child: leading!,
-                      ),
-                    )
-                  : const SizedBox(),
-              const SizedBox(width: AppConstants.sm),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DefaultTextStyle(
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: themeData.foregroundColor),
-                      child: title,
-                    ),
-                    if (subtitle != null) ...[
-                      const SizedBox(height: AppConstants.sm * 0.5),
-                      DefaultTextStyle(
-                        maxLines: isThreeLine ? 3 : 2,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .copyWith(color: themeData.foregroundColor),
-                        child: subtitle!,
+          child: Padding(
+            padding: contentPadding,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                (leading != null)
+                    ? ClipRRect(
+                        borderRadius:
+                            BorderRadius.circular(AppConstants.borderRadius),
+                        child: SizedBox(
+                          width: leadingWidth,
+                          child: leading!,
+                        ),
                       )
-                    ]
-                  ],
+                    : const SizedBox(),
+                const SizedBox(width: AppConstants.sm),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DefaultTextStyle(
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: themeData.foregroundColor),
+                        child: title,
+                      ),
+                      if (subtitle != null) ...[
+                        const SizedBox(height: AppConstants.sm * 0.5),
+                        DefaultTextStyle(
+                          maxLines: isThreeLine ? 3 : 2,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(color: themeData.foregroundColor),
+                          child: subtitle!,
+                        )
+                      ]
+                    ],
+                  ),
                 ),
-              ),
-              if (trailing != null)
-                Padding(
-                  padding: const EdgeInsets.all(AppConstants.sm),
-                  child: trailing!,
-                )
-            ],
+                if (trailing != null) trailing!,
+              ],
+            ),
           ),
         ),
       ),

@@ -215,7 +215,7 @@ Here is an extensive list of the currently available pre-styled components with 
 
 ## Apps
 
-- [Music App](https://bloclibrary.dev/#/fluttercountertutorial) - an example of how to build a music app UI with atomsbox
+- [Music App](https://bloclibrary.dev/#/fluttercountertutorial) - an example of how to build a music app UI with atomsbox components.
 
 <table>
     <tbody>
@@ -240,7 +240,7 @@ Here is an extensive list of the currently available pre-styled components with 
 </table>
 
 
-- [News App](https://github.com/felangel/bloc/tree/master/examples/flutter_form_validation) - an example of how to build a news app UI with atomsboxform validation.
+- [News App](https://github.com/felangel/bloc/tree/master/examples/flutter_form_validation) - an example of how to build a news app UI with atomsbox components.
 
 
 <table>
