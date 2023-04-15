@@ -1,3 +1,4 @@
+import 'package:atomsbox/atomsbox.dart';
 import 'package:flutter/material.dart';
 
 /// A customizable app drawer widget.
@@ -43,14 +44,11 @@ class AppDrawer extends StatelessWidget {
     return Drawer(
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(AppConstants.lg),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 100,
-                child: title,
-              ),
+              title,
               Expanded(
                 child: ListView(
                   physics: const NeverScrollableScrollPhysics(),
