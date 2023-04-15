@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// A customizable back button for use within an app.
+/// A customizable back button for the atomsbox library
 ///
 /// The [AppBackButton] widget is a customizable button that, when pressed,
 /// navigates to the previous screen. By default, it uses the [Navigator.maybePop]

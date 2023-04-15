@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// A customizable image widget that handles network and asset images.
+/// A customizable image widget that handles network and asset images.
 ///
 /// The [AppImage] widget extends the [Image] widget and provides constructors for
 /// loading images from a network URL or an asset path. It also handles error cases

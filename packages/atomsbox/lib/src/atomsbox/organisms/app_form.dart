@@ -8,7 +8,7 @@ import '../molecules/app_text_block.dart';
 ///
 /// The [AppForm] widget displays a form with an optional title and description,
 /// a list of form items, and a form button. The form items are displayed with
-/// associated labels.
+/// their associated labels.
 ///
 /// See also:
 ///

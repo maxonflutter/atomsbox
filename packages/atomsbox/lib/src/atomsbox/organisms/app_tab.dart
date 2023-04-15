@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../atoms/config/app_constants.dart';
 
-/// A custom tab bar widget for displaying tabs with associated content.
+/// A custom tab bar widget for displaying tabs with their associated content.
 ///
 /// The [AppTab] widget displays a group of tabs with corresponding content.
 /// Each tab has an associated [Tab] widget and a [Widget] representing the

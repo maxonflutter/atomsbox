@@ -178,7 +178,7 @@ AppTab(
 
 ## Apps built with atomsbox
 
-- [Music App](https://bloclibrary.dev/#/fluttercountertutorial) - an example of how to build a music app UI with atomsbox components.
+- [Music App](https://atomsbox.com/#/templates/dqfUKk8gPRucLE0x91mc) - an example of how to build a music app UI with atomsbox components.
 
 <table>
     <tbody>
@@ -202,7 +202,7 @@ AppTab(
 </table>
 
 
-- [News App](https://github.com/felangel/bloc/tree/master/examples/flutter_form_validation) - an example of how to build a news app UI with atomsbox components.
+- [News App](https://atomsbox.com/#/templates/7uub1gXHapGk8pV6gpFE) - an example of how to build a news app UI with atomsbox components.
 
 
 <table>
@@ -235,35 +235,37 @@ Here is an extensive list of the currently available pre-styled components with 
 
 | Category  	| Component                    	|
 |-----------	|------------------------------	|
-| atoms     	| [App Text](https://atomsbox.com)                     	|
-| atoms     	| [App Image](https://atomsbox.com)                 	|
-| atoms     	| [App Icon Button](https://atomsbox.com)              	|
-| atoms     	| [App Text Button](https://atomsbox.com)              	|
-| atoms     	| [App Elevated Button](https://atomsbox.com)          	|
-| atoms     	| [App Filled Button](https://atomsbox.com)            	|
-| atoms     	| [App Outlined Button](https://atomsbox.com)          	|
-| atoms     	| [App Card](https://atomsbox.com)                     	|
-| atoms     	| [App Glass](https://atomsbox.com)                    	|
-| atoms     	| [App Gradient Background](https://atomsbox.com)      	|
-| atoms     	| [App Slider](https://atomsbox.com)                   	|
-| atoms     	| [App Text Form Field](https://atomsbox.com)          	|
-| atoms     	| [App Gradient Text](https://atomsbox.com)            	|
-| atoms     	| [App Label](https://atomsbox.com)                    	|
-| molecules 	| [App Expansion Tile](https://atomsbox.com)           	|
-| molecules 	| [App Segmented Button](https://atomsbox.com)         	|
-| molecules 	| [App List Tile](https://atomsbox.com)                	|
-| molecules 	| [App Card With Image And Content Block](https://atomsbox.com)             	|
-| molecules 	| [App User Card](https://atomsbox.com)                	|
-| molecules 	| [App Product Card](https://atomsbox.com)             	|
-| molecules 	| [App Search With Autocomplete](https://atomsbox.com) 	|
-| organisms 	| [App Form](https://atomsbox.com)                     	|
-| organisms 	| [App Grid](https://atomsbox.com)                     	|
-| organisms 	| [App List](https://atomsbox.com)                     	|
-| organisms 	| [App Drawer](https://atomsbox.com)                   	|
-| organisms 	| [App Bottom Nav Bar](https://atomsbox.com)           	|
-| organisms 	| [App Carousel](https://atomsbox.com)                 	|
-| organisms 	| [App Tab](https://atomsbox.com)                      	|
-| organisms 	| [App Audio Player](https://atomsbox.com)             	|
+| atoms     	| [App Text](https://atomsbox.com/#/components/DykdW19CFC33ceU3pmHZ)                     	|
+| atoms     	| [App Image](https://atomsbox.com/#/components/K0pBQpr4HZOtwB94gWXv)                 	|
+| atoms     	| [App Icon Button](https://atomsbox.com/#/components/K0pBQpr4HZOtwB94gWXv)              	|
+| atoms     	| [App Text Button](https://atomsbox.com/#/components/FKxDsIWbU7AENNpuCdBt)              	|
+| atoms     	| [App Elevated Button](https://atomsbox.com/#/components/au9dCk84PJHmkF3yAFzH)          	|
+| atoms     	| [App Filled Button](https://atomsbox.com/#/components/TlsVwEhvmfcj6hxu74f6)            	|
+| atoms     	| [App Outlined Button](https://atomsbox.com/#/components/IfzBO4Swh5Z6ZHuo7ev2)          	|
+| atoms     	| [App Card](https://atomsbox.com/#/components/bzE9JDWpLIOMBRKyXDYR)                     	|
+| atoms     	| [App Glass](https://atomsbox.com/#/components/TALyP7vNxEtifJ5CmGw3)                    	|
+| atoms     	| [App Gradient Background](https://atomsbox.com/#/components/RZZT3PQhtH4I4yRPXmlG)      	|
+| atoms     	| [App Slider](https://atomsbox.com/#/components/I2BZvZqzhp9QrXbpk08h)                   	|
+| atoms     	| [App Text Form Field](https://atomsbox.com/#/components/Ebditrbw6S1jaXTbDIzV)          	|
+| atoms     	| [App Gradient Text](https://atomsbox.com/#/components/NS8W7US62N63JP9nf8bf)            	|
+| atoms     	| [App Label](https://atomsbox.com/#/components/JMbthhzZMgUvYf1mNLxT)                    	|
+| molecules 	| [App Expansion Tile](https://atomsbox.com/#/components/pd1unj59WxNYUNTNP8zS)           	|
+| molecules 	| [App Segmented Button](https://atomsbox.com/#/components/lumDAnNEdUBDQIQqzJQC)         	|
+| molecules 	| [App List Tile](https://atomsbox.com/#/components/p830P1JJZueucc3ykbZr)                	|
+| molecules 	| [App Card With Image And Content Block](https://atomsbox.com/#/components/rqxrhUT2K6IIJs85t3NL)             	|
+| molecules 	| [App Card Image Overlay](https://atomsbox.com/#/components/rqHjKaWpps2XI6TfX6Tg)             	|
+| molecules 	| [App Text Block](https://atomsbox.com/#/components/kxmVSOFqIJKibEtRJizZ)             	|
+| molecules 	| [App User Card](https://atomsbox.com/#/components/jPboHbOLcmcFcHbTejR9)                	|
+| molecules 	| [App Search With Autocomplete](https://atomsbox.com/#/components/ozsLxiqlpBPc3RbWS0PU) 	|
+| organisms 	| [App Form](https://atomsbox.com/#/components/urml2cl8BPCsCxLweNBc)                     	|
+| organisms 	| [App Grid](https://atomsbox.com/#/components/ueDGgnfzYAfXd8i5BXBM)                     	|
+| organisms 	| [App List](https://atomsbox.com/#/components/sXuVxIjHpi5udaLiVqQL)                     	|
+| organisms 	| [App Drawer](https://atomsbox.com/#/components/wYT6zfKqRipz50semw8H)                   	|
+| organisms 	| [App Bottom Nav Bar](https://atomsbox.com/#/components/yZMIvqv5GcHUtHwWvcf8)           	|
+| organisms 	| [App Data Table](https://atomsbox.com/#/components/wZhdgAWBW5MCNtJh8Nsb)           	|
+| organisms 	| [App Carousel](https://atomsbox.com/#/components/wd7dzUJQje4TAMDpGuyD)                 	|
+| organisms 	| [App Tab](https://atomsbox.com/#/components/sKgP5OH1szHMAxWKqeQz)                      	|
+| organisms 	| [App Audio Card](https://atomsbox.com/#/components/zzinlVFfEhNIK9WkG2To)             	|
 
 
 
