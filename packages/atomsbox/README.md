@@ -227,7 +227,7 @@ Here is an extensive list of the currently available pre-styled components with 
             </td>  
             <td align="center" style="background-color: white">
                 <a href="https://atomsbox.com">
-                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/music_app_home_screen.png?alt=media&token=a4b0633f-e64a-4e1a-9e7a-f75660269e09" height="500" alt="atomsbox music-app"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/music_app_song_details_screen.jpg?alt=media&token=a1b6492a-0f9c-4caa-8461-25fb77cf74df" height="500" alt="atomsbox music-app"/>
                 </a>
             </td> 
             <td align="center" style="background-color: white">
@@ -252,7 +252,7 @@ Here is an extensive list of the currently available pre-styled components with 
             </td> 
             <td align="center" style="background-color: white">
                 <a href="https://atomsbox.com">
-                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/music_app_song_details_screen.png?alt=media&token=617446e5-071f-4bb4-953d-f50c6f333f5a" height="500" alt="atomsbox news-app"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_category_screen.jpg?alt=media&token=bf25abd9-d55a-4c62-a6f4-a16bfbdbd02f" height="500" alt="atomsbox news-app"/>
                 </a>
             </td> 
             <td align="center" style="background-color: white">
