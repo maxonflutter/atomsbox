@@ -14,7 +14,9 @@ and the Flutter guide for
 
 
 <p align="left">
-<img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atomsbox-logo-white.png?alt=media&token=d572973f-f913-41da-9f42-271d73cac269" height="75" alt="atomsbox"/>
+  <a href="https://atomsbox.com">
+    <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atomsbox-logo-white.png?alt=media&token=d572973f-f913-41da-9f42-271d73cac269" height="75" alt="atomsbox"/>
+  </a>
 </p>
 
 A curated library of pre-styled, reusable Flutter widgets organized based on Atomic Design principles to build apps at scale.
