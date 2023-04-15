@@ -247,12 +247,12 @@ Here is an extensive list of the currently available pre-styled components with 
         <tr>
             <td align="center" style="background-color: white">
                 <a href="https://atomsbox.com">
-                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_feed_screen.png?alt=media&token=b1b2cee7-b511-4799-bc08-94a2cea07cb1" height="500" alt="atomsbox news-app"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_category_screen.png?alt=media&token=d1d0aab3-f044-4475-80d5-673c0f57993a" height="500" alt="atomsbox news-app"/>
                 </a>
-            </td>  
+            </td> 
             <td align="center" style="background-color: white">
                 <a href="https://atomsbox.com">
-                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/news_app_category_screen.png?alt=media&token=d1d0aab3-f044-4475-80d5-673c0f57993a" height="500" alt="atomsbox news-app"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/music_app_song_details_screen.png?alt=media&token=617446e5-071f-4bb4-953d-f50c6f333f5a" height="500" alt="atomsbox news-app"/>
                 </a>
             </td> 
             <td align="center" style="background-color: white">
