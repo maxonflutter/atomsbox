@@ -14,8 +14,9 @@ import '../atoms/config/app_constants.dart';
 /// arguments is omitted, the corresponding text will not be displayed.
 ///
 /// The text styles are determined by the current [Theme] and applied
-/// automatically. If you want to customize the text styles, wrap the text
-/// widgets in a [DefaultTextStyle] widget or apply styles directly to the text
+/// automatically. If you want to customize the text styles, use the [titleStyle],
+/// [subtitleStyle] and/or the [supportingTextStyle] optional arguments. Alternatively,
+/// wrap the widgets in a [DefaultTextStyle] widget or apply styles directly to the text
 /// widgets before passing them to the [AppTextBlock].
 ///
 /// See also:
@@ -31,6 +32,9 @@ class AppTextBlock extends StatelessWidget {
     this.title,
     this.subtitle,
     this.supportingText,
+    this.titleStyle,
+    this.subtitleStyle,
+    this.supportingTextStyle,
   });
 
   /// The title to display.
@@ -48,24 +52,39 @@ class AppTextBlock extends StatelessWidget {
   /// If null, no supporting text will be displayed.
   final Widget? supportingText;
 
+  /// The style to apply to the title.
+  ///
+  /// If null, the style will be [textTheme.headlineSmall]
+  final TextStyle? titleStyle;
+
+  /// The style to apply to the title.
+  ///
+  /// If null, the style will be [textTheme.bodyMedium]
+  final TextStyle? subtitleStyle;
+
+  /// The style to apply to the title.
+  ///
+  /// If null, the style will be [textTheme.bodyMedium]
+  final TextStyle? supportingTextStyle;
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final titleStyle = textTheme.headlineSmall;
-    final subtitleStyle = textTheme.bodyMedium;
-    final supportingTextStyle = textTheme.bodyMedium;
+    final _titleStyle = titleStyle ?? textTheme.headlineSmall;
+    final _subtitleStyle = textTheme.bodyMedium;
+    final _supportingTextStyle = textTheme.bodyMedium;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title != null)
           DefaultTextStyle(
-            style: titleStyle!,
+            style: _titleStyle!,
             child: title!,
           ),
         if (subtitle != null)
           DefaultTextStyle(
-            style: subtitleStyle!,
+            style: _subtitleStyle!,
             maxLines: 3,
             child: subtitle!,
           ),
@@ -75,7 +94,7 @@ class AppTextBlock extends StatelessWidget {
               top: (title != null || subtitle != null) ? AppConstants.sm : 0,
             ),
             child: DefaultTextStyle(
-              style: supportingTextStyle!,
+              style: _supportingTextStyle!,
               maxLines: 3,
               child: supportingText!,
             ),

@@ -20,7 +20,6 @@ class AppCardImageAndContentBlock extends StatefulWidget {
   ///
   /// The [headline] parameter must not be null.
   /// The [type] parameter defaults to [AppCardType.filled].
-
   const AppCardImageAndContentBlock({
     super.key,
     this.onTap,
@@ -170,6 +169,9 @@ class _AppCardImageAndContentBlockState
                   supportingText: (widget.supportingText != null)
                       ? AppText(widget.supportingText!)
                       : null,
+                  titleStyle: headlineStyle,
+                  subtitleStyle: subheadStyle,
+                  supportingTextStyle: supportingTextStyle,
                 ),
                 Row(
                   children: (widget.actions == null)
