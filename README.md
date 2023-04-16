@@ -15,7 +15,7 @@ and the Flutter guide for
 
 <p align="left">
   <a href="https://atomsbox.com">
-    <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atomsbox-logo-white.png?alt=media&token=d572973f-f913-41da-9f42-271d73cac269" height="75" alt="atomsbox"/>
+    <img src="https://firebasestorage.googleapis.com/v0/b/atomsbox-8d92a.appspot.com/o/atomsbox-with-bg.png?alt=media&token=954c9878-201a-4569-ba92-d4ba8ad3389f" height="75" alt="atomsbox"/>
   </a>
 </p>
 
