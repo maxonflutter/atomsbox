@@ -38,6 +38,7 @@ import 'config/app_typedef.dart';
 /// * [TextButton], which is the base Flutter widget used to create the custom styles.
 /// * [Theme], which is used to provide the default text and background colors.
 
+// ignore: must_be_immutable
 class AppTextButton extends StatelessWidget {
   /// Creates a basic text button widget.
   ///

@@ -17,6 +17,8 @@ import 'config/app_typedef.dart';
 /// The [minimumSize] property sets the minimum size constraints for the button.
 ///
 /// The [child] property is the widget displayed as the button's label.
+
+// ignore: must_be_immutable
 class AppFilledButton extends StatelessWidget {
   /// Creates a primary styled filled button.
   ///

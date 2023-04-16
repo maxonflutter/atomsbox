@@ -23,7 +23,7 @@ class AppImage extends Image {
           imageUrl,
           errorBuilder: (context, error, stackTrace) {
             // TODO: Replace with an asset image of a placeholder.
-            return Placeholder();
+            return const Placeholder();
           },
         );
 

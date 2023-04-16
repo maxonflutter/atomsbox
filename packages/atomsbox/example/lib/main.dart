@@ -60,19 +60,19 @@ class AtomsboxComponents extends StatelessWidget {
               Tab(
                 icon: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [Icon(Icons.code), AppText('Example #1')],
+                  children: [const Icon(Icons.code), AppText('Example #1')],
                 ),
               ),
               Tab(
                 icon: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [Icon(Icons.code), AppText('Example #2')],
+                  children: [const Icon(Icons.code), AppText('Example #2')],
                 ),
               ),
               Tab(
                 icon: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [Icon(Icons.code), AppText('Example #3')],
+                  children: [const Icon(Icons.code), AppText('Example #3')],
                 ),
               ),
             ],
@@ -168,10 +168,6 @@ class AppGridExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
-    const sampleText =
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
     const imageUrl =
         'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
 

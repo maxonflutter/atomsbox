@@ -25,6 +25,8 @@ import 'config/app_typedef.dart';
 /// See also:
 ///
 /// * [IconButton], which is the base widget used to create the different styles of [AppIconButton].
+
+// ignore: must_be_immutable
 class AppIconButton extends StatelessWidget {
   /// Creates an [AppIconButton] with the primary style.
   ///

@@ -42,6 +42,8 @@ enum AppCardType { elevated, filled, outlined }
 ///
 /// * [Card], the base Flutter card widget.
 /// * [InkWell], which is used for handling tap events.
+
+// ignore: must_be_immutable
 class AppCard extends StatelessWidget {
   /// Creates an elevated card with the given properties.
   ///

@@ -27,6 +27,8 @@ import 'config/app_typedef.dart';
 /// * [Text], which is the base widget for displaying text.
 /// * [TextStyle], which holds the style properties for the text.
 /// * [Theme], which holds the text theme used for styling the text.
+
+// ignore: must_be_immutable
 class AppText extends Text {
   AppText(
     super.data, {

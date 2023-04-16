@@ -26,6 +26,8 @@ import 'config/app_typedef.dart';
 /// See also:
 ///
 /// * [OutlinedButton], which is the base widget for creating outlined buttons.
+
+// ignore: must_be_immutable
 class AppOutlinedButton extends StatelessWidget {
   /// Creates an [AppOutlinedButton] with the primary style.
   ///

@@ -20,6 +20,8 @@ import '../atoms/config/app_typedef.dart';
 /// * [ExpansionTile], the Flutter widget that this custom widget is based on.
 /// * [ExpansionTileThemeData], which defines the appearance of the
 /// [ExpansionTile] widget.
+
+// ignore: must_be_immutable
 class AppExpansionTile extends StatelessWidget {
   /// Creates an [AppExpansionTile] with the default appearance.
   ///

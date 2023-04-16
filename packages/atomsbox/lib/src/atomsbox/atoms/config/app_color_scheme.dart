@@ -34,7 +34,7 @@ class AppColors {
   }
 
   static MaterialColor getMaterialColorFromColor(Color color) {
-    Map<int, Color> _colorShades = {
+    Map<int, Color> colorShades = {
       50: getShade(color, value: 0.5),
       100: getShade(color, value: 0.4),
       200: getShade(color, value: 0.3),
@@ -46,6 +46,6 @@ class AppColors {
       800: getShade(color, value: 0.2, darker: true),
       900: getShade(color, value: 0.25, darker: true),
     };
-    return MaterialColor(color.value, _colorShades);
+    return MaterialColor(color.value, colorShades);
   }
 }

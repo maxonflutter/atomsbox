@@ -27,6 +27,8 @@ import 'config/app_typedef.dart';
 ///
 /// * [ElevatedButton], the base elevated button widget in Flutter.
 /// * [Text], the widget used for displaying the button's label.
+
+// ignore: must_be_immutable
 class AppElevatedButton extends StatelessWidget {
   /// Creates a primary style elevated button.
   ///

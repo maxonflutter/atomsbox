@@ -1,5 +1,6 @@
 extension DurationExt on Duration {
   String formatDuration() {
+    // ignore: unnecessary_null_comparison
     if (this == null) {
       return '--:--';
     } else {

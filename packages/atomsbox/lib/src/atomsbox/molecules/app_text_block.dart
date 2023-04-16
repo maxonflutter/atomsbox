@@ -70,21 +70,18 @@ class AppTextBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final _titleStyle = titleStyle ?? textTheme.headlineSmall;
-    final _subtitleStyle = textTheme.bodyMedium;
-    final _supportingTextStyle = textTheme.bodyMedium;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title != null)
           DefaultTextStyle(
-            style: _titleStyle!,
+            style: titleStyle ?? textTheme.headlineSmall!,
             child: title!,
           ),
         if (subtitle != null)
           DefaultTextStyle(
-            style: _subtitleStyle!,
+            style: subtitleStyle ?? textTheme.bodyMedium!,
             maxLines: 3,
             child: subtitle!,
           ),
@@ -94,7 +91,7 @@ class AppTextBlock extends StatelessWidget {
               top: (title != null || subtitle != null) ? AppConstants.sm : 0,
             ),
             child: DefaultTextStyle(
-              style: _supportingTextStyle!,
+              style: supportingTextStyle ?? textTheme.bodyMedium!,
               maxLines: 3,
               child: supportingText!,
             ),

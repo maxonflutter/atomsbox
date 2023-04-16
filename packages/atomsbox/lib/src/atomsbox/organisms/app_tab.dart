@@ -95,7 +95,6 @@ class _AppTabState extends State<AppTab> with SingleTickerProviderStateMixin {
 /// for the tab bar.
 class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
   const _AppTabBar({
-    super.key,
     required this.controller,
     required this.children,
   });
