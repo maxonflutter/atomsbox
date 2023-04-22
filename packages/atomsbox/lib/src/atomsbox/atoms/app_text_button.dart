@@ -158,7 +158,7 @@ final appTextButtonThemeLight = TextButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     ),
-    minimumSize: const Size(100, 48),
+    minimumSize: const Size(100, 36),
     foregroundColor: AppColors.appColorSchemeLight.primary,
     backgroundColor: Colors.transparent,
     disabledForegroundColor:
@@ -175,7 +175,7 @@ final appTextButtonThemeDark = TextButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     ),
-    minimumSize: const Size(100, 48),
+    minimumSize: const Size(100, 36),
     foregroundColor: AppColors.appColorSchemeDark.primary,
     backgroundColor: Colors.transparent,
     disabledForegroundColor:

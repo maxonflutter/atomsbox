@@ -7,6 +7,7 @@ import 'components/atoms/app_filled_button_example.dart';
 import 'components/atoms/app_icon_button_example.dart';
 import 'components/atoms/app_image_example.dart';
 import 'components/atoms/app_outlined_button_example.dart';
+import 'components/atoms/app_rating_bar_example.dart';
 import 'components/atoms/app_slider_example.dart';
 import 'components/atoms/app_text_button_example.dart';
 import 'components/atoms/app_text_example.dart';
@@ -25,6 +26,7 @@ import 'components/organisms/app_form_example.dart';
 import 'components/organisms/app_grid_example.dart';
 import 'components/organisms/app_list_example.dart';
 import 'components/organisms/app_tab_example.dart';
+import 'components/organisms/app_tree_view_example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,10 +47,10 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           // Remove the debug banner
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.theme.copyWith(appBarTheme: AppBarTheme()),
+          theme: AppTheme.theme,
           darkTheme: AppTheme.darkTheme,
           themeMode: currentMode,
-          home: AtomsboxExamples(),
+          home: const AtomsboxExamples(),
         );
       },
     );
@@ -195,6 +197,21 @@ class AtomsboxExamples extends StatelessWidget {
                     },
                     child: AppText('Tab'),
                   ),
+                  AppFilledButton.gradient(
+                    minimumSize: const Size(100, 48),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const AppTreeViewExample();
+                          },
+                        ),
+                      );
+                    },
+                    child: AppText('AppTreeView'),
+                  ),
+                  const SizedBox(height: AppConstants.sm * 0.5),
                 ],
               ),
               const SizedBox(height: AppConstants.xlg),
@@ -396,6 +413,21 @@ class AtomsboxExamples extends StatelessWidget {
                       );
                     },
                     child: AppText('OutlinedButton'),
+                  ),
+                  const SizedBox(height: AppConstants.sm * 0.5),
+                  AppFilledButton(
+                    minimumSize: const Size(100, 48),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const AppRatingBarExample();
+                          },
+                        ),
+                      );
+                    },
+                    child: AppText('RatingBar'),
                   ),
                   const SizedBox(height: AppConstants.sm * 0.5),
                   AppFilledButton(

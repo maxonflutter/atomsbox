@@ -141,7 +141,7 @@ final appFilledButtonThemeLight = FilledButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     ),
-    minimumSize: const Size(100, 48),
+    minimumSize: const Size(100, 36),
     foregroundColor: AppColors.appColorSchemeLight.onPrimary,
     backgroundColor: AppColors.appColorSchemeLight.primary,
     disabledForegroundColor:
@@ -158,7 +158,7 @@ final appFilledButtonThemeDark = FilledButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     ),
-    minimumSize: const Size(100, 48),
+    minimumSize: const Size(100, 36),
     foregroundColor: AppColors.appColorSchemeLight.onPrimary,
     backgroundColor: AppColors.appColorSchemeLight.primary,
     disabledForegroundColor:

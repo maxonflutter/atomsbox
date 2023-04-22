@@ -1,6 +1,6 @@
 name: atomsbox
 description: A curated library of pre-styled, reusable components for Flutter developers to build apps at scale
-version: 0.1.0
+version: 0.2.0
 repository: https://github.com/maxonflutter/atomsbox
 homepage: https://atomsbox.com
 documentation: https://atomsbox.com
@@ -10,13 +10,12 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  audio_service: ^0.18.9
   carousel_slider: ^4.2.1
   flex_seed_scheme: ^1.2.3
   flutter:
     sdk: flutter
+  flutter_rating_bar: ^4.0.1
   google_fonts: ^4.0.3
-  just_audio: ^0.9.32
   
 
 dev_dependencies:

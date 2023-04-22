@@ -149,7 +149,7 @@ final appElevatedButtonThemeLight = ElevatedButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     ),
-    minimumSize: const Size(100, 48),
+    minimumSize: const Size(100, 36),
     foregroundColor: AppColors.appColorSchemeLight.primary,
     backgroundColor: AppColors.appColorSchemeLight.surface,
     disabledForegroundColor:
@@ -166,7 +166,7 @@ final appElevatedButtonThemeDark = ElevatedButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppConstants.borderRadius),
     ),
-    minimumSize: const Size(100, 48),
+    minimumSize: const Size(100, 36),
     foregroundColor: AppColors.appColorSchemeDark.primary,
     backgroundColor: AppColors.appColorSchemeDark.surface,
     disabledForegroundColor:

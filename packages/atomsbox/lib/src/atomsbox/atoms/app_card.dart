@@ -30,6 +30,7 @@ enum AppCardType { elevated, filled, outlined }
 ///
 /// The appearance of the card can be customized using the following properties:
 /// - [color] for the card's background color
+/// - [surfaceTintcolor] for the overlay on color to indicate elevation.
 /// - [margin] for the card's margin
 /// - [clipBehavior] for the card's clip behavior
 /// - [shape] for the card's shape
@@ -55,6 +56,7 @@ class AppCard extends StatelessWidget {
     super.key,
     this.onTap,
     this.color,
+    this.surfaceTintColor,
     this.margin,
     this.shape,
     this.clipBehavior,
@@ -67,6 +69,8 @@ class AppCard extends StatelessWidget {
       return Card(
         margin: margin ?? EdgeInsets.zero,
         color: color ?? Theme.of(context).colorScheme.surface,
+        surfaceTintColor:
+            surfaceTintColor ?? Theme.of(context).colorScheme.surfaceTint,
         clipBehavior: clipBehavior ?? Theme.of(context).cardTheme.clipBehavior,
         shape: shape ?? Theme.of(context).cardTheme.shape,
         elevation: elevation,
@@ -88,6 +92,7 @@ class AppCard extends StatelessWidget {
     super.key,
     this.onTap,
     this.color,
+    this.surfaceTintColor,
     this.margin,
     this.clipBehavior,
     this.shape,
@@ -119,6 +124,7 @@ class AppCard extends StatelessWidget {
     super.key,
     this.onTap,
     this.color,
+    this.surfaceTintColor,
     this.margin,
     this.clipBehavior,
     this.shape,
@@ -154,6 +160,7 @@ class AppCard extends StatelessWidget {
     super.key,
     this.onTap,
     this.color,
+    this.surfaceTintColor,
     this.margin,
     this.clipBehavior,
     this.shape,
@@ -190,6 +197,7 @@ class AppCard extends StatelessWidget {
     super.key,
     this.onTap,
     this.color,
+    this.surfaceTintColor,
     this.margin,
     this.clipBehavior,
     this.shape,
@@ -231,6 +239,7 @@ class AppCard extends StatelessWidget {
   late CardBuilder builder;
   final Function()? onTap;
   final Color? color;
+  final Color? surfaceTintColor;
   final EdgeInsets? margin;
   final Clip? clipBehavior;
   final ShapeBorder? shape;
