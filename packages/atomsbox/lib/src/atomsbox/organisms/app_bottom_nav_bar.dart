@@ -17,7 +17,7 @@ import '../atoms/config/app_constants.dart';
 /// * [AppBottomNavBarItem], which represents a single item in the bottom
 /// navigation bar.
 class AppBottomNavBar extends StatefulWidget {
-  AppBottomNavBar({
+  const AppBottomNavBar({
     Key? key,
     this.currentIndex = 0,
     required this.items,
@@ -64,7 +64,7 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    final _items = widget.items
+    final bottomNavBarItem = widget.items
         .asMap()
         .map((index, item) {
           return MapEntry(
@@ -103,7 +103,7 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: _items,
+                  children: bottomNavBarItem,
                 ),
               ),
             )
@@ -112,7 +112,7 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
               height: widget.height + MediaQuery.of(context).viewPadding.bottom,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: _items,
+                children: bottomNavBarItem,
               ),
             ),
     );

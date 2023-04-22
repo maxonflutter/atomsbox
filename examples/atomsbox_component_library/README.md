@@ -1,4 +1,4 @@
-# atomsbox_simple_library
+# atomsbox_component_library
 
 A new Flutter project.
 

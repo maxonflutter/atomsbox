@@ -7,7 +7,7 @@ import 'components/atoms/app_filled_button_example.dart';
 import 'components/atoms/app_icon_button_example.dart';
 import 'components/atoms/app_image_example.dart';
 import 'components/atoms/app_outlined_button_example.dart';
-import 'components/atoms/app_rating_bar_example.dart';
+import 'components/molecules/app_rating_bar_example.dart';
 import 'components/atoms/app_slider_example.dart';
 import 'components/atoms/app_text_button_example.dart';
 import 'components/atoms/app_text_example.dart';
@@ -294,6 +294,21 @@ class AtomsboxExamples extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
+                            return const AppRatingBarExample();
+                          },
+                        ),
+                      );
+                    },
+                    child: AppText('RatingBar'),
+                  ),
+                  const SizedBox(height: AppConstants.sm * 0.5),
+                  AppFilledButton.secondary(
+                    minimumSize: const Size(100, 48),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
                             return const AppSegmentedButtonExample();
                           },
                         ),
@@ -413,21 +428,6 @@ class AtomsboxExamples extends StatelessWidget {
                       );
                     },
                     child: AppText('OutlinedButton'),
-                  ),
-                  const SizedBox(height: AppConstants.sm * 0.5),
-                  AppFilledButton(
-                    minimumSize: const Size(100, 48),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const AppRatingBarExample();
-                          },
-                        ),
-                      );
-                    },
-                    child: AppText('RatingBar'),
                   ),
                   const SizedBox(height: AppConstants.sm * 0.5),
                   AppFilledButton(

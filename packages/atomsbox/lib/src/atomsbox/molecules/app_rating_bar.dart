@@ -1,10 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../molecules/app_text_block.dart';
-import 'config/app_constants.dart';
+import 'app_text_block.dart';
+import '../atoms/config/app_constants.dart';
+
+/// A custom app rating bar widget.
+///
+/// The [AppRatingBar] widget displays a customizable rating bar that can be used
+/// to rate items in the app. The rating bar consists of a series of icons, such as
+/// stars, that represent the rating. The rating can be updated by tapping or
+/// dragging the icons. Additional widgets, such as a title, description, and
+/// labels, can also be displayed along with the rating bar.
+///
+/// The [ratingWidget] is an optional parameter, which allows you to customize the
+/// appearance of the rating icons. If not provided, a default star rating widget
+/// will be used.
+///
+/// The [onRatingUpdate] callback is required and is called when the rating is
+/// updated by the user.
+///
+/// The [maxRating], [minRating], [initialRating], and [itemCount] properties are
+/// used to configure the rating scale, while the [itemSize] and [itemPadding]
+/// properties control the appearance of the rating icons.
+///
+/// The [direction] property controls the orientation of the rating bar, either
+/// horizontal or vertical.
+///
+/// The [ignoreGestures], [tapOnlyMode], and [updateOnDrag] properties can be used
+/// to configure how the rating is updated in response to user input.
+///
+/// The [wrapAlignment] property controls the alignment of the rating bar within
+/// its parent container.
+///
+/// The [title], [description], [labelLow], and [labelHigh] properties are optional
+/// and can be used to display additional information about the rating bar.
 
 class AppRatingBar extends StatelessWidget {
+  /// Creates an app rating bar widget.
+  ///
+  /// The [onRatingUpdate] callback must be provided and is called when the rating
+  /// is updated.
+  ///
+  /// The [itemCount], [initialRating], [itemSize], and [itemPadding] properties
+  /// have default values, but can be overridden if desired.
+
   const AppRatingBar({
     super.key,
     this.ratingWidget,
@@ -29,25 +68,69 @@ class AppRatingBar extends StatelessWidget {
     this.labelHigh,
   });
 
+  /// The custom rating widget to display. If not provided, a default star rating
+  /// widget will be used.
   final RatingWidget? ratingWidget;
+
+  /// The callback that is called when the rating is updated.
   final void Function(double) onRatingUpdate;
+
+  /// The maximum allowed rating value. Defaults to null, which means the rating
+  /// scale will be determined by the [itemCount] property.
   final double? maxRating;
+
+  /// The text direction for the rating bar.
   final TextDirection? textDirection;
+
+  /// The color of the unrated icons.
   final Color? unratedColor;
+
+  /// Whether half rating values are allowed. Defaults to true.
   final bool allowHalfRating;
+
+  /// The orientation of the rating bar, either horizontal or vertical.
+  /// Defaults to Axis.horizontal.
   final Axis direction;
+
+  /// Whether to ignore user gestures. Defaults to false.
   final bool ignoreGestures;
+
+  /// The initial rating value displayed. Defaults to 2.
   final double initialRating;
+
+  /// The number of rating icons displayed. Defaults to 5.
   final int itemCount;
+
+  /// The padding applied to each rating icon. Defaults to a symmetric horizontal
+  /// padding with a value defined by [AppConstants.sm].
   final EdgeInsetsGeometry itemPadding;
+
+  /// The size of each rating icon. Defaults to 30.0.
   final double itemSize;
+
+  /// The minimum allowed rating value. Defaults to 0.
   final double minRating;
+
+  /// Whether to update the rating on tap only. Defaults to false.
   final bool tapOnlyMode;
+
+  /// Whether to update the rating while dragging. Defaults to false.
   final bool updateOnDrag;
+
+  /// The alignment of the rating bar within its parent container.
+  /// Defaults to [WrapAlignment.start].
   final WrapAlignment wrapAlignment;
+
+  /// An optional title widget displayed above the rating bar.
   final Widget? title;
+
+  /// An optional description widget displayed below the title and above the rating bar.
   final Widget? description;
+
+  /// An optional label widget displayed at the lower end of the rating bar.
   final Widget? labelLow;
+
+  /// An optional label widget displayed at the higher end of the rating bar.
   final Widget? labelHigh;
 
   @override

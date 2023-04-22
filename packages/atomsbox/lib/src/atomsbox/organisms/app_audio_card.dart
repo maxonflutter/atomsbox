@@ -33,6 +33,7 @@ enum AudioPlayerState {
   error,
 }
 
+// ignore: must_be_immutable
 class AppAudioCard extends StatelessWidget {
   AppAudioCard({
     super.key,
@@ -164,7 +165,6 @@ class AppAudioCard extends StatelessWidget {
 
 class _AppAudioSeekbar extends StatelessWidget {
   const _AppAudioSeekbar({
-    super.key,
     required this.position,
     required this.duration,
     this.onChanged,

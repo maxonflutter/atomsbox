@@ -123,46 +123,6 @@ class AppUserCard extends StatelessWidget {
       builder: (context, constraints) {
         final radius = constraints.maxHeight * 0.2;
 
-        final _headline = DefaultTextStyle(
-          textAlign: TextAlign.center,
-          style: headlineStyle.copyWith(
-            fontSize: (constraints.maxWidth < 200)
-                ? headlineStyle.fontSize! * 0.75
-                : headlineStyle.fontSize!,
-          ),
-          child: headline,
-        );
-
-        final _subhead = (subhead != null)
-            ? DefaultTextStyle(
-                style: subheadStyle,
-                textAlign: TextAlign.center,
-                child: AppText(
-                  subhead!,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              )
-            : null;
-
-        final _supportingText = (supportingText != null)
-            ? DefaultTextStyle(
-                textAlign: TextAlign.center,
-                style: supportingTextStyle.copyWith(
-                  fontSize: (constraints.maxWidth < 200)
-                      ? supportingTextStyle.fontSize! * 0.8
-                      : supportingTextStyle.fontSize!,
-                ),
-                child: AppText(
-                  supportingText!,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              )
-            : null;
-
-        final _actions = (actions != null) ? actions! : null;
-
         return Column(
           children: [
             Container(
@@ -201,10 +161,40 @@ class AppUserCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _headline,
-                    if (_subhead != null) _subhead,
-                    if (_supportingText != null) _supportingText,
-                    if (_actions != null) _actions,
+                    DefaultTextStyle(
+                      textAlign: TextAlign.center,
+                      style: headlineStyle.copyWith(
+                        fontSize: (constraints.maxWidth < 200)
+                            ? headlineStyle.fontSize! * 0.75
+                            : headlineStyle.fontSize!,
+                      ),
+                      child: headline,
+                    ),
+                    if (subhead != null)
+                      DefaultTextStyle(
+                        style: subheadStyle,
+                        textAlign: TextAlign.center,
+                        child: AppText(
+                          subhead!,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    if (supportingText != null)
+                      DefaultTextStyle(
+                        textAlign: TextAlign.center,
+                        style: supportingTextStyle.copyWith(
+                          fontSize: (constraints.maxWidth < 200)
+                              ? supportingTextStyle.fontSize! * 0.8
+                              : supportingTextStyle.fontSize!,
+                        ),
+                        child: AppText(
+                          supportingText!,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    if (actions != null) actions!,
                   ],
                 ),
               ),
