@@ -52,8 +52,9 @@ class _AppCountdownState extends State<AppCountdown> {
         Column(
           children: [
             AppGradientText(
-              child:
-                  AppText.headlineSmall('${duration.inMinutes.remainder(60)}'),
+              child: AppText.headlineSmall(
+                duration.inMinutes.remainder(60).toString().padLeft(2, '0'),
+              ),
             ),
             AppText('Minutes'),
           ],
