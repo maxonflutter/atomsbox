@@ -154,7 +154,7 @@ class _AppTreeNodeWidgetState extends State<AppTreeNodeWidget> {
           child: Row(
             children: [
               _isLeaf
-                  ? const SizedBox()
+                  ? const SizedBox(width: AppConstants.sm)
                   : Container(
                       margin: const EdgeInsets.only(right: AppConstants.sm),
                       child: Icon(
@@ -171,7 +171,12 @@ class _AppTreeNodeWidgetState extends State<AppTreeNodeWidget> {
                           ? widget.treeNode.expandedIcon
                           : widget.treeNode.icon,
                     ),
-              widget.treeNode.content,
+              Container(
+                constraints: BoxConstraints(
+                  minHeight: widget.iconSize ?? 24,
+                ),
+                child: widget.treeNode.content,
+              ),
             ],
           ),
         ),
