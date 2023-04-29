@@ -133,13 +133,13 @@ class _AppCardImageAndContentBlockState
       color: hovered ? colorScheme.onSecondary : null,
     );
 
-    final subheadStyle = textTheme.bodyLarge!.copyWith(
-      color: hovered ? colorScheme.onSecondary : colorScheme.primary,
+    final subheadStyle = textTheme.bodyMedium!.copyWith(
+      color: hovered ? colorScheme.onSecondary : colorScheme.onBackground,
       fontWeight: FontWeight.bold,
     );
 
     final supportingTextStyle = textTheme.bodyMedium!.copyWith(
-      color: hovered ? colorScheme.onSecondary : null,
+      color: hovered ? colorScheme.onSecondary : colorScheme.onBackground,
     );
 
     return InkWell(

@@ -153,21 +153,30 @@ class _AppTreeNodeWidgetState extends State<AppTreeNodeWidget> {
           onTap: onTap,
           child: Row(
             children: [
+              _isLeaf
+                  ? const SizedBox(width: AppConstants.sm)
+                  : Container(
+                      margin: const EdgeInsets.only(right: AppConstants.sm),
+                      child: Icon(
+                        icon,
+                        size: widget.iconSize,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+              _isLeaf
+                  ? const SizedBox()
+                  : Container(
+                      margin: const EdgeInsets.only(right: AppConstants.sm),
+                      child: _isExpanded
+                          ? widget.treeNode.expandedIcon
+                          : widget.treeNode.icon,
+                    ),
               Container(
-                margin: const EdgeInsets.only(right: AppConstants.sm),
-                child: Icon(
-                  icon,
-                  size: widget.iconSize,
-                  color: Theme.of(context).colorScheme.primary,
+                constraints: BoxConstraints(
+                  minHeight: widget.iconSize ?? 24,
                 ),
+                child: widget.treeNode.content,
               ),
-              Container(
-                margin: const EdgeInsets.only(right: AppConstants.sm),
-                child: _isExpanded
-                    ? widget.treeNode.expandedIcon
-                    : widget.treeNode.icon,
-              ),
-              widget.treeNode.content,
             ],
           ),
         ),
