@@ -164,7 +164,7 @@ class _AppCardImageAndContentBlockState
                 AppTextBlock(
                   title: widget.headline,
                   subtitle: (widget.subhead != null)
-                      ? AppText(widget.subhead!)
+                      ? AppText(widget.subhead!, maxLines: 2)
                       : null,
                   supportingText: (widget.supportingText != null)
                       ? AppText(widget.supportingText!)

@@ -1,3 +1,8 @@
+## 0.3.0 
+* New components: AppCountdown
+* Add options list as a property for the AppSearchWithAutocomplete
+* Edit default style of the subhead in the AppCardImageAndContent block
+
 ## 0.2.0
 * New components: AppRatingBar, AppTreeView
 * Add surfaceTintColor to customize the AppCard
