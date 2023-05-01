@@ -91,9 +91,7 @@ class _AppTabState extends State<AppTab> with SingleTickerProviderStateMixin {
 /// A custom [TabBar] with preferred size and styling for the [AppTab] widget.
 ///
 /// [_AppTabBar] is a private widget used internally by the [AppTab] widget.
-/// It inherits from the [PreferredSizeWidget] mixin to provide a preferred size
-/// for the tab bar.
-class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
+class _AppTabBar extends StatelessWidget {
   const _AppTabBar({
     required this.controller,
     required this.children,
@@ -129,7 +127,4 @@ class _AppTabBar extends StatelessWidget with PreferredSizeWidget {
       ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(56.0);
 }
