@@ -4,6 +4,7 @@ import '../atoms/app_card.dart';
 import '../atoms/app_text.dart';
 import '../atoms/app_text_form_field.dart';
 import '../atoms/config/app_constants.dart';
+import 'app_list_tile.dart';
 
 /// A search widget with autocomplete functionality.
 ///
@@ -22,27 +23,14 @@ import '../atoms/config/app_constants.dart';
 class AppSearchWithAutocomplete extends StatelessWidget {
   /// Creates an [AppSearchWithAutocomplete] widget.
   ///
-  /// The [controller] argument is required and must not be null. It is used to
-  /// manage the text field's content.
   const AppSearchWithAutocomplete({
     super.key,
-    // required this.controller,
+    required this.options,
   });
-
-  /// The controller for the text field.
-  ///
-  /// This is required to manage the text field's content and must not be null.
-  // final TextEditingController controller;
 
   /// A list of options that the autocomplete feature will use to generate
   /// suggestions based on the user's input.
-  static const List<String> _options = <String>[
-    'one',
-    'two',
-    'three',
-    'four',
-    'five',
-  ];
+  final List<String> options;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +54,7 @@ class AppSearchWithAutocomplete extends StatelessWidget {
             Expanded(
               child: RawAutocomplete<String>(
                 optionsBuilder: (TextEditingValue textEditingValue) {
-                  return _options.where((String option) {
+                  return options.where((String option) {
                     return option.contains(textEditingValue.text.toLowerCase());
                   });
                 },
@@ -103,7 +91,12 @@ class AppSearchWithAutocomplete extends StatelessWidget {
                             final String option = options.elementAt(index);
                             return GestureDetector(
                               onTap: () => onSelected(option),
-                              child: ListTile(title: AppText(option)),
+                              child: AppListTile(
+                                title: AppText(
+                                  option,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
                             );
                           },
                         ),

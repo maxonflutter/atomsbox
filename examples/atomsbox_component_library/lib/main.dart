@@ -1,4 +1,5 @@
 import 'package:atomsbox/atomsbox.dart';
+import 'package:atomsbox_component_library/components/molecules/app_countdown_example.dart';
 import 'package:flutter/material.dart';
 
 import 'components/atoms/app_card_example.dart';
@@ -209,7 +210,7 @@ class AtomsboxExamples extends StatelessWidget {
                         ),
                       );
                     },
-                    child: AppText('AppTreeView'),
+                    child: AppText('TreeView'),
                   ),
                   const SizedBox(height: AppConstants.sm * 0.5),
                 ],
@@ -234,6 +235,21 @@ class AtomsboxExamples extends StatelessWidget {
                       );
                     },
                     child: AppText('CardImageAndContentBlock'),
+                  ),
+                  const SizedBox(height: AppConstants.sm * 0.5),
+                  AppFilledButton.secondary(
+                    minimumSize: const Size(100, 48),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const AppCountdownExample();
+                          },
+                        ),
+                      );
+                    },
+                    child: AppText('Countdown'),
                   ),
                   const SizedBox(height: AppConstants.sm * 0.5),
                   AppFilledButton.secondary(

@@ -8,16 +8,13 @@ class AppSearchWithAutocompleteExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: ExampleAppBar(),
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.all(8.0),
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [AppSearchWithAutocomplete()],
+      body: Padding(
+        padding: EdgeInsets.all(AppConstants.sm),
+        child: Center(
+          child: AppSearchWithAutocomplete(
+            options: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
           ),
         ),
       ),
