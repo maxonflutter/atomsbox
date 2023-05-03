@@ -6,25 +6,20 @@ class AppTextGradientExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AppGradientText(
-              child: AppText.displayLarge('This is text'),
-            ),
-            AppGradientText(
-              child: AppText.displayMedium('This is text'),
-            ),
-            AppGradientText(
-              child: AppText.displaySmall('This is text'),
-            ),
-          ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AppGradientText(
+          child: AppText.displayLarge('This is text'),
         ),
-      ),
+        AppGradientText(
+          child: AppText.displayMedium('This is text'),
+        ),
+        AppGradientText(
+          child: AppText.displaySmall('This is text'),
+        ),
+      ],
     );
   }
 }

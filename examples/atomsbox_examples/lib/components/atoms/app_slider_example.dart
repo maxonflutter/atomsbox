@@ -14,34 +14,29 @@ class _AppSliderExampleState extends State<AppSliderExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AppSlider(
-              value: sliderValueOne,
-              divisions: 5,
-              onChanged: (double value) {
-                setState(() {
-                  sliderValueOne = value;
-                });
-              },
-            ),
-            AppSlider(
-              thumbShape: SliderComponentShape.noThumb,
-              value: sliderValueTwo,
-              onChanged: (double value) {
-                setState(() {
-                  sliderValueTwo = value;
-                });
-              },
-            ),
-          ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AppSlider(
+          value: sliderValueOne,
+          divisions: 5,
+          onChanged: (double value) {
+            setState(() {
+              sliderValueOne = value;
+            });
+          },
         ),
-      ),
+        AppSlider(
+          thumbShape: SliderComponentShape.noThumb,
+          value: sliderValueTwo,
+          onChanged: (double value) {
+            setState(() {
+              sliderValueTwo = value;
+            });
+          },
+        ),
+      ],
     );
   }
 }

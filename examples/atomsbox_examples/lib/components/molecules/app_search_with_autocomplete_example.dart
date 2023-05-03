@@ -6,10 +6,8 @@ class AppSearchWithAutocompleteExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: AppSearchWithAutocomplete(
-        options: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
-      ),
+    return AppSearchWithAutocomplete(
+      options: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
     );
   }
 }

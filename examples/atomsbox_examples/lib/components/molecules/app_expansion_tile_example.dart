@@ -8,28 +8,25 @@ class AppExpansionTileExample extends StatelessWidget {
   Widget build(BuildContext context) {
     const sampleText =
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          AppExpansionTile(
-            title: AppText('This is an expansion tile'),
-            children: [AppText(sampleText)],
-          ),
-          const SizedBox(height: AppConstants.sm),
-          AppExpansionTile.secondary(
-            title: AppText('This is an expansion tile'),
-            children: [AppText(sampleText)],
-          ),
-          const SizedBox(height: AppConstants.sm),
-          AppExpansionTile.gradient(
-            title: AppText('This is an expansion tile'),
-            children: [AppText(sampleText)],
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AppExpansionTile(
+          title: AppText('This is an expansion tile'),
+          children: [AppText(sampleText)],
+        ),
+        const SizedBox(height: AppConstants.sm),
+        AppExpansionTile.secondary(
+          title: AppText('This is an expansion tile'),
+          children: [AppText(sampleText)],
+        ),
+        const SizedBox(height: AppConstants.sm),
+        AppExpansionTile.gradient(
+          title: AppText('This is an expansion tile'),
+          children: [AppText(sampleText)],
+        ),
+      ],
     );
   }
 }

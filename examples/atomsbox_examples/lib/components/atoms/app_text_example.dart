@@ -6,29 +6,23 @@ class AppTextExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        margin: EdgeInsets.all(AppConstants.lg),
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AppText.displayLarge('This is text'),
-            AppText.displayMedium('This is text'),
-            AppText.displaySmall('This is text'),
-            AppText.headlineLarge('This is text', letterSpacing: 1.5),
-            AppText.headlineMedium('This is text', letterSpacing: 1.5),
-            AppText.headlineSmall('This is text', letterSpacing: 1.5),
-            AppText.titleLarge('This is text', fontWeight: FontWeight.bold),
-            AppText.titleMedium('This is text', fontWeight: FontWeight.bold),
-            AppText.titleSmall('This is text', fontWeight: FontWeight.bold),
-            AppText.bodyLarge('This is text'),
-            AppText.bodyMedium('This is text'),
-            AppText.bodySmall('This is text'),
-          ],
-        ),
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AppText.displayLarge('This is text'),
+        AppText.displayMedium('This is text'),
+        AppText.displaySmall('This is text'),
+        AppText.headlineLarge('This is text', letterSpacing: 1.5),
+        AppText.headlineMedium('This is text', letterSpacing: 1.5),
+        AppText.headlineSmall('This is text', letterSpacing: 1.5),
+        AppText.titleLarge('This is text', fontWeight: FontWeight.bold),
+        AppText.titleMedium('This is text', fontWeight: FontWeight.bold),
+        AppText.titleSmall('This is text', fontWeight: FontWeight.bold),
+        AppText.bodyLarge('This is text'),
+        AppText.bodyMedium('This is text'),
+        AppText.bodySmall('This is text'),
+      ],
     );
   }
 }

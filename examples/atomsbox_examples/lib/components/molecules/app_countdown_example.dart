@@ -6,12 +6,9 @@ class AppCountdownExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: Center(
-        child:
-            AppCountdown(deadline: DateTime.now().add(const Duration(days: 2))),
-      ),
+    return Center(
+      child:
+          AppCountdown(deadline: DateTime.now().add(const Duration(days: 2))),
     );
   }
 }

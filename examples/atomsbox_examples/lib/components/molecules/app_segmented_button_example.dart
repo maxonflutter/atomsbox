@@ -6,15 +6,32 @@ class AppSegmentedButtonExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.all(AppConstants.sm),
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AppSegmentedButton(
+          isSelected: const [true, false, false],
+          children: [
+            AppText('Songs'),
+            AppText('Albums'),
+            AppText('Playlists'),
+          ],
+        ),
+        const SizedBox(height: AppConstants.sm),
+        const AppSegmentedButton(
+          isSelected: [true, false, false],
+          children: [
+            Icon(Icons.wb_cloudy),
+            Icon(Icons.wb_twilight),
+            Icon(Icons.wb_sunny),
+          ],
+        ),
+        const SizedBox(height: AppConstants.sm),
+        Row(
           children: [
             AppSegmentedButton(
+              vertical: true,
               isSelected: const [true, false, false],
               children: [
                 AppText('Songs'),
@@ -22,43 +39,20 @@ class AppSegmentedButtonExample extends StatelessWidget {
                 AppText('Playlists'),
               ],
             ),
-            const SizedBox(height: AppConstants.sm),
+            const SizedBox(width: AppConstants.sm),
             const AppSegmentedButton(
-              isSelected: [true, false, false],
+              vertical: true,
+              multiSelect: true,
+              isSelected: [true, true, false],
               children: [
                 Icon(Icons.wb_cloudy),
                 Icon(Icons.wb_twilight),
                 Icon(Icons.wb_sunny),
               ],
             ),
-            const SizedBox(height: AppConstants.sm),
-            Row(
-              children: [
-                AppSegmentedButton(
-                  vertical: true,
-                  isSelected: const [true, false, false],
-                  children: [
-                    AppText('Songs'),
-                    AppText('Albums'),
-                    AppText('Playlists'),
-                  ],
-                ),
-                const SizedBox(width: AppConstants.sm),
-                const AppSegmentedButton(
-                  vertical: true,
-                  multiSelect: true,
-                  isSelected: [true, true, false],
-                  children: [
-                    Icon(Icons.wb_cloudy),
-                    Icon(Icons.wb_twilight),
-                    Icon(Icons.wb_sunny),
-                  ],
-                ),
-              ],
-            ),
           ],
         ),
-      ),
+      ],
     );
   }
 }

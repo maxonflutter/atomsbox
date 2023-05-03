@@ -11,86 +11,72 @@ class AppGridExample extends StatelessWidget {
     const imageUrl =
         'https://images.unsplash.com/photo-1679841350010-64f5b144944f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80';
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    const gridItems = [1, 2, 3, 4, 5, 6];
-                    const crossAxisCount = 2;
-                    const gridItemHeight = 48;
-                    const horizontalSpacing =
-                        AppConstants.sm * (crossAxisCount + 1);
-                    const verticalSpacing =
-                        AppConstants.sm * (crossAxisCount + 1);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        LayoutBuilder(
+          builder: (context, constraints) {
+            const gridItems = [1, 2, 3, 4, 5, 6];
+            const crossAxisCount = 2;
+            const gridItemHeight = 48;
+            const horizontalSpacing = AppConstants.sm * (crossAxisCount + 1);
+            const verticalSpacing = AppConstants.sm * (crossAxisCount + 1);
 
-                    return AppGrid(
-                      title: AppText('This is a grid'),
-                      description: AppText('This is a description'),
-                      gridSettings: AppGridSettings(
-                        childAspectRatio:
-                            (constraints.maxWidth - horizontalSpacing) /
-                                crossAxisCount /
-                                gridItemHeight,
-                        crossAxisCount: crossAxisCount,
+            return AppGrid(
+              title: AppText('This is a grid'),
+              description: AppText('This is a description'),
+              gridSettings: AppGridSettings(
+                childAspectRatio: (constraints.maxWidth - horizontalSpacing) /
+                    crossAxisCount /
+                    gridItemHeight,
+                crossAxisCount: crossAxisCount,
+              ),
+              height: gridItemHeight * (gridItems.length / crossAxisCount) +
+                  verticalSpacing,
+              gridItems: gridItems
+                  .map(
+                    (e) => AppListTile(
+                      onTap: () {},
+                      leadingWidth: 48,
+                      leading: AppImage.network(imageUrl, height: 48),
+                      title: AppText.bodySmall(
+                        'This is a list tile',
+                        fontWeight: FontWeight.bold,
                       ),
-                      height:
-                          gridItemHeight * (gridItems.length / crossAxisCount) +
-                              verticalSpacing,
-                      gridItems: gridItems
-                          .map(
-                            (e) => AppListTile(
-                              onTap: () {},
-                              leadingWidth: 48,
-                              leading: AppImage.network(imageUrl, height: 48),
-                              title: AppText.bodySmall(
-                                'This is a list tile',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          )
-                          .toList(),
-                    );
-                  },
-                ),
-                const SizedBox(height: AppConstants.xlg),
-                AppGrid(
-                  title: AppText('This is a grid'),
-                  description: AppText('This is a description'),
-                  gridSettings: AppGridSettings(
-                    childAspectRatio: 0.75,
-                    crossAxisCount: 2,
-                  ),
-                  gridItems: [1, 2, 3, 4]
-                      .map(
-                        (e) => AppUserCard(
-                          type: AppCardType.outlined,
-                          onTap: () {},
-                          imageUrl: imageUrl,
-                          headline: AppText.bodyLarge(
-                            'Max on Flutter',
-                            maxLines: 1,
-                          ),
-                          actions: AppFilledButton(
-                            onPressed: () {},
-                            child: AppText('Add'),
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ),
-              ],
-            ),
-          ),
+                    ),
+                  )
+                  .toList(),
+            );
+          },
         ),
-      ),
+        const SizedBox(height: AppConstants.xlg),
+        AppGrid(
+          title: AppText('This is a grid'),
+          description: AppText('This is a description'),
+          gridSettings: AppGridSettings(
+            childAspectRatio: 0.75,
+            crossAxisCount: 2,
+          ),
+          gridItems: [1, 2, 3, 4]
+              .map(
+                (e) => AppUserCard(
+                  type: AppCardType.outlined,
+                  onTap: () {},
+                  imageUrl: imageUrl,
+                  headline: AppText.bodyLarge(
+                    'Max on Flutter',
+                    maxLines: 1,
+                  ),
+                  actions: AppFilledButton(
+                    onPressed: () {},
+                    child: AppText('Add'),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+      ],
     );
   }
 }
