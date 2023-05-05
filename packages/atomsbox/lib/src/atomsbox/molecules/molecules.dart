@@ -8,3 +8,4 @@ export 'app_text_block.dart';
 export 'app_user_card.dart';
 export 'app_rating_bar.dart';
 export 'app_countdown.dart';
+export 'app_product_card_with_specs.dart';
