@@ -17,6 +17,7 @@ export 'molecules/app_rating_bar_example.dart';
 export 'molecules/app_search_with_autocomplete_example.dart';
 export 'molecules/app_segmented_button_example.dart';
 export 'molecules/app_user_card_example.dart';
+export 'molecules/app_product_card_with_specs_example.dart';
 export 'organisms/app_tab_example.dart';
 export 'organisms/app_tree_view_example.dart';
 export 'organisms/app_list_example.dart';
