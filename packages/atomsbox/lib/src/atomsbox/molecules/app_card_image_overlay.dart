@@ -50,7 +50,7 @@ class AppCardImageOverlay extends StatelessWidget {
   final List<Widget>? actions;
 
   /// The image to display as a background.
-  final Image image;
+  final Widget image;
 
   /// The headline text widget to display on the overlay.
   final Widget headline;

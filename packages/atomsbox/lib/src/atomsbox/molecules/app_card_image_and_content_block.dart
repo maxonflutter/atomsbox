@@ -51,10 +51,10 @@ class AppCardImageAndContentBlock extends StatefulWidget {
   final String? supportingText;
 
   /// An optional image to be displayed above the content.
-  final Image? image;
+  final Widget? image;
 
   /// An optional hover image to be displayed when the card is hovered.
-  final Image? hoverImage;
+  final Widget? hoverImage;
 
   /// The width of the card, defaults to double.infinity.
   final double? width;
