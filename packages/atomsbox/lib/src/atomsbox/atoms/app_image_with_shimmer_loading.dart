@@ -54,6 +54,7 @@ class _AppImageWithShimmerLoadingState
     downloadImage.image.resolve(const ImageConfiguration()).addListener(
       ImageStreamListener(
         (info, call) {
+          if (!mounted) return;
           setState(() {
             image = downloadImage;
             isLoading = false;
