@@ -81,7 +81,7 @@ class _AppFormState extends State<AppForm> {
       margin: const EdgeInsets.only(bottom: AppConstants.sm),
       child: Row(
         children: [
-          Flexible(
+          Expanded(
             flex: 1,
             child: AppLabel(
               text: widget.formItemNames[listIndex],
