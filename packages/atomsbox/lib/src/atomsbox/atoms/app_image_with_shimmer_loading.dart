@@ -36,17 +36,6 @@ class _AppImageWithShimmerLoadingState
   @override
   Widget build(BuildContext context) {
     return AppShimmer(
-      linearGradient: LinearGradient(
-        colors: [
-          Theme.of(context).colorScheme.primary.withOpacity(0.1),
-          Theme.of(context).colorScheme.primary.withOpacity(0.2),
-          Theme.of(context).colorScheme.primary.withOpacity(0.3),
-        ],
-        stops: const [0.1, 0.3, 0.4],
-        begin: const Alignment(-1.0, -0.3),
-        end: const Alignment(1.0, 0.3),
-        tileMode: TileMode.clamp,
-      ),
       child: AppShimmerLoading(
         isLoading: isLoading,
         child: image,
