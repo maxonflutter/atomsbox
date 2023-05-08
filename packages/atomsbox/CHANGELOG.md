@@ -1,3 +1,6 @@
+## 0.4.0 
+* New components: AppImageWithShimmerLoading, AppProductCardWithSpecs, AppShimmerLoading
+* Edits in the AppForm widget (the label is wrapped with Expanded), and in the AppCardImageAndContentBlock (the main image is a Widget, not Image anymore)
 ## 0.3.0 
 * New components: AppCountdown
 * Add options list as a property for the AppSearchWithAutocomplete

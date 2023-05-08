@@ -1,6 +1,6 @@
 name: atomsbox
 description: A curated library of pre-styled, reusable components for Flutter developers to build apps at scale
-version: 0.3.0
+version: 0.4.0
 repository: https://github.com/maxonflutter/atomsbox
 homepage: https://atomsbox.com
 documentation: https://atomsbox.com
